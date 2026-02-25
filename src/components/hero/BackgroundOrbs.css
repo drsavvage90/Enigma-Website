@@ -1,0 +1,87 @@
+/* ═══════════════════════════════════════════════════
+   BackgroundOrbs — floating ambient blurs (orange-gold fog)
+   ═══════════════════════════════════════════════════ */
+.orbs {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orbs__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    will-change: transform;
+    transform: translateZ(0);
+    /* Force hardware GPU compositing */
+}
+
+/* Deep orange wide fog */
+.orbs__orb--orange {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 119, 51, 0.08) 0%, rgba(200, 80, 20, 0.04) 60%, transparent 100%);
+    top: 5%;
+    right: 5%;
+    animation: orb-drift-orange 22s ease-in-out infinite alternate;
+}
+
+/* Warm gold fog */
+.orbs__orb--gold {
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(255, 170, 51, 0.06) 0%, rgba(255, 159, 65, 0.03) 60%, transparent 100%);
+    bottom: -10%;
+    left: 0%;
+    animation: orb-drift-gold 25s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift-orange {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(-120px, 80px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(60px, -50px) scale(0.95);
+    }
+
+    100% {
+        transform: translate(-40px, 100px) scale(1.05);
+    }
+}
+
+@keyframes orb-drift-gold {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(90px, -70px) scale(1.08);
+    }
+
+    66% {
+        transform: translate(-80px, 60px) scale(0.96);
+    }
+
+    100% {
+        transform: translate(70px, -90px) scale(1.03);
+    }
+}
+
+@media (max-width: 768px) {
+    .orbs__orb--orange {
+        width: 450px;
+        height: 450px;
+    }
+
+    .orbs__orb--gold {
+        width: 400px;
+        height: 400px;
+    }
+}

@@ -1,0 +1,290 @@
+/* ═══════════════════════════════════════════════════
+   LaserBeamHero — Huly.io-inspired cosmic light beam
+   ═══════════════════════════════════════════════════ */
+
+.laser-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #08080F;
+  overflow: hidden;
+}
+
+/* Subtle film grain overlay for depth — like Huly */
+.laser-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+/* ── Laser Beams Container ── */
+.laser-hero__beams {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ── Individual Beam Base ── */
+.laser-beam {
+  position: absolute;
+  width: 1px;
+  height: 200%;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* Glow core — cold blue-white */
+.laser-beam::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(140, 170, 255, 0.02) 15%,
+      rgba(160, 190, 255, 0.1) 40%,
+      rgba(180, 210, 255, 0.4) 50%,
+      rgba(160, 190, 255, 0.1) 60%,
+      rgba(140, 170, 255, 0.02) 85%,
+      transparent 100%);
+  filter: blur(0.5px);
+}
+
+/* Outer bloom */
+.laser-beam::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 17px;
+  height: 100%;
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(120, 160, 255, 0.0) 20%,
+      rgba(130, 170, 255, 0.05) 40%,
+      rgba(150, 185, 255, 0.1) 50%,
+      rgba(130, 170, 255, 0.05) 60%,
+      rgba(120, 160, 255, 0.0) 80%,
+      transparent 100%);
+  filter: blur(5px);
+}
+
+/* Old laser sweeps removed */
+
+/* ── Central Glow — focused at beam convergence point ── */
+.laser-hero__glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 800px;
+  background: radial-gradient(ellipse at center top,
+      rgba(255, 159, 65, 0.03) 0%,
+      rgba(255, 159, 65, 0.015) 25%,
+      rgba(100, 60, 180, 0.0075) 50%,
+      transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: translateX(-50%) scale(1.06);
+  }
+}
+
+/* ── Overlay — vignette for depth ── */
+.laser-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(ellipse at 55% 35%,
+      rgba(8, 8, 15, 0.0) 0%,
+      rgba(8, 8, 15, 0.3) 50%,
+      rgba(8, 8, 15, 0.65) 100%);
+  pointer-events: none;
+}
+
+/* ── Content — CENTER aligned ── */
+.laser-hero__content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 0 32px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Title — large, clean, left-aligned ── */
+.laser-hero__title {
+  font-size: clamp(60px, 10vw, 140px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, sans-serif;
+  margin: 0;
+}
+
+.laser-hero__line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.28em;
+  justify-content: center;
+  position: relative;
+}
+
+.laser-hero__word {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  color: #ffffff;
+}
+
+/* Accent words */
+.laser-hero__word--accent {
+  background: linear-gradient(135deg, #FFC275 0%, #FF9F41 60%, #FF8A33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subtitle ── */
+.laser-hero__subtitle {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 28px;
+  max-width: 480px;
+  font-weight: 400;
+}
+
+/* ── CTA Button — Dark with asymmetric orange glow ── */
+.laser-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  margin-top: 44px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 159, 65, 0.6);
+  background: rgba(10, 15, 30, 0.4);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow:
+    15px 5px 40px rgba(255, 159, 65, 0.25),
+    -10px 0 30px rgba(180, 120, 80, 0.08),
+    inset 0 0 10px rgba(255, 159, 65, 0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer sweep on hover */
+.laser-hero__cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 159, 65, 0.25) 50%,
+      transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.laser-hero__cta:hover::before {
+  left: 100%;
+}
+
+.laser-hero__cta:hover {
+  background: rgba(255, 159, 65, 0.1);
+  box-shadow:
+    25px 8px 50px rgba(255, 159, 65, 0.4),
+    -10px 0 30px rgba(180, 120, 80, 0.15),
+    inset 0 0 15px rgba(255, 159, 65, 0.2);
+  transform: translateY(-2px);
+  border-color: #FFB366;
+  color: #ffffff;
+}
+
+.laser-hero__cta:active {
+  transform: translateY(0);
+  box-shadow: 15px 5px 40px rgba(255, 159, 65, 0.25);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .laser-hero {
+    justify-content: center;
+  }
+
+  .laser-hero__content {
+    text-align: center;
+    align-items: center;
+    padding: 0 24px;
+    max-width: 100%;
+  }
+
+  .laser-hero__line {
+    justify-content: center;
+  }
+
+  .laser-hero__title {
+    font-size: clamp(46px, 12vw, 66px);
+  }
+
+  .laser-hero__subtitle {
+    max-width: 100%;
+  }
+
+  .laser-hero__cta {
+    padding: 14px 28px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .laser-hero__title {
+    font-size: clamp(38px, 10vw, 48px);
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+
+  .laser-beam,
+  .laser-hero__glow {
+    animation: none !important;
+  }
+}
