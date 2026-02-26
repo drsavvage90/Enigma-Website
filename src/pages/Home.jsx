@@ -5,7 +5,7 @@ import CTABlock from '../components/CTABlock'
 import IconBox from '../components/IconBox'
 import AnimatedCounter from '../components/AnimatedCounter'
 import TiltCard from '../components/TiltCard'
-import LaserBeamHero from '../components/hero/LaserBeamHero'
+import VolumetricHero from '../components/hero/VolumetricHero'
 import {
   ArrowRight, Brain, Smartphone, Globe,
   Wrench, Shield, Layers, Handshake, Monitor,
@@ -84,7 +84,7 @@ export default function Home() {
   return (
     <div ref={ref}>
       {/* ═══ HERO — Laser Beam Effect ═══ */}
-      <LaserBeamHero />
+      <VolumetricHero />
 
       {/* ═══ Screenshot / Product Preview ═══ */}
       <div style={{ background: '#08080d', paddingBottom: 80 }}>

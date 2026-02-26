@@ -55,7 +55,7 @@ export default function EnergyBeam() {
       canvas.height = h * dpr
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-      beamX = w * 0.5
+      beamX = w * 0.65
       beamTop = 0
       bottomY = h * 0.95
 

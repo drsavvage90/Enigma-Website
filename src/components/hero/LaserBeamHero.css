@@ -84,7 +84,7 @@
 .laser-hero__glow {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 65%;
   transform: translateX(-50%);
   width: 600px;
   height: 800px;
@@ -125,122 +125,94 @@
 }
 
 /* ── Content — CENTER aligned ── */
+/* ── Content — Left aligned ── */
 .laser-hero__content {
   position: relative;
   z-index: 5;
-  text-align: center;
-  padding: 0 32px;
+  text-align: left;
+  padding: 0 5%;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  perspective: 1000px;
 }
 
 /* ── Title — large, clean, left-aligned ── */
 .laser-hero__title {
-  font-size: clamp(60px, 10vw, 140px);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.06em;
+  font-size: clamp(52px, 8vw, 110px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   color: #ffffff;
   font-family: 'Inter', -apple-system, sans-serif;
   margin: 0;
-}
-
-.laser-hero__line {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 0.28em;
-  justify-content: center;
-  position: relative;
-}
-
-.laser-hero__word {
-  display: inline-block;
-  will-change: transform, opacity, filter;
-  color: #ffffff;
+  text-shadow: none;
 }
 
 /* Accent words */
 .laser-hero__word--accent {
-  background: linear-gradient(135deg, #FFC275 0%, #FF9F41 60%, #FF8A33 100%);
+  background: linear-gradient(135deg, #FFD199 0%, #FF9F41 50%, #E66C15 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: none;
+  /* Let the gradient pop */
 }
 
 /* ── Subtitle ── */
 .laser-hero__subtitle {
-  font-size: clamp(16px, 1.6vw, 19px);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 28px;
-  max-width: 480px;
+  font-size: clamp(17px, 1.8vw, 22px);
+  line-height: 1.6;
+  color: #A1A1A8;
+  margin-top: 32px;
+  max-width: 600px;
   font-weight: 400;
+  text-shadow: none;
+  letter-spacing: -0.01em;
 }
 
-/* ── CTA Button — Dark with asymmetric orange glow ── */
+/* ── CTA Button — White Pill with Orange Glow ── */
 .laser-hero__cta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 36px;
-  margin-top: 44px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 159, 65, 0.6);
-  background: rgba(10, 15, 30, 0.4);
-  backdrop-filter: blur(10px);
-  color: #ffffff;
+  gap: 12px;
+  padding: 16px 40px;
+  margin-top: 48px;
+  border-radius: 100px;
+  background: #E8E8ED;
+  color: #0F0F13;
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
+  border: none;
   box-shadow:
-    15px 5px 40px rgba(255, 159, 65, 0.25),
-    -10px 0 30px rgba(180, 120, 80, 0.08),
-    inset 0 0 10px rgba(255, 159, 65, 0.05);
-  transition: all 0.4s ease;
+    30px 0px 50px -10px rgba(255, 100, 50, 0.8),
+    0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
-/* Shimmer sweep on hover */
-.laser-hero__cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(255, 159, 65, 0.25) 50%,
-      transparent 100%);
-  transition: left 0.6s ease;
-}
-
-.laser-hero__cta:hover::before {
-  left: 100%;
-}
-
 .laser-hero__cta:hover {
-  background: rgba(255, 159, 65, 0.1);
+  background: #FFFFFF;
   box-shadow:
-    25px 8px 50px rgba(255, 159, 65, 0.4),
-    -10px 0 30px rgba(180, 120, 80, 0.15),
-    inset 0 0 15px rgba(255, 159, 65, 0.2);
+    35px 0px 60px -10px rgba(255, 110, 60, 0.9),
+    0 6px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
-  border-color: #FFB366;
-  color: #ffffff;
+  color: #0F0F13;
 }
 
 .laser-hero__cta:active {
-  transform: translateY(0);
-  box-shadow: 15px 5px 40px rgba(255, 159, 65, 0.25);
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    20px 0px 40px -10px rgba(255, 100, 50, 0.6),
+    0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* ── Responsive ── */
@@ -250,18 +222,14 @@
   }
 
   .laser-hero__content {
-    text-align: center;
-    align-items: center;
-    padding: 0 24px;
+    text-align: left;
+    align-items: flex-start;
+    padding: 0 32px;
     max-width: 100%;
   }
 
-  .laser-hero__line {
-    justify-content: center;
-  }
-
   .laser-hero__title {
-    font-size: clamp(46px, 12vw, 66px);
+    font-size: clamp(40px, 12vw, 66px);
   }
 
   .laser-hero__subtitle {
