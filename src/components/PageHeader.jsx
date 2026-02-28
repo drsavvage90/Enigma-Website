@@ -2,6 +2,7 @@
  * PageHeader — Premium animated page header with staggered text reveal.
  * Replaces the static page-header sections on all inner pages.
  */
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const containerVariants = {
@@ -34,6 +35,18 @@ const lineVariants = {
 
 export default function PageHeader({ title, subtitle, blobColor = 'accent' }) {
     const blobClass = `blob blob--${blobColor} float float--slow`
+
+    useEffect(() => {
+        const prev = document.title
+        document.title = `${title} | Enigma Software Systems`
+        const meta = document.querySelector('meta[name="description"]')
+        const prevDesc = meta?.getAttribute('content')
+        if (meta && subtitle) meta.setAttribute('content', subtitle)
+        return () => {
+            document.title = prev
+            if (meta && prevDesc) meta.setAttribute('content', prevDesc)
+        }
+    }, [title, subtitle])
 
     return (
         <section className="page-header noise-overlay" style={{ position: 'relative' }}>

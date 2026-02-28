@@ -7,11 +7,11 @@ const serviceLinks = [
   { to: '/ai-systems', label: 'AI Systems' },
   { to: '/mobile-apps', label: 'Mobile Apps' },
   { to: '/web-apps', label: 'Web Apps' },
-  { to: '/vault', label: 'Vault by Enigma' },
 ]
 
 const navLinks = [
   { to: '/', label: 'Home' },
+  { to: '/vault', label: 'Vault by Enigma' },
   { to: '/about', label: 'About' },
   { type: 'dropdown', label: 'Services', children: serviceLinks },
   { to: '/how-we-work', label: 'Our Process' },

@@ -17,6 +17,9 @@ const Industries = lazy(() => import('./pages/Industries'))
 const Portfolio = lazy(() => import('./pages/Portfolio'))
 const FAQ = lazy(() => import('./pages/FAQ'))
 const Contact = lazy(() => import('./pages/Contact'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./pages/TermsOfService'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -47,6 +50,9 @@ export default function App() {
               <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
               <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
               <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+              <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+              <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
+              <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
             </Routes>
           </Suspense>
         </AnimatePresence>

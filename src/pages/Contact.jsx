@@ -15,10 +15,26 @@ const expectSteps = [
 export default function Contact() {
   const ref = useReveal()
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    const form = e.target
+    const formData = new FormData(form)
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then((res) => {
+        if (res.ok) {
+          setSubmitted(true)
+        } else {
+          setError(true)
+        }
+      })
+      .catch(() => setError(true))
   }
 
   return (
@@ -73,29 +89,38 @@ export default function Contact() {
                   />
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
+                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
+                    <label>Don&#39;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+                  </p>
+                  {error && (
+                    <div style={{ background: 'rgba(255, 80, 80, 0.1)', border: '1px solid rgba(255, 80, 80, 0.3)', borderRadius: 8, padding: '12px 16px', marginBottom: 20 }}>
+                      <p style={{ color: '#ff5050', fontSize: 14 }}>Something went wrong. Please try again or email us directly at hello@enigmasoftwaresystems.com.</p>
+                    </div>
+                  )}
                   <div className="grid-2">
                     <div className="form-group--enhanced">
-                      <input type="text" placeholder=" " required id="contact-name" />
+                      <input type="text" name="name" placeholder=" " required id="contact-name" />
                       <label htmlFor="contact-name">Full Name *</label>
                     </div>
                     <div className="form-group--enhanced">
-                      <input type="email" placeholder=" " required id="contact-email" />
+                      <input type="email" name="email" placeholder=" " required id="contact-email" />
                       <label htmlFor="contact-email">Email Address *</label>
                     </div>
                   </div>
                   <div className="grid-2" style={{ marginTop: 20 }}>
                     <div className="form-group--enhanced">
-                      <input type="tel" placeholder=" " id="contact-phone" />
+                      <input type="tel" name="phone" placeholder=" " id="contact-phone" />
                       <label htmlFor="contact-phone">Phone Number</label>
                     </div>
                     <div className="form-group--enhanced">
-                      <input type="text" placeholder=" " id="contact-company" />
+                      <input type="text" name="company" placeholder=" " id="contact-company" />
                       <label htmlFor="contact-company">Company Name</label>
                     </div>
                   </div>
                   <div className="form-group--enhanced" style={{ marginTop: 20 }}>
-                    <select required defaultValue="" id="contact-service">
+                    <select name="service" required defaultValue="" id="contact-service">
                       <option value="" disabled>Select a service...</option>
                       <option>Custom AI Systems</option>
                       <option>Mobile Applications</option>
@@ -106,7 +131,7 @@ export default function Contact() {
                     <label htmlFor="contact-service">Service Interest *</label>
                   </div>
                   <div className="form-group--enhanced" style={{ marginTop: 20 }}>
-                    <textarea placeholder=" " id="contact-project" />
+                    <textarea name="project" placeholder=" " id="contact-project" />
                     <label htmlFor="contact-project">Tell Us About Your Project</label>
                   </div>
                   <MagneticButton style={{ width: '100%', marginTop: 12 }}>

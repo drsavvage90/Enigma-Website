@@ -8,6 +8,7 @@ const footerLinks = [
       { to: '/ai-systems', label: 'AI Systems' },
       { to: '/mobile-apps', label: 'Mobile Apps' },
       { to: '/web-apps', label: 'Web Apps' },
+      { to: '/vault', label: 'Vault by Enigma' },
     ],
   },
   {
@@ -139,14 +140,14 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Enigma Software Systems. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: 24 }}>
-            <a href="#" style={{ fontSize: 13, color: 'var(--text-dim)', transition: 'color 0.2s' }}
+            <Link to="/privacy-policy" style={{ fontSize: 13, color: 'var(--text-dim)', transition: 'color 0.2s' }}
               onMouseEnter={e => e.target.style.color = 'var(--text-muted)'}
               onMouseLeave={e => e.target.style.color = 'var(--text-dim)'}
-            >Privacy Policy</a>
-            <a href="#" style={{ fontSize: 13, color: 'var(--text-dim)', transition: 'color 0.2s' }}
+            >Privacy Policy</Link>
+            <Link to="/terms-of-service" style={{ fontSize: 13, color: 'var(--text-dim)', transition: 'color 0.2s' }}
               onMouseEnter={e => e.target.style.color = 'var(--text-muted)'}
               onMouseLeave={e => e.target.style.color = 'var(--text-dim)'}
-            >Terms of Service</a>
+            >Terms of Service</Link>
           </div>
         </div>
       </div>
