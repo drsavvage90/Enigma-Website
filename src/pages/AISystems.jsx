@@ -63,16 +63,16 @@ export default function AISystems() {
         <div className="container reveal" style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto' }}>
           <span className="badge badge--accent">AI Systems</span>
           <h2 className="display display--gradient heading-md">Your Team Is Already Using AI. The Question Is Whether It's Working for You.</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             Right now, there's a good chance people on your team are using ChatGPT, Claude, or other AI tools on personal accounts. They're typing sensitive business information into platforms you don't control, paying with personal credit cards, and working in silos where nobody else benefits from what they've built.
           </p>
           <p style={{ color: 'var(--text-light)', fontSize: 17, lineHeight: 1.8, marginTop: 16, fontWeight: 600 }}>
             That's not an AI strategy. That's a liability.
           </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             The businesses getting real value from AI aren't the ones handing employees a ChatGPT subscription and hoping for the best. They're the ones giving their teams purpose-built AI tools — connected to their business data, governed by their security policies, and designed for the work they actually do.
           </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             That's what we build. Whether you need a full-scale AI platform or a focused chatbot that handles one job really well, we deliver AI that's private, branded, and built around how your business operates.
           </p>
         </div>
@@ -81,8 +81,8 @@ export default function AISystems() {
       {/* SECTION 3 — BENEFITS */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--accent float float--slow" style={{ width: 500, height: 500, top: '-10%', left: '-15%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+        <div className="container section-z">
+          <div className="reveal section-header">
             <span className="badge badge--blue">Benefits</span>
             <h2 className="display display--gradient heading-lg">What Enigma's AI Systems Do for Your Business</h2>
           </div>
@@ -90,8 +90,8 @@ export default function AISystems() {
             {benefits.map((b, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={b.icon} variant={i % 2 === 0 ? 'accent' : 'blue'} />
-                <h3 style={{ fontSize: 19, fontWeight: 600, margin: '14px 0 10px' }}>{b.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>{b.desc}</p>
+                <h3 className="card-title">{b.title}</h3>
+                <p className="card-desc">{b.desc}</p>
               </TiltCard>
             ))}
           </div>
@@ -101,10 +101,10 @@ export default function AISystems() {
       {/* SECTION 4 — TWO PATHS TO AI */}
       <section className="section--sm theme-darker">
         <div className="container">
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div className="reveal section-header">
             <span className="badge badge--accent">Two Paths</span>
             <h2 className="display display--gradient heading-lg">AI Isn't One-Size-Fits-All. Pick the Path That Fits.</h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: 700, margin: '0 auto', fontSize: 17, lineHeight: 1.7 }}>
+            <p className="section-subtitle">
               Some businesses are ready for a full-scale AI platform that becomes the nerve center of their operations. Others just need a smart, focused tool that handles one job really well. We build both — and everything in between.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function AISystems() {
                 Flagship Product
               </span>
               <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12 }}>Multi-LLM AI Platform</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>
+              <p className="card-desc">
                 A private, branded AI workspace with multi-model access, enterprise security, team workspaces, a knowledge base, and full cost transparency. The complete AI infrastructure for your organization.
               </p>
             </TiltCard>
@@ -139,7 +139,7 @@ export default function AISystems() {
                 Accessible Entry Point
               </span>
               <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12 }}>AI Chatbots & Integrations</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>
+              <p className="card-desc">
                 Standalone AI chatbots and custom integrations that bring intelligent automation to your business at an accessible price point. Secure, branded, and trained on your information.
               </p>
             </TiltCard>
@@ -150,7 +150,7 @@ export default function AISystems() {
       {/* SECTION 5 — FLAGSHIP PRODUCT: VAULT */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--blue float float--fast float--offset" style={{ width: 400, height: 400, top: '-10%', right: '-10%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="container section-z">
           <div className="two-col reveal" style={{ marginBottom: 64 }}>
             <div>
               <span className="badge badge--accent">Flagship Product</span>
@@ -180,8 +180,8 @@ export default function AISystems() {
             {platformCapabilities.map((f, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={f.icon} variant={i % 3 === 0 ? 'accent' : i % 3 === 1 ? 'blue' : 'cyan'} />
-                <h4 style={{ fontSize: 17, fontWeight: 600, margin: '14px 0 8px' }}>{f.title}</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7 }}>{f.desc}</p>
+                <h4 className="card-title--sm">{f.title}</h4>
+                <p className="card-desc--sm">{f.desc}</p>
               </TiltCard>
             ))}
           </div>
@@ -197,23 +197,23 @@ export default function AISystems() {
             </div>
             <div>
               <span className="badge badge--blue">Chatbots & Integrations</span>
-              <h2 className="display heading-lg" style={{ color: 'var(--text-dark)', WebkitTextFillColor: 'var(--text-dark)' }}>
+              <h2 className="display heading-lg heading-dark">
                 Not Ready for the Full Platform? Start Here.
               </h2>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginBottom: 16 }}>
+              <p className="body-text--light" style={{ marginBottom: 16 }}>
                 Not every business needs a full-scale AI workspace on day one. For organizations that want to start smaller — or solve a specific problem fast — we build standalone AI chatbots and custom integrations that bring intelligent automation to your business at a fraction of the cost.
               </p>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginBottom: 16 }}>
+              <p className="body-text--light" style={{ marginBottom: 16 }}>
                 Think of it as your business's own AI assistant — but in a secure environment, trained on your information, and branded to your company. It answers questions your team or your customers ask, using the data you've given it. No generic responses. No data leaking to third parties. Just a focused AI tool that does one thing really well.
               </p>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginBottom: 32 }}>
+              <p className="body-text--light" style={{ marginBottom: 32 }}>
                 We handle the setup, load your business data into the backend, configure the tone and behavior, and hand you a polished, ready-to-use tool.
               </p>
               <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-dark)', marginBottom: 20, letterSpacing: '0.02em' }}>
                 How Businesses Use AI Chatbots & Integrations:
               </h4>
               {chatbotUseCases.map((c, i) => (
-                <div key={i} style={{ display: 'flex', gap: 16, marginBottom: 24, alignItems: 'flex-start' }}>
+                <div key={i} className="process-step" style={{ marginBottom: 24 }}>
                   <IconBox icon={c.icon} size={40} />
                   <div>
                     <h4 style={{ fontSize: 15, fontWeight: 600, marginBottom: 4, color: 'var(--text-dark)' }}>{c.title}</h4>
@@ -230,7 +230,7 @@ export default function AISystems() {
       <section className="section theme-darker" style={{ position: 'relative' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <div className="blob blob--blue float float--slow float--offset" style={{ width: 400, height: 400, top: '-10%', left: '50%', transform: 'translateX(-50%)' }} />
-          <div style={{ position: 'relative', zIndex: 1 }}>
+          <div className="section-z">
             <div className="reveal">
               <span className="badge badge--blue">Security & Privacy</span>
               <h2 className="display display--gradient heading-lg">The Biggest Risk with AI Isn't the Technology. It's Where Your Data Ends Up.</h2>
@@ -245,8 +245,8 @@ export default function AISystems() {
               {securityPoints.map((s, i) => (
                 <TiltCard key={i} className="card card--glass reveal" style={{ textAlign: 'left' }}>
                   <IconBox icon={s.icon} variant="cyan" />
-                  <h4 style={{ fontSize: 17, fontWeight: 600, margin: '14px 0 8px' }}>{s.title}</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7 }}>{s.desc}</p>
+                  <h4 className="card-title--sm">{s.title}</h4>
+                  <p className="card-desc--sm">{s.desc}</p>
                 </TiltCard>
               ))}
             </div>
@@ -266,20 +266,13 @@ export default function AISystems() {
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
                 {processSteps.map((step, i) => (
-                  <div key={i} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                    <span style={{
-                      fontSize: 24,
-                      fontWeight: 800,
-                      color: 'var(--accent)',
-                      minWidth: 40,
-                      lineHeight: 1.3,
-                      letterSpacing: '-0.02em',
-                    }}>
+                  <div key={i} className="process-step">
+                    <span className="process-num">
                       {step.num}
                     </span>
                     <div>
                       <h4 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-light)', marginBottom: 4 }}>{step.title}</h4>
-                      <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7 }}>{step.desc}</p>
+                      <p className="card-desc--sm">{step.desc}</p>
                     </div>
                   </div>
                 ))}

@@ -3,20 +3,20 @@
  * toward the user's cursor on hover, with a dynamic glow effect.
  * Uses framer-motion's useSpring for organic, springy movement.
  */
-import { useRef } from 'react'
+import { useRef, memo, useCallback } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 const MAGNETIC_STRENGTH = 0.35 // how much the button follows the cursor
 const SPRING_CONFIG = { stiffness: 200, damping: 20, mass: 0.5 }
 
-export default function MagneticButton({ children, className = '', style = {}, ...props }) {
+export default memo(function MagneticButton({ children, className = '', style = {}, ...props }) {
     const ref = useRef(null)
     const x = useMotionValue(0)
     const y = useMotionValue(0)
     const springX = useSpring(x, SPRING_CONFIG)
     const springY = useSpring(y, SPRING_CONFIG)
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = useCallback((e) => {
         const el = ref.current
         if (!el) return
         const rect = el.getBoundingClientRect()
@@ -24,12 +24,12 @@ export default function MagneticButton({ children, className = '', style = {}, .
         const cy = rect.top + rect.height / 2
         x.set((e.clientX - cx) * MAGNETIC_STRENGTH)
         y.set((e.clientY - cy) * MAGNETIC_STRENGTH)
-    }
+    }, [x, y])
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave = useCallback(() => {
         x.set(0)
         y.set(0)
-    }
+    }, [x, y])
 
     return (
         <motion.div
@@ -43,4 +43,4 @@ export default function MagneticButton({ children, className = '', style = {}, .
             {children}
         </motion.div>
     )
-}
+})

@@ -30,7 +30,7 @@ export default function Industries() {
         <div className="container reveal" style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto' }}>
           <span className="badge badge--accent">Our Focus</span>
           <h2 className="display display--gradient heading-md">We Don't Specialize in One Industry. We Specialize in Solving Problems.</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             Every industry has unique workflows, compliance requirements, and customer expectations. We take the time to understand your world, then build software that's purpose-designed for it.
           </p>
         </div>
@@ -38,8 +38,8 @@ export default function Industries() {
 
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--blue float float--fast float--offset" style={{ width: 400, height: 400, top: '-10%', right: '-10%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+        <div className="container section-z">
+          <div className="reveal section-header">
             <span className="badge badge--blue">Who We Serve</span>
             <h2 className="display display--gradient heading-lg">Industries & Business Types</h2>
           </div>
@@ -51,8 +51,8 @@ export default function Industries() {
             {categories.map((c, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={c.icon} />
-                <h3 style={{ fontSize: 20, fontWeight: 600, margin: '14px 0 10px' }}>{c.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>{c.desc}</p>
+                <h3 className="card-title">{c.title}</h3>
+                <p className="card-desc">{c.desc}</p>
               </TiltCard>
             ))}
           </div>
@@ -62,7 +62,7 @@ export default function Industries() {
       <section className="section--sm theme-light">
         <div className="container reveal" style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
           <span className="badge badge--accent">Tailored</span>
-          <h2 className="display heading-lg" style={{ color: 'var(--text-dark)', WebkitTextFillColor: 'var(--text-dark)', marginBottom: 16 }}>
+          <h2 className="display heading-lg heading-dark" style={{ marginBottom: 16 }}>
             Every Solution Is Adapted to Your World
           </h2>
           <p style={{ color: 'var(--text-body)', fontSize: 17, lineHeight: 1.8 }}>

@@ -134,7 +134,7 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 64 }} className="reveal">
             <span className="badge badge--accent">What We Build</span>
-            <h2 className="display heading-lg" style={{ color: 'var(--text-dark)', WebkitTextFillColor: 'var(--text-dark)' }}>
+            <h2 className="display heading-lg heading-dark">
               Everything Your Business Needs
             </h2>
             <p style={{ color: 'var(--text-body)', maxWidth: 560, margin: '0 auto', fontSize: 17, lineHeight: 1.7 }}>
@@ -167,7 +167,7 @@ export default function Home() {
       <section className="section theme-darker noise-overlay">
         <div className="container">
           <div className="blob blob--blue float float--slow float--offset" style={{ width: 500, height: 500, top: '-20%', right: '-10%' }} />
-          <div className="two-col" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="two-col section-z">
             <div className="reveal">
               <span className="badge badge--blue">Why Enigma</span>
               <h2 className="display display--gradient heading-lg">Why Businesses Choose Enigma</h2>
@@ -204,19 +204,7 @@ export default function Home() {
           </h3>
           <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 12 }}>
             {trustTags.map(tag => (
-              <span key={tag} style={{
-                padding: '8px 20px',
-                borderRadius: 100,
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-muted)',
-                fontSize: 14,
-                fontWeight: 500,
-                transition: 'border-color 0.2s, background 0.2s',
-              }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)' }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-subtle)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)' }}
-              >{tag}</span>
+              <span key={tag} className="trust-tag">{tag}</span>
             ))}
           </div>
         </div>

@@ -11,7 +11,7 @@ const serviceLinks = [
 
 const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/vault', label: 'Vault by Enigma' },
+  { to: '/vault', label: 'Vault' },
   { to: '/about', label: 'About' },
   { type: 'dropdown', label: 'Services', children: serviceLinks },
   { to: '/how-we-work', label: 'Our Process' },
@@ -33,7 +33,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -110,22 +110,7 @@ export default function Navbar() {
                 >
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 4,
-                      padding: 0,
-                      fontFamily: 'inherit',
-                      fontSize: 14,
-                      fontWeight: 500,
-                      color: isServiceActive ? '#fff' : 'var(--text-muted)',
-                      transition: 'color 0.2s',
-                    }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                    onMouseLeave={e => { if (!isServiceActive) e.currentTarget.style.color = 'var(--text-muted)' }}
+                    className={`nav-dropdown-btn${isServiceActive ? ' nav-dropdown-btn--active' : ''}`}
                   >
                     {link.label}
                     <ChevronDown size={14} style={{
@@ -158,22 +143,7 @@ export default function Navbar() {
                         <Link
                           key={child.to}
                           to={child.to}
-                          style={{
-                            display: 'block',
-                            padding: '10px 20px',
-                            fontSize: 14,
-                            fontWeight: 500,
-                            color: location.pathname === child.to ? 'var(--accent)' : 'var(--text-muted)',
-                            transition: 'color 0.2s, background 0.2s',
-                          }}
-                          onMouseEnter={e => {
-                            e.target.style.color = '#fff'
-                            e.target.style.background = 'rgba(255,255,255,0.04)'
-                          }}
-                          onMouseLeave={e => {
-                            e.target.style.color = location.pathname === child.to ? 'var(--accent)' : 'var(--text-muted)'
-                            e.target.style.background = 'transparent'
-                          }}
+                          className={`nav-dropdown-link${location.pathname === child.to ? ' nav-dropdown-link--active' : ''}`}
                         >
                           {child.label}
                         </Link>
@@ -190,14 +160,6 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={`nav-link${isActive ? ' nav-link--active' : ''}`}
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  color: isActive ? '#fff' : 'var(--text-muted)',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => e.target.style.color = '#fff'}
-                onMouseLeave={e => { if (!isActive) e.target.style.color = 'var(--text-muted)' }}
               >
                 {link.label}
               </Link>

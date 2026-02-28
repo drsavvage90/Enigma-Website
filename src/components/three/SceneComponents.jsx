@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useEffect, useState } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Text } from '@react-three/drei';
@@ -132,6 +132,24 @@ export default function SceneComponents() {
 
     const initialCamPos = useMemo(() => new THREE.Vector3(0, 0, 8), []);
 
+    // Reusable temp vectors to avoid per-frame allocations
+    const _tempVec = useMemo(() => ({
+        mousePos: new THREE.Vector3(),
+        cursorWorld: new THREE.Vector3(),
+        p: new THREE.Vector3(),
+        dirToCenter: new THREE.Vector3(),
+        pullForce: new THREE.Vector3(),
+        safeDirToCenter: new THREE.Vector3(),
+        pushOut: new THREE.Vector3(),
+        softPull: new THREE.Vector3(),
+        up: new THREE.Vector3(0, 1, 0),
+        swirlDir: new THREE.Vector3(),
+        rotatedOffset: new THREE.Vector3(),
+        dynamicDrift: new THREE.Vector3(),
+        yAxis: new THREE.Vector3(0, 1, 0),
+        defaultDir: new THREE.Vector3(1, 0, 0),
+    }), []);
+
     useFrame((state, delta) => {
         if (!particlesRef.current || !linesRef.current) return;
 
@@ -139,11 +157,11 @@ export default function SceneComponents() {
         const pts = positionsAttr.array;
 
         // Convert 2D screen cursor to 3D world position at roughly the depth of the particles
-        const mousePos = new THREE.Vector3(state.pointer.x, state.pointer.y, 0.5);
+        const mousePos = _tempVec.mousePos.set(state.pointer.x, state.pointer.y, 0.5);
         mousePos.unproject(camera);
         const dir = mousePos.sub(camera.position).normalize();
         const distanceToZero = -camera.position.z / dir.z;
-        const cursorWorld = camera.position.clone().add(dir.multiplyScalar(distanceToZero));
+        const cursorWorld = _tempVec.cursorWorld.copy(camera.position).add(dir.multiplyScalar(distanceToZero));
 
         // 1. Let clusters update their central positions and states
         for (let c = 0; c < numClusters; c++) {
@@ -190,10 +208,10 @@ export default function SceneComponents() {
                         const offset = snippet.offset;
 
                         // Slowly orbit texts around the cluster center, but push them outward based on explosionVelocity
-                        const rotatedOffset = offset.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), time * 0.1);
+                        const rotatedOffset = _tempVec.rotatedOffset.copy(offset).applyAxisAngle(_tempVec.yAxis, time * 0.1);
 
                         // The explosion pushing the texts outward playfully and dynamically
-                        const dynamicDrift = snippet.driftLine.clone().multiplyScalar(cluster.explosionVelocity * Math.sin(time * 2 + t));
+                        const dynamicDrift = _tempVec.dynamicDrift.copy(snippet.driftLine).multiplyScalar(cluster.explosionVelocity * Math.sin(time * 2 + t));
 
                         textMesh.position.copy(cluster.pos).add(rotatedOffset).add(dynamicDrift);
 
@@ -221,36 +239,37 @@ export default function SceneComponents() {
         // 3. Update particle positions based on velocity and cursor interaction
         for (let i = 0; i < particleCount; i++) {
             const i3 = i * 3;
-            const p = new THREE.Vector3(pts[i3], pts[i3 + 1], pts[i3 + 2]);
+            const p = _tempVec.p.set(pts[i3], pts[i3 + 1], pts[i3 + 2]);
             const data = particleData[i];
             const v = data.velocity;
             const cluster = clusters[data.clusterIdx];
 
-            const dirToCenter = cluster.pos.clone().sub(p);
+            const dirToCenter = _tempVec.dirToCenter.copy(cluster.pos).sub(p);
             const distToCenter = dirToCenter.length();
 
             // Base spring force holding it to the cluster center
-            let pullForce = dirToCenter.clone().normalize().multiplyScalar(distToCenter * (0.003 * speedMult));
+            const pullForce = _tempVec.pullForce.copy(dirToCenter).normalize().multiplyScalar(distToCenter * (0.003 * speedMult));
 
             if (cluster.expansion > 1.01) {
                 // EXPANDED BEHAVIOR (Explosive shell)
                 const expandRatio = (cluster.expansion - 1) / 3.5; // 0.0 to 1.0
                 const optimalDist = 4.0 * expandRatio; // Target hollow radius for the expanded shell
-                const safeDirToCenter = distToCenter > 0.001 ? dirToCenter.clone().normalize() : new THREE.Vector3(1, 0, 0);
+                const safeDirToCenter = distToCenter > 0.001
+                    ? _tempVec.safeDirToCenter.copy(dirToCenter).normalize()
+                    : _tempVec.safeDirToCenter.copy(_tempVec.defaultDir);
 
                 if (distToCenter < optimalDist) {
                     // Push outward if inside the hollow shell (Creates the fast explosion outwards)
-                    const pushOutForce = safeDirToCenter.clone().multiplyScalar(-0.02 * speedMult * expandRatio);
+                    const pushOutForce = _tempVec.pushOut.copy(safeDirToCenter).multiplyScalar(-0.02 * speedMult * expandRatio);
                     pullForce.lerp(pushOutForce, expandRatio);
                 } else {
                     // Pull gently back if outside
-                    const softPull = safeDirToCenter.clone().multiplyScalar((distToCenter - optimalDist) * (0.004 * speedMult));
+                    const softPull = _tempVec.softPull.copy(safeDirToCenter).multiplyScalar((distToCenter - optimalDist) * (0.004 * speedMult));
                     pullForce.lerp(softPull, expandRatio);
                 }
 
                 // Add a cinematic swirling motion around the Y axis when expanded
-                const up = new THREE.Vector3(0, 1, 0);
-                const swirlDir = new THREE.Vector3().crossVectors(safeDirToCenter, up).normalize();
+                const swirlDir = _tempVec.swirlDir.crossVectors(safeDirToCenter, _tempVec.up).normalize();
 
                 // Speed up the swirl dynamically during the explosion
                 v.add(swirlDir.multiplyScalar((0.01 + cluster.explosionVelocity * 0.01) * speedMult * expandRatio));
@@ -274,63 +293,96 @@ export default function SceneComponents() {
             pts[i3 + 1] = p.y;
             pts[i3 + 2] = p.z;
 
-            // 4. Connect lines between closely neighboring particles
-            for (let j = i + 1; j < particleCount; j++) {
-                const dataJ = particleData[j];
-                const isInterCluster = data.clusterIdx !== dataJ.clusterIdx;
+        }
 
-                const j3 = j * 3;
-                const distSq =
-                    Math.pow(pts[i3] - pts[j3], 2) +
-                    Math.pow(pts[i3 + 1] - pts[j3 + 1], 2) +
-                    Math.pow(pts[i3 + 2] - pts[j3 + 2], 2);
+        // 4. Connect lines between closely neighboring particles using spatial grid
+        // Spatial hashing reduces O(n²) to ~O(n) by only checking nearby cells
+        let maxExp = 1.0;
+        for (let c = 0; c < numClusters; c++) {
+            if (clusters[c].expansion > maxExp) maxExp = clusters[c].expansion;
+        }
+        const gridCellSize = maxConnectionDistance * maxExp * 1.1;
+        const invCellSize = 1.0 / gridCellSize;
+        const gridMap = new Map();
 
-                // Dynamically scale connection distance based on expansion state
-                // Inter-cluster connections form bridging tendrils out to neighboring systems
-                let dynamicMaxDist = maxConnectionDistance * cluster.expansion;
-                if (isInterCluster) dynamicMaxDist *= 0.9;
+        // Hash all particles into grid cells
+        for (let i = 0; i < particleCount; i++) {
+            const i3 = i * 3;
+            const gx = Math.floor(pts[i3] * invCellSize);
+            const gy = Math.floor(pts[i3 + 1] * invCellSize);
+            const gz = Math.floor(pts[i3 + 2] * invCellSize);
+            const key = (gx * 73856093 ^ gy * 19349663 ^ gz * 83492791) | 0;
+            let cell = gridMap.get(key);
+            if (!cell) { cell = []; gridMap.set(key, cell); }
+            cell.push(i);
+        }
 
-                const maxDistSq = dynamicMaxDist * dynamicMaxDist;
+        // Check neighboring cells for connections
+        for (let i = 0; i < particleCount; i++) {
+            const i3 = i * 3;
+            const data = particleData[i];
+            const cluster = clusters[data.clusterIdx];
+            const gx = Math.floor(pts[i3] * invCellSize);
+            const gy = Math.floor(pts[i3 + 1] * invCellSize);
+            const gz = Math.floor(pts[i3 + 2] * invCellSize);
 
-                if (distSq < maxDistSq) {
-                    const alpha = 1.0 - (distSq / maxDistSq);
-                    const actualDist = Math.sqrt(distSq);
-                    const closeness = 1.0 - (actualDist / dynamicMaxDist); // 1.0 = intersecting, 0.0 = edge
+            for (let dx = -1; dx <= 1; dx++) {
+                for (let dy = -1; dy <= 1; dy++) {
+                    for (let dz = -1; dz <= 1; dz++) {
+                        const nKey = ((gx + dx) * 73856093 ^ (gy + dy) * 19349663 ^ (gz + dz) * 83492791) | 0;
+                        const cell = gridMap.get(nKey);
+                        if (!cell) continue;
 
-                    linePositions[vertexPos++] = pts[i3];
-                    linePositions[vertexPos++] = pts[i3 + 1];
-                    linePositions[vertexPos++] = pts[i3 + 2];
+                        for (let ci = 0; ci < cell.length; ci++) {
+                            const j = cell[ci];
+                            if (j <= i) continue;
 
-                    linePositions[vertexPos++] = pts[j3];
-                    linePositions[vertexPos++] = pts[j3 + 1];
-                    linePositions[vertexPos++] = pts[j3 + 2];
+                            const dataJ = particleData[j];
+                            const isInterCluster = data.clusterIdx !== dataJ.clusterIdx;
 
-                    // Exponential spike to simulate them merging and getting heavily brighter when close
-                    // Mute the spike slightly when expanded so we can read the code snippets without glare
-                    const spikePower = cluster.expansion > 1.5 ? 0.3 : 1.8;
-                    const intensitySpike = Math.pow(closeness, 3.0) * spikePower;
+                            const j3 = j * 3;
+                            const ddx = pts[i3] - pts[j3];
+                            const ddy = pts[i3 + 1] - pts[j3 + 1];
+                            const ddz = pts[i3 + 2] - pts[j3 + 2];
+                            const distSq = ddx * ddx + ddy * ddy + ddz * ddz;
 
-                    // Subtly vary hue based on cluster
-                    const base_r = 0.0 + (data.clusterIdx % 3) * 0.15;
-                    const base_g = 0.5 + (data.clusterIdx % 4) * 0.1;
-                    const base_b = 1.0;
+                            let dynamicMaxDist = maxConnectionDistance * cluster.expansion;
+                            if (isInterCluster) dynamicMaxDist *= 0.9;
+                            const maxDistSq = dynamicMaxDist * dynamicMaxDist;
 
-                    // Boost line intensity slightly when expanded to make the intricate web clearly visible
-                    const boost = cluster.expansion > 1.5 ? 0.8 : 0.55;
-                    const baseIntensity = alpha * boost;
+                            if (distSq < maxDistSq) {
+                                const alpha = 1.0 - (distSq / maxDistSq);
+                                const actualDist = Math.sqrt(distSq);
+                                const closeness = 1.0 - (actualDist / dynamicMaxDist);
 
-                    // Combine base glow with exponential closeness spike
-                    const final_r = (base_r * baseIntensity) + (intensitySpike * 0.2);
-                    const final_g = (base_g * baseIntensity) + (intensitySpike * 0.8);
-                    const final_b = (base_b * baseIntensity) + (intensitySpike * 1.0);
+                                linePositions[vertexPos++] = pts[i3];
+                                linePositions[vertexPos++] = pts[i3 + 1];
+                                linePositions[vertexPos++] = pts[i3 + 2];
+                                linePositions[vertexPos++] = pts[j3];
+                                linePositions[vertexPos++] = pts[j3 + 1];
+                                linePositions[vertexPos++] = pts[j3 + 2];
 
-                    lineColors[colorPos++] = final_r;
-                    lineColors[colorPos++] = final_g;
-                    lineColors[colorPos++] = final_b;
+                                const spikePower = cluster.expansion > 1.5 ? 0.3 : 1.8;
+                                const intensitySpike = closeness * closeness * closeness * spikePower;
 
-                    lineColors[colorPos++] = final_r;
-                    lineColors[colorPos++] = final_g;
-                    lineColors[colorPos++] = final_b;
+                                const base_r = (data.clusterIdx % 3) * 0.15;
+                                const base_g = 0.5 + (data.clusterIdx % 4) * 0.1;
+                                const boost = cluster.expansion > 1.5 ? 0.8 : 0.55;
+                                const baseIntensity = alpha * boost;
+
+                                const final_r = (base_r * baseIntensity) + (intensitySpike * 0.2);
+                                const final_g = (base_g * baseIntensity) + (intensitySpike * 0.8);
+                                const final_b = baseIntensity + intensitySpike;
+
+                                lineColors[colorPos++] = final_r;
+                                lineColors[colorPos++] = final_g;
+                                lineColors[colorPos++] = final_b;
+                                lineColors[colorPos++] = final_r;
+                                lineColors[colorPos++] = final_g;
+                                lineColors[colorPos++] = final_b;
+                            }
+                        }
+                    }
                 }
             }
         }

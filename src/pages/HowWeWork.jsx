@@ -70,7 +70,7 @@ export default function HowWeWork() {
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--orange float float--fast float--offset" style={{ width: 350, height: 350, top: '10%', right: '-8%' }} />
         <div className="container" style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div className="reveal section-header">
             <span className="badge badge--accent">Our Process</span>
             <h2 className="display display--gradient heading-lg">Four Steps to Your Solution</h2>
           </div>
@@ -99,7 +99,7 @@ export default function HowWeWork() {
       <section className="section--sm theme-light">
         <div className="container reveal" style={{ textAlign: 'center' }}>
           <span className="badge badge--blue">The Experience</span>
-          <h2 className="display heading-lg" style={{ color: 'var(--text-dark)', WebkitTextFillColor: 'var(--text-dark)', marginBottom: 12 }}>
+          <h2 className="display heading-lg heading-dark" style={{ marginBottom: 12 }}>
             What Working With Us Feels Like
           </h2>
           <p style={{ color: 'var(--text-body)', fontSize: 17, lineHeight: 1.8, maxWidth: 700, margin: '0 auto 40px' }}>

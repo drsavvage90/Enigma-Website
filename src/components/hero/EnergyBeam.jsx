@@ -135,6 +135,14 @@ export default function EnergyBeam() {
       ctx.globalCompositeOperation = 'screen'
 
       const waveCount = 12
+      // Pre-compute per-wave alpha values (static, based on index)
+      const waveAlphas = new Array(waveCount)
+      for (let wi = 0; wi < waveCount; wi++) {
+        waveAlphas[wi] = wi % 3 === 0
+          ? (0.15 + (wi % 2) * 0.1)
+          : (0.2 + (wi % 2) * 0.15)
+      }
+
       for (let wIdx = 0; wIdx < waveCount; wIdx++) {
         // Stagger their speeds and positions
         const speed = 100 + wIdx * 25
@@ -147,20 +155,12 @@ export default function EnergyBeam() {
         // Pulsing thickness
         const waveWidth = w * 0.008 + Math.sin(sec * 3 + wIdx) * w * 0.004
 
-        // Create a vertical gradient for each wave to make them look like soft liquid streaks
-        const waveGrad = ctx.createLinearGradient(0, waveY - h * 0.1, 0, waveY + h * 0.1)
-        // Alternate colors slightly between hot cyan and softer white-blues
-        if (wIdx % 3 === 0) {
-          waveGrad.addColorStop(0, 'rgba(255, 255, 255, 0)')
-          waveGrad.addColorStop(0.5, `rgba(255, 255, 255, ${0.15 + (wIdx % 2) * 0.1})`)
-          waveGrad.addColorStop(1, 'rgba(255, 255, 255, 0)')
-        } else {
-          waveGrad.addColorStop(0, 'rgba(100, 255, 255, 0)')
-          waveGrad.addColorStop(0.5, `rgba(100, 255, 255, ${0.2 + (wIdx % 2) * 0.15})`)
-          waveGrad.addColorStop(1, 'rgba(100, 255, 255, 0)')
-        }
-
-        ctx.fillStyle = waveGrad
+        // Draw wave using simple fillStyle with pre-computed alpha instead of creating a gradient per wave
+        const alpha = waveAlphas[wIdx]
+        const isWhite = wIdx % 3 === 0
+        ctx.fillStyle = isWhite
+          ? `rgba(255, 255, 255, ${alpha * 0.7})`
+          : `rgba(100, 255, 255, ${alpha * 0.7})`
 
         // Draw an elongated stretched oval for the wave using rect to avoid path calculation overhead of ellipse
         ctx.fillRect(waveX - waveWidth, waveY - h * 0.1, waveWidth * 2, h * 0.2)

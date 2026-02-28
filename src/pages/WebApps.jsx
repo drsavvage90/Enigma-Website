@@ -60,13 +60,13 @@ export default function WebApps() {
         <div className="container reveal" style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto' }}>
           <span className="badge badge--accent">Web Apps</span>
           <h2 className="display display--gradient heading-md">Stop Working Around Your Tools. Start Working With Them.</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             Right now, there's a good chance your business is running critical operations on spreadsheets, shared drives, and email threads — tools that were never designed for what you're asking them to do. They're slow. They break. They force your team to waste time on manual work that should happen automatically.
           </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             A custom web application changes that. Instead of bending a generic tool to fit your workflow, you get a purpose-built platform — accessible from any browser, on any device — that matches how your business actually operates. Your team works faster, your customers get a better experience, and you stop losing time to workarounds.
           </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             Whether you need a client-facing portal, an internal admin dashboard, or a custom tool that doesn't exist yet — we build it.
           </p>
         </div>
@@ -75,8 +75,8 @@ export default function WebApps() {
       {/* SECTION 3 — BENEFITS */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--blue float float--slow" style={{ width: 500, height: 500, top: '-10%', right: '-15%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+        <div className="container section-z">
+          <div className="reveal section-header">
             <span className="badge badge--blue">Benefits</span>
             <h2 className="display display--gradient heading-lg">What a Custom Web App Does for Your Business</h2>
           </div>
@@ -84,8 +84,8 @@ export default function WebApps() {
             {benefits.map((b, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={b.icon} variant={i % 2 === 0 ? 'accent' : 'blue'} />
-                <h3 style={{ fontSize: 19, fontWeight: 600, margin: '14px 0 10px' }}>{b.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>{b.desc}</p>
+                <h3 className="card-title">{b.title}</h3>
+                <p className="card-desc">{b.desc}</p>
               </TiltCard>
             ))}
           </div>
@@ -110,11 +110,11 @@ export default function WebApps() {
               </h4>
               {clientPortalUseCases.map((uc, i) => (
                 <div key={i} style={{ marginBottom: 16 }}>
-                  <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>
+                  <p className="card-desc">
                     <span style={{ color: 'var(--accent)', marginRight: 8, fontWeight: 600 }}>→</span>
                     <span style={{ fontWeight: 600, color: 'var(--text-light)' }}>{uc.title}</span>
                   </p>
-                  <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, paddingLeft: 20 }}>{uc.desc}</p>
+                  <p className="card-desc--sm" style={{ paddingLeft: 20 }}>{uc.desc}</p>
                 </div>
               ))}
             </div>
@@ -134,7 +134,7 @@ export default function WebApps() {
             </div>
             <div>
               <span className="badge badge--blue">Internal Tools</span>
-              <h2 className="display heading-lg" style={{ color: 'var(--text-dark)', WebkitTextFillColor: 'var(--text-dark)' }}>
+              <h2 className="display heading-lg heading-dark">
                 One Dashboard for Everything Your Team Needs
               </h2>
               <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginBottom: 16 }}>
@@ -166,7 +166,7 @@ export default function WebApps() {
       <section className="section theme-darker" style={{ position: 'relative' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <div className="blob blob--accent" style={{ width: 400, height: 400, top: '-10%', left: '50%', transform: 'translateX(-50%)' }} />
-          <div style={{ position: 'relative', zIndex: 1 }}>
+          <div className="section-z">
             <div className="reveal">
               <span className="badge badge--accent">Custom Tools</span>
               <h2 className="display display--gradient heading-lg">If You Can Describe It, We Can Build It</h2>
@@ -184,8 +184,8 @@ export default function WebApps() {
               {customTools.map((t, i) => (
                 <TiltCard key={i} className="card card--glass card--glow reveal" style={{ textAlign: 'left' }}>
                   <IconBox icon={t.icon} variant={i === 0 ? 'accent' : i === 1 ? 'blue' : 'cyan'} />
-                  <h4 style={{ fontSize: 17, fontWeight: 600, margin: '14px 0 8px' }}>{t.title}</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7 }}>{t.desc}</p>
+                  <h4 className="card-title--sm">{t.title}</h4>
+                  <p className="card-desc--sm">{t.desc}</p>
                 </TiltCard>
               ))}
             </div>
@@ -196,10 +196,10 @@ export default function WebApps() {
       {/* SECTION 7 — WHY ENIGMA */}
       <section className="section theme-dark">
         <div className="container">
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div className="reveal section-header">
             <span className="badge badge--blue">Why Enigma</span>
             <h2 className="display display--gradient heading-lg">We Build Tools That Fit. Not Tools You Fit Into.</h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: 700, margin: '0 auto', fontSize: 17, lineHeight: 1.7 }}>
+            <p className="section-subtitle">
               Every web application we build starts with your business — your processes, your team's workflow, and your customers' expectations. We don't hand you a template with your logo on it. We architect a solution that matches how you actually work, and we make sure it's built to grow with you.
             </p>
           </div>
@@ -207,7 +207,7 @@ export default function WebApps() {
             {whyEnigma.map((item, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>{item.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>{item.desc}</p>
+                <p className="card-desc">{item.desc}</p>
               </TiltCard>
             ))}
           </div>

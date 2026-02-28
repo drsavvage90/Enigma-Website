@@ -8,7 +8,7 @@ const footerLinks = [
       { to: '/ai-systems', label: 'AI Systems' },
       { to: '/mobile-apps', label: 'Mobile Apps' },
       { to: '/web-apps', label: 'Web Apps' },
-      { to: '/vault', label: 'Vault by Enigma' },
+      { to: '/vault', label: 'Vault' },
     ],
   },
   {
@@ -107,15 +107,7 @@ export default function Footer() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  style={{
-                    display: 'block',
-                    fontSize: 14,
-                    color: 'var(--text-muted)',
-                    padding: '7px 0',
-                    transition: 'color 0.2s, padding-left 0.2s',
-                  }}
-                  onMouseEnter={e => { e.target.style.color = '#fff'; e.target.style.paddingLeft = '6px' }}
-                  onMouseLeave={e => { e.target.style.color = 'var(--text-muted)'; e.target.style.paddingLeft = '0' }}
+                  className="footer-link"
                 >
                   {link.label}
                 </Link>
@@ -140,14 +132,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Enigma Software Systems. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: 24 }}>
-            <Link to="/privacy-policy" style={{ fontSize: 13, color: 'var(--text-dim)', transition: 'color 0.2s' }}
-              onMouseEnter={e => e.target.style.color = 'var(--text-muted)'}
-              onMouseLeave={e => e.target.style.color = 'var(--text-dim)'}
-            >Privacy Policy</Link>
-            <Link to="/terms-of-service" style={{ fontSize: 13, color: 'var(--text-dim)', transition: 'color 0.2s' }}
-              onMouseEnter={e => e.target.style.color = 'var(--text-muted)'}
-              onMouseLeave={e => e.target.style.color = 'var(--text-dim)'}
-            >Terms of Service</Link>
+            <Link to="/privacy-policy" className="footer-bottom-link">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="footer-bottom-link">Terms of Service</Link>
           </div>
         </div>
       </div>

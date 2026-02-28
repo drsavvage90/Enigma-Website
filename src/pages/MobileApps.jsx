@@ -95,13 +95,13 @@ export default function MobileApps() {
         <div className="container reveal" style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto' }}>
           <span className="badge badge--accent">Mobile Apps</span>
           <h2 className="display display--gradient heading-md">A Direct Line to Your Customers</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             Your customers are already on their phones. They're scheduling appointments, placing orders, and checking statuses from wherever they are. The question is whether they're doing those things through your app — or through someone else's.
           </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             A custom mobile app puts your business directly on your customer's home screen. It's not a website they have to search for. It's not an email they have to dig through. It's your business, one tap away, ready when they are.
           </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginTop: 16 }}>
+          <p className="body-text">
             We don't build generic apps from templates. Every app we create is designed around how your business actually operates and what your customers actually need. The result is an app people use every week — not one that gets downloaded and forgotten.
           </p>
         </div>
@@ -110,8 +110,8 @@ export default function MobileApps() {
       {/* SECTION 3 — BENEFITS */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--accent float float--slow" style={{ width: 500, height: 500, top: '-10%', left: '-15%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+        <div className="container section-z">
+          <div className="reveal section-header">
             <span className="badge badge--blue">Benefits</span>
             <h2 className="display display--gradient heading-lg">What a Custom Mobile App Does for Your Business</h2>
           </div>
@@ -119,8 +119,8 @@ export default function MobileApps() {
             {benefits.map((b, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={b.icon} variant={i % 2 === 0 ? 'accent' : 'blue'} />
-                <h3 style={{ fontSize: 19, fontWeight: 600, margin: '14px 0 10px' }}>{b.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>{b.desc}</p>
+                <h3 className="card-title">{b.title}</h3>
+                <p className="card-desc">{b.desc}</p>
               </TiltCard>
             ))}
           </div>
@@ -130,8 +130,8 @@ export default function MobileApps() {
       {/* SECTION 4 — USE CASES */}
       <section className="section theme-darker" style={{ position: 'relative' }}>
         <div className="blob blob--orange float float--fast float--offset" style={{ width: 400, height: 400, top: '-15%', right: '-10%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+        <div className="container section-z">
+          <div className="reveal section-header">
             <span className="badge badge--accent">Use Cases</span>
             <h2 className="display display--gradient heading-lg">See How It Works for Businesses Like Yours</h2>
           </div>
@@ -139,8 +139,8 @@ export default function MobileApps() {
             {useCases.map((uc, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={uc.icon} variant={i % 2 === 0 ? 'accent' : 'cyan'} />
-                <h3 style={{ fontSize: 19, fontWeight: 600, margin: '14px 0 10px' }}>{uc.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.7 }}>{uc.desc}</p>
+                <h3 className="card-title">{uc.title}</h3>
+                <p className="card-desc">{uc.desc}</p>
                 <p style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 600, marginTop: 12, letterSpacing: '0.02em' }}>
                   Ideal for: <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>{uc.ideal}</span>
                 </p>
@@ -156,7 +156,7 @@ export default function MobileApps() {
           <div className="two-col reveal">
             <div>
               <span className="badge badge--accent">Our Approach</span>
-              <h2 className="display heading-lg" style={{ color: 'var(--text-dark)', WebkitTextFillColor: 'var(--text-dark)' }}>
+              <h2 className="display heading-lg heading-dark">
                 Designed Around You, Not Around a Template
               </h2>
               <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginBottom: 20 }}>
@@ -167,15 +167,8 @@ export default function MobileApps() {
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 {processSteps.map((step, i) => (
-                  <div key={i} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                    <span style={{
-                      fontSize: 24,
-                      fontWeight: 800,
-                      color: 'var(--accent)',
-                      minWidth: 40,
-                      lineHeight: 1.3,
-                      letterSpacing: '-0.02em',
-                    }}>
+                  <div key={i} className="process-step">
+                    <span className="process-num">
                       {step.num}
                     </span>
                     <div>
@@ -196,11 +189,11 @@ export default function MobileApps() {
       {/* SECTION 6 — BUILD OPTIONS / PRICING */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--accent float float--slow" style={{ width: 500, height: 500, top: '20%', right: '-15%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="container section-z">
           <div className="reveal" style={{ textAlign: 'center', marginBottom: 16 }}>
             <span className="badge badge--blue">Build Options</span>
             <h2 className="display display--gradient heading-lg">Four Tiers. One Goal: The Right App for You.</h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: 700, margin: '0 auto', fontSize: 17, lineHeight: 1.7 }}>
+            <p className="section-subtitle">
               Every app we build is delivered on both iOS and Android. Every project starts with a free consultation to make sure you're in the right tier — and if your needs fall between tiers, we'll create a custom quote.
             </p>
           </div>
@@ -213,41 +206,18 @@ export default function MobileApps() {
                 style={tier.highlight ? { border: '1px solid rgba(255, 159, 65, 0.3)', position: 'relative' } : {}}
               >
                 {tier.highlight && (
-                  <span style={{
-                    position: 'absolute',
-                    top: -12,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
-                    color: '#111118',
-                    fontSize: 11,
-                    fontWeight: 700,
-                    padding: '4px 14px',
-                    borderRadius: 'var(--radius-pill)',
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                    whiteSpace: 'nowrap',
-                  }}>
+                  <span className="tier-popular-tag">
                     Most Popular
                   </span>
                 )}
                 <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>{tier.name}</h3>
-                <p style={{
-                  fontSize: 28,
-                  fontWeight: 800,
-                  letterSpacing: '-0.02em',
-                  background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  margin: '8px 0',
-                }}>
+                <p className="tier-price">
                   {tier.price}
                 </p>
                 <p style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 16 }}>
                   Timeline: {tier.timeline}
                 </p>
-                <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, marginBottom: 16 }}>
+                <p className="card-desc--sm" style={{ marginBottom: 16 }}>
                   {tier.desc}
                 </p>
                 <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--accent)', marginBottom: 8, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
@@ -258,9 +228,9 @@ export default function MobileApps() {
                 </p>
                 <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 16, marginTop: 'auto' }}>
                   {tier.features.map((f, fi) => (
-                    <div key={fi} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 8 }}>
+                    <div key={fi} className="feature-check">
                       <CheckCircle size={14} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 3 }} />
-                      <span style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.5 }}>{f}</span>
+                      <span className="feature-check__text">{f}</span>
                     </div>
                   ))}
                 </div>
@@ -273,10 +243,10 @@ export default function MobileApps() {
       {/* SECTION 7 — MAINTENANCE PLANS */}
       <section className="section--sm theme-darker">
         <div className="container">
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div className="reveal section-header">
             <span className="badge badge--accent">Maintenance</span>
             <h2 className="display display--gradient heading-lg">Your App Stays Current. Your Business Keeps Moving.</h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: 700, margin: '0 auto', fontSize: 17, lineHeight: 1.7 }}>
+            <p className="section-subtitle">
               A mobile app is a living product. iOS and Android release major updates every year, third-party services evolve, and security threats don't take breaks. Our maintenance plans handle the behind-the-scenes work so your app stays fast, secure, and always available for your customers.
             </p>
           </div>
@@ -285,37 +255,28 @@ export default function MobileApps() {
             {maintenancePlans.map((plan, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>{plan.name}</h3>
-                <p style={{
-                  fontSize: 24,
-                  fontWeight: 800,
-                  letterSpacing: '-0.02em',
-                  background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  margin: '8px 0 16px',
-                }}>
+                <p className="tier-price--sm">
                   {plan.price}
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
-                    <span style={{ color: 'var(--text-dim)' }}>Best For</span>
-                    <span style={{ color: 'var(--text-muted)', fontWeight: 500 }}>{plan.bestFor}</span>
+                  <div className="plan-row">
+                    <span className="plan-row__label">Best For</span>
+                    <span className="plan-row__value">{plan.bestFor}</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
-                    <span style={{ color: 'var(--text-dim)' }}>Included Hours</span>
-                    <span style={{ color: 'var(--text-muted)', fontWeight: 500 }}>{plan.hours}</span>
+                  <div className="plan-row">
+                    <span className="plan-row__label">Included Hours</span>
+                    <span className="plan-row__value">{plan.hours}</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
-                    <span style={{ color: 'var(--text-dim)' }}>Response Time</span>
-                    <span style={{ color: 'var(--text-muted)', fontWeight: 500 }}>{plan.response}</span>
+                  <div className="plan-row">
+                    <span className="plan-row__label">Response Time</span>
+                    <span className="plan-row__value">{plan.response}</span>
                   </div>
                 </div>
               </TiltCard>
             ))}
           </div>
 
-          <p className="reveal" style={{ color: 'var(--text-dim)', fontSize: 13, lineHeight: 1.7, textAlign: 'center', maxWidth: 700, margin: '32px auto 0' }}>
+          <p className="reveal note-text">
             All maintenance plans are billed monthly and can be adjusted or cancelled with 30 days' notice. Annual discounts are available for every tier. Hours do not roll over month to month. Additional development beyond included hours is available at a preferred rate for maintenance clients.
           </p>
         </div>
