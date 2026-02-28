@@ -11,6 +11,7 @@ const About = lazy(() => import('./pages/About'))
 const AISystems = lazy(() => import('./pages/AISystems'))
 const MobileApps = lazy(() => import('./pages/MobileApps'))
 const WebApps = lazy(() => import('./pages/WebApps'))
+const VaultByEnigma = lazy(() => import('./pages/VaultByEnigma'))
 const HowWeWork = lazy(() => import('./pages/HowWeWork'))
 const Industries = lazy(() => import('./pages/Industries'))
 const Portfolio = lazy(() => import('./pages/Portfolio'))
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="/ai-systems" element={<PageTransition><AISystems /></PageTransition>} />
               <Route path="/mobile-apps" element={<PageTransition><MobileApps /></PageTransition>} />
               <Route path="/web-apps" element={<PageTransition><WebApps /></PageTransition>} />
+              <Route path="/vault" element={<PageTransition><VaultByEnigma /></PageTransition>} />
               <Route path="/how-we-work" element={<PageTransition><HowWeWork /></PageTransition>} />
               <Route path="/industries" element={<PageTransition><Industries /></PageTransition>} />
               <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />

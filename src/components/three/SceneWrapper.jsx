@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import SceneComponents from './SceneComponents';
 import PostProcessing from './PostProcessing';
 
-const SceneWrapper = memo(function SceneWrapper({ isActive, disableBloom }) {
+const SceneWrapper = memo(function SceneWrapper({ isActive, disableBloom, containerRef }) {
     return (
         <Canvas
             shadows={false}
@@ -17,6 +17,9 @@ const SceneWrapper = memo(function SceneWrapper({ isActive, disableBloom }) {
                 depth: true
             }}
             frameloop={isActive ? 'always' : 'never'}
+            eventSource={containerRef}
+            eventPrefix="client"
+            style={{ pointerEvents: 'none' }}
         >
             <Suspense fallback={null}>
                 <SceneComponents />

@@ -86,37 +86,37 @@ export default function VolumetricHero() {
     return (
         <section ref={containerRef} className="laser-hero" style={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: '#020202' }}>
 
-            {/* ── Background Layer ── */}
-            <div className="absolute inset-0 z-0" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+            {/* ── Background Layer — Canvas receives pointer events ── */}
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
                 {shouldRender3D ? (
                     <Suspense fallback={<CustomFallback />}>
-                        {inView && <SceneWrapper isActive={inView} disableBloom={isLowPower} />}
+                        {inView && <SceneWrapper isActive={inView} disableBloom={isLowPower} containerRef={containerRef} />}
                     </Suspense>
                 ) : (
                     <CustomFallback />
                 )}
             </div>
 
-            {/* ── Content Layer ── */}
+            {/* ── Content Layer — pointer-events: none so clicks pass through to canvas ── */}
             <motion.div
                 className="laser-hero__content"
                 initial="hidden"
-                animate={isClient ? "visible" : "hidden"} // Await client hydration
+                animate={isClient ? "visible" : "hidden"}
                 variants={containerVariants}
-                style={{ position: 'relative', zIndex: 10 }}
+                style={{ position: 'relative', zIndex: 10, pointerEvents: 'none' }}
             >
-                <motion.h1 className="laser-hero__title" variants={titleVariants}>
+                <motion.h1 className="laser-hero__title" variants={titleVariants} style={{ pointerEvents: 'auto' }}>
                     Custom Software.<br />
                     <span className="laser-hero__word--accent">Intelligent Solutions.</span>
                 </motion.h1>
 
-                <motion.p className="laser-hero__subtitle" variants={subtitleVariants}>
+                <motion.p className="laser-hero__subtitle" variants={subtitleVariants} style={{ pointerEvents: 'auto' }}>
                     We design, build, and deploy custom AI systems,
                     mobile applications, and web applications —
                     purpose-built for your business.
                 </motion.p>
 
-                <motion.div variants={ctaVariants}>
+                <motion.div variants={ctaVariants} style={{ pointerEvents: 'auto' }}>
                     <MagneticButton>
                         <Link to="/contact" className="laser-hero__cta">
                             SCHEDULE A CONSULTATION
