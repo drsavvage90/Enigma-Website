@@ -116,12 +116,17 @@ export default function VolumetricHero() {
                     purpose-built for your business.
                 </motion.p>
 
-                <motion.div variants={ctaVariants} style={{ pointerEvents: 'auto' }}>
+                <motion.div variants={ctaVariants} style={{ pointerEvents: 'auto', display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', marginTop: 0 }}>
                     <MagneticButton>
                         <Link to="/contact" className="laser-hero__cta">
                             SCHEDULE A CONSULTATION
                             <ArrowRight size={14} strokeWidth={2.5} style={{ marginLeft: '6px' }} />
                         </Link>
+                    </MagneticButton>
+                    <MagneticButton>
+                        <a href="#services" className="laser-hero__cta laser-hero__cta--ghost">
+                            LEARN MORE
+                        </a>
                     </MagneticButton>
                 </motion.div>
             </motion.div>

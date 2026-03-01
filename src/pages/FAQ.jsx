@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import PageHeader from '../components/PageHeader'
-import { ChevronDown, Info, Brain, DollarSign, Settings } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 const faqSections = [
   {
-    icon: Info,
     title: 'General Questions',
     items: [
       { q: 'What does Enigma Software Systems do?', a: 'We design, build, and deploy custom software for businesses. Our three core service areas are custom AI systems, mobile applications, and web applications. Everything we build is purpose-designed for the client it serves — no templates, no generic solutions.' },
@@ -15,7 +14,6 @@ const faqSections = [
     ],
   },
   {
-    icon: Brain,
     title: 'AI-Specific Questions',
     items: [
       { q: 'What is the multi-LLM platform?', a: "It's our flagship AI product — a secure, fully branded platform where your team can access leading AI models like Claude, ChatGPT, Gemini, and Grok from a single dashboard. It's customized to your business, integrated with your data, and built for privacy and security." },
@@ -25,7 +23,6 @@ const faqSections = [
     ],
   },
   {
-    icon: DollarSign,
     title: 'Project & Pricing Questions',
     items: [
       { q: 'How does pricing work?', a: "We use a combination of project-based development fees and recurring annual maintenance plans. The project fee covers design, development, and deployment. The annual plan covers ongoing support, updates, hosting, and maintenance. Every project is scoped individually, so we'll provide a clear quote after our discovery conversation." },
@@ -34,7 +31,6 @@ const faqSections = [
     ],
   },
   {
-    icon: Settings,
     title: 'Technical Questions',
     items: [
       { q: 'Where is my software hosted?', a: "We handle hosting as part of our service. Your application is deployed on secure, reliable infrastructure. Hosting details are discussed during scoping, and we'll recommend the best setup based on your needs." },
@@ -95,6 +91,9 @@ export default function FAQ() {
         title="Frequently Asked Questions"
         subtitle="Straight answers to the questions we hear most. If yours isn't here, reach out — we're happy to talk."
         blobColor="blue"
+        image="/images/hero-faq-bg.svg"
+        imageAlt=""
+        imageLayout="background"
       />
 
       <section className="section theme-dark" style={{ position: 'relative' }}>
@@ -102,10 +101,7 @@ export default function FAQ() {
         <div className="container" style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           {faqSections.map((section, i) => (
             <div key={i} className="reveal" style={{ marginBottom: 48 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-                <section.icon size={20} style={{ color: 'var(--accent)' }} />
-                <span className="badge badge--accent" style={{ margin: 0 }}>{section.title}</span>
-              </div>
+              <span className="badge badge--accent" style={{ marginBottom: 8 }}>{section.title}</span>
               {section.items.map((item, j) => (
                 <AccordionItem key={j} question={item.q} answer={item.a} />
               ))}

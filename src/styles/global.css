@@ -41,6 +41,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
+  overflow-x: hidden;
 }
 
 body {
@@ -336,7 +337,7 @@ select {
 
 .grid-4 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
@@ -536,6 +537,81 @@ select {
   opacity: 0;
 }
 
+.page-header__ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+/* ── Page Header — Split layout (image + text side by side) ── */
+.page-header--split {
+  text-align: left;
+}
+
+.page-header--split h1 {
+  font-size: clamp(34px, 4.5vw, 56px);
+}
+
+.page-header--split .subtitle {
+  margin: 0;
+  max-width: 540px;
+}
+
+.page-header--split .page-header__ctas {
+  justify-content: flex-start;
+}
+
+.page-header__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.page-header__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header__image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(255, 159, 65, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.page-header__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+/* ── Page Header — Background image mode ── */
+.page-header--bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-header__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.82) 0%,
+    rgba(5, 5, 8, 0.7) 50%,
+    rgba(5, 5, 8, 0.88) 100%
+  );
+  z-index: 0;
+}
+
 /* ── Badges ── */
 .badge {
   display: inline-block;
@@ -657,6 +733,83 @@ select {
   opacity: 0.5;
 }
 
+/* ── Industries — Card Grid ── */
+.industries-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 24px;
+}
+
+/* ── Industries — Business Types Section Background ── */
+.industries-types-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.industries-types-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/bg-industries-types.svg') center / cover no-repeat;
+  z-index: 0;
+}
+
+.industries-types-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.84) 0%,
+    rgba(8, 8, 16, 0.72) 50%,
+    rgba(5, 5, 8, 0.84) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Industry Ticker (Industries page) ── */
+.industry-ticker {
+  overflow: hidden;
+  position: relative;
+  padding: 36px 0;
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.industry-ticker__track {
+  display: flex;
+  gap: 0;
+  animation: ticker-scroll 40s linear infinite;
+  width: max-content;
+}
+
+.industry-ticker__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 36px;
+  white-space: nowrap;
+  font-size: 16px;
+  color: var(--text-dim);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.industry-ticker__item span {
+  color: var(--text-muted);
+}
+
+.industry-ticker__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
 /* ── Footer Logo ── */
 .footer-logo-icon {
   animation: logo-hue-rotate 6s ease-in-out infinite alternate;
@@ -677,6 +830,14 @@ select {
 }
 
 /* ── Contact Form Enhanced Inputs ── */
+/* ── Contact Grid ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 64px;
+  align-items: start;
+}
+
 .form-group--enhanced {
   position: relative;
 }
@@ -746,6 +907,23 @@ select {
   padding-right: 40px;
 }
 
+/* Select label always floated — prevents overlap with placeholder option text */
+.form-group--enhanced select~label {
+  top: -8px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--bg-deep);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Muted text when placeholder option is selected */
+.form-group--enhanced select:invalid {
+  color: var(--text-dim);
+}
+
 /* Success animation */
 @keyframes success-pop {
   0% {
@@ -782,22 +960,6 @@ select {
 
 .timeline-line.visible {
   transform: scaleY(1);
-}
-
-@media (max-width: 768px) {
-  .stats-row {
-    gap: 32px;
-    padding: 48px 24px;
-  }
-
-  .tech-ticker__item {
-    padding: 0 20px;
-    font-size: 13px;
-  }
-
-  .timeline-line {
-    display: none;
-  }
 }
 
 /* ── Performance Optimized Hover States ── */
@@ -868,6 +1030,12 @@ select {
   color: var(--accent);
 }
 
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
 .footer-link {
   display: block;
   font-size: 14px;
@@ -889,6 +1057,364 @@ select {
 
 .footer-bottom-link:hover {
   color: var(--text-muted);
+}
+
+/* ── Vault Features Section — Background image + card styling ── */
+.vault-features-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.vault-features-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/bg-vault-features.svg') center / cover no-repeat;
+  z-index: 0;
+}
+
+.vault-features-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.82) 0%,
+    rgba(8, 8, 16, 0.72) 50%,
+    rgba(5, 5, 8, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.vault-feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.vault-feature-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 159, 65, 0.05);
+}
+
+/* ── AI Model Logo Grid (Vault page) ── */
+.ai-model-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-self: center;
+}
+
+.ai-model-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ai-model-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.ai-model-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ai-model-card__icon--openai {
+  background: rgba(16, 163, 127, 0.1);
+  color: #10a37f;
+}
+
+.ai-model-card:hover .ai-model-card__icon--openai {
+  background: rgba(16, 163, 127, 0.18);
+  box-shadow: 0 0 24px rgba(16, 163, 127, 0.12);
+}
+
+.ai-model-card__icon--anthropic {
+  background: rgba(204, 150, 100, 0.1);
+  color: #cc9664;
+}
+
+.ai-model-card:hover .ai-model-card__icon--anthropic {
+  background: rgba(204, 150, 100, 0.18);
+  box-shadow: 0 0 24px rgba(204, 150, 100, 0.12);
+}
+
+.ai-model-card__icon--gemini {
+  background: rgba(66, 133, 244, 0.1);
+}
+
+.ai-model-card:hover .ai-model-card__icon--gemini {
+  background: rgba(66, 133, 244, 0.16);
+  box-shadow: 0 0 24px rgba(66, 133, 244, 0.12);
+}
+
+.ai-model-card__icon--xai {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.ai-model-card:hover .ai-model-card__icon--xai {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.06);
+}
+
+.ai-model-card__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: -0.01em;
+}
+
+.ai-model-card__company {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-top: -6px;
+}
+
+/* ── Why Enigma Section — Background image + card separation ── */
+.why-enigma-section {
+  position: relative;
+  overflow: hidden;
+  color: var(--text-light);
+}
+
+.why-enigma-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/bg-why-enigma.svg') center / cover no-repeat;
+  z-index: 0;
+}
+
+.why-enigma-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.80) 0%,
+    rgba(10, 10, 16, 0.72) 50%,
+    rgba(5, 5, 8, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.why-enigma-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+}
+
+.why-enigma-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 159, 65, 0.06);
+}
+
+/* ── Pillar Service Cards — Image on top ── */
+.pillar-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0c0c18 0%, #14142a 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.pillar-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pillar-card__image:hover img {
+  transform: scale(1.03);
+}
+
+/* ── Portfolio — Collage Image ── */
+.portfolio-collage-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 0 80px rgba(255, 159, 65, 0.03);
+  align-self: center;
+}
+
+.portfolio-collage-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Portfolio — Spotlight Mockup ── */
+.portfolio-spotlight-mockup {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(255, 159, 65, 0.03);
+  align-self: start;
+}
+
+.portfolio-spotlight-mockup img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Our Process — Timeline Section Background ── */
+.process-timeline-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.process-timeline-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/bg-process-timeline.svg') center / cover no-repeat;
+  z-index: 0;
+}
+
+.process-timeline-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.84) 0%,
+    rgba(8, 8, 16, 0.72) 50%,
+    rgba(5, 5, 8, 0.84) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Web Apps — Stop Workarounds Image ── */
+.web-workarounds-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 0 80px rgba(255, 159, 65, 0.03);
+  align-self: center;
+}
+
+.web-workarounds-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Web Apps — Why Enigma Section Background ── */
+.web-why-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.web-why-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/bg-web-why.svg') center / cover no-repeat;
+  z-index: 0;
+}
+
+.web-why-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.82) 0%,
+    rgba(8, 8, 16, 0.70) 50%,
+    rgba(5, 5, 8, 0.84) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Mobile Apps — Direct Line Image ── */
+.mobile-direct-line-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 0 80px rgba(255, 159, 65, 0.03);
+  align-self: center;
+}
+
+.mobile-direct-line-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Mobile Apps — Use Cases Section Background ── */
+.mobile-usecases-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-usecases-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/bg-mobile-usecases.svg') center / cover no-repeat;
+  z-index: 0;
+}
+
+.mobile-usecases-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.84) 0%,
+    rgba(8, 8, 16, 0.72) 50%,
+    rgba(5, 5, 8, 0.86) 100%
+  );
+  z-index: 1;
+}
+
+/* ── AI Path Cards — Image on top (AI Systems page) ── */
+.ai-path-card__image {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0c0c18 0%, #14142a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.ai-path-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ai-path-card__image:hover img {
+  transform: scale(1.03);
 }
 
 /* ── Link Arrow ── */
@@ -1000,6 +1526,21 @@ select {
   background-repeat: no-repeat;
   background-position: right 16px center;
   padding-right: 40px;
+}
+
+/* ── About — Expertise Grid ── */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Portfolio — Spotlight Grid ── */
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
 }
 
 /* ── Spotlight Tags ── */
@@ -1117,8 +1658,14 @@ select {
 }
 
 /* ── Responsive ── */
+
+/* ═══ Tablet — 1024px ═══ */
 @media (max-width: 1024px) {
   .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1139,6 +1686,33 @@ select {
     padding: 140px 0 60px;
   }
 
+  .page-header__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .page-header--split {
+    text-align: center;
+  }
+
+  .page-header--split .subtitle {
+    margin: 0 auto;
+  }
+
+  .page-header--split .page-header__ctas {
+    justify-content: center;
+  }
+
+  .page-header--split .page-header__text {
+    order: 1;
+  }
+
+  .page-header--split .page-header__image {
+    order: 2;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
   .desktop-nav {
     display: none !important;
   }
@@ -1146,55 +1720,452 @@ select {
   .mobile-toggle {
     display: flex !important;
   }
+
+  /* Image containers center on tablet when two-col stacks */
+  .web-workarounds-image,
+  .mobile-direct-line-image,
+  .portfolio-collage-image,
+  .portfolio-spotlight-mockup {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Preview boxes reduce height */
+  .preview-box {
+    height: 360px !important;
+  }
+
+  /* Stats row */
+  .stats-row {
+    gap: 40px;
+    padding: 60px 24px;
+  }
+
+  /* Bento grid — tablet */
+  .bento-col-4,
+  .bento-col-5 {
+    grid-column: span 6;
+  }
+
+  .bento-col-7,
+  .bento-col-8 {
+    grid-column: span 6;
+  }
 }
 
+/* ═══ Mobile — 768px ═══ */
 @media (max-width: 768px) {
+
+  .container {
+    padding: 0 20px;
+  }
 
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .two-col {
+    gap: 32px;
   }
 
   .section {
     padding: 60px 0;
   }
 
+  .section--sm {
+    padding: 48px 0;
+  }
+
   .page-header {
     padding: 120px 0 48px;
   }
 
+  .page-header h1 {
+    font-size: clamp(28px, 7vw, 40px);
+  }
+
+  .page-header--split h1 {
+    font-size: clamp(26px, 6.5vw, 36px);
+  }
+
+  .page-header .subtitle {
+    font-size: 15px;
+  }
+
+  .page-header__ctas {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .page-header__ctas .btn {
+    width: 100%;
+    justify-content: center;
+    max-width: 320px;
+  }
+
+  /* Typography */
+  .heading-lg {
+    font-size: clamp(24px, 5.5vw, 32px);
+  }
+
+  .heading-md {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .heading-sm {
+    font-size: clamp(18px, 4.5vw, 24px);
+  }
+
+  .body-text {
+    font-size: 15px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+  }
+
+  /* Buttons */
+  .btn {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+
+  /* Cards */
+  .card--glass {
+    padding: 24px;
+  }
+
+  .card-title {
+    font-size: 17px;
+  }
+
+  .card-desc {
+    font-size: 14px;
+  }
+
+  /* Timeline */
   .timeline-step {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .timeline-number {
-    width: 60px;
-    height: 60px;
-    font-size: 22px;
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
   }
 
   .timeline-step:not(:last-child)::after {
     display: none;
   }
 
+  .timeline-line {
+    display: none;
+  }
+
+  /* Footer */
   .footer-grid {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 
+  /* Contact */
   .contact-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px !important;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
+  /* Portfolio spotlight */
   .spotlight-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .portfolio-spotlight-mockup {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* Stats row */
+  .stats-row {
+    gap: 32px;
+    padding: 48px 20px;
+  }
+
+  .stat-counter {
+    min-width: 120px;
+  }
+
+  /* Tech & Industry tickers */
+  .tech-ticker__item {
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  .industry-ticker__item {
+    padding: 0 24px;
+    font-size: 13px;
+  }
+
+  .industry-ticker__dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Preview boxes */
+  .preview-box {
+    height: 280px !important;
+  }
+
+  /* Image containers on mobile */
+  .web-workarounds-image,
+  .mobile-direct-line-image,
+  .portfolio-collage-image {
+    max-width: 100%;
+  }
+
+  /* Pricing / tier cards */
+  .tier-price {
+    font-size: 24px;
+  }
+
+  .tier-price--sm {
+    font-size: 20px;
+  }
+
+  .tier-popular-tag {
+    font-size: 10px;
+    padding: 3px 12px;
+  }
+
+  /* Maintenance plan cards */
+  .maintenance-plan-card {
+    padding: 24px;
+  }
+
+  .maintenance-plan-toggle {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .maintenance-plan-body.open {
+    max-height: 800px;
+  }
+
+  /* Plan rows */
+  .plan-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* Feature checks */
+  .feature-check__text {
+    font-size: 12px;
+  }
+
+  /* Accordion (FAQ) */
+  .accordion-trigger {
+    font-size: 15px;
+    padding: 16px 0;
+  }
+
+  /* CTABlock section — reduce padding via inline override isn't possible, 
+     but the clamp on heading handles text. Add container-level help. */
+
+  /* AI path cards */
+  .ai-path-card__image {
+    height: 180px;
+  }
+
+  /* AI model grid */
+  .ai-model-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .ai-model-card {
+    padding: 20px 16px;
+  }
+
+  /* Vault bento / feature grid */
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-col-4,
+  .bento-col-5,
+  .bento-col-6,
+  .bento-col-7,
+  .bento-col-8,
+  .bento-col-12 {
+    grid-column: span 1;
+  }
+
+  .bento-row-2 {
+    grid-row: span 1;
+  }
+
+  /* Industries page — card grid stacks on mobile */
+  .industries-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA block */
+  .cta-block {
+    padding: 72px 0 !important;
+  }
+
+  .cta-block .btn-lg {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
   }
 }
 
+/* ═══ Small phones — 480px ═══ */
 @media (max-width: 480px) {
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section--sm {
+    padding: 36px 0;
+  }
+
+  .page-header {
+    padding: 110px 0 40px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .page-header--split h1 {
+    font-size: clamp(22px, 6.5vw, 30px);
+  }
+
+  /* Footer stacks to single column */
   .footer-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* Stats row stacks vertically */
+  .stats-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 16px;
+  }
+
+  .stat-counter {
+    min-width: unset;
+    width: 100%;
+  }
+
+  /* Cards tighten padding */
+  .card--glass {
+    padding: 20px;
+  }
+
+  .maintenance-plan-card {
+    padding: 20px;
+  }
+
+  /* Preview box further shrinks */
+  .preview-box {
+    height: 200px !important;
+  }
+
+  /* Tier pricing tighter */
+  .tier-price {
+    font-size: 22px;
+  }
+
+  .tier-price--sm {
+    font-size: 18px;
+  }
+
+  /* AI model cards go single column on tiny screens */
+  .ai-model-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Tickers */
+  .tech-ticker__item {
+    padding: 0 16px;
+    font-size: 12px;
+  }
+
+  .industry-ticker__item {
+    padding: 0 18px;
+    font-size: 11px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Form grid stacks */
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Two-col image containers */
+  .web-workarounds-image img,
+  .mobile-direct-line-image img,
+  .portfolio-collage-image img {
+    border-radius: var(--radius-md);
+  }
+
+  /* Spotlight mockup */
+  .portfolio-spotlight-mockup {
+    max-width: 260px;
+  }
+
+  /* Inline heading overrides for pages using style={{ fontSize: ... }} */
+  .spotlight-tag {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+
+  /* Accordion */
+  .accordion-trigger {
+    font-size: 14px;
+    padding: 14px 0;
+  }
+
+  .accordion-body p {
+    font-size: 14px;
+  }
+
+  /* CTA block */
+  .cta-block {
+    padding: 56px 0 !important;
+  }
+
+  /* Inline two-col text sections — reduce font size for body text */
+  .body-text {
+    font-size: 14px;
+  }
+
+  /* About expertise grid stacks */
+  .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
 
@@ -1388,7 +2359,38 @@ select {
   display: block;
 }
 
-/* Screenshot placeholder */
+/* Vault screenshot wrapper — positions the cover overlay */
+.vault-screenshot-wrap {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.vault-screenshot-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*
+ * Cover bar to hide the "Alpha Tester" label in the Vault screenshot.
+ * Positioned over the sidebar area where the label appears.
+ * ── Adjust top / left / width / height once the real screenshot is in place. ──
+ */
+.vault-screenshot-cover {
+  position: absolute;
+  /* Tune these values to match the exact label position in your screenshot */
+  top: 3.5%;
+  left: 1.2%;
+  width: 12%;
+  height: 3.2%;
+  background: #1a1a2e;
+  border-radius: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Screenshot placeholder (kept as fallback) */
 .hero__screenshot-placeholder {
   width: 100%;
   height: 400px;
@@ -1717,38 +2719,6 @@ select {
   transform: translateY(-6px);
 }
 
-@media (max-width: 1024px) {
-
-  .bento-col-4,
-  .bento-col-5 {
-    grid-column: span 6;
-  }
-
-  .bento-col-7,
-  .bento-col-8 {
-    grid-column: span 6;
-  }
-}
-
-@media (max-width: 768px) {
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bento-col-4,
-  .bento-col-5,
-  .bento-col-6,
-  .bento-col-7,
-  .bento-col-8,
-  .bento-col-12 {
-    grid-column: span 1;
-  }
-
-  .bento-row-2 {
-    grid-row: span 1;
-  }
-}
-
 /* ═══════════════════════════════════════════════════
    ENHANCED REVEAL VARIANTS
    ═══════════════════════════════════════════════════ */
@@ -2006,6 +2976,191 @@ select {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* ── About Page — Vision Section Background ── */
+.about-vision-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-vision-section__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/bg-about-vision.svg') center / cover no-repeat;
+  z-index: 0;
+}
+
+.about-vision-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.82) 0%,
+    rgba(8, 8, 16, 0.70) 50%,
+    rgba(5, 5, 8, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+/* ── About Page — Team Photo ── */
+.about-team-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 0 80px rgba(255, 159, 65, 0.04);
+}
+
+.about-team-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── About Page — Security & Privacy Callout ── */
+.about-security-callout {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: start;
+}
+
+.about-security-callout__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.about-security-callout__items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-security-callout__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.about-security-callout__item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 159, 65, 0.15);
+}
+
+.about-security-callout__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 159, 65, 0.08);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-security-callout__footer {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Vault Deployment Tier Cards ── */
+.vault-tier-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.vault-tier-card .feature-check:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Maintenance Plan Cards with Accordion ── */
+.maintenance-plan-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.maintenance-plan-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 60px rgba(255, 159, 65, 0.06);
+}
+
+.maintenance-plan-card--open {
+  border-color: rgba(255, 159, 65, 0.2);
+}
+
+.maintenance-plan-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.maintenance-plan-toggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-light);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.maintenance-plan-card--open .maintenance-plan-toggle {
+  color: var(--accent);
+  border-color: rgba(255, 159, 65, 0.2);
+  background: rgba(255, 159, 65, 0.04);
+}
+
+.maintenance-plan-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.maintenance-plan-body.open {
+  max-height: 600px;
+  opacity: 1;
+}
+
+.maintenance-plan-body__inner {
+  padding-top: 16px;
+}
+
+.maintenance-plan-body__inner .feature-check {
+  margin-bottom: 10px;
+}
+
+.maintenance-plan-body__inner .feature-check:last-child {
+  margin-bottom: 0;
 }
 
 /* ── Reduced Motion ── */

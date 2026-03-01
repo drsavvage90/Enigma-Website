@@ -8,7 +8,7 @@ import TiltCard from '../components/TiltCard'
 import VolumetricHero from '../components/hero/VolumetricHero'
 import {
   ArrowRight, Brain, Smartphone, Globe,
-  Wrench, Shield, Layers, Handshake, Monitor,
+  Wrench, Shield, Layers, Handshake,
 } from 'lucide-react'
 
 const pillars = [
@@ -18,6 +18,8 @@ const pillars = [
     desc: 'Harness the power of leading AI models in a secure, branded platform built around your business. From our flagship multi-LLM environment to standalone chatbots, we make AI work for you.',
     link: '/ai-systems',
     linkText: 'Explore AI Systems',
+    image: '/images/pillar-ai.svg',
+    imageAlt: 'AI neural network and multi-model system',
   },
   {
     icon: Smartphone,
@@ -25,6 +27,8 @@ const pillars = [
     desc: 'Give your customers a direct, branded channel right in their pocket. We build custom mobile apps for service scheduling, e-commerce, loyalty programs, and more.',
     link: '/mobile-apps',
     linkText: 'Explore Mobile Apps',
+    image: '/images/pillar-mobile.svg',
+    imageAlt: 'Custom mobile app mockups on iOS and Android',
   },
   {
     icon: Globe,
@@ -32,6 +36,8 @@ const pillars = [
     desc: 'Replace clunky spreadsheets and disconnected workflows with streamlined, professional digital tools. Client portals, admin dashboards, and custom web applications.',
     link: '/web-apps',
     linkText: 'Explore Web Apps',
+    image: '/images/pillar-web.svg',
+    imageAlt: 'Web application dashboard interface',
   },
 ]
 
@@ -86,24 +92,54 @@ export default function Home() {
       {/* ═══ HERO — Laser Beam Effect ═══ */}
       <VolumetricHero />
 
-      {/* ═══ Screenshot / Product Preview ═══ */}
+      {/* ═══ Vault Product Showcase ═══ */}
       <div style={{ background: '#08080d', paddingBottom: 80 }}>
         <div className="hero__screenshot-area">
+          {/* Section heading */}
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 40 }}>
+            <span className="badge badge--accent">Flagship Product</span>
+            <h2 className="display display--gradient heading-lg" style={{ marginBottom: 12 }}>
+              Meet Vault by Enigma
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.7, maxWidth: 600, margin: '0 auto' }}>
+              A private, branded AI workspace with access to every leading model — secured, tracked, and controlled by your organization.
+            </p>
+          </div>
+
+          {/* Screenshot with Alpha Tester cover */}
           <div ref={screenshotRef} className="hero__screenshot gradient-border">
-            <div className="hero__screenshot-placeholder">
-              <Monitor size={48} style={{ color: 'rgba(255,255,255,0.08)' }} />
-              <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: 14 }}>
-                Platform Preview — Drop your screenshot here
-              </p>
+            <div className="vault-screenshot-wrap">
+              {/*
+                TODO: Replace with real Vault screenshot or looping video/GIF.
+                When ready, swap src to "/images/vault-screenshot.png" (or .mp4 via <video>).
+              */}
+              <img
+                src="/images/vault-screenshot.svg"
+                alt="Vault by Enigma — multi-LLM AI platform interface"
+                loading="eager"
+              />
+              {/* CSS overlay bar to hide the "Alpha Tester" label */}
+              <div className="vault-screenshot-cover" aria-hidden="true" />
             </div>
           </div>
-          <div className="hero__tags hero-fade hero-fade--4">
-            {featureTags.map((tag, i) => (
-              <span key={tag} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                {i > 0 && <span className="tag-dot" />}
-                <span className="tag-label">{tag}</span>
-              </span>
-            ))}
+
+          {/* Feature tags + Vault CTA */}
+          <div style={{ textAlign: 'center', marginTop: 32 }}>
+            <div className="hero__tags hero-fade hero-fade--4">
+              {featureTags.map((tag, i) => (
+                <span key={tag} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  {i > 0 && <span className="tag-dot" />}
+                  <span className="tag-label">{tag}</span>
+                </span>
+              ))}
+            </div>
+            <Link
+              to="/vault"
+              className="link-arrow"
+              style={{ marginTop: 24, display: 'inline-flex', fontSize: 16 }}
+            >
+              Explore Vault <ArrowRight size={15} />
+            </Link>
           </div>
         </div>
       </div>
@@ -130,7 +166,7 @@ export default function Home() {
       </div>
 
       {/* ═══ Services — with TiltCards (#5) ═══ */}
-      <section className="section theme-light" style={{ paddingTop: 100 }}>
+      <section id="services" className="section theme-light" style={{ paddingTop: 100 }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 64 }} className="reveal">
             <span className="badge badge--accent">What We Build</span>
@@ -148,15 +184,23 @@ export default function Home() {
                 background: '#fff',
                 border: '1px solid rgba(0,0,0,0.06)',
                 borderRadius: 16,
-                padding: 32,
+                padding: 0,
                 display: 'flex',
                 flexDirection: 'column',
                 boxShadow: '0 2px 20px rgba(0,0,0,0.04)',
+                overflow: 'hidden',
               }}>
-                <IconBox icon={p.icon} />
-                <h3 style={{ fontSize: 22, marginTop: 16, marginBottom: 12, color: 'var(--text-dark)' }}>{p.title}</h3>
-                <p style={{ color: 'var(--text-body)', fontSize: 15, lineHeight: 1.7, flex: 1 }}>{p.desc}</p>
-                <Link to={p.link} className="link-arrow">{p.linkText} <ArrowRight size={14} /></Link>
+                {/* Card image */}
+                <div className="pillar-card__image">
+                  <img src={p.image} alt={p.imageAlt} />
+                </div>
+                {/* Card content */}
+                <div style={{ padding: '24px 32px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <IconBox icon={p.icon} />
+                  <h3 style={{ fontSize: 22, marginTop: 16, marginBottom: 12, color: 'var(--text-dark)' }}>{p.title}</h3>
+                  <p style={{ color: 'var(--text-body)', fontSize: 15, lineHeight: 1.7, flex: 1 }}>{p.desc}</p>
+                  <Link to={p.link} className="link-arrow">{p.linkText} <ArrowRight size={14} /></Link>
+                </div>
               </TiltCard>
             ))}
           </div>
@@ -164,8 +208,12 @@ export default function Home() {
       </section>
 
       {/* ═══ Why Enigma — with TiltCards (#5) ═══ */}
-      <section className="section theme-darker noise-overlay">
-        <div className="container">
+      <section className="section why-enigma-section noise-overlay">
+        {/* Background image + overlay */}
+        <div className="why-enigma-section__bg" />
+        <div className="why-enigma-section__overlay" />
+
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="blob blob--blue float float--slow float--offset" style={{ width: 500, height: 500, top: '-20%', right: '-10%' }} />
           <div className="two-col section-z">
             <div className="reveal">
@@ -175,9 +223,9 @@ export default function Home() {
                 We don't believe in one-size-fits-all. Every solution we build is purpose-designed for the client it serves — secure, intelligent, and ready to scale.
               </p>
             </div>
-            <div className="grid-4 reveal-group">
+            <div className="grid-4 reveal-group" style={{ gap: 20 }}>
               {differentiators.map((d, i) => (
-                <TiltCard key={i} className="card card--glass card--glow reveal" style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                <TiltCard key={i} className="card card--glass card--glow why-enigma-card reveal" style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                   <IconBox icon={d.icon} size={40} variant="blue" />
                   <div>
                     <h4 style={{ fontSize: 16, fontWeight: 600, marginBottom: 6, color: '#fff' }}>{d.title}</h4>
@@ -213,7 +261,7 @@ export default function Home() {
       {/* ═══ CTA ═══ */}
       <CTABlock
         headline="Ready to Build Something Extraordinary?"
-        text="Tell us about your business, and we'll show you what's possible. No pressure. No generic pitch. Just a real conversation about how custom software can move your business forward."
+        text="Tell us about your business, and we'll show you what's possible."
         buttonText="Let's Talk"
       />
     </div>

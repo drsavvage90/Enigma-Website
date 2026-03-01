@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import IconBox from '../components/IconBox'
@@ -7,6 +8,7 @@ import {
   Monitor, ClipboardList, BarChart3, Workflow,
   Calculator, CalendarSync, FileCheck,
   FileSpreadsheet, Users, Cog, Globe, LineChart, Award,
+  ArrowRight,
 } from 'lucide-react'
 
 const benefits = [
@@ -53,22 +55,37 @@ export default function WebApps() {
         title="Smarter Tools for the Way You Work"
         subtitle="Custom web applications that replace the spreadsheets, scattered email threads, and clunky workarounds slowing your business down — with streamlined, professional tools your team and customers will actually want to use."
         blobColor="blue"
+        primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
+        secondaryCta={{ text: 'See What We Build', to: '#what-we-build' }}
+        image="/images/hero-web.svg"
+        imageAlt="Custom web application dashboard mockup"
+        imageLayout="image-right"
       />
 
       {/* SECTION 2 — THE PROBLEM */}
       <section className="section--sm theme-darker">
-        <div className="container reveal" style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto' }}>
-          <span className="badge badge--accent">Web Apps</span>
-          <h2 className="display display--gradient heading-md">Stop Working Around Your Tools. Start Working With Them.</h2>
-          <p className="body-text">
-            Right now, there's a good chance your business is running critical operations on spreadsheets, shared drives, and email threads — tools that were never designed for what you're asking them to do. They're slow. They break. They force your team to waste time on manual work that should happen automatically.
-          </p>
-          <p className="body-text">
-            A custom web application changes that. Instead of bending a generic tool to fit your workflow, you get a purpose-built platform — accessible from any browser, on any device — that matches how your business actually operates. Your team works faster, your customers get a better experience, and you stop losing time to workarounds.
-          </p>
-          <p className="body-text">
-            Whether you need a client-facing portal, an internal admin dashboard, or a custom tool that doesn't exist yet — we build it.
-          </p>
+        <div className="container">
+          <div className="two-col reveal" style={{ gap: 56, alignItems: 'start' }}>
+            <div>
+              <span className="badge badge--accent">Web Apps</span>
+              <h2 className="display display--gradient heading-md">Stop Working Around Your Tools. Start Working With Them.</h2>
+              <p className="body-text">
+                Right now, there's a good chance your business is running critical operations on spreadsheets, shared drives, and email threads — tools that were never designed for what you're asking them to do. They're slow. They break. They force your team to waste time on manual work that should happen automatically.
+              </p>
+              <p className="body-text">
+                A custom web application changes that. Instead of bending a generic tool to fit your workflow, you get a purpose-built platform — accessible from any browser, on any device — that matches how your business actually operates. Your team works faster, your customers get a better experience, and you stop losing time to workarounds.
+              </p>
+              <p className="body-text">
+                Whether you need a client-facing portal, an internal admin dashboard, or a custom tool that doesn't exist yet — we build it.
+              </p>
+            </div>
+            <div className="web-workarounds-image">
+              <img
+                src="/images/web-stop-workarounds.svg"
+                alt="From scattered tools to one custom platform"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -89,11 +106,17 @@ export default function WebApps() {
               </TiltCard>
             ))}
           </div>
+          <div className="reveal" style={{ textAlign: 'center', marginTop: 48 }}>
+            <Link to="/contact" className="btn btn-primary btn-lg">
+              Schedule a Consultation
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* SECTION 4 — CLIENT PORTALS */}
-      <section className="section theme-darker">
+      <section id="what-we-build" className="section theme-darker">
         <div className="container">
           <div className="two-col reveal">
             <div>
@@ -159,6 +182,12 @@ export default function WebApps() {
               </div>
             </div>
           </div>
+          <div className="reveal" style={{ textAlign: 'center', marginTop: 48 }}>
+            <Link to="/contact" className="btn btn-primary btn-lg" style={{ background: 'var(--accent)', color: '#111' }}>
+              Schedule a Consultation
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -189,13 +218,21 @@ export default function WebApps() {
                 </TiltCard>
               ))}
             </div>
+            <div className="reveal" style={{ marginTop: 48 }}>
+              <Link to="/contact" className="btn btn-primary btn-lg">
+                Tell Us What You Need
+                <ArrowRight size={16} strokeWidth={2.5} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 7 — WHY ENIGMA */}
-      <section className="section theme-dark">
-        <div className="container">
+      <section className="section web-why-section" style={{ position: 'relative' }}>
+        <div className="web-why-section__bg" />
+        <div className="web-why-section__overlay" />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="reveal section-header">
             <span className="badge badge--blue">Why Enigma</span>
             <h2 className="display display--gradient heading-lg">We Build Tools That Fit. Not Tools You Fit Into.</h2>
@@ -210,6 +247,12 @@ export default function WebApps() {
                 <p className="card-desc">{item.desc}</p>
               </TiltCard>
             ))}
+          </div>
+          <div className="reveal" style={{ textAlign: 'center', marginTop: 48 }}>
+            <Link to="/contact" className="btn btn-primary btn-lg">
+              Schedule a Consultation
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </Link>
           </div>
         </div>
       </section>

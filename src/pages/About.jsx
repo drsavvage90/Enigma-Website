@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader'
 import {
   Hammer, Zap, MessageCircle, Users,
   BarChart3, Code2, Scale, ShieldCheck,
+  Lock, Eye, UserX,
 } from 'lucide-react'
 
 const values = [
@@ -32,13 +33,18 @@ export default function About() {
         title="Built Different. On Purpose."
         subtitle="We're a team of builders, strategists, and problem-solvers creating custom software for businesses that deserve better than off-the-shelf."
         blobColor="accent"
+        primaryCta={{ text: 'Contact Us', to: '/contact' }}
+        secondaryCta={{ text: 'See Our Work', to: '/portfolio' }}
+        image="/images/hero-about.svg"
+        imageAlt="The Enigma Software Systems team"
+        imageLayout="image-right"
       />
 
       {/* Company Story */}
       <section className="section theme-darker" style={{ position: 'relative' }}>
         <div className="blob blob--orange float float--fast float--offset" style={{ width: 350, height: 350, top: '5%', right: '-8%' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="two-col reveal">
+          <div className="two-col reveal" style={{ alignItems: 'start', gap: 56 }}>
             <div>
               <span className="badge badge--accent">Our Story</span>
               <h2 className="display display--gradient heading-lg">From Frustration to Foundation</h2>
@@ -48,25 +54,69 @@ export default function About() {
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 20 }}>
                 Our founding team comes from the intersection of digital marketing, business consulting, and software development. We've spent years helping businesses grow, and we kept running into the same wall. The software available to small and mid-sized companies wasn't built for them.
               </p>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.8 }}>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 20 }}>
                 So we built Enigma to close that gap. We design, build, and deploy intelligent digital solutions — custom AI systems, mobile applications, and web applications — purpose-built for the businesses they serve.
               </p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.8 }}>
+                But building great software isn't enough if your customers can't trust it. That's why privacy and security aren't afterthoughts at Enigma — they're foundational to everything we build. Whether you're an HVAC company managing customer addresses, a healthcare practice handling patient records, or a small business processing payments, your clients need to know their information is safe. We make sure it is.
+              </p>
             </div>
-            <div className="preview-box" style={{ height: 400 }}>
-              <div style={{
-                width: 100,
-                height: 100,
-                borderRadius: 20,
-                background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontFamily: "'Inter', -apple-system, sans-serif",
-                fontWeight: 700,
-                fontSize: 48,
-                color: '#fff',
-                boxShadow: '0 0 60px rgba(255, 159, 65,0.25)',
-              }}>E</div>
+
+            {/* Security & Privacy Callout */}
+            <div className="about-security-callout">
+              <div className="about-security-callout__header">
+                <ShieldCheck size={28} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+                <div>
+                  <h3 style={{ fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 4 }}>Your Data. Your Control.</h3>
+                  <p style={{ fontSize: 14, color: 'var(--text-muted)', lineHeight: 1.5 }}>
+                    We know these are the first questions you'll ask — and they should be.
+                  </p>
+                </div>
+              </div>
+
+              <div className="about-security-callout__items">
+                <div className="about-security-callout__item">
+                  <div className="about-security-callout__icon">
+                    <Eye size={20} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 4 }}>Who can see my information?</h4>
+                    <p style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.65 }}>
+                      Only the people you authorize. Every system we build has role-based access controls, so you decide exactly who sees what. Your customer data is never exposed to unauthorized users — including us.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="about-security-callout__item">
+                  <div className="about-security-callout__icon">
+                    <Lock size={20} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 4 }}>What are you doing with my data?</h4>
+                    <p style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.65 }}>
+                      Nothing. Your data belongs to you — period. We don't sell it, share it, mine it for insights, or use it to train AI models. It sits in infrastructure you control, encrypted at rest and in transit.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="about-security-callout__item">
+                  <div className="about-security-callout__icon">
+                    <UserX size={20} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 4 }}>Who is able to collect it?</h4>
+                    <p style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.65 }}>
+                      No one you haven't approved. We don't embed third-party trackers, sell access to advertising networks, or pass information to outside parties. If your system connects to external services, you choose which ones and what they can access.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="about-security-callout__footer">
+                <p style={{ fontSize: 12, color: 'var(--text-dim)', lineHeight: 1.6 }}>
+                  Built for HVAC companies, healthcare practices, legal firms, and every business where customer trust is non-negotiable.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -108,8 +158,12 @@ export default function About() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="blob blob--blue float float--slow float--offset" style={{ width: 400, height: 400, top: '-20%', right: '-5%' }} />
           <div className="two-col reveal" style={{ position: 'relative', zIndex: 1 }}>
-            <div className="preview-box" style={{ height: 380 }}>
-              <Users size={80} style={{ color: 'var(--border-default)' }} />
+            {/* Team photo placeholder — replace /images/team-photo.svg with actual group photo */}
+            <div className="about-team-photo">
+              <img
+                src="/images/team-photo.svg"
+                alt="The Enigma Software Systems team"
+              />
             </div>
             <div>
               <span className="badge badge--blue">Leadership</span>
@@ -120,7 +174,7 @@ export default function About() {
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>
                 We're not career academics or big-tech refugees. We're entrepreneurs who've built businesses, served clients across industries, and learned firsthand what it takes to turn an idea into a working product.
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+              <div className="expertise-grid">
                 {expertise.map((e, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <e.icon size={18} style={{ color: 'var(--accent)' }} />
@@ -134,9 +188,11 @@ export default function About() {
       </section>
 
       {/* Vision */}
-      <section className="section theme-darker" style={{ position: 'relative' }}>
+      <section className="section about-vision-section" style={{ position: 'relative' }}>
+        <div className="about-vision-section__bg" />
+        <div className="about-vision-section__overlay" />
         <div className="blob blob--accent float float--slow" style={{ width: 500, height: 350, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
-        <div className="container reveal" style={{ position: 'relative', textAlign: 'center' }}>
+        <div className="container reveal" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
           <blockquote style={{
             fontFamily: "'Inter', -apple-system, sans-serif",
             fontSize: 'clamp(22px, 3vw, 36px)',

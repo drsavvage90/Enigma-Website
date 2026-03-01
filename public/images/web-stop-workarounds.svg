@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="440" viewBox="0 0 480 440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e0e1a"/>
+      <stop offset="100%" stop-color="#171728"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="440" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="478" height="438" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Scattered tools / old way (faded, crossed out) -->
+  <!-- Spreadsheet -->
+  <rect x="50" y="60" width="100" height="70" rx="6" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="58" y="68" width="84" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+  <rect x="58" y="80" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="102" y="80" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="58" y="88" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="102" y="88" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="58" y="96" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="102" y="96" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <line x1="50" y1="60" x2="150" y2="130" stroke="rgba(255,80,80,0.12)" stroke-width="1.5"/>
+
+  <!-- Email icon -->
+  <rect x="330" y="50" width="100" height="65" rx="6" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <polyline points="338,58 380,82 422,58" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <rect x="345" y="88" width="70" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="345" y="96" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <line x1="330" y1="50" x2="430" y2="115" stroke="rgba(255,80,80,0.12)" stroke-width="1.5"/>
+
+  <!-- Shared drive icon -->
+  <rect x="180" y="40" width="90" height="60" rx="6" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="195" y="54" width="16" height="20" rx="3" fill="rgba(255,255,255,0.04)"/>
+  <rect x="217" y="54" width="16" height="20" rx="3" fill="rgba(255,255,255,0.04)"/>
+  <rect x="239" y="54" width="16" height="20" rx="3" fill="rgba(255,255,255,0.04)"/>
+  <line x1="180" y1="40" x2="270" y2="100" stroke="rgba(255,80,80,0.12)" stroke-width="1.5"/>
+
+  <!-- Arrow pointing down -->
+  <line x1="240" y1="130" x2="240" y2="170" stroke="rgba(255,159,65,0.2)" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <polygon points="232,168 240,180 248,168" fill="rgba(255,159,65,0.2)"/>
+
+  <!-- New way: unified web app -->
+  <rect x="90" y="190" width="300" height="200" rx="10" fill="rgba(255,255,255,0.025)" stroke="rgba(255,159,65,0.12)" stroke-width="1.5"/>
+  <!-- Browser bar -->
+  <rect x="90" y="190" width="300" height="22" rx="10" fill="rgba(255,255,255,0.04)"/>
+  <rect x="90" y="204" width="300" height="8" fill="rgba(255,255,255,0.04)"/>
+  <circle cx="104" cy="201" r="3.5" fill="#ff5f56"/>
+  <circle cx="116" cy="201" r="3.5" fill="#ffbd2e"/>
+  <circle cx="128" cy="201" r="3.5" fill="#27c93f"/>
+  <rect x="180" y="195" width="130" height="10" rx="5" fill="rgba(255,255,255,0.04)"/>
+  <!-- Dashboard content -->
+  <rect x="102" y="220" width="130" height="56" rx="5" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+  <rect x="110" y="228" width="50" height="4" rx="2" fill="rgba(255,255,255,0.07)"/>
+  <rect x="110" y="240" width="80" height="6" rx="3" fill="rgba(255,159,65,0.15)"/>
+  <rect x="110" y="254" width="40" height="3" rx="1.5" fill="rgba(39,201,63,0.15)"/>
+  <rect x="248" y="220" width="130" height="56" rx="5" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+  <rect x="256" y="228" width="55" height="4" rx="2" fill="rgba(255,255,255,0.07)"/>
+  <rect x="256" y="240" width="70" height="6" rx="3" fill="rgba(255,159,65,0.15)"/>
+  <rect x="256" y="254" width="35" height="3" rx="1.5" fill="rgba(39,201,63,0.15)"/>
+  <!-- Chart -->
+  <rect x="102" y="286" width="276" height="90" rx="5" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+  <rect x="112" y="294" width="55" height="4" rx="2" fill="rgba(255,255,255,0.07)"/>
+  <polyline points="120,360 150,340 180,348 210,325 240,332 270,310 300,318 330,300 360,308" fill="none" stroke="rgba(255,159,65,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Label: old way -->
+  <text x="240" y="24" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="9" font-family="Inter,sans-serif" font-weight="500">Scattered Tools</text>
+  <!-- Label: new way -->
+  <text x="240" y="415" text-anchor="middle" fill="rgba(255,159,65,0.2)" font-size="10" font-family="Inter,sans-serif" font-weight="600">One Custom Platform</text>
+</svg>

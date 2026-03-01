@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="440" viewBox="0 0 600 440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e0e1a"/>
+      <stop offset="100%" stop-color="#171728"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="440" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="598" height="438" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <!-- Person silhouettes -->
+  <!-- Person 1 (left) -->
+  <circle cx="200" cy="195" r="24" fill="rgba(255,255,255,0.06)"/>
+  <rect x="178" y="228" width="44" height="52" rx="10" fill="rgba(255,255,255,0.05)"/>
+  <!-- Person 2 (center-left) -->
+  <circle cx="265" cy="185" r="26" fill="rgba(255,255,255,0.07)"/>
+  <rect x="241" y="220" width="48" height="56" rx="10" fill="rgba(255,255,255,0.06)"/>
+  <!-- Person 3 (center — slightly forward) -->
+  <circle cx="335" cy="185" r="26" fill="rgba(255,255,255,0.07)"/>
+  <rect x="311" y="220" width="48" height="56" rx="10" fill="rgba(255,255,255,0.06)"/>
+  <!-- Person 4 (right) -->
+  <circle cx="400" cy="195" r="24" fill="rgba(255,255,255,0.06)"/>
+  <rect x="378" y="228" width="44" height="52" rx="10" fill="rgba(255,255,255,0.05)"/>
+  <!-- Accent underline -->
+  <rect x="240" y="310" width="120" height="2" rx="1" fill="rgba(255,159,65,0.2)"/>
+  <!-- Label -->
+  <text x="300" y="345" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="13" font-family="Inter,-apple-system,sans-serif" font-weight="500">Team Photo — Coming Soon</text>
+</svg>

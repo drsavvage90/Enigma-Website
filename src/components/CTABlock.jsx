@@ -46,6 +46,7 @@ export default function CTABlock({ headline, text, buttonText = "Let's Talk", bu
   return (
     <section
       ref={ref}
+      className="cta-block"
       style={{
         padding: '120px 0',
         textAlign: 'center',

@@ -64,12 +64,18 @@ export default function HowWeWork() {
         title="From Idea to Launch, and Beyond"
         subtitle="We don't just build software and hand you the keys. Here's how we take your project from concept to a working product — and keep it running long after launch."
         blobColor="blue"
+        primaryCta={{ text: 'Schedule a Discovery Call', to: '/contact' }}
+        secondaryCta={{ text: 'Explore Our Services', to: '/ai-systems' }}
+        image="/images/hero-process.svg"
+        imageAlt="Four-step process from discovery to ongoing support"
+        imageLayout="image-right"
       />
 
       {/* Timeline — with draw line animation (#8) */}
-      <section className="section theme-dark" style={{ position: 'relative' }}>
-        <div className="blob blob--orange float float--fast float--offset" style={{ width: 350, height: 350, top: '10%', right: '-8%' }} />
-        <div className="container" style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <section className="section process-timeline-section" style={{ position: 'relative' }}>
+        <div className="process-timeline-section__bg" />
+        <div className="process-timeline-section__overlay" />
+        <div className="container" style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div className="reveal section-header">
             <span className="badge badge--accent">Our Process</span>
             <h2 className="display display--gradient heading-lg">Four Steps to Your Solution</h2>

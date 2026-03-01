@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="480" viewBox="0 0 600 480">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e0e1a"/>
+      <stop offset="100%" stop-color="#171728"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF9F41"/>
+      <stop offset="100%" stop-color="#FF7733"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="480" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="598" height="478" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <!-- Brain / neural network -->
+  <circle cx="300" cy="200" r="60" fill="rgba(255,159,65,0.04)" stroke="rgba(255,159,65,0.12)" stroke-width="1.5"/>
+  <circle cx="300" cy="200" r="40" fill="rgba(255,159,65,0.06)" stroke="rgba(255,159,65,0.1)" stroke-width="1"/>
+  <!-- Neural nodes -->
+  <circle cx="300" cy="200" r="6" fill="rgba(255,159,65,0.4)"/>
+  <circle cx="260" cy="175" r="4" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="340" cy="175" r="4" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="270" cy="225" r="4" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="330" cy="225" r="4" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="300" cy="160" r="4" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="300" cy="240" r="4" fill="rgba(255,255,255,0.15)"/>
+  <!-- Connections -->
+  <line x1="300" y1="200" x2="260" y2="175" stroke="rgba(255,159,65,0.15)" stroke-width="1"/>
+  <line x1="300" y1="200" x2="340" y2="175" stroke="rgba(255,159,65,0.15)" stroke-width="1"/>
+  <line x1="300" y1="200" x2="270" y2="225" stroke="rgba(255,159,65,0.15)" stroke-width="1"/>
+  <line x1="300" y1="200" x2="330" y2="225" stroke="rgba(255,159,65,0.15)" stroke-width="1"/>
+  <line x1="300" y1="200" x2="300" y2="160" stroke="rgba(255,159,65,0.15)" stroke-width="1"/>
+  <line x1="300" y1="200" x2="300" y2="240" stroke="rgba(255,159,65,0.15)" stroke-width="1"/>
+  <!-- Outer nodes -->
+  <circle cx="220" cy="150" r="3" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="380" cy="150" r="3" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="220" cy="250" r="3" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="380" cy="250" r="3" fill="rgba(255,255,255,0.1)"/>
+  <line x1="260" y1="175" x2="220" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <line x1="340" y1="175" x2="380" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <line x1="270" y1="225" x2="220" y2="250" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <line x1="330" y1="225" x2="380" y2="250" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <!-- Model badges -->
+  <rect x="170" y="300" width="70" height="22" rx="11" fill="rgba(255,159,65,0.08)" stroke="rgba(255,159,65,0.15)" stroke-width="0.5"/>
+  <text x="205" y="315" text-anchor="middle" fill="rgba(255,159,65,0.5)" font-size="9" font-family="Inter, sans-serif" font-weight="600">ChatGPT</text>
+  <rect x="255" y="300" width="60" height="22" rx="11" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="285" y="315" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter, sans-serif" font-weight="600">Claude</text>
+  <rect x="330" y="300" width="60" height="22" rx="11" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="360" y="315" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter, sans-serif" font-weight="600">Gemini</text>
+  <!-- Label -->
+  <text x="300" y="390" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="13" font-family="Inter, -apple-system, sans-serif" font-weight="500">AI Systems Visual — Placeholder</text>
+  <rect x="237" y="405" width="126" height="2" rx="1" fill="url(#accent)" opacity="0.3"/>
+</svg>

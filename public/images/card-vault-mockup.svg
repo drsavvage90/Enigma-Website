@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c0c18"/>
+      <stop offset="100%" stop-color="#14142a"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#bg)"/>
+  <!-- Browser chrome -->
+  <rect x="60" y="30" width="480" height="280" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <rect x="60" y="30" width="480" height="26" rx="10" fill="rgba(255,255,255,0.04)"/>
+  <rect x="60" y="48" width="480" height="8" fill="rgba(255,255,255,0.04)"/>
+  <circle cx="76" cy="43" r="4" fill="#ff5f56"/>
+  <circle cx="90" cy="43" r="4" fill="#ffbd2e"/>
+  <circle cx="104" cy="43" r="4" fill="#27c93f"/>
+  <!-- URL bar -->
+  <rect x="160" y="34" width="200" height="14" rx="7" fill="rgba(255,255,255,0.04)"/>
+  <text x="260" y="44" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="7" font-family="Inter,sans-serif">vault.yourcompany.com</text>
+  <!-- Sidebar -->
+  <rect x="68" y="62" width="100" height="240" fill="rgba(255,255,255,0.02)"/>
+  <rect x="68" y="62" width="100" height="240" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+  <!-- Sidebar logo area -->
+  <rect x="78" y="72" width="80" height="8" rx="4" fill="rgba(255,159,65,0.15)"/>
+  <!-- Sidebar nav items -->
+  <rect x="78" y="95" width="70" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+  <rect x="78" y="110" width="55" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+  <rect x="78" y="125" width="65" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+  <rect x="78" y="140" width="50" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+  <!-- Sidebar model badges -->
+  <rect x="78" y="200" width="72" height="16" rx="8" fill="rgba(255,159,65,0.06)" stroke="rgba(255,159,65,0.15)" stroke-width="0.5"/>
+  <text x="114" y="211" text-anchor="middle" fill="rgba(255,159,65,0.4)" font-size="7" font-family="Inter,sans-serif" font-weight="600">GPT-4</text>
+  <rect x="78" y="222" width="72" height="16" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+  <text x="114" y="233" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="7" font-family="Inter,sans-serif" font-weight="600">Claude</text>
+  <rect x="78" y="244" width="72" height="16" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+  <text x="114" y="255" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="7" font-family="Inter,sans-serif" font-weight="600">Gemini</text>
+  <!-- Main chat area -->
+  <rect x="176" y="62" width="356" height="240" fill="rgba(255,255,255,0.01)"/>
+  <!-- Chat header -->
+  <rect x="190" y="72" width="100" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <!-- Chat bubbles -->
+  <rect x="190" y="95" width="200" height="24" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="196" y="104" width="120" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <rect x="280" y="130" width="240" height="48" rx="8" fill="rgba(255,159,65,0.04)" stroke="rgba(255,159,65,0.1)" stroke-width="0.5"/>
+  <rect x="290" y="140" width="180" height="4" rx="2" fill="rgba(255,159,65,0.15)"/>
+  <rect x="290" y="150" width="150" height="4" rx="2" fill="rgba(255,159,65,0.1)"/>
+  <rect x="290" y="160" width="100" height="4" rx="2" fill="rgba(255,159,65,0.08)"/>
+  <rect x="190" y="192" width="160" height="24" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="196" y="201" width="100" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <!-- Input bar -->
+  <rect x="190" y="260" width="326" height="28" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+  <rect x="206" y="271" width="80" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+  <!-- Label -->
+  <text x="300" y="338" text-anchor="middle" fill="rgba(255,255,255,0.12)" font-size="10" font-family="Inter,-apple-system,sans-serif" font-weight="500">Vault by Enigma — Placeholder</text>
+</svg>

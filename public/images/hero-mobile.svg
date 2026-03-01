@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="480" viewBox="0 0 600 480">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e0e1a"/>
+      <stop offset="100%" stop-color="#171728"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF9F41"/>
+      <stop offset="100%" stop-color="#FF7733"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="480" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="598" height="478" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- ═══ Phone 1 (left) — Service Request / HVAC App ═══ -->
+  <rect x="100" y="90" width="120" height="240" rx="18" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <rect x="130" y="96" width="60" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
+  <rect x="108" y="112" width="104" height="200" rx="4" fill="rgba(255,255,255,0.015)"/>
+  <!-- Header -->
+  <rect x="116" y="120" width="88" height="20" rx="4" fill="rgba(255,159,65,0.08)"/>
+  <rect x="122" y="127" width="50" height="4" rx="2" fill="rgba(255,159,65,0.22)"/>
+  <!-- Service request cards -->
+  <rect x="116" y="148" width="88" height="28" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <circle cx="128" cy="158" r="4" fill="rgba(255,159,65,0.15)"/>
+  <rect x="136" y="154" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+  <rect x="136" y="161" width="55" height="3" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+  <rect x="116" y="182" width="88" height="28" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <circle cx="128" cy="192" r="4" fill="rgba(255,255,255,0.08)"/>
+  <rect x="136" y="188" width="45" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+  <rect x="136" y="195" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+  <rect x="116" y="216" width="88" height="28" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <circle cx="128" cy="226" r="4" fill="rgba(255,255,255,0.08)"/>
+  <rect x="136" y="222" width="36" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+  <rect x="136" y="229" width="48" height="3" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+  <!-- CTA button -->
+  <rect x="116" y="254" width="88" height="24" rx="12" fill="rgba(255,159,65,0.1)" stroke="rgba(255,159,65,0.2)" stroke-width="0.5"/>
+  <text x="160" y="269" text-anchor="middle" fill="rgba(255,159,65,0.5)" font-size="8" font-family="Inter,sans-serif" font-weight="600">Request Service</text>
+  <!-- Bottom nav -->
+  <rect x="116" y="286" width="88" height="14" rx="3" fill="rgba(255,255,255,0.015)"/>
+  <circle cx="138" cy="293" r="3" fill="rgba(255,159,65,0.25)"/>
+  <circle cx="160" cy="293" r="3" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="182" cy="293" r="3" fill="rgba(255,255,255,0.06)"/>
+  <!-- Home bar -->
+  <rect x="135" y="316" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- ═══ Phone 2 (center, forward) — Scheduling / Booking App ═══ -->
+  <rect x="240" y="55" width="130" height="260" rx="20" fill="rgba(255,255,255,0.03)" stroke="rgba(255,159,65,0.14)" stroke-width="2"/>
+  <rect x="275" y="62" width="60" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
+  <rect x="250" y="78" width="110" height="216" rx="4" fill="rgba(255,255,255,0.015)"/>
+  <!-- Header -->
+  <rect x="258" y="86" width="94" height="22" rx="4" fill="rgba(255,159,65,0.1)"/>
+  <rect x="264" y="94" width="55" height="5" rx="2.5" fill="rgba(255,159,65,0.25)"/>
+  <!-- Calendar grid -->
+  <g>
+    <rect x="258" y="116" width="21" height="18" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+    <text x="268" y="128" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="7" font-family="Inter,sans-serif">M</text>
+    <rect x="282" y="116" width="21" height="18" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+    <text x="292" y="128" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="7" font-family="Inter,sans-serif">T</text>
+    <rect x="306" y="116" width="21" height="18" rx="4" fill="rgba(255,159,65,0.08)" stroke="rgba(255,159,65,0.15)" stroke-width="0.5"/>
+    <text x="316" y="128" text-anchor="middle" fill="rgba(255,159,65,0.4)" font-size="7" font-family="Inter,sans-serif" font-weight="700">W</text>
+    <rect x="330" y="116" width="21" height="18" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+    <text x="340" y="128" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="7" font-family="Inter,sans-serif">T</text>
+  </g>
+  <!-- Time slots -->
+  <rect x="258" y="142" width="94" height="20" rx="5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="266" y="149" width="28" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <rect x="332" y="148" width="12" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
+  <rect x="258" y="168" width="94" height="20" rx="5" fill="rgba(255,159,65,0.05)" stroke="rgba(255,159,65,0.12)" stroke-width="0.5"/>
+  <rect x="266" y="175" width="32" height="4" rx="2" fill="rgba(255,159,65,0.2)"/>
+  <rect x="332" y="174" width="12" height="6" rx="3" fill="rgba(255,159,65,0.15)"/>
+  <rect x="258" y="194" width="94" height="20" rx="5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="266" y="201" width="26" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <rect x="332" y="200" width="12" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
+  <!-- Confirm button -->
+  <rect x="258" y="228" width="94" height="28" rx="14" fill="url(#accent)" opacity="0.15"/>
+  <rect x="258" y="228" width="94" height="28" rx="14" fill="none" stroke="rgba(255,159,65,0.3)" stroke-width="0.5"/>
+  <text x="305" y="245" text-anchor="middle" fill="rgba(255,159,65,0.6)" font-size="9" font-family="Inter,sans-serif" font-weight="700">Confirm Booking</text>
+  <!-- Bottom nav -->
+  <rect x="258" y="266" width="94" height="16" rx="3" fill="rgba(255,255,255,0.015)"/>
+  <circle cx="282" cy="274" r="3.5" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="305" cy="274" r="3.5" fill="rgba(255,159,65,0.3)"/>
+  <circle cx="328" cy="274" r="3.5" fill="rgba(255,255,255,0.06)"/>
+  <!-- Home bar -->
+  <rect x="280" y="300" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- ═══ Phone 3 (right) — E-Commerce / Order App ═══ -->
+  <rect x="390" y="80" width="120" height="240" rx="18" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <rect x="420" y="86" width="60" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
+  <rect x="398" y="102" width="104" height="200" rx="4" fill="rgba(255,255,255,0.015)"/>
+  <!-- Header with cart icon -->
+  <rect x="406" y="110" width="88" height="20" rx="4" fill="rgba(255,255,255,0.03)"/>
+  <rect x="412" y="117" width="45" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="484" cy="120" r="6" fill="rgba(255,159,65,0.1)" stroke="rgba(255,159,65,0.2)" stroke-width="0.5"/>
+  <text x="484" y="123" text-anchor="middle" fill="rgba(255,159,65,0.4)" font-size="7" font-family="Inter,sans-serif" font-weight="700">3</text>
+  <!-- Product cards -->
+  <rect x="406" y="138" width="42" height="42" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="414" y="156" width="26" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+  <rect x="452" y="138" width="42" height="42" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="460" y="156" width="26" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+  <rect x="406" y="186" width="42" height="42" rx="6" fill="rgba(255,159,65,0.04)" stroke="rgba(255,159,65,0.1)" stroke-width="0.5"/>
+  <rect x="414" y="204" width="26" height="3" rx="1.5" fill="rgba(255,159,65,0.15)"/>
+  <rect x="452" y="186" width="42" height="42" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <rect x="460" y="204" width="26" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+  <!-- Checkout button -->
+  <rect x="406" y="240" width="88" height="24" rx="12" fill="rgba(255,159,65,0.1)" stroke="rgba(255,159,65,0.2)" stroke-width="0.5"/>
+  <text x="450" y="255" text-anchor="middle" fill="rgba(255,159,65,0.5)" font-size="8" font-family="Inter,sans-serif" font-weight="600">Checkout</text>
+  <!-- Bottom nav -->
+  <rect x="406" y="272" width="88" height="14" rx="3" fill="rgba(255,255,255,0.015)"/>
+  <circle cx="428" cy="279" r="3" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="450" cy="279" r="3" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="472" cy="279" r="3" fill="rgba(255,159,65,0.25)"/>
+  <!-- Home bar -->
+  <rect x="425" y="306" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Labels below -->
+  <text x="160" y="358" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="9" font-family="Inter,sans-serif" font-weight="500">Service Requests</text>
+  <text x="305" y="348" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="9" font-family="Inter,sans-serif" font-weight="500">Scheduling</text>
+  <text x="450" y="358" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="9" font-family="Inter,sans-serif" font-weight="500">E-Commerce</text>
+
+  <!-- Accent bar -->
+  <rect x="215" y="395" width="170" height="2" rx="1" fill="url(#accent)" opacity="0.25"/>
+</svg>

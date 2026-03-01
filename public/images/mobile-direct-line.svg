@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="440" viewBox="0 0 480 440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e0e1a"/>
+      <stop offset="100%" stop-color="#171728"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="440" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="478" height="438" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Phone frame -->
+  <rect x="155" y="40" width="170" height="340" rx="24" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <rect x="205" y="48" width="70" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+  <rect x="167" y="68" width="146" height="284" rx="4" fill="rgba(255,255,255,0.015)"/>
+
+  <!-- Status bar -->
+  <rect x="175" y="74" width="24" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <rect x="275" y="74" width="30" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- App icon on home screen feel -->
+  <rect x="185" y="92" width="110" height="28" rx="8" fill="rgba(255,159,65,0.08)" stroke="rgba(255,159,65,0.15)" stroke-width="0.5"/>
+  <circle cx="201" cy="106" r="8" fill="rgba(255,159,65,0.15)"/>
+  <text x="201" y="110" text-anchor="middle" fill="rgba(255,159,65,0.5)" font-size="9" font-family="Inter,sans-serif" font-weight="700">Y</text>
+  <rect x="215" y="100" width="55" height="4" rx="2" fill="rgba(255,159,65,0.22)"/>
+  <rect x="215" y="108" width="70" height="3" rx="1.5" fill="rgba(255,159,65,0.12)"/>
+
+  <!-- Push notification 1 -->
+  <rect x="185" y="134" width="110" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+  <circle cx="199" cy="148" r="5" fill="rgba(255,159,65,0.12)"/>
+  <rect x="210" y="141" width="60" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="210" y="149" width="75" height="3" rx="1.5" fill="rgba(255,255,255,0.06)"/>
+  <rect x="210" y="156" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+
+  <!-- Push notification 2 -->
+  <rect x="185" y="182" width="110" height="40" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <circle cx="199" cy="196" r="5" fill="rgba(255,255,255,0.06)"/>
+  <rect x="210" y="189" width="55" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="210" y="197" width="70" height="3" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+  <rect x="210" y="204" width="45" height="3" rx="1.5" fill="rgba(255,255,255,0.03)"/>
+
+  <!-- Quick action buttons -->
+  <rect x="185" y="238" width="52" height="50" rx="10" fill="rgba(255,159,65,0.06)" stroke="rgba(255,159,65,0.12)" stroke-width="0.5"/>
+  <circle cx="211" cy="254" r="8" fill="rgba(255,159,65,0.1)"/>
+  <text x="211" y="258" text-anchor="middle" fill="rgba(255,159,65,0.35)" font-size="9" font-family="Inter,sans-serif">📅</text>
+  <rect x="198" y="268" width="26" height="3" rx="1.5" fill="rgba(255,159,65,0.12)"/>
+
+  <rect x="243" y="238" width="52" height="50" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <circle cx="269" cy="254" r="8" fill="rgba(255,255,255,0.04)"/>
+  <text x="269" y="258" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="9" font-family="Inter,sans-serif">💬</text>
+  <rect x="256" y="268" width="26" height="3" rx="1.5" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Bottom nav bar -->
+  <rect x="185" y="302" width="110" height="20" rx="4" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="215" cy="312" r="4" fill="rgba(255,159,65,0.25)"/>
+  <circle cx="240" cy="312" r="4" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="265" cy="312" r="4" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Home indicator -->
+  <rect x="215" y="342" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Floating connection lines to suggest "direct line" -->
+  <line x1="155" y1="150" x2="110" y2="130" stroke="rgba(255,159,65,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="105" cy="127" r="12" fill="rgba(255,159,65,0.03)" stroke="rgba(255,159,65,0.08)" stroke-width="0.5"/>
+  <text x="105" y="131" text-anchor="middle" fill="rgba(255,159,65,0.2)" font-size="8" font-family="Inter,sans-serif">👤</text>
+
+  <line x1="325" y1="200" x2="370" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="375" cy="177" r="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <text x="375" y="181" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="8" font-family="Inter,sans-serif">🔔</text>
+
+  <line x1="325" y1="260" x2="380" y2="280" stroke="rgba(255,159,65,0.04)" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="385" cy="283" r="12" fill="rgba(255,159,65,0.02)" stroke="rgba(255,159,65,0.06)" stroke-width="0.5"/>
+  <text x="385" y="287" text-anchor="middle" fill="rgba(255,159,65,0.15)" font-size="8" font-family="Inter,sans-serif">⭐</text>
+</svg>

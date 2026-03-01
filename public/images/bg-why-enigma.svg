@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060610"/>
+      <stop offset="50%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#060610"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="25%" cy="35%">
+      <stop offset="0%" stop-color="rgba(255,159,65,0.07)"/>
+      <stop offset="60%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="80%" cy="70%">
+      <stop offset="0%" stop-color="rgba(255,170,51,0.05)"/>
+      <stop offset="60%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="50%" cy="10%">
+      <stop offset="0%" stop-color="rgba(255,119,51,0.04)"/>
+      <stop offset="50%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#g1)"/>
+  <rect width="1920" height="1080" fill="url(#g2)"/>
+  <rect width="1920" height="1080" fill="url(#g3)"/>
+  <!-- Subtle grid -->
+  <g opacity="0.025">
+    <line x1="320" y1="0" x2="320" y2="1080" stroke="white" stroke-width="0.5"/>
+    <line x1="640" y1="0" x2="640" y2="1080" stroke="white" stroke-width="0.5"/>
+    <line x1="960" y1="0" x2="960" y2="1080" stroke="white" stroke-width="0.5"/>
+    <line x1="1280" y1="0" x2="1280" y2="1080" stroke="white" stroke-width="0.5"/>
+    <line x1="1600" y1="0" x2="1600" y2="1080" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="216" x2="1920" y2="216" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="432" x2="1920" y2="432" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="648" x2="1920" y2="648" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="864" x2="1920" y2="864" stroke="white" stroke-width="0.5"/>
+  </g>
+  <!-- Scattered accent dots / particles -->
+  <circle cx="200" cy="180" r="2" fill="rgba(255,159,65,0.12)"/>
+  <circle cx="480" cy="350" r="1.5" fill="rgba(255,159,65,0.08)"/>
+  <circle cx="750" cy="150" r="2.5" fill="rgba(255,170,51,0.06)"/>
+  <circle cx="1100" cy="280" r="2" fill="rgba(255,159,65,0.1)"/>
+  <circle cx="1400" cy="450" r="1.5" fill="rgba(255,119,51,0.08)"/>
+  <circle cx="1650" cy="200" r="2" fill="rgba(255,159,65,0.07)"/>
+  <circle cx="350" cy="700" r="2" fill="rgba(255,170,51,0.09)"/>
+  <circle cx="900" cy="800" r="1.5" fill="rgba(255,159,65,0.06)"/>
+  <circle cx="1300" cy="750" r="2.5" fill="rgba(255,119,51,0.07)"/>
+  <circle cx="1700" cy="650" r="1.5" fill="rgba(255,159,65,0.08)"/>
+  <circle cx="550" cy="950" r="2" fill="rgba(255,170,51,0.05)"/>
+  <circle cx="1500" cy="900" r="2" fill="rgba(255,159,65,0.06)"/>
+  <!-- Diagonal accent lines -->
+  <line x1="100" y1="0" x2="500" y2="1080" stroke="rgba(255,159,65,0.015)" stroke-width="1"/>
+  <line x1="800" y1="0" x2="1200" y2="1080" stroke="rgba(255,170,51,0.012)" stroke-width="1"/>
+  <line x1="1500" y1="0" x2="1900" y2="1080" stroke="rgba(255,119,51,0.015)" stroke-width="1"/>
+</svg>

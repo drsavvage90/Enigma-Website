@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="700" viewBox="0 0 1920 700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060610"/>
+      <stop offset="50%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#060610"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="30%" cy="40%">
+      <stop offset="0%" stop-color="rgba(100,140,255,0.05)"/>
+      <stop offset="60%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="70%" cy="55%">
+      <stop offset="0%" stop-color="rgba(100,140,255,0.04)"/>
+      <stop offset="55%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="50%" cy="25%">
+      <stop offset="0%" stop-color="rgba(255,159,65,0.025)"/>
+      <stop offset="50%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="700" fill="url(#bg)"/>
+  <rect width="1920" height="700" fill="url(#g1)"/>
+  <rect width="1920" height="700" fill="url(#g2)"/>
+  <rect width="1920" height="700" fill="url(#g3)"/>
+  <g opacity="0.015">
+    <line x1="384" y1="0" x2="384" y2="700" stroke="white" stroke-width="0.5"/>
+    <line x1="768" y1="0" x2="768" y2="700" stroke="white" stroke-width="0.5"/>
+    <line x1="1152" y1="0" x2="1152" y2="700" stroke="white" stroke-width="0.5"/>
+    <line x1="1536" y1="0" x2="1536" y2="700" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="233" x2="1920" y2="233" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="466" x2="1920" y2="466" stroke="white" stroke-width="0.5"/>
+  </g>
+  <!-- Question mark silhouettes -->
+  <text x="250" y="280" fill="rgba(100,140,255,0.02)" font-size="180" font-family="Inter,sans-serif" font-weight="700">?</text>
+  <text x="1500" y="450" fill="rgba(100,140,255,0.018)" font-size="140" font-family="Inter,sans-serif" font-weight="700">?</text>
+  <text x="850" y="550" fill="rgba(255,159,65,0.012)" font-size="100" font-family="Inter,sans-serif" font-weight="700">?</text>
+  <!-- Particles -->
+  <circle cx="300" cy="200" r="2" fill="rgba(100,140,255,0.07)"/>
+  <circle cx="650" cy="380" r="1.5" fill="rgba(100,140,255,0.05)"/>
+  <circle cx="1000" cy="150" r="2.5" fill="rgba(255,159,65,0.04)"/>
+  <circle cx="1350" cy="450" r="2" fill="rgba(100,140,255,0.06)"/>
+  <circle cx="1700" cy="250" r="1.5" fill="rgba(255,159,65,0.04)"/>
+  <circle cx="450" cy="550" r="2" fill="rgba(100,140,255,0.05)"/>
+  <circle cx="1150" cy="600" r="1.5" fill="rgba(255,159,65,0.03)"/>
+</svg>

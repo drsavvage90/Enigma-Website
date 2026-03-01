@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import IconBox from '../components/IconBox'
@@ -6,7 +7,7 @@ import PageHeader from '../components/PageHeader'
 import {
   Calendar, ShoppingCart, Star, Clock,
   Smartphone, Workflow, Bell, Trophy,
-  CheckCircle,
+  CheckCircle, ChevronDown,
 } from 'lucide-react'
 
 const benefits = [
@@ -72,11 +73,127 @@ const buildTiers = [
 ]
 
 const maintenancePlans = [
-  { name: 'Essential', price: '$200/mo', bestFor: 'Simple Apps', hours: '2 hrs/mo', response: 'Standard' },
-  { name: 'Professional', price: '$400/mo', bestFor: 'Moderate Apps', hours: '4 hrs/mo', response: 'Next Business Day' },
-  { name: 'Premium', price: '$1,000/mo', bestFor: 'Complex Apps', hours: '8 hrs/mo', response: 'Same Business Day' },
-  { name: 'Custom', price: 'Custom Quote', bestFor: 'Custom Apps', hours: 'Flexible', response: 'Custom SLA' },
+  {
+    name: 'Essential',
+    price: '$200/mo',
+    bestFor: 'Simple Apps',
+    hours: '2 hrs/mo',
+    response: 'Standard',
+    includes: [
+      'Bug fixes and crash resolution',
+      'iOS and Android OS compatibility updates',
+      'App Store and Google Play compliance monitoring',
+      'Security patches and dependency updates',
+      'Performance monitoring and uptime checks',
+      '2 hours of minor adjustments or content changes per month',
+      'Email support during business hours',
+    ],
+  },
+  {
+    name: 'Professional',
+    price: '$400/mo',
+    bestFor: 'Moderate Apps',
+    hours: '4 hrs/mo',
+    response: 'Next Business Day',
+    includes: [
+      'Everything in Essential',
+      'Priority bug fixes and crash resolution',
+      'iOS and Android OS compatibility updates with beta testing',
+      'App Store and Google Play listing optimization',
+      'Third-party API and integration maintenance',
+      'Backend and database performance tuning',
+      '4 hours of feature additions, UI tweaks, or workflow changes per month',
+      'Next-business-day response on all support requests',
+      'Quarterly app performance review call',
+    ],
+  },
+  {
+    name: 'Premium',
+    price: '$1,000/mo',
+    bestFor: 'Complex Apps',
+    hours: '8 hrs/mo',
+    response: 'Same Business Day',
+    includes: [
+      'Everything in Professional',
+      'Same-day bug fixes for critical issues',
+      'Proactive OS compatibility testing before major iOS/Android releases',
+      'App Store and Google Play compliance, review, and update management',
+      'Multi-system integration monitoring (EHR, CRM, ERP, payment processors)',
+      'Advanced security audits and compliance patch management (HIPAA, PCI)',
+      'Push notification system maintenance and optimization',
+      '8 hours of feature development, redesign work, or new integrations per month',
+      'Same-business-day response on all support requests',
+      'Dedicated account manager',
+      'Monthly performance review and roadmap planning call',
+    ],
+  },
+  {
+    name: 'Custom',
+    price: 'Custom Quote',
+    bestFor: 'Custom Apps',
+    hours: 'Flexible',
+    response: 'Custom SLA',
+    includes: [
+      'Everything in Premium',
+      'Custom SLA with guaranteed response and resolution times',
+      'Dedicated engineering hours scoped to your roadmap',
+      'Priority feature development and early access to new capabilities',
+      'Multi-platform coordination (iOS, Android, web, API)',
+      'Custom analytics dashboards and reporting',
+      'On-call support options available',
+      'Annual architecture review and scalability planning',
+    ],
+  },
 ]
+
+function MobileMaintenanceCard({ plan }) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className={`card card--glass card--glow maintenance-plan-card${open ? ' maintenance-plan-card--open' : ''}`}>
+      <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>{plan.name}</h3>
+      <p className="tier-price--sm">{plan.price}</p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div className="plan-row">
+          <span className="plan-row__label">Best For</span>
+          <span className="plan-row__value">{plan.bestFor}</span>
+        </div>
+        <div className="plan-row">
+          <span className="plan-row__label">Included Hours</span>
+          <span className="plan-row__value">{plan.hours}</span>
+        </div>
+        <div className="plan-row">
+          <span className="plan-row__label">Response Time</span>
+          <span className="plan-row__value">{plan.response}</span>
+        </div>
+      </div>
+
+      <button
+        className="maintenance-plan-toggle"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+      >
+        <span>What's Included</span>
+        <ChevronDown size={16} style={{
+          transition: 'transform 0.3s ease',
+          transform: open ? 'rotate(180deg)' : 'rotate(0)',
+          flexShrink: 0,
+        }} />
+      </button>
+
+      <div className={`maintenance-plan-body${open ? ' open' : ''}`}>
+        <div className="maintenance-plan-body__inner">
+          {plan.includes.map((item, i) => (
+            <div key={i} className="feature-check">
+              <CheckCircle size={13} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 3 }} />
+              <span className="feature-check__text">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function MobileApps() {
   const ref = useReveal()
@@ -88,22 +205,37 @@ export default function MobileApps() {
         title="Your Business, Right in Their Pocket"
         subtitle="Give your customers a faster, easier way to interact with your business — a custom mobile app that works the way they do, available on both iOS and Android."
         blobColor="accent"
+        primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
+        secondaryCta={{ text: 'See Use Cases', to: '#use-cases' }}
+        image="/images/hero-mobile.svg"
+        imageAlt="Mobile app mockups on iPhone and Android devices"
+        imageLayout="image-right"
       />
 
       {/* SECTION 2 — THE PROBLEM / FRAMING */}
       <section className="section--sm theme-darker">
-        <div className="container reveal" style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto' }}>
-          <span className="badge badge--accent">Mobile Apps</span>
-          <h2 className="display display--gradient heading-md">A Direct Line to Your Customers</h2>
-          <p className="body-text">
-            Your customers are already on their phones. They're scheduling appointments, placing orders, and checking statuses from wherever they are. The question is whether they're doing those things through your app — or through someone else's.
-          </p>
-          <p className="body-text">
-            A custom mobile app puts your business directly on your customer's home screen. It's not a website they have to search for. It's not an email they have to dig through. It's your business, one tap away, ready when they are.
-          </p>
-          <p className="body-text">
-            We don't build generic apps from templates. Every app we create is designed around how your business actually operates and what your customers actually need. The result is an app people use every week — not one that gets downloaded and forgotten.
-          </p>
+        <div className="container">
+          <div className="two-col reveal" style={{ gap: 56, alignItems: 'start' }}>
+            <div>
+              <span className="badge badge--accent">Mobile Apps</span>
+              <h2 className="display display--gradient heading-md">A Direct Line to Your Customers</h2>
+              <p className="body-text">
+                Your customers are already on their phones. They're scheduling appointments, placing orders, and checking statuses from wherever they are. The question is whether they're doing those things through your app — or through someone else's.
+              </p>
+              <p className="body-text">
+                A custom mobile app puts your business directly on your customer's home screen. It's not a website they have to search for. It's not an email they have to dig through. It's your business, one tap away, ready when they are.
+              </p>
+              <p className="body-text">
+                We don't build generic apps from templates. Every app we create is designed around how your business actually operates and what your customers actually need. The result is an app people use every week — not one that gets downloaded and forgotten.
+              </p>
+            </div>
+            <div className="mobile-direct-line-image">
+              <img
+                src="/images/mobile-direct-line.svg"
+                alt="Mobile app with push notifications and quick actions on a phone screen"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -128,9 +260,10 @@ export default function MobileApps() {
       </section>
 
       {/* SECTION 4 — USE CASES */}
-      <section className="section theme-darker" style={{ position: 'relative' }}>
-        <div className="blob blob--orange float float--fast float--offset" style={{ width: 400, height: 400, top: '-15%', right: '-10%' }} />
-        <div className="container section-z">
+      <section id="use-cases" className="section mobile-usecases-section" style={{ position: 'relative' }}>
+        <div className="mobile-usecases-section__bg" />
+        <div className="mobile-usecases-section__overlay" />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="reveal section-header">
             <span className="badge badge--accent">Use Cases</span>
             <h2 className="display display--gradient heading-lg">See How It Works for Businesses Like Yours</h2>
@@ -204,6 +337,7 @@ export default function MobileApps() {
                 key={i}
                 className={`card card--glass card--glow reveal${tier.highlight ? ' mobile-tier--highlight' : ''}`}
                 style={tier.highlight ? { border: '1px solid rgba(255, 159, 65, 0.3)', position: 'relative' } : {}}
+                allowOverflow={tier.highlight}
               >
                 {tier.highlight && (
                   <span className="tier-popular-tag">
@@ -253,26 +387,7 @@ export default function MobileApps() {
 
           <div className="grid-4 reveal-group">
             {maintenancePlans.map((plan, i) => (
-              <TiltCard key={i} className="card card--glass card--glow reveal">
-                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>{plan.name}</h3>
-                <p className="tier-price--sm">
-                  {plan.price}
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div className="plan-row">
-                    <span className="plan-row__label">Best For</span>
-                    <span className="plan-row__value">{plan.bestFor}</span>
-                  </div>
-                  <div className="plan-row">
-                    <span className="plan-row__label">Included Hours</span>
-                    <span className="plan-row__value">{plan.hours}</span>
-                  </div>
-                  <div className="plan-row">
-                    <span className="plan-row__label">Response Time</span>
-                    <span className="plan-row__value">{plan.response}</span>
-                  </div>
-                </div>
-              </TiltCard>
+              <MobileMaintenanceCard key={i} plan={plan} />
             ))}
           </div>
 

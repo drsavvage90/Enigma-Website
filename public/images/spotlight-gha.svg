@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="520" viewBox="0 0 400 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e0e1a"/>
+      <stop offset="100%" stop-color="#171728"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF9F41"/>
+      <stop offset="100%" stop-color="#FF7733"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="520" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="398" height="518" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Phone frame -->
+  <rect x="115" y="25" width="170" height="340" rx="24" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <!-- Notch -->
+  <rect x="163" y="33" width="74" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+  <!-- Screen -->
+  <rect x="127" y="50" width="146" height="296" rx="4" fill="rgba(255,255,255,0.015)"/>
+
+  <!-- Status bar -->
+  <rect x="135" y="56" width="24" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <rect x="238" y="56" width="28" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- App header with brand -->
+  <rect x="135" y="68" width="130" height="28" rx="6" fill="rgba(255,159,65,0.08)"/>
+  <rect x="143" y="76" width="16" height="12" rx="3" fill="rgba(255,159,65,0.15)"/>
+  <rect x="164" y="77" width="65" height="5" rx="2.5" fill="rgba(255,159,65,0.25)"/>
+  <rect x="164" y="85" width="40" height="3" rx="1.5" fill="rgba(255,159,65,0.12)"/>
+
+  <!-- Service request card 1 (active) -->
+  <rect x="135" y="106" width="130" height="48" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,159,65,0.12)" stroke-width="0.5"/>
+  <circle cx="149" cy="122" r="6" fill="rgba(255,159,65,0.12)"/>
+  <text x="149" y="125" text-anchor="middle" fill="rgba(255,159,65,0.4)" font-size="7" font-family="Inter,sans-serif">🔧</text>
+  <rect x="161" y="114" width="70" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="161" y="123" width="90" height="3" rx="1.5" fill="rgba(255,255,255,0.06)"/>
+  <rect x="161" y="132" width="50" height="3" rx="1.5" fill="rgba(255,159,65,0.12)"/>
+  <rect x="236" y="140" width="20" height="8" rx="4" fill="rgba(39,201,63,0.12)"/>
+  <text x="246" y="147" text-anchor="middle" fill="rgba(39,201,63,0.4)" font-size="5" font-family="Inter,sans-serif" font-weight="700">Active</text>
+
+  <!-- Service request card 2 -->
+  <rect x="135" y="162" width="130" height="48" rx="8" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <circle cx="149" cy="178" r="6" fill="rgba(255,255,255,0.05)"/>
+  <text x="149" y="181" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="7" font-family="Inter,sans-serif">❄️</text>
+  <rect x="161" y="170" width="65" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="161" y="179" width="85" height="3" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+  <rect x="161" y="188" width="45" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="236" y="196" width="20" height="8" rx="4" fill="rgba(255,255,255,0.04)"/>
+  <text x="246" y="202" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="5" font-family="Inter,sans-serif" font-weight="700">Done</text>
+
+  <!-- Service request card 3 -->
+  <rect x="135" y="218" width="130" height="48" rx="8" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+  <circle cx="149" cy="234" r="6" fill="rgba(255,255,255,0.05)"/>
+  <text x="149" y="237" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="7" font-family="Inter,sans-serif">🔥</text>
+  <rect x="161" y="226" width="75" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="161" y="235" width="80" height="3" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+  <rect x="161" y="244" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+
+  <!-- CTA button -->
+  <rect x="135" y="278" width="130" height="28" rx="14" fill="url(#accent)" opacity="0.12"/>
+  <rect x="135" y="278" width="130" height="28" rx="14" fill="none" stroke="rgba(255,159,65,0.25)" stroke-width="0.5"/>
+  <text x="200" y="296" text-anchor="middle" fill="rgba(255,159,65,0.55)" font-size="10" font-family="Inter,sans-serif" font-weight="700">Request Service</text>
+
+  <!-- Bottom nav -->
+  <rect x="135" y="316" width="130" height="18" rx="4" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="163" cy="325" r="4" fill="rgba(255,159,65,0.25)"/>
+  <circle cx="192" cy="325" r="4" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="221" cy="325" r="4" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="250" cy="325" r="4" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Home bar -->
+  <rect x="175" y="350" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Label -->
+  <text x="200" y="400" text-anchor="middle" fill="rgba(255,159,65,0.25)" font-size="14" font-family="Inter,-apple-system,sans-serif" font-weight="700">General Heating & Air</text>
+  <text x="200" y="418" text-anchor="middle" fill="rgba(255,255,255,0.12)" font-size="9" font-family="Inter,sans-serif" font-weight="500">Custom Mobile Application</text>
+  <text x="200" y="432" text-anchor="middle" fill="rgba(255,255,255,0.08)" font-size="8" font-family="Inter,sans-serif">Mockup — Final screenshots coming soon</text>
+
+  <!-- Accent bar -->
+  <rect x="150" y="460" width="100" height="2" rx="1" fill="url(#accent)" opacity="0.2"/>
+</svg>

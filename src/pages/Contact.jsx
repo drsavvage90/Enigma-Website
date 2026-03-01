@@ -49,12 +49,7 @@ export default function Contact() {
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--blue float float--fast float--offset" style={{ width: 350, height: 350, top: '15%', right: '-8%' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1.2fr 0.8fr',
-            gap: 64,
-            alignItems: 'start',
-          }} className="contact-grid">
+          <div className="contact-grid">
             {/* Form — Enhanced floating labels (#6) */}
             <div className="reveal">
               {submitted ? (
@@ -189,11 +184,6 @@ export default function Contact() {
         </div>
       </section>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-        }
-      `}</style>
     </div>
   )
 }

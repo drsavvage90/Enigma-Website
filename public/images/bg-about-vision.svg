@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="600" viewBox="0 0 1920 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060610"/>
+      <stop offset="50%" stop-color="#0b0b1c"/>
+      <stop offset="100%" stop-color="#060610"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="30%" cy="40%">
+      <stop offset="0%" stop-color="rgba(255,159,65,0.06)"/>
+      <stop offset="60%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="70%" cy="60%">
+      <stop offset="0%" stop-color="rgba(255,119,51,0.05)"/>
+      <stop offset="55%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="600" fill="url(#bg)"/>
+  <rect width="1920" height="600" fill="url(#g1)"/>
+  <rect width="1920" height="600" fill="url(#g2)"/>
+  <!-- Grid -->
+  <g opacity="0.02">
+    <line x1="384" y1="0" x2="384" y2="600" stroke="white" stroke-width="0.5"/>
+    <line x1="768" y1="0" x2="768" y2="600" stroke="white" stroke-width="0.5"/>
+    <line x1="1152" y1="0" x2="1152" y2="600" stroke="white" stroke-width="0.5"/>
+    <line x1="1536" y1="0" x2="1536" y2="600" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="200" x2="1920" y2="200" stroke="white" stroke-width="0.5"/>
+    <line x1="0" y1="400" x2="1920" y2="400" stroke="white" stroke-width="0.5"/>
+  </g>
+  <!-- Particles -->
+  <circle cx="250" cy="150" r="2" fill="rgba(255,159,65,0.1)"/>
+  <circle cx="600" cy="350" r="1.5" fill="rgba(255,159,65,0.07)"/>
+  <circle cx="960" cy="100" r="2.5" fill="rgba(255,170,51,0.06)"/>
+  <circle cx="1300" cy="450" r="2" fill="rgba(255,119,51,0.08)"/>
+  <circle cx="1650" cy="200" r="1.5" fill="rgba(255,159,65,0.07)"/>
+  <circle cx="400" cy="500" r="2" fill="rgba(255,170,51,0.05)"/>
+  <circle cx="1100" cy="280" r="2" fill="rgba(255,159,65,0.06)"/>
+  <circle cx="1500" cy="520" r="1.5" fill="rgba(255,119,51,0.06)"/>
+  <!-- Diagonal accents -->
+  <line x1="200" y1="0" x2="500" y2="600" stroke="rgba(255,159,65,0.015)" stroke-width="1"/>
+  <line x1="1400" y1="0" x2="1700" y2="600" stroke="rgba(255,119,51,0.012)" stroke-width="1"/>
+</svg>

@@ -1,32 +1,24 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { MapPin } from 'lucide-react'
 
-const footerLinks = [
-  {
-    title: 'Services',
-    links: [
-      { to: '/ai-systems', label: 'AI Systems' },
-      { to: '/mobile-apps', label: 'Mobile Apps' },
-      { to: '/web-apps', label: 'Web Apps' },
-      { to: '/vault', label: 'Vault' },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { to: '/about', label: 'About Us' },
-      { to: '/how-we-work', label: 'How We Work' },
-      { to: '/industries', label: 'Industries' },
-      { to: '/portfolio', label: 'Portfolio' },
-    ],
-  },
-  {
-    title: 'Support',
-    links: [
-      { to: '/faq', label: 'FAQ' },
-      { to: '/contact', label: 'Contact' },
-    ],
-  },
+const serviceLinks = [
+  { to: '/ai-systems', label: 'Custom AI Systems' },
+  { to: '/mobile-apps', label: 'Mobile Applications' },
+  { to: '/web-apps', label: 'Web Applications' },
+  { to: '/vault', label: 'Vault by Enigma' },
+]
+
+const companyLinks = [
+  { to: '/about', label: 'About Us' },
+  { to: '/how-we-work', label: 'How We Work' },
+  { to: '/industries', label: 'Industries' },
+  { to: '/portfolio', label: 'Portfolio' },
+]
+
+const supportLinks = [
+  { to: '/faq', label: 'FAQ' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export default function Footer() {
@@ -58,62 +50,101 @@ export default function Footer() {
       <div className="footer-divider" style={{ position: 'absolute', top: 0, left: 0, right: 0 }} />
 
       <div className="container">
-        <div className="footer-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr 1fr',
-          gap: 48,
-        }}>
-          {/* Brand */}
+        <div className="footer-grid">
+          {/* Brand Column — Logo + description + location */}
           <div className="footer-reveal">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+            <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 24, textDecoration: 'none' }}>
               <div className="footer-logo-icon" style={{
-                width: 32,
-                height: 32,
-                borderRadius: 8,
+                width: 40,
+                height: 40,
+                borderRadius: 10,
                 background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontWeight: 800,
-                fontSize: 18,
+                fontSize: 22,
                 color: '#fff',
+                boxShadow: '0 0 30px rgba(255, 159, 65, 0.15)',
+                flexShrink: 0,
               }}>E</div>
-              <span style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>
+              <span style={{ fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: '-0.01em' }}>
                 Enigma Software Systems
               </span>
-            </div>
-            <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
+            </Link>
+
+            <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, maxWidth: 300 }}>
               Custom AI systems, mobile applications, and web applications purpose-built for your business.
             </p>
-            <p style={{ color: 'var(--text-dim)', fontSize: 13, marginTop: 24, fontStyle: 'italic' }}>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 16 }}>
+              <MapPin size={14} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+              <span style={{ color: 'var(--text-muted)', fontSize: 13, fontWeight: 500 }}>
+                Based in Southern Ohio
+              </span>
+            </div>
+
+            <p style={{ color: 'var(--text-dim)', fontSize: 13, marginTop: 20, fontStyle: 'italic' }}>
               Made with precision by Enigma
             </p>
           </div>
 
-          {/* Link Columns */}
-          {footerLinks.map(group => (
-            <div key={group.title} className="footer-reveal">
-              <h4 style={{
-                fontSize: 13,
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                color: 'var(--text-dim)',
-                marginBottom: 20,
-              }}>
-                {group.title}
-              </h4>
-              {group.links.map(link => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="footer-link"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          ))}
+          {/* Services */}
+          <div className="footer-reveal">
+            <h4 style={{
+              fontSize: 13,
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              color: 'var(--text-dim)',
+              marginBottom: 20,
+            }}>
+              Services
+            </h4>
+            {serviceLinks.map(link => (
+              <Link key={link.to} to={link.to} className="footer-link">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Company */}
+          <div className="footer-reveal">
+            <h4 style={{
+              fontSize: 13,
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              color: 'var(--text-dim)',
+              marginBottom: 20,
+            }}>
+              Company
+            </h4>
+            {companyLinks.map(link => (
+              <Link key={link.to} to={link.to} className="footer-link">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Support */}
+          <div className="footer-reveal">
+            <h4 style={{
+              fontSize: 13,
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              color: 'var(--text-dim)',
+              marginBottom: 20,
+            }}>
+              Support
+            </h4>
+            {supportLinks.map(link => (
+              <Link key={link.to} to={link.to} className="footer-link">
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Bar */}
