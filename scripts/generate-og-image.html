@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  OG Image Generator — Enigma Software Systems
+  ─────────────────────────────────────────────
+  Open this file in any browser, then click "Download PNG".
+  Produces a 1200 × 630 px image matching the site's dark theme.
+
+  Place the downloaded file at:  public/images/og-default.png
+-->
+<head>
+  <meta charset="UTF-8" />
+  <title>OG Image Generator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a2e;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      color: #fff;
+      gap: 24px;
+      padding: 32px;
+    }
+    h1 { font-size: 18px; font-weight: 600; opacity: 0.7; }
+    canvas { border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); max-width: 90vw; height: auto; }
+    button {
+      padding: 14px 36px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #FF9F41 0%, #FF7733 100%);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    button:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,159,65,0.4); }
+    .info { font-size: 13px; opacity: 0.5; max-width: 500px; text-align: center; line-height: 1.5; }
+  </style>
+  <!-- Load Inter from Google Fonts so the canvas can use it -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+</head>
+<body>
+
+<h1>OG Image Preview (1200 × 630)</h1>
+<canvas id="og" width="1200" height="630"></canvas>
+<button onclick="download()">Download PNG</button>
+<p class="info">Save to <code>public/images/og-default.png</code></p>
+
+<script>
+const W = 1200, H = 630;
+const canvas = document.getElementById('og');
+const ctx = canvas.getContext('2d');
+
+function draw() {
+  // ── Background ──
+  // Deep dark base
+  ctx.fillStyle = '#050508';
+  ctx.fillRect(0, 0, W, H);
+
+  // Subtle radial gradient overlay (warm glow, bottom-center)
+  const bgGrad = ctx.createRadialGradient(W * 0.5, H * 0.85, 0, W * 0.5, H * 0.85, W * 0.6);
+  bgGrad.addColorStop(0, 'rgba(255, 119, 51, 0.08)');
+  bgGrad.addColorStop(1, 'rgba(255, 119, 51, 0)');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Cool glow top-left
+  const bgGrad2 = ctx.createRadialGradient(W * 0.15, H * 0.15, 0, W * 0.15, H * 0.15, W * 0.45);
+  bgGrad2.addColorStop(0, 'rgba(123, 140, 255, 0.06)');
+  bgGrad2.addColorStop(1, 'rgba(123, 140, 255, 0)');
+  ctx.fillStyle = bgGrad2;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── Decorative orb (top-right) ──
+  const orb1 = ctx.createRadialGradient(W * 0.82, H * 0.12, 0, W * 0.82, H * 0.12, 180);
+  orb1.addColorStop(0, 'rgba(255, 159, 65, 0.12)');
+  orb1.addColorStop(0.5, 'rgba(255, 119, 51, 0.04)');
+  orb1.addColorStop(1, 'rgba(255, 119, 51, 0)');
+  ctx.fillStyle = orb1;
+  ctx.beginPath();
+  ctx.arc(W * 0.82, H * 0.12, 180, 0, Math.PI * 2);
+  ctx.fill();
+
+  // ── Decorative orb (bottom-left) ──
+  const orb2 = ctx.createRadialGradient(W * 0.12, H * 0.88, 0, W * 0.12, H * 0.88, 160);
+  orb2.addColorStop(0, 'rgba(255, 159, 65, 0.10)');
+  orb2.addColorStop(0.5, 'rgba(255, 119, 51, 0.03)');
+  orb2.addColorStop(1, 'rgba(255, 119, 51, 0)');
+  ctx.fillStyle = orb2;
+  ctx.beginPath();
+  ctx.arc(W * 0.12, H * 0.88, 160, 0, Math.PI * 2);
+  ctx.fill();
+
+  // ── Subtle noise grain (simulated with small random dots) ──
+  ctx.save();
+  ctx.globalAlpha = 0.03;
+  for (let i = 0; i < 8000; i++) {
+    const x = Math.random() * W;
+    const y = Math.random() * H;
+    const brightness = Math.random() > 0.5 ? 255 : 0;
+    ctx.fillStyle = `rgb(${brightness},${brightness},${brightness})`;
+    ctx.fillRect(x, y, 1, 1);
+  }
+  ctx.restore();
+
+  // ── Subtle border lines (top and bottom accent) ──
+  const lineGrad = ctx.createLinearGradient(0, 0, W, 0);
+  lineGrad.addColorStop(0, 'rgba(255, 159, 65, 0)');
+  lineGrad.addColorStop(0.3, 'rgba(255, 159, 65, 0.4)');
+  lineGrad.addColorStop(0.7, 'rgba(255, 119, 51, 0.4)');
+  lineGrad.addColorStop(1, 'rgba(255, 119, 51, 0)');
+  ctx.fillStyle = lineGrad;
+  ctx.fillRect(0, 0, W, 2);
+  ctx.fillRect(0, H - 2, W, 2);
+
+  // ── Logo mark (rounded rect with gradient + "E") ──
+  const logoSize = 56;
+  const logoX = W / 2 - logoSize / 2;
+  const logoY = 150;
+  const logoR = 12;
+
+  // Rounded rect
+  const logoGrad = ctx.createLinearGradient(logoX, logoY, logoX + logoSize, logoY + logoSize);
+  logoGrad.addColorStop(0, '#FF9F41');
+  logoGrad.addColorStop(1, '#FF7733');
+  ctx.fillStyle = logoGrad;
+  ctx.beginPath();
+  ctx.roundRect(logoX, logoY, logoSize, logoSize, logoR);
+  ctx.fill();
+
+  // "E" letter
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '800 34px Inter, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('E', logoX + logoSize / 2, logoY + logoSize / 2 + 1);
+
+  // ── Company Name ──
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '800 52px Inter, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Enigma Software Systems', W / 2, 270);
+
+  // ── Accent line ──
+  const accentW = 72;
+  const accentGrad = ctx.createLinearGradient(W / 2 - accentW / 2, 0, W / 2 + accentW / 2, 0);
+  accentGrad.addColorStop(0, '#FF9F41');
+  accentGrad.addColorStop(1, '#FF7733');
+  ctx.fillStyle = accentGrad;
+  ctx.beginPath();
+  ctx.roundRect(W / 2 - accentW / 2, 308, accentW, 4, 2);
+  ctx.fill();
+
+  // ── Tagline ──
+  ctx.fillStyle = '#8888AA';
+  ctx.font = '500 24px Inter, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Custom Software. Intelligent Solutions.', W / 2, 360);
+
+  // ── Service pillars ──
+  const pills = ['AI Systems', 'Mobile Apps', 'Web Apps'];
+  const pillGap = 20;
+  const pillPadH = 24;
+  const pillH = 38;
+  const pillY = 415;
+  ctx.font = '600 15px Inter, system-ui, sans-serif';
+
+  // Measure total width
+  const pillWidths = pills.map(t => ctx.measureText(t).width + pillPadH * 2);
+  const totalPillW = pillWidths.reduce((a, b) => a + b, 0) + pillGap * (pills.length - 1);
+  let pillX = W / 2 - totalPillW / 2;
+
+  pills.forEach((text, i) => {
+    const pw = pillWidths[i];
+    // Pill background
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
+    ctx.beginPath();
+    ctx.roundRect(pillX, pillY, pw, pillH, pillH / 2);
+    ctx.fill();
+    // Pill border
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(pillX, pillY, pw, pillH, pillH / 2);
+    ctx.stroke();
+    // Pill text
+    ctx.fillStyle = '#E4E4EE';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, pillX + pw / 2, pillY + pillH / 2);
+    pillX += pw + pillGap;
+  });
+
+  // ── URL at bottom ──
+  ctx.fillStyle = '#555570';
+  ctx.font = '500 16px Inter, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('enigmasoftwaresystems.com', W / 2, H - 52);
+}
+
+// Wait for Inter font to load, then draw
+document.fonts.ready.then(() => {
+  draw();
+});
+
+function download() {
+  const link = document.createElement('a');
+  link.download = 'og-default.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
+
+</body>
+</html>

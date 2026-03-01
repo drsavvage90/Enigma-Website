@@ -6,6 +6,8 @@ import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import ScrollProgress from './components/ScrollProgress'
+import SEO from './components/SEO'
+import useSpotlightButtons from './hooks/useSpotlightButtons'
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const AISystems = lazy(() => import('./pages/AISystems'))
@@ -19,6 +21,7 @@ const FAQ = lazy(() => import('./pages/FAQ'))
 const Contact = lazy(() => import('./pages/Contact'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./pages/TermsOfService'))
+const SpotlightButtonDemo = lazy(() => import('./pages/SpotlightButtonDemo'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function ScrollToTop() {
@@ -29,10 +32,12 @@ function ScrollToTop() {
 
 export default function App() {
   const location = useLocation()
+  useSpotlightButtons()
 
   return (
     <>
       <ScrollToTop />
+      <SEO />
       <ScrollProgress />
       <Navbar />
       <main>
@@ -52,6 +57,7 @@ export default function App() {
               <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
               <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
               <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
+              <Route path="/spotlight-demo" element={<PageTransition><SpotlightButtonDemo /></PageTransition>} />
               <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
             </Routes>
           </Suspense>

@@ -11,7 +11,6 @@
  *   primaryCta  — { text, to }  solid filled button
  *   secondaryCta — { text, to } outlined / ghost button
  */
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -73,18 +72,6 @@ export default function PageHeader({
     const hasCta = primaryCta || secondaryCta
     const isSplit = imageLayout === 'image-left' || imageLayout === 'image-right'
     const isBackground = imageLayout === 'background'
-
-    useEffect(() => {
-        const prev = document.title
-        document.title = `${title} | Enigma Software Systems`
-        const meta = document.querySelector('meta[name="description"]')
-        const prevDesc = meta?.getAttribute('content')
-        if (meta && subtitle) meta.setAttribute('content', subtitle)
-        return () => {
-            document.title = prev
-            if (meta && prevDesc) meta.setAttribute('content', prevDesc)
-        }
-    }, [title, subtitle])
 
     /* ── Shared text block ── */
     const accentLineStyle = {

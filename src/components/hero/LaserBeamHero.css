@@ -176,6 +176,8 @@
 
 /* ── CTA Button — White Pill with Orange Glow ── */
 .laser-hero__cta {
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -197,6 +199,27 @@
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+}
+
+/* Cursor-tracking spotlight glow for hero CTA */
+.laser-hero__cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 120px at var(--spotlight-x) var(--spotlight-y),
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.25) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.laser-hero__cta[data-spotlight="true"]::before {
+  opacity: 1;
 }
 
 .laser-hero__cta:hover {

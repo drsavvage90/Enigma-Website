@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 *,
 *::before,
 *::after {
@@ -187,15 +185,42 @@ select {
   font-size: 15px;
   padding: 14px 32px;
   border-radius: var(--radius-pill);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
   position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
   background: linear-gradient(135deg, #FFFBF0 0%, #F5E6D0 100%);
   color: #111118;
   box-shadow: 0 0 30px rgba(255, 250, 240, 0.12);
+}
+
+/* Cursor-tracking spotlight glow */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 120px at var(--spotlight-x) var(--spotlight-y),
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.25) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-primary[data-spotlight="true"]::before {
+  opacity: 1;
 }
 
 .btn-primary:hover {
