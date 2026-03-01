@@ -223,7 +223,7 @@ export default function Home() {
                 We don't believe in one-size-fits-all. Every solution we build is purpose-designed for the client it serves — secure, intelligent, and ready to scale.
               </p>
             </div>
-            <div className="grid-4 reveal-group" style={{ gap: 20 }}>
+            <div className="grid-2 reveal-group" style={{ gap: 20 }}>
               {differentiators.map((d, i) => (
                 <TiltCard key={i} className="card card--glass card--glow why-enigma-card reveal" style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                   <IconBox icon={d.icon} size={40} variant="blue" />
