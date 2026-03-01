@@ -247,8 +247,8 @@ select {
   z-index: -1;
 }
 
-.btn-primary[data-spotlight="true"]::before,
-.btn-primary[data-spotlight="true"]::after {
+.btn-primary:hover::before,
+.btn-primary:hover::after {
   opacity: 1;
 }
 
