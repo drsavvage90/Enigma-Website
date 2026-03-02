@@ -63,7 +63,7 @@ export default function Navbar() {
   const isServiceActive = servicePaths.includes(location.pathname)
 
   return (
-    <nav style={{
+    <nav aria-label="Main navigation" style={{
       position: 'fixed',
       top: 0,
       left: 0,
@@ -76,6 +76,9 @@ export default function Navbar() {
       zIndex: 1000,
       transition: 'background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease',
     }}>
+      <a href="#main-content" className="skip-to-content">
+        Skip to content
+      </a>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         {/* Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -110,6 +113,7 @@ export default function Navbar() {
                 >
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
+                    aria-expanded={dropdownOpen}
                     className={`nav-dropdown-btn${isServiceActive ? ' nav-dropdown-btn--active' : ''}`}
                   >
                     {link.label}
@@ -144,6 +148,7 @@ export default function Navbar() {
                           key={child.to}
                           to={child.to}
                           className={`nav-dropdown-link${location.pathname === child.to ? ' nav-dropdown-link--active' : ''}`}
+                          {...(location.pathname === child.to && { 'aria-current': 'page' })}
                         >
                           {child.label}
                         </Link>
@@ -160,6 +165,7 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={`nav-link${isActive ? ' nav-link--active' : ''}`}
+                {...(isActive && { 'aria-current': 'page' })}
               >
                 {link.label}
               </Link>
@@ -176,6 +182,8 @@ export default function Navbar() {
         <button
           className="mobile-toggle"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
           style={{
             display: 'none',
             alignItems: 'center',
@@ -270,7 +278,9 @@ export default function Navbar() {
                 borderBottom: '1px solid var(--border-subtle)',
                 opacity: 0,
                 animation: `fadeSlideIn 0.3s ${i * 50}ms forwards`,
-              }}>
+              }}
+              {...(location.pathname === link.to && { 'aria-current': 'page' })}
+              >
                 {link.label}
               </Link>
             )

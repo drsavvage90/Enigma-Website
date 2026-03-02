@@ -80,8 +80,8 @@ export default function VolumetricHero() {
         }} />
     );
 
-    // Render logic: Ensure no heavy 3D ever touches mobile or unmounted apps
-    const shouldRender3D = isClient && !isMobile && !reducedMotion;
+    // Render logic: Ensure no heavy 3D ever touches mobile, low-power, or reduced-motion devices
+    const shouldRender3D = isClient && !isMobile && !isLowPower && !reducedMotion;
 
     return (
         <section ref={containerRef} className="laser-hero" style={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: '#020202' }}>

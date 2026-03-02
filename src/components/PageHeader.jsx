@@ -129,7 +129,7 @@ export default function PageHeader({
             initial="hidden"
             animate="visible"
         >
-            <img src={image} alt={imageAlt} />
+            <img src={image} alt={imageAlt} loading="lazy" />
         </motion.div>
     ) : null
 

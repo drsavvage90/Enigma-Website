@@ -14,12 +14,12 @@ import {
 } from 'lucide-react'
 
 const platformFeatures = [
-  { icon: ToggleLeft, title: 'Every AI Model in One Place', desc: 'OpenAI, Anthropic, Google, Grok, Llama — your team picks the best model for every task from a single interface. Switch between models mid-conversation, compare responses side by side, and always know which model performs best for the work at hand.' },
-  { icon: DollarSign, title: 'See Exactly What AI Costs You', desc: 'Per-message cost tracking, workspace budgets, and usage reporting give you full transparency into AI spending. No markup — you pay providers directly at their published rates. You\'ll always know what your organization is spending and where.' },
-  { icon: Mic, title: 'Digital Note Taker', desc: 'Vault\'s AI-powered system acts as a digital note taker for meetings, interviews, and lectures. Record directly in the platform or upload audio files — then automatically get searchable text, summaries, and action items you can feed right back into AI conversations.' },
-  { icon: BookOpen, title: 'Knowledge Base Powered by Your Data', desc: 'Upload your documents, playbooks, policies, and reference materials. Vault indexes them automatically and uses them to ground every AI response in your organization\'s actual knowledge — so your team gets answers informed by your data, not just the internet.' },
-  { icon: Brain, title: 'Personas & Prompt Library', desc: 'Create reusable AI personas with custom instructions, tone guidelines, and domain context. Build a shared prompt library so your team starts from proven templates instead of writing prompts from scratch every time. The result is consistent, high-quality output across your entire organization.' },
-  { icon: ShieldCheck, title: 'Security & Compliance Built In', desc: 'Every message is scanned for sensitive data before it reaches an AI provider. PII and PHI detection, configurable redaction rules, immutable audit logs, and workspace-level access controls keep your organization\'s information protected and your compliance team confident.' },
+  { icon: ToggleLeft, title: 'Every AI Model in One Place', desc: 'Access OpenAI, Anthropic, Google, Grok, and Llama from a single interface. Switch models mid-conversation and compare responses side by side.' },
+  { icon: DollarSign, title: 'See Exactly What AI Costs You', desc: 'Per-message cost tracking, workspace budgets, and full usage reporting. Zero markup — you pay providers directly at their published rates.', anchor: 'workspaces' },
+  { icon: Mic, title: 'Digital Note Taker', desc: 'Record live meetings or upload audio files. Get searchable transcripts with speaker detection and feed them directly into AI conversations.', anchor: 'transcription' },
+  { icon: BookOpen, title: 'Knowledge Base Powered by Your Data', desc: 'Upload your documents and policies. Vault indexes them and grounds every AI response in your organization\'s actual knowledge.' },
+  { icon: Brain, title: 'Personas & Prompt Library', desc: 'Create reusable AI personas with custom instructions and build a shared prompt library of proven templates for your entire team.', anchor: 'personas' },
+  { icon: ShieldCheck, title: 'Security & Compliance Built In', desc: 'PII/PHI detection, configurable redaction rules, immutable audit logs, and workspace-level access controls keep your data protected.' },
 ]
 
 const processSteps = [
@@ -317,6 +317,11 @@ export default function VaultByEnigma() {
                 <IconBox icon={f.icon} variant={i % 3 === 0 ? 'accent' : i % 3 === 1 ? 'blue' : 'cyan'} />
                 <h3 className="card-title">{f.title}</h3>
                 <p className="card-desc">{f.desc}</p>
+                {f.anchor && (
+                  <a href={`#${f.anchor}`} className="link-arrow">
+                    Explore <ArrowRight size={14} />
+                  </a>
+                )}
               </TiltCard>
             ))}
           </div>
@@ -325,6 +330,137 @@ export default function VaultByEnigma() {
               Schedule a Consultation
               <ArrowRight size={16} strokeWidth={2.5} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* DEEP DIVE — TRANSCRIPTION */}
+      <section id="transcription" className="section theme-dark">
+        <div className="container">
+          <div className="two-col reveal" style={{ gap: 56, alignItems: 'start' }}>
+            <div>
+              <span className="badge badge--accent">Transcription</span>
+              <h2 className="display display--gradient heading-md">Turn Every Conversation Into Searchable, Actionable Text</h2>
+              <p className="body-text">
+                Vault's built-in transcription captures every word — whether your team is in a live meeting or reviewing a recorded file. Every transcript is searchable, organized by speaker, and ready to feed directly into your AI workflows.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 24 }}>
+                {[
+                  'Record live audio directly in the platform with real-time streaming',
+                  'Upload audio files with drag-and-drop for post-recording transcription',
+                  'Speaker detection with color-coded labels so you always know who said what',
+                  'Fully searchable transcript text across your entire workspace',
+                  'Start a new AI conversation from any transcript — or append to an existing one',
+                  'Assign transcriptions to specific workspaces for client confidentiality',
+                ].map((f, i) => (
+                  <div key={i} className="feature-check">
+                    <CheckCircle size={16} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
+                    <span style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.6 }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="preview-box" style={{ height: 480 }}>
+              <Mic size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DEEP DIVE — WORKSPACES */}
+      <section id="workspaces" className="section theme-darker">
+        <div className="container">
+          <div className="two-col two-col--reversed reveal" style={{ gap: 56, alignItems: 'start' }}>
+            <div>
+              <span className="badge badge--blue">Workspaces</span>
+              <h2 className="display display--gradient heading-md">Organize AI by Team, Client, or Project</h2>
+              <p className="body-text">
+                Workspaces give your organization structure. Every conversation, transcript, and resource is scoped to the right group — so teams stay focused, client work stays isolated, and AI spending stays visible.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 24 }}>
+                {[
+                  'Create dedicated workspaces for teams, departments, or client engagements',
+                  'Shared conversation history scoped to each workspace',
+                  'Workspace budgets with configurable daily and monthly limits',
+                  'Warn or block policies when spending thresholds are reached',
+                  'Real-time cost tracking with spending percentage breakdowns',
+                  'Assign transcriptions and resources to specific workspaces',
+                ].map((f, i) => (
+                  <div key={i} className="feature-check">
+                    <CheckCircle size={16} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
+                    <span style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.6 }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="preview-box" style={{ height: 480 }}>
+              <Layers size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DEEP DIVE — PERSONAS */}
+      <section id="personas" className="section theme-dark">
+        <div className="container">
+          <div className="two-col reveal" style={{ gap: 56, alignItems: 'start' }}>
+            <div>
+              <span className="badge badge--accent">Personas</span>
+              <h2 className="display display--gradient heading-md">AI That Already Knows How Your Team Works</h2>
+              <p className="body-text">
+                Personas let you pre-configure AI with your organization's context, tone, and expertise — so every team member gets consistent, high-quality output without writing instructions from scratch.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 24 }}>
+                {[
+                  'Custom AI personas with tailored system prompt instructions',
+                  'Set tone and style guidelines for consistent output across your team',
+                  'Add domain-specific context so AI understands your industry',
+                  'Tag personas by role — Legal Reviewer, Marketing Writer, Technical Analyst',
+                  'Share personas across your organization with public visibility controls',
+                  'Choose the AI model and provider for each persona independently',
+                ].map((f, i) => (
+                  <div key={i} className="feature-check">
+                    <CheckCircle size={16} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
+                    <span style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.6 }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="preview-box" style={{ height: 480 }}>
+              <Brain size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DEEP DIVE — PROMPT LIBRARY */}
+      <section id="prompts" className="section theme-darker">
+        <div className="container">
+          <div className="two-col two-col--reversed reveal" style={{ gap: 56, alignItems: 'start' }}>
+            <div>
+              <span className="badge badge--blue">Prompt Library</span>
+              <h2 className="display display--gradient heading-md">Build, Save, and Share Prompts That Actually Work</h2>
+              <p className="body-text">
+                Stop rewriting the same prompts. Vault's prompt library lets your team build, organize, and share proven templates — so everyone starts from what works instead of starting from scratch.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 24 }}>
+                {[
+                  'Shared prompt library with full create, edit, and delete controls',
+                  'Prompt templates with {{variable}} placeholders and a fill-in modal before use',
+                  'Tag-based categorization with color coding for easy browsing',
+                  'Import and export prompts as JSON for team-wide distribution',
+                  'Browse and discover prompts shared across your organization',
+                ].map((f, i) => (
+                  <div key={i} className="feature-check">
+                    <CheckCircle size={16} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
+                    <span style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.6 }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="preview-box" style={{ height: 480 }}>
+              <FileText size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
+            </div>
           </div>
         </div>
       </section>

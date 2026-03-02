@@ -233,6 +233,7 @@ export default function MobileApps() {
               <img
                 src="/images/mobile-direct-line.svg"
                 alt="Mobile app with push notifications and quick actions on a phone screen"
+                loading="lazy"
               />
             </div>
           </div>

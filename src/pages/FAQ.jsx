@@ -41,11 +41,19 @@ const faqSections = [
   },
 ]
 
-function AccordionItem({ question, answer }) {
+function AccordionItem({ question, answer, id }) {
   const [open, setOpen] = useState(false)
+  const triggerId = `faq-trigger-${id}`
+  const panelId = `faq-panel-${id}`
   return (
     <div className="accordion-item">
-      <button className="accordion-trigger" onClick={() => setOpen(!open)}>
+      <button
+        className="accordion-trigger"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
+        id={triggerId}
+      >
         <span>{question}</span>
         <ChevronDown size={18} style={{
           transition: 'transform 0.3s',
@@ -55,7 +63,12 @@ function AccordionItem({ question, answer }) {
           marginLeft: 16,
         }} />
       </button>
-      <div className={`accordion-body ${open ? 'open' : ''}`}>
+      <div
+        className={`accordion-body ${open ? 'open' : ''}`}
+        id={panelId}
+        role="region"
+        aria-labelledby={triggerId}
+      >
         <p>{answer}</p>
       </div>
     </div>
@@ -103,7 +116,7 @@ export default function FAQ() {
             <div key={i} className="reveal" style={{ marginBottom: 48 }}>
               <span className="badge badge--accent" style={{ marginBottom: 8 }}>{section.title}</span>
               {section.items.map((item, j) => (
-                <AccordionItem key={j} question={item.q} answer={item.a} />
+                <AccordionItem key={j} id={`${i}-${j}`} question={item.q} answer={item.a} />
               ))}
             </div>
           ))}

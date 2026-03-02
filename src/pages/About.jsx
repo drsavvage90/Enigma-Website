@@ -163,6 +163,7 @@ export default function About() {
               <img
                 src="/images/team-photo.svg"
                 alt="The Enigma Software Systems team"
+                loading="lazy"
               />
             </div>
             <div>

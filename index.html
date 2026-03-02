@@ -6,11 +6,26 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Theme / PWA meta -->
+  <meta name="theme-color" content="#050508" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Enigma" />
+
+  <!-- Search Console / Webmaster verification (replace content values with real tokens) -->
+  <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_TOKEN" /> -->
+  <!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_TOKEN" /> -->
+
   <!-- Google Fonts — preconnect + stylesheet (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+
+  <!-- Prefetch hints for likely next-page routes -->
+  <link rel="prefetch" href="/vault" />
+  <link rel="prefetch" href="/contact" />
+  <link rel="prefetch" href="/about" />
 
   <meta name="description"
     content="Enigma Software Systems — Custom AI Systems, Mobile Applications, and Web Applications purpose-built for your business." />
@@ -24,6 +39,9 @@
   <meta property="og:url" content="https://www.enigmasoftwaresystems.com/" />
   <meta property="og:site_name" content="Enigma Software Systems" />
   <meta property="og:image" content="https://www.enigmasoftwaresystems.com/images/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -31,6 +49,8 @@
   <meta name="twitter:description"
     content="Custom AI Systems, Mobile Applications, and Web Applications purpose-built for your business." />
   <meta name="twitter:image" content="https://www.enigmasoftwaresystems.com/images/og-default.png" />
+  <meta name="twitter:site" content="@EnigmaSoftSys" />
+  <meta name="twitter:creator" content="@EnigmaSoftSys" />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://www.enigmasoftwaresystems.com/" />
@@ -47,6 +67,76 @@
       "sameAs": []
     }
     </script>
+
+  <!-- JSON-LD LocalBusiness Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Enigma Software Systems",
+      "url": "https://www.enigmasoftwaresystems.com",
+      "email": "hello@enigmasoftwaresystems.com",
+      "description": "Custom AI Systems, Mobile Applications, and Web Applications purpose-built for your business.",
+      "priceRange": "$$$$",
+      "knowsAbout": ["Custom Software Development", "Artificial Intelligence", "Mobile Applications", "Web Applications"]
+    }
+  </script>
+
+  <!-- JSON-LD Service Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Services",
+      "itemListElement": [
+        {
+          "@type": "Service",
+          "position": 1,
+          "name": "Custom AI Systems",
+          "description": "Private, branded AI platforms — customer-facing chat assistants, internal knowledge tools, and custom integrations.",
+          "url": "https://www.enigmasoftwaresystems.com/ai-systems",
+          "provider": { "@type": "Organization", "name": "Enigma Software Systems" }
+        },
+        {
+          "@type": "Service",
+          "position": 2,
+          "name": "Mobile Applications",
+          "description": "Custom iOS and Android apps for scheduling, e-commerce, loyalty programs, and more.",
+          "url": "https://www.enigmasoftwaresystems.com/mobile-apps",
+          "provider": { "@type": "Organization", "name": "Enigma Software Systems" }
+        },
+        {
+          "@type": "Service",
+          "position": 3,
+          "name": "Web Applications",
+          "description": "Client portals, admin dashboards, and custom web applications built to replace clunky workarounds.",
+          "url": "https://www.enigmasoftwaresystems.com/web-apps",
+          "provider": { "@type": "Organization", "name": "Enigma Software Systems" }
+        }
+      ]
+    }
+  </script>
+
+  <!-- JSON-LD BreadcrumbList Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.enigmasoftwaresystems.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Vault", "item": "https://www.enigmasoftwaresystems.com/vault" },
+        { "@type": "ListItem", "position": 3, "name": "About", "item": "https://www.enigmasoftwaresystems.com/about" },
+        { "@type": "ListItem", "position": 4, "name": "AI Systems", "item": "https://www.enigmasoftwaresystems.com/ai-systems" },
+        { "@type": "ListItem", "position": 5, "name": "Mobile Apps", "item": "https://www.enigmasoftwaresystems.com/mobile-apps" },
+        { "@type": "ListItem", "position": 6, "name": "Web Apps", "item": "https://www.enigmasoftwaresystems.com/web-apps" },
+        { "@type": "ListItem", "position": 7, "name": "Our Process", "item": "https://www.enigmasoftwaresystems.com/how-we-work" },
+        { "@type": "ListItem", "position": 8, "name": "Industries", "item": "https://www.enigmasoftwaresystems.com/industries" },
+        { "@type": "ListItem", "position": 9, "name": "Portfolio", "item": "https://www.enigmasoftwaresystems.com/portfolio" },
+        { "@type": "ListItem", "position": 10, "name": "FAQ", "item": "https://www.enigmasoftwaresystems.com/faq" },
+        { "@type": "ListItem", "position": 11, "name": "Contact", "item": "https://www.enigmasoftwaresystems.com/contact" }
+      ]
+    }
+  </script>
 </head>
 
 <body>

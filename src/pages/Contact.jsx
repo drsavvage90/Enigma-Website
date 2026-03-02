@@ -84,13 +84,13 @@ export default function Contact() {
                   />
                 </div>
               ) : (
-                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} aria-describedby={error ? 'form-error' : undefined}>
                   <input type="hidden" name="form-name" value="contact" />
                   <p aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
                     <label>Don&#39;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
                   </p>
                   {error && (
-                    <div style={{ background: 'rgba(255, 80, 80, 0.1)', border: '1px solid rgba(255, 80, 80, 0.3)', borderRadius: 8, padding: '12px 16px', marginBottom: 20 }}>
+                    <div id="form-error" role="alert" style={{ background: 'rgba(255, 80, 80, 0.1)', border: '1px solid rgba(255, 80, 80, 0.3)', borderRadius: 8, padding: '12px 16px', marginBottom: 20 }}>
                       <p style={{ color: '#ff5050', fontSize: 14 }}>Something went wrong. Please try again or email us directly at hello@enigmasoftwaresystems.com.</p>
                     </div>
                   )}

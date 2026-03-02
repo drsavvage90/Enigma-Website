@@ -35,6 +35,7 @@ export default function Portfolio() {
               <img
                 src="/images/portfolio-collage.svg"
                 alt="Grid of project mockups showing mobile apps, web dashboards, AI platforms, and chat assistants"
+                loading="lazy"
               />
             </div>
           </div>
@@ -77,6 +78,7 @@ export default function Portfolio() {
                 <img
                   src="/images/spotlight-gha.svg"
                   alt="General Heating & Air mobile app mockup showing service requests and scheduling"
+                  loading="lazy"
                 />
               </div>
             </div>

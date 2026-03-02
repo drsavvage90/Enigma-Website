@@ -83,6 +83,7 @@ export default function WebApps() {
               <img
                 src="/images/web-stop-workarounds.svg"
                 alt="From scattered tools to one custom platform"
+                loading="lazy"
               />
             </div>
           </div>

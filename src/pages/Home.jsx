@@ -18,7 +18,7 @@ const pillars = [
     desc: 'Harness the power of leading AI models in a secure, branded platform built around your business. From our flagship multi-LLM environment to standalone chatbots, we make AI work for you.',
     link: '/ai-systems',
     linkText: 'Explore AI Systems',
-    image: '/images/pillar-ai.svg',
+    image: '/images/pillar-ai.png',
     imageAlt: 'AI neural network and multi-model system',
   },
   {
@@ -27,7 +27,7 @@ const pillars = [
     desc: 'Give your customers a direct, branded channel right in their pocket. We build custom mobile apps for service scheduling, e-commerce, loyalty programs, and more.',
     link: '/mobile-apps',
     linkText: 'Explore Mobile Apps',
-    image: '/images/pillar-mobile.svg',
+    image: '/images/pillar-mobile.png',
     imageAlt: 'Custom mobile app mockups on iOS and Android',
   },
   {
@@ -36,7 +36,7 @@ const pillars = [
     desc: 'Replace clunky spreadsheets and disconnected workflows with streamlined, professional digital tools. Client portals, admin dashboards, and custom web applications.',
     link: '/web-apps',
     linkText: 'Explore Web Apps',
-    image: '/images/pillar-web.svg',
+    image: '/images/pillar-web.png',
     imageAlt: 'Web application dashboard interface',
   },
 ]
@@ -111,10 +111,9 @@ export default function Home() {
             <div className="vault-screenshot-wrap">
               {/*
                 TODO: Replace with real Vault screenshot or looping video/GIF.
-                When ready, swap src to "/images/vault-screenshot.png" (or .mp4 via <video>).
               */}
               <img
-                src="/images/vault-screenshot.svg"
+                src="/images/claude-interface.png"
                 alt="Vault by Enigma — multi-LLM AI platform interface"
                 loading="eager"
               />
@@ -192,7 +191,7 @@ export default function Home() {
               }}>
                 {/* Card image */}
                 <div className="pillar-card__image">
-                  <img src={p.image} alt={p.imageAlt} />
+                  <img src={p.image} alt={p.imageAlt} loading="lazy" />
                 </div>
                 {/* Card content */}
                 <div style={{ padding: '24px 32px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -228,7 +227,7 @@ export default function Home() {
                 <TiltCard key={i} className="card card--glass card--glow why-enigma-card reveal" style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                   <IconBox icon={d.icon} size={40} variant="blue" />
                   <div>
-                    <h4 style={{ fontSize: 16, fontWeight: 600, marginBottom: 6, color: '#fff' }}>{d.title}</h4>
+                    <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 6, color: '#fff' }}>{d.title}</h3>
                     <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.6 }}>{d.text}</p>
                   </div>
                 </TiltCard>

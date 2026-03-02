@@ -2,7 +2,15 @@
   command = "npm run build"
   publish = "dist"
 
+# ---------------------------------------------------------------------------
+# Redirects
+# ---------------------------------------------------------------------------
+# Netlify serves real static files before evaluating any redirect rule.
+# After prerendering, routes like /about and /ai-systems have a real
+# dist/about/index.html — Netlify serves those directly.
+# Any route that doesn't have a matching file (e.g. a future route you
+# haven't prerendered yet) falls through to the SPA shell.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to   = "/index.html"
   status = 200

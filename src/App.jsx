@@ -40,7 +40,7 @@ export default function App() {
       <SEO />
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main id="main-content">
         <AnimatePresence mode="wait">
           <Suspense fallback={<div className="loading-screen" />}>
             <Routes location={location} key={location.pathname}>

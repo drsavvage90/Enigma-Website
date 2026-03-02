@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /spotlight-demo
 
 Sitemap: https://www.enigmasoftwaresystems.com/sitemap.xml

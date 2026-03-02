@@ -134,7 +134,7 @@ export default function AISystems() {
             {/* Vault / Multi-LLM Platform */}
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden', border: '1px solid rgba(255, 159, 65, 0.2)' }}>
               <div className="ai-path-card__image">
-                <img src="/images/card-vault-mockup.svg" alt="Vault by Enigma — multi-LLM AI platform mockup" />
+                <img src="/images/card-vault-mockup.svg" alt="Vault by Enigma — multi-LLM AI platform mockup" loading="lazy" />
               </div>
               <div style={{ padding: '24px 28px 28px' }}>
                 <span style={{
@@ -158,7 +158,7 @@ export default function AISystems() {
             {/* Chatbots & Integrations */}
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
               <div className="ai-path-card__image">
-                <img src="/images/card-chatbot-mobile.svg" alt="AI chatbot on a mobile phone screen" />
+                <img src="/images/card-chatbot-mobile.svg" alt="AI chatbot on a mobile phone screen" loading="lazy" />
               </div>
               <div style={{ padding: '24px 28px 28px' }}>
                 <span style={{
