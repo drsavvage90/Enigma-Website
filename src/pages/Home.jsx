@@ -246,9 +246,9 @@ export default function Home() {
         background: 'var(--bg-deep)',
       }}>
         <div className="container reveal">
-          <h3 style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-dim)', marginBottom: 20 }}>
+          <h2 style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-dim)', marginBottom: 20 }}>
             Trusted by Businesses Ready to Modernize
-          </h3>
+          </h2>
           <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 12 }}>
             {trustTags.map(tag => (
               <span key={tag} className="trust-tag">{tag}</span>

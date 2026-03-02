@@ -41,7 +41,7 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer ref={footerRef} className="noise-overlay" style={{
+    <footer ref={footerRef} className="noise-overlay" aria-label="Site footer" style={{
       padding: '80px 0 40px',
       background: '#0A0A10',
       position: 'relative',

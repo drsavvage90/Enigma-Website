@@ -96,12 +96,14 @@ export default function Contact() {
                   )}
                   <div className="grid-2">
                     <div className="form-group--enhanced">
-                      <input type="text" name="name" placeholder=" " required id="contact-name" />
+                      <input type="text" name="name" placeholder=" " required id="contact-name" aria-describedby="contact-name-error" />
                       <label htmlFor="contact-name">Full Name *</label>
+                      <span id="contact-name-error" role="alert" aria-live="polite" style={{ display: 'none' }}></span>
                     </div>
                     <div className="form-group--enhanced">
-                      <input type="email" name="email" placeholder=" " required id="contact-email" />
+                      <input type="email" name="email" placeholder=" " required id="contact-email" aria-describedby="contact-email-error" />
                       <label htmlFor="contact-email">Email Address *</label>
+                      <span id="contact-email-error" role="alert" aria-live="polite" style={{ display: 'none' }}></span>
                     </div>
                   </div>
                   <div className="grid-2" style={{ marginTop: 20 }}>
@@ -115,7 +117,7 @@ export default function Contact() {
                     </div>
                   </div>
                   <div className="form-group--enhanced" style={{ marginTop: 20 }}>
-                    <select name="service" required defaultValue="" id="contact-service">
+                    <select name="service" required defaultValue="" id="contact-service" aria-describedby="contact-service-error">
                       <option value="" disabled>Select a service...</option>
                       <option>Custom AI Systems</option>
                       <option>Mobile Applications</option>
@@ -124,6 +126,7 @@ export default function Contact() {
                       <option>Other</option>
                     </select>
                     <label htmlFor="contact-service">Service Interest *</label>
+                    <span id="contact-service-error" role="alert" aria-live="polite" style={{ display: 'none' }}></span>
                   </div>
                   <div className="form-group--enhanced" style={{ marginTop: 20 }}>
                     <textarea name="project" placeholder=" " id="contact-project" />
