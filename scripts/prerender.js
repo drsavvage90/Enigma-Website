@@ -15,7 +15,8 @@
  */
 
 import { preview } from 'vite'
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
+import chromium from '@sparticuz/chromium'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -57,8 +58,10 @@ async function run() {
 
   // 2. Launch headless Chromium
   const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
   })
 
   const errors = []
