@@ -21,8 +21,8 @@
   --orange: #FF7733;
   --text-white: #FFFFFF;
   --text-light: #E4E4EE;
-  --text-muted: #8888AA;
-  --text-dim: #8585A0;
+  --text-muted: #B0B0C8;
+  --text-dim: #A0A0BA;
   --text-dark: #111118;
   --text-body: #555566;
   --text-subtle: #888899;
@@ -1516,6 +1516,13 @@ select {
   gap: 12px;
 }
 
+.link-arrow:focus-visible {
+  gap: 12px;
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 /* ── Accordion ── */
 .accordion-item {
   border-bottom: 1px solid var(--border-subtle);
@@ -1539,6 +1546,13 @@ select {
 
 .accordion-trigger:hover {
   color: var(--accent);
+}
+
+.accordion-trigger:focus-visible {
+  color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .accordion-body {
@@ -2412,6 +2426,14 @@ select {
 .hero__cta:active {
   transform: translateY(0);
   box-shadow: 0 0 20px rgba(255, 250, 240, 0.1);
+}
+
+.hero__cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  box-shadow:
+    0 0 40px rgba(255, 250, 240, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 /* ── Screenshot / Product Image ── */
