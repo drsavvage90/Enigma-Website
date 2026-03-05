@@ -425,11 +425,11 @@ select {
 }
 
 /* Reversed two-col: text first in DOM (mobile-friendly), visual swaps to left on desktop */
-.two-col--reversed > :first-child {
+.two-col--reversed> :first-child {
   order: 2;
 }
 
-.two-col--reversed > :last-child {
+.two-col--reversed> :last-child {
   order: 1;
 }
 
@@ -665,10 +665,6 @@ select {
   border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 80px rgba(255, 159, 65, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .page-header__image img {
@@ -1345,10 +1341,6 @@ select {
 .portfolio-collage-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 80px rgba(255, 159, 65, 0.03);
   align-self: center;
 }
 
@@ -1362,10 +1354,6 @@ select {
 .portfolio-spotlight-mockup {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.3),
-    0 0 60px rgba(255, 159, 65, 0.03);
   align-self: start;
 }
 
@@ -1402,10 +1390,6 @@ select {
 .web-workarounds-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 80px rgba(255, 159, 65, 0.03);
   align-self: center;
 }
 
@@ -1442,10 +1426,6 @@ select {
 .mobile-direct-line-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 80px rgba(255, 159, 65, 0.03);
   align-self: center;
 }
 
@@ -1483,8 +1463,6 @@ select {
   width: 100%;
   aspect-ratio: 5 / 3;
   overflow: hidden;
-  background: linear-gradient(135deg, #0c0c18 0%, #14142a 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   flex-shrink: 0;
 }
 
@@ -1697,9 +1675,6 @@ select {
 
 /* ── Preview Box ── */
 .preview-box {
-  border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-surface) 100%);
-  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1707,16 +1682,17 @@ select {
   overflow: hidden;
 }
 
-.preview-box::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(255, 159, 65, 0.05) 0%, transparent 70%);
-  pointer-events: none;
+/* ── Universal Image Hover Effect ── */
+.preview-box img,
+.page-header__image img,
+.about-team-photo img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.preview-box:hover img,
+.page-header__image:hover img,
+.about-team-photo:hover img {
+  transform: scale(1.03);
 }
 
 /* ── Floating Animation ── */
@@ -1772,8 +1748,8 @@ select {
     gap: 48px;
   }
 
-  .two-col--reversed > :first-child,
-  .two-col--reversed > :last-child {
+  .two-col--reversed> :first-child,
+  .two-col--reversed> :last-child {
     order: unset;
   }
 
@@ -3116,10 +3092,6 @@ select {
 .about-team-photo {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 80px rgba(255, 159, 65, 0.04);
 }
 
 .about-team-photo img {

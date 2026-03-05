@@ -66,8 +66,8 @@ export default function HowWeWork() {
         blobColor="blue"
         primaryCta={{ text: 'Schedule a Discovery Call', to: '/contact' }}
         secondaryCta={{ text: 'Explore Our Services', to: '/ai-systems' }}
-        image="/images/hero-process.svg"
-        imageAlt="Four-step process from discovery to ongoing support"
+        image="/images/process-hero.jpg"
+        imageAlt="Laptop displaying a digital security and cloud sync interface on a desk"
         imageLayout="image-right"
       />
 

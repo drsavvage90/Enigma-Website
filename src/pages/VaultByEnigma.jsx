@@ -218,9 +218,10 @@ export default function VaultByEnigma() {
         blobColor="orange"
         primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
         secondaryCta={{ text: 'See How It Works', to: '#how-it-works' }}
-        image="/images/hero-vault.svg"
-        imageAlt="Vault by Enigma — AI platform mockup on a computer screen"
+        image="/images/vault-hero.png"
+        imageAlt="Vault by Enigma — Interactive AI workspace showing model selection (Claude Haiku 4.5) and prompt interface"
         imageLayout="image-right"
+        imageStyle={{ transform: 'none' }}
       />
 
       {/* SECTION 2 — THE PROBLEM */}
@@ -248,7 +249,7 @@ export default function VaultByEnigma() {
               <div className="ai-model-card">
                 <div className="ai-model-card__icon ai-model-card__icon--openai">
                   <svg viewBox="0 0 24 24" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.28 9.37a5.93 5.93 0 0 0-.51-4.88 6.01 6.01 0 0 0-6.47-2.9A5.93 5.93 0 0 0 10.83.01a6.01 6.01 0 0 0-5.73 4.15A5.93 5.93 0 0 0 1.13 7.8a6.01 6.01 0 0 0 .74 7.04 5.93 5.93 0 0 0 .51 4.88 6.01 6.01 0 0 0 6.47 2.9 5.93 5.93 0 0 0 4.47 1.58 6.01 6.01 0 0 0 5.73-4.15 5.93 5.93 0 0 0 3.97-3.64 6.01 6.01 0 0 0-.74-7.04ZM13.32 22.4a4.49 4.49 0 0 1-2.88-1.04l.14-.08 4.79-2.76a.78.78 0 0 0 .39-.67v-6.74l2.02 1.17a.07.07 0 0 1 .04.06v5.58a4.5 4.5 0 0 1-4.5 4.48ZM3.56 18.29a4.49 4.49 0 0 1-.54-3.02l.14.09 4.79 2.76a.78.78 0 0 0 .78 0l5.85-3.38v2.33a.07.07 0 0 1-.03.06l-4.84 2.8a4.5 4.5 0 0 1-6.15-1.64ZM2.34 7.89a4.49 4.49 0 0 1 2.35-1.98v5.69a.78.78 0 0 0 .39.67l5.85 3.37-2.03 1.17a.07.07 0 0 1-.07 0L4 13.98a4.5 4.5 0 0 1-1.65-6.1Zm17.05 3.97-5.85-3.38L15.57 7.3a.07.07 0 0 1 .07 0l4.84 2.8a4.5 4.5 0 0 1-.69 8.1v-5.68a.78.78 0 0 0-.4-.67Zm2.01-3.03-.14-.09-4.79-2.77a.78.78 0 0 0-.78 0l-5.85 3.38V6.02a.07.07 0 0 1 .03-.06l4.84-2.8a4.5 4.5 0 0 1 6.7 4.67ZM8.69 13.16 6.67 12a.07.07 0 0 1-.04-.06V6.36a4.5 4.5 0 0 1 7.38-3.45l-.14.08L9.08 5.75a.78.78 0 0 0-.39.67v6.74Zm1.1-2.37 2.6-1.5 2.6 1.5v3l-2.6 1.5-2.6-1.5v-3Z" fill="currentColor"/>
+                    <path d="M22.28 9.37a5.93 5.93 0 0 0-.51-4.88 6.01 6.01 0 0 0-6.47-2.9A5.93 5.93 0 0 0 10.83.01a6.01 6.01 0 0 0-5.73 4.15A5.93 5.93 0 0 0 1.13 7.8a6.01 6.01 0 0 0 .74 7.04 5.93 5.93 0 0 0 .51 4.88 6.01 6.01 0 0 0 6.47 2.9 5.93 5.93 0 0 0 4.47 1.58 6.01 6.01 0 0 0 5.73-4.15 5.93 5.93 0 0 0 3.97-3.64 6.01 6.01 0 0 0-.74-7.04ZM13.32 22.4a4.49 4.49 0 0 1-2.88-1.04l.14-.08 4.79-2.76a.78.78 0 0 0 .39-.67v-6.74l2.02 1.17a.07.07 0 0 1 .04.06v5.58a4.5 4.5 0 0 1-4.5 4.48ZM3.56 18.29a4.49 4.49 0 0 1-.54-3.02l.14.09 4.79 2.76a.78.78 0 0 0 .78 0l5.85-3.38v2.33a.07.07 0 0 1-.03.06l-4.84 2.8a4.5 4.5 0 0 1-6.15-1.64ZM2.34 7.89a4.49 4.49 0 0 1 2.35-1.98v5.69a.78.78 0 0 0 .39.67l5.85 3.37-2.03 1.17a.07.07 0 0 1-.07 0L4 13.98a4.5 4.5 0 0 1-1.65-6.1Zm17.05 3.97-5.85-3.38L15.57 7.3a.07.07 0 0 1 .07 0l4.84 2.8a4.5 4.5 0 0 1-.69 8.1v-5.68a.78.78 0 0 0-.4-.67Zm2.01-3.03-.14-.09-4.79-2.77a.78.78 0 0 0-.78 0l-5.85 3.38V6.02a.07.07 0 0 1 .03-.06l4.84-2.8a4.5 4.5 0 0 1 6.7 4.67ZM8.69 13.16 6.67 12a.07.07 0 0 1-.04-.06V6.36a4.5 4.5 0 0 1 7.38-3.45l-.14.08L9.08 5.75a.78.78 0 0 0-.39.67v6.74Zm1.1-2.37 2.6-1.5 2.6 1.5v3l-2.6 1.5-2.6-1.5v-3Z" fill="currentColor" />
                   </svg>
                 </div>
                 <span className="ai-model-card__name">ChatGPT</span>
@@ -259,7 +260,7 @@ export default function VaultByEnigma() {
               <div className="ai-model-card">
                 <div className="ai-model-card__icon ai-model-card__icon--anthropic">
                   <svg viewBox="0 0 24 24" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.304 3.541h-3.48l6.15 16.918h3.48L17.304 3.54Zm-10.607 0L.546 20.459H4.1l1.273-3.646h6.475l1.273 3.646h3.554L10.525 3.54H6.697Zm-.51 10.283 2.224-6.37 2.225 6.37H6.187Z" fill="currentColor"/>
+                    <path d="M17.304 3.541h-3.48l6.15 16.918h3.48L17.304 3.54Zm-10.607 0L.546 20.459H4.1l1.273-3.646h6.475l1.273 3.646h3.554L10.525 3.54H6.697Zm-.51 10.283 2.224-6.37 2.225 6.37H6.187Z" fill="currentColor" />
                   </svg>
                 </div>
                 <span className="ai-model-card__name">Claude</span>
@@ -270,12 +271,12 @@ export default function VaultByEnigma() {
               <div className="ai-model-card">
                 <div className="ai-model-card__icon ai-model-card__icon--gemini">
                   <svg viewBox="0 0 24 24" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 24A14.3 14.3 0 0 0 0 12 14.3 14.3 0 0 0 12 0a14.3 14.3 0 0 0 12 12 14.3 14.3 0 0 0-12 12Z" fill="url(#gemini-grad)"/>
+                    <path d="M12 24A14.3 14.3 0 0 0 0 12 14.3 14.3 0 0 0 12 0a14.3 14.3 0 0 0 12 12 14.3 14.3 0 0 0-12 12Z" fill="url(#gemini-grad)" />
                     <defs>
                       <linearGradient id="gemini-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4285F4"/>
-                        <stop offset=".5" stopColor="#9B72CB"/>
-                        <stop offset="1" stopColor="#D96570"/>
+                        <stop stopColor="#4285F4" />
+                        <stop offset=".5" stopColor="#9B72CB" />
+                        <stop offset="1" stopColor="#D96570" />
                       </linearGradient>
                     </defs>
                   </svg>
@@ -288,7 +289,7 @@ export default function VaultByEnigma() {
               <div className="ai-model-card">
                 <div className="ai-model-card__icon ai-model-card__icon--xai">
                   <svg viewBox="0 0 24 24" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.04 3h4.44l5.4 8.16L17.58 3h4.38L14.7 13.62 22.38 21h-4.5l-5.82-8.76L6.18 21H1.74l7.86-7.44L2.04 3Z" fill="currentColor"/>
+                    <path d="M2.04 3h4.44l5.4 8.16L17.58 3h4.38L14.7 13.62 22.38 21h-4.5l-5.82-8.76L6.18 21H1.74l7.86-7.44L2.04 3Z" fill="currentColor" />
                   </svg>
                 </div>
                 <span className="ai-model-card__name">Grok</span>
@@ -360,9 +361,13 @@ export default function VaultByEnigma() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 480 }}>
-              <Mic size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/vault-transcription.png"
+                alt="Vault Transcription Interface"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -393,9 +398,13 @@ export default function VaultByEnigma() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 480 }}>
-              <Layers size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/vault-workspaces.png"
+                alt="Vault Workspaces Interface"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -426,9 +435,13 @@ export default function VaultByEnigma() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 480 }}>
-              <Brain size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/vault-personas.png"
+                alt="Vault Personas Interface"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -458,9 +471,13 @@ export default function VaultByEnigma() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 480 }}>
-              <FileText size={80} style={{ color: 'rgba(255,255,255,0.06)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/vault-prompts.png"
+                alt="Vault Prompt Library Interface"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -491,9 +508,13 @@ export default function VaultByEnigma() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 520, background: 'linear-gradient(135deg, #e8e8e8 0%, #f6f6f6 100%)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <Layers size={80} style={{ color: 'rgba(0,0,0,0.1)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 520 }}>
+              <img
+                src="/images/vault-process.jpg"
+                alt="Enigma team collaborating with client on AI deployment"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </TiltCard>
           </div>
           <div className="reveal" style={{ textAlign: 'center', marginTop: 48 }}>
             <Link to="/contact" className="btn btn-primary btn-lg">

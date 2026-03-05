@@ -75,8 +75,8 @@ export default function AISystems() {
         blobColor="orange"
         primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
         secondaryCta={{ text: 'See Our Flagship Platform', to: '/vault' }}
-        image="/images/hero-ai.svg"
-        imageAlt="AI neural network and multi-model system visualization"
+        image="/images/aisystems-hero.jpg"
+        imageAlt="User interacting with an AI chat interface on a laptop"
         imageLayout="image-left"
       />
 
@@ -134,7 +134,7 @@ export default function AISystems() {
             {/* Vault / Multi-LLM Platform */}
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden', border: '1px solid rgba(255, 159, 65, 0.2)' }}>
               <div className="ai-path-card__image">
-                <img src="/images/card-vault-mockup.svg" alt="Vault by Enigma — multi-LLM AI platform mockup" loading="lazy" />
+                <img src="/images/aisystems-multi-llm.png" alt="Select AI Model interface showing multiple LLM providers" loading="lazy" />
               </div>
               <div style={{ padding: '24px 28px 28px' }}>
                 <span style={{
@@ -158,7 +158,7 @@ export default function AISystems() {
             {/* Chatbots & Integrations */}
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
               <div className="ai-path-card__image">
-                <img src="/images/card-chatbot-mobile.svg" alt="AI chatbot on a mobile phone screen" loading="lazy" />
+                <img src="/images/aisystems-chatbots.png" alt="Two mobile phone screens showing an AI chatbot interface with suggested actions" loading="lazy" />
               </div>
               <div style={{ padding: '24px 28px 28px' }}>
                 <span style={{
@@ -210,9 +210,13 @@ export default function AISystems() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 480, background: 'linear-gradient(135deg, #e8e8e8 0%, #f6f6f6 100%)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <MessageSquare size={64} style={{ color: 'rgba(0,0,0,0.1)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/aisystems-customer.jpg"
+                alt="Enigma consultant explaining AI features to a client"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -222,9 +226,13 @@ export default function AISystems() {
         <div className="blob blob--blue float float--slow float--offset" style={{ width: 400, height: 400, top: '-10%', right: '-10%' }} />
         <div className="container section-z">
           <div className="two-col reveal" style={{ gap: 56 }}>
-            <div className="preview-box" style={{ height: 480 }}>
-              <BookOpen size={64} style={{ color: 'var(--border-default)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/aisystems-internal.jpg"
+                alt="Internal AI knowledge base interface showing secure data connections"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </TiltCard>
             <div>
               <span className="badge badge--blue">Internal AI Tools</span>
               <h2 className="display display--gradient heading-lg">
@@ -356,12 +364,13 @@ export default function AISystems() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 480 }}>
-              <div style={{ textAlign: 'center', position: 'relative' }}>
-                <Brain size={64} style={{ color: 'var(--border-default)', marginBottom: 16 }} />
-                <p style={{ color: 'var(--text-dim)', fontSize: 14 }}>AI System Architecture</p>
-              </div>
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/aisystems-work.jpg"
+                alt="Enigma consultants discussing AI strategy with a client"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>

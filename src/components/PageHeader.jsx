@@ -14,6 +14,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import TiltCard from './TiltCard'
 
 const containerVariants = {
     hidden: {},
@@ -67,6 +68,7 @@ export default function PageHeader({
     image,
     imageAlt = '',
     imageLayout, // 'image-right' | 'image-left' | 'background' | undefined
+    imageStyle = {},
 }) {
     const blobClass = `blob blob--${blobColor} float float--slow`
     const hasCta = primaryCta || secondaryCta
@@ -129,7 +131,9 @@ export default function PageHeader({
             initial="hidden"
             animate="visible"
         >
-            <img src={image} alt={imageAlt} loading="lazy" />
+            <TiltCard noGlow style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
+                <img src={image} alt={imageAlt} loading="lazy" style={imageStyle} />
+            </TiltCard>
         </motion.div>
     ) : null
 
@@ -148,10 +152,10 @@ export default function PageHeader({
         position: 'relative',
         ...(isBackground && image
             ? {
-                  backgroundImage: `url(${image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-              }
+                backgroundImage: `url(${image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }
             : {}),
     }
 

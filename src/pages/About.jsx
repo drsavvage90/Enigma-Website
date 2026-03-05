@@ -159,13 +159,13 @@ export default function About() {
           <div className="blob blob--blue float float--slow float--offset" style={{ width: 400, height: 400, top: '-20%', right: '-5%' }} />
           <div className="two-col reveal" style={{ position: 'relative', zIndex: 1 }}>
             {/* Team photo placeholder — replace /images/team-photo.svg with actual group photo */}
-            <div className="about-team-photo">
+            <TiltCard noGlow className="about-team-photo">
               <img
-                src="/images/team-photo.svg"
-                alt="The Enigma Software Systems team"
+                src="/images/leadership-seth.png"
+                alt="Seth Nordgren, Founder of Enigma Software Systems"
                 loading="lazy"
               />
-            </div>
+            </TiltCard>
             <div>
               <span className="badge badge--blue">Leadership</span>
               <h2 className="display display--gradient heading-lg">Who's Behind Enigma</h2>

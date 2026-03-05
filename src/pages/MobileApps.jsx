@@ -207,8 +207,8 @@ export default function MobileApps() {
         blobColor="accent"
         primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
         secondaryCta={{ text: 'See Use Cases', to: '#use-cases' }}
-        image="/images/hero-mobile.svg"
-        imageAlt="Mobile app mockups on iPhone and Android devices"
+        image="/images/mobileapps-hero.png"
+        imageAlt="Three mobile app interfaces showing roles selection, calendar scheduling, and user dashboard"
         imageLayout="image-right"
       />
 
@@ -229,13 +229,14 @@ export default function MobileApps() {
                 We don't build generic apps from templates. Every app we create is designed around how your business actually operates and what your customers actually need. The result is an app people use every week — not one that gets downloaded and forgotten.
               </p>
             </div>
-            <div className="mobile-direct-line-image">
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
               <img
-                src="/images/mobile-direct-line.svg"
-                alt="Mobile app with push notifications and quick actions on a phone screen"
+                src="/images/mobileapps-direct-line.png"
+                alt="Mobile app messaging interface on a phone screen"
                 loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -313,9 +314,13 @@ export default function MobileApps() {
                 ))}
               </div>
             </div>
-            <div className="preview-box" style={{ height: 520, background: 'linear-gradient(135deg, #e8e8e8 0%, #f6f6f6 100%)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <Smartphone size={80} style={{ color: 'rgba(0,0,0,0.1)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 520 }}>
+              <img
+                src="/images/mobileapps-approach.jpg"
+                alt="Enigma consultant shaking hands with a client"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>

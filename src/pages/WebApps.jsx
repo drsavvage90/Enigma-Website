@@ -57,8 +57,8 @@ export default function WebApps() {
         blobColor="blue"
         primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
         secondaryCta={{ text: 'See What We Build', to: '#what-we-build' }}
-        image="/images/hero-web.svg"
-        imageAlt="Custom web application dashboard mockup"
+        image="/images/webapps-hero.jpg"
+        imageAlt="Custom web application interface on a tablet device"
         imageLayout="image-right"
       />
 
@@ -79,13 +79,14 @@ export default function WebApps() {
                 Whether you need a client-facing portal, an internal admin dashboard, or a custom tool that doesn't exist yet — we build it.
               </p>
             </div>
-            <div className="web-workarounds-image">
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
               <img
-                src="/images/web-stop-workarounds.svg"
-                alt="From scattered tools to one custom platform"
+                src="/images/webapps-login.png"
+                alt="Custom client login portal interface"
                 loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -142,9 +143,13 @@ export default function WebApps() {
                 </div>
               ))}
             </div>
-            <div className="preview-box" style={{ height: 480 }}>
-              <Monitor size={80} style={{ color: 'var(--border-default)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/webapps-client-portal.jpg"
+                alt="Client-facing analytics portal on a tablet device"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -153,9 +158,13 @@ export default function WebApps() {
       <section className="section theme-light">
         <div className="container">
           <div className="two-col reveal">
-            <div className="preview-box" style={{ height: 480, background: 'linear-gradient(135deg, #e8e8e8 0%, #f6f6f6 100%)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <BarChart3 size={80} style={{ color: 'rgba(0,0,0,0.1)' }} />
-            </div>
+            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+              <img
+                src="/images/webapps-internal-tools.jpg"
+                alt="Internal admin dashboard being used in an office"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </TiltCard>
             <div>
               <span className="badge badge--blue">Internal Tools</span>
               <h2 className="display heading-lg heading-dark">

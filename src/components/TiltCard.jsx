@@ -8,7 +8,7 @@ import { useRef, useState, useCallback } from 'react'
 const TILT_MAX = 8 // degrees
 const GLOW_SIZE = 200
 
-export default function TiltCard({ children, className = '', style = {}, allowOverflow = false, ...props }) {
+export default function TiltCard({ children, className = '', style = {}, allowOverflow = false, noGlow = false, ...props }) {
     const ref = useRef(null)
     const glowRef = useRef(null)
     const [isHovering, setIsHovering] = useState(false)
@@ -65,7 +65,7 @@ export default function TiltCard({ children, className = '', style = {}, allowOv
         >
             {children}
             {/* Directional glow that follows cursor */}
-            {isHovering && (
+            {!noGlow && isHovering && (
                 <div
                     ref={glowRef}
                     aria-hidden="true"
