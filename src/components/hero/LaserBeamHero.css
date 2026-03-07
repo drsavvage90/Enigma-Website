@@ -25,6 +25,50 @@
   background-size: 200px;
 }
 
+/* ── Hero Image Animations ── */
+.hero-image-animate {
+  animation: hero-ken-burns 30s ease-in-out infinite alternate;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes hero-ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.04) translate(-1%, -0.5%);
+    filter: contrast(1.05);
+  }
+
+  100% {
+    transform: scale(1.08) translate(-0.5%, 1%);
+    filter: contrast(1);
+  }
+}
+
+.hero-breathing-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(ellipse at 50% 50%, rgba(2, 2, 2, 0.1) 0%, rgba(2, 2, 2, 0.85) 100%);
+  pointer-events: none;
+  animation: hero-breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes hero-breathe {
+  0% {
+    opacity: 0.8;
+    background: radial-gradient(ellipse at 50% 50%, rgba(2, 2, 2, 0.1) 0%, rgba(2, 2, 2, 0.8) 100%);
+  }
+
+  100% {
+    opacity: 1;
+    background: radial-gradient(ellipse at 50% 50%, rgba(30, 15, 5, 0.15) 0%, rgba(2, 2, 2, 0.95) 100%);
+  }
+}
+
 /* ── Laser Beams Container ── */
 .laser-hero__beams {
   position: absolute;
@@ -144,7 +188,7 @@
 .laser-hero__title {
   font-size: clamp(52px, 8vw, 110px);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.15;
   letter-spacing: -0.04em;
   color: #ffffff;
   font-family: 'Inter', -apple-system, sans-serif;
@@ -159,7 +203,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
-  /* Let the gradient pop */
+  padding-bottom: 0.05em;
 }
 
 /* ── Subtitle ── */
@@ -206,12 +250,10 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle 120px at var(--spotlight-x) var(--spotlight-y),
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(255, 255, 255, 0.25) 40%,
-    transparent 70%
-  );
+  background: radial-gradient(circle 120px at var(--spotlight-x) var(--spotlight-y),
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(255, 255, 255, 0.25) 40%,
+      transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;

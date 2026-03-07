@@ -4,12 +4,12 @@ import { motion } from 'framer-motion'
 import IconBox from '../components/IconBox'
 import PageHeader from '../components/PageHeader'
 import MagneticButton from '../components/hero/MagneticButton'
-import { Mail, Phone, Clock, Check, Calendar, Lightbulb, Sparkles } from 'lucide-react'
+import { Mail, Clock, Check, Calendar, Lightbulb, Sparkles } from 'lucide-react'
 
 const expectSteps = [
-  { icon: Check, text: "We receive your inquiry and review the details within one business day." },
-  { icon: Calendar, text: "We schedule a discovery call to learn about your business, your goals, and the problem you're trying to solve." },
-  { icon: Lightbulb, text: "We come back with a recommendation — a clear plan for what we'd build, how long it would take, and what it would cost." },
+  { icon: Check, text: "We review your inquiry within one business day." },
+  { icon: Calendar, text: "We schedule a free discovery call to learn about your business and the problem you're trying to solve." },
+  { icon: Lightbulb, text: "We come back with a recommendation: what we'd build, how long it would take, and what it would cost." },
 ]
 
 export default function Contact() {
@@ -39,10 +39,10 @@ export default function Contact() {
 
   return (
     <div ref={ref}>
-      {/* Hero — Animated page header (#7) */}
+      {/* ═══ HERO ═══ */}
       <PageHeader
         title="Let's Build Something Together"
-        subtitle="Whether you have a fully formed idea or just a problem that needs solving, we'd love to hear about it. No pressure. No generic pitch. Just a real conversation."
+        subtitle="Tell us what's not working in your business. We'll tell you if we can help."
         blobColor="accent"
       />
 
@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="blob blob--blue float float--fast float--offset" style={{ width: 350, height: 350, top: '15%', right: '-8%' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="contact-grid">
-            {/* Form — Enhanced floating labels (#6) */}
+            {/* ═══ FORM ═══ */}
             <div className="reveal">
               {submitted ? (
                 <div className="card card--glass form-success" style={{ textAlign: 'center', padding: 48 }}>
@@ -69,7 +69,7 @@ export default function Contact() {
                   </div>
                   <h3 style={{ fontSize: 24, marginBottom: 12, fontWeight: 700 }}>Thanks for reaching out!</h3>
                   <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: 400, margin: '0 auto' }}>
-                    We'll be in touch within 48 hours to schedule a discovery call. If your project is urgent, feel free to call or email us directly.
+                    We'll be in touch within 24 hours to schedule a discovery call. If your project is urgent, email us directly.
                   </p>
                   <motion.div
                     initial={{ width: 0 }}
@@ -84,71 +84,82 @@ export default function Contact() {
                   />
                 </div>
               ) : (
-                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} aria-describedby={error ? 'form-error' : undefined}>
-                  <input type="hidden" name="form-name" value="contact" />
-                  <p aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
-                    <label>Don&#39;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+                <>
+                  {/* Reassurance line above the form */}
+                  <p style={{
+                    color: 'var(--text-muted)',
+                    fontSize: 14,
+                    marginBottom: 20,
+                    padding: '12px 16px',
+                    borderRadius: 10,
+                    background: 'rgba(255, 159, 65, 0.06)',
+                    border: '1px solid rgba(255, 159, 65, 0.12)',
+                    lineHeight: 1.6,
+                  }}>
+                    Most people hear back within 24 hours.
                   </p>
-                  {error && (
-                    <div id="form-error" role="alert" style={{ background: 'rgba(255, 80, 80, 0.1)', border: '1px solid rgba(255, 80, 80, 0.3)', borderRadius: 8, padding: '12px 16px', marginBottom: 20 }}>
-                      <p style={{ color: '#ff5050', fontSize: 14 }}>Something went wrong. Please try again or email us directly at hello@enigmasoftwaresystems.com.</p>
+                  <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} aria-describedby={error ? 'form-error' : undefined}>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
+                      <label>Don&#39;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+                    </p>
+                    {error && (
+                      <div id="form-error" role="alert" style={{ background: 'rgba(255, 80, 80, 0.1)', border: '1px solid rgba(255, 80, 80, 0.3)', borderRadius: 8, padding: '12px 16px', marginBottom: 20 }}>
+                        <p style={{ color: '#ff5050', fontSize: 14 }}>Something went wrong. Please try again or email us directly at hello@enigmasoftwaresystems.com.</p>
+                      </div>
+                    )}
+                    <div className="grid-2">
+                      <div className="form-group--enhanced">
+                        <input type="text" name="name" placeholder=" " required id="contact-name" />
+                        <label htmlFor="contact-name">Full Name *</label>
+                      </div>
+                      <div className="form-group--enhanced">
+                        <input type="email" name="email" placeholder=" " required id="contact-email" />
+                        <label htmlFor="contact-email">Email Address *</label>
+                      </div>
                     </div>
-                  )}
-                  <div className="grid-2">
-                    <div className="form-group--enhanced">
-                      <input type="text" name="name" placeholder=" " required id="contact-name" aria-describedby="contact-name-error" />
-                      <label htmlFor="contact-name">Full Name *</label>
-                      <span id="contact-name-error" role="alert" aria-live="polite" style={{ display: 'none' }}></span>
+                    <div className="grid-2" style={{ marginTop: 20 }}>
+                      <div className="form-group--enhanced">
+                        <input type="tel" name="phone" placeholder=" " id="contact-phone" />
+                        <label htmlFor="contact-phone">Phone Number</label>
+                      </div>
+                      <div className="form-group--enhanced">
+                        <input type="text" name="company" placeholder=" " id="contact-company" />
+                        <label htmlFor="contact-company">Company Name</label>
+                      </div>
                     </div>
-                    <div className="form-group--enhanced">
-                      <input type="email" name="email" placeholder=" " required id="contact-email" aria-describedby="contact-email-error" />
-                      <label htmlFor="contact-email">Email Address *</label>
-                      <span id="contact-email-error" role="alert" aria-live="polite" style={{ display: 'none' }}></span>
+                    <div className="form-group--enhanced" style={{ marginTop: 20 }}>
+                      <select name="service" required defaultValue="" id="contact-service">
+                        <option value="" disabled>Select a service...</option>
+                        <option>Custom AI Systems</option>
+                        <option>Mobile Applications</option>
+                        <option>Web Applications</option>
+                        <option>Not Sure Yet, Let's Talk</option>
+                        <option>Other</option>
+                      </select>
+                      <label htmlFor="contact-service">Service Interest *</label>
                     </div>
-                  </div>
-                  <div className="grid-2" style={{ marginTop: 20 }}>
-                    <div className="form-group--enhanced">
-                      <input type="tel" name="phone" placeholder=" " id="contact-phone" />
-                      <label htmlFor="contact-phone">Phone Number</label>
+                    <div className="form-group--enhanced" style={{ marginTop: 20 }}>
+                      <textarea name="project" placeholder=" " id="contact-project" />
+                      <label htmlFor="contact-project">Briefly describe your project (optional)</label>
                     </div>
-                    <div className="form-group--enhanced">
-                      <input type="text" name="company" placeholder=" " id="contact-company" />
-                      <label htmlFor="contact-company">Company Name</label>
-                    </div>
-                  </div>
-                  <div className="form-group--enhanced" style={{ marginTop: 20 }}>
-                    <select name="service" required defaultValue="" id="contact-service" aria-describedby="contact-service-error">
-                      <option value="" disabled>Select a service...</option>
-                      <option>Custom AI Systems</option>
-                      <option>Mobile Applications</option>
-                      <option>Web Applications</option>
-                      <option>Not Sure Yet, Let's Talk</option>
-                      <option>Other</option>
-                    </select>
-                    <label htmlFor="contact-service">Service Interest *</label>
-                    <span id="contact-service-error" role="alert" aria-live="polite" style={{ display: 'none' }}></span>
-                  </div>
-                  <div className="form-group--enhanced" style={{ marginTop: 20 }}>
-                    <textarea name="project" placeholder=" " id="contact-project" />
-                    <label htmlFor="contact-project">Tell Us About Your Project</label>
-                  </div>
-                  <MagneticButton style={{ width: '100%', marginTop: 12 }}>
-                    <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                      Send My Inquiry
-                    </button>
-                  </MagneticButton>
-                </form>
+                    <MagneticButton style={{ width: '100%', marginTop: 12 }}>
+                      <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                        Send | We'll Reply Within 24 Hours
+                      </button>
+                    </MagneticButton>
+                  </form>
+                </>
               )}
             </div>
 
-            {/* Right column */}
+            {/* ═══ RIGHT COLUMN ═══ */}
             <div className="reveal">
-              {/* Contact info */}
+              {/* Contact info — removed fake phone number */}
               <div style={{ marginBottom: 40 }}>
                 {[
                   { icon: Mail, label: 'Email Us', value: 'hello@enigmasoftwaresystems.com' },
-                  { icon: Phone, label: 'Call Us', value: '(555) 123-4567' },
-                  { icon: Clock, label: 'Response Time', value: 'Within 24–48 hours' },
+                  { icon: Clock, label: 'Response Time', value: 'Within 24 hours' },
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
                     <IconBox icon={item.icon} size={40} />
@@ -160,7 +171,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* What to Expect */}
+              {/* What Happens Next */}
               <div className="card card--glass">
                 <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 20 }}>What Happens Next?</h3>
                 {expectSteps.map((step, i) => (
@@ -186,7 +197,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }

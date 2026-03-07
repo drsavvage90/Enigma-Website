@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="340" viewBox="0 0 600 340">
+  <defs><linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0c0c18"/><stop offset="100%" stop-color="#14142a"/></linearGradient></defs>
+  <rect width="600" height="340" fill="url(#bg3)"/>
+  <!-- Document on left -->
+  <rect x="80" y="40" width="180" height="240" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect x="96" y="58" width="80" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+  <rect x="96" y="74" width="148" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="96" y="82" width="148" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="96" y="90" width="120" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="96" y="106" width="60" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+  <rect x="96" y="118" width="148" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="96" y="126" width="148" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="96" y="134" width="130" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <rect x="96" y="142" width="148" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+  <!-- Arrow -->
+  <polygon points="290,160 320,148 320,152 360,152 360,168 320,168 320,172" fill="rgba(255,159,65,0.2)"/>
+  <!-- AI-generated document on right -->
+  <rect x="380" y="40" width="180" height="240" rx="6" fill="rgba(255,159,65,0.03)" stroke="rgba(255,159,65,0.15)" stroke-width="1"/>
+  <rect x="396" y="58" width="100" height="6" rx="3" fill="rgba(255,159,65,0.2)"/>
+  <rect x="396" y="74" width="148" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="82" width="148" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="90" width="130" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="106" width="60" height="5" rx="2.5" fill="rgba(255,159,65,0.15)"/>
+  <rect x="396" y="118" width="148" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="126" width="148" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="134" width="148" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="142" width="120" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="158" width="60" height="5" rx="2.5" fill="rgba(255,159,65,0.15)"/>
+  <rect x="396" y="170" width="148" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="178" width="148" height="3" rx="1.5" fill="rgba(255,159,65,0.1)"/>
+  <rect x="396" y="186" width="130" height="3" rx="1.5" fill="rgba(255,159,65,0.08)"/>
+  <!-- Sparkle icon -->
+  <circle cx="540" cy="56" r="8" fill="rgba(255,159,65,0.1)" stroke="rgba(255,159,65,0.2)" stroke-width="0.5"/>
+  <text x="540" y="60" text-anchor="middle" fill="rgba(255,159,65,0.4)" font-size="10">✦</text>
+  <!-- Label -->
+  <text x="170" y="300" text-anchor="middle" fill="rgba(255,255,255,0.08)" font-size="9" font-family="Inter,sans-serif">Template</text>
+  <text x="470" y="300" text-anchor="middle" fill="rgba(255,159,65,0.15)" font-size="9" font-family="Inter,sans-serif">AI-Generated</text>
+</svg>

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import IconBox from '../components/IconBox'
@@ -7,247 +6,104 @@ import PageHeader from '../components/PageHeader'
 import {
   Calendar, ShoppingCart, Star, Clock,
   Smartphone, Workflow, Bell, Trophy,
-  CheckCircle, ChevronDown,
+  ArrowRight,
 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
+/* ═══════════════════════════════════════════════════
+   BENEFITS — customer-outcome focused
+   ═══════════════════════════════════════════════════ */
 const benefits = [
-  { icon: Clock, title: 'Save Your Customers Time', desc: 'Booking, ordering, and service requests happen in a few taps — no phone calls, no waiting on hold. A faster experience means happier, more loyal customers.' },
-  { icon: Smartphone, title: 'Be Where Your Customers Are', desc: 'Your app lives on their home screen, not buried in a browser. That kind of daily visibility keeps your business top of mind and drives repeat engagement.' },
-  { icon: Workflow, title: 'Streamline Your Operations', desc: 'Every app integrates with your systems. Orders flow in automatically. Appointments sync. Service requests route to the right team — no manual work required.' },
-  { icon: Bell, title: 'Stay Connected with Push Notifications', desc: 'Send reminders, updates, offers, and alerts directly to their phone. No inbox clutter — just timely, relevant messages that drive action.' },
-  { icon: Star, title: 'Build Real Customer Loyalty', desc: 'Reward repeat business, offer exclusive in-app deals, and create engagement tools that turn one-time buyers into long-term clients.' },
-  { icon: Trophy, title: 'Stand Out from Your Competition', desc: 'A polished, branded app signals that your business is serious, modern, and invested in the customer experience. It sets you apart from competitors still relying on phone calls and paper forms.' },
+  { icon: Clock, title: 'Save Your Customers Time', desc: 'Booking, ordering, and service requests happen in a few taps. A faster experience means happier, more loyal customers.' },
+  { icon: Smartphone, title: 'Be Where Your Customers Are', desc: 'Your app lives on their home screen, not buried in a browser. That daily visibility keeps your business top of mind.' },
+  { icon: Workflow, title: 'Streamline Your Operations', desc: 'Orders flow in automatically. Appointments sync. Service requests route to the right team — no manual work required.' },
+  { icon: Bell, title: 'Push Notifications That Drive Action', desc: 'Send reminders, updates, and offers directly to their phone. Timely, relevant messages — not inbox clutter.' },
+  { icon: Star, title: 'Build Real Customer Loyalty', desc: 'Reward repeat business, offer exclusive deals, and create engagement tools that turn one-time buyers into long-term clients.' },
+  { icon: Trophy, title: 'Stand Out From Competitors', desc: 'A polished app signals that your business is serious and modern. It sets you apart from competitors still relying on phone calls.' },
 ]
 
+/* ═══════════════════════════════════════════════════
+   USE CASES — with customer outcome one-liners
+   ═══════════════════════════════════════════════════ */
 const useCases = [
-  { icon: Calendar, title: 'Service Requests & Scheduling', desc: 'Your customers can request service, choose a time that works, and track the status of their job — all from their phone. No more missed calls, phone tag, or scheduling confusion. Your team gets the request instantly, and your customer gets peace of mind.', ideal: 'HVAC, plumbing, landscaping, cleaning, electrical, and home services.' },
-  { icon: ShoppingCart, title: 'E-Commerce & Product Ordering', desc: 'Give your customers a smooth, mobile-native shopping experience. They can browse your products, place orders, manage their account, and track deliveries — all from a branded app that feels like it was built just for them. Because it was.', ideal: 'Retail shops, food & beverage, specialty stores, and wholesale suppliers.' },
-  { icon: Star, title: 'Customer Engagement & Loyalty', desc: 'Turn one-time buyers into regulars. Built-in loyalty programs, push notifications for special offers, and personalized engagement tools keep your customers coming back — and spending more when they do. Your app becomes the reason they choose you over the competition.', ideal: 'Restaurants, salons, fitness studios, coffee shops, and retail stores.' },
-  { icon: Clock, title: 'Appointment Booking & Management', desc: 'Replace the back-and-forth of scheduling with a simple, self-service booking interface. Your customers pick an available time, confirm the appointment, and get automatic reminders — all from the app. Fewer no-shows. Less admin work. A better experience for everyone.', ideal: 'Healthcare practices, law firms, consultants, salons, and professional services.' },
-]
-
-const processSteps = [
-  { num: '01', title: 'We Learn Your Business', desc: 'Every project starts with a free consultation. We learn how your customers interact with you, where the friction is, and what a great experience looks like for your industry.' },
-  { num: '02', title: 'We Design Around Your Customers', desc: 'Your end users drive every design decision. We build interfaces that are intuitive from the first tap — no tutorials needed, no confusion, just a clean path to getting things done.' },
-  { num: '03', title: 'We Build & Integrate', desc: 'We develop your app, connect it to your backend systems, and make sure everything works together — from order processing and scheduling to notifications and reporting.' },
-  { num: '04', title: 'We Launch & Support', desc: 'We handle App Store and Google Play submission, walk you through the finished product, and provide post-launch support to make sure everything runs smoothly from day one.' },
-]
-
-const buildTiers = [
   {
-    name: 'Simple App',
-    price: '$3,000',
-    timeline: '2–4 weeks',
-    desc: 'The perfect starting point if you want a clean, professional mobile presence without complexity. Think: an informational app, service listings, a basic contact form, or a simple directory.',
-    bestFor: 'Small businesses, sole proprietors, local service providers, churches, and community organizations.',
-    features: ['iOS and Android from one codebase', 'Up to 5–8 screens', 'Push notifications', 'App store submission', '30-day post-launch support'],
-    highlight: false,
+    icon: Calendar,
+    title: 'Service Requests & Scheduling',
+    desc: 'Your customers request service, pick a time, and track status — all from their phone. No more missed calls or scheduling confusion.',
+    outcome: 'Your customers stop calling and start booking in 30 seconds.',
+    ideal: 'HVAC, plumbing, landscaping, electrical, home services.',
   },
   {
-    name: 'Moderate App',
-    price: '$8,000',
-    timeline: '4–8 weeks',
-    desc: 'This is where your app becomes a real working tool for your business. User accounts, a custom backend, admin tools, and third-party integrations let you manage appointments, orders, memberships, or customer data — all through the app.',
-    bestFor: 'Growing businesses, service companies, membership organizations, healthcare practices, and nonprofits.',
-    features: ['Everything in Simple', 'User accounts & custom backend', 'Admin panel & role-based access', 'Up to 2 integrations', 'Analytics & 60-day support'],
-    highlight: true,
+    icon: ShoppingCart,
+    title: 'E-Commerce & Ordering',
+    desc: 'Customers browse, place orders, manage accounts, and track deliveries from a branded app built just for them.',
+    outcome: 'Your customers browse, buy, and track — without ever opening a browser.',
+    ideal: 'Retail, food & beverage, specialty stores, wholesale.',
   },
   {
-    name: 'Complex App',
-    price: '$12,000',
-    timeline: '8–16+ weeks',
-    desc: 'Enterprise-grade functionality for businesses with serious requirements. Real-time features, complex workflows, multi-system integrations, compliance needs, and advanced analytics — all architected to scale.',
-    bestFor: 'Established businesses, healthcare organizations, logistics companies, and multi-location operations.',
-    features: ['Everything in Moderate', 'Real-time chat & tracking', 'Advanced workflow automation', 'Multiple integrations (EHR, CRM, ERP)', 'Offline mode & compliance support (HIPAA, PCI)', '90-day post-launch support'],
-    highlight: false,
+    icon: Star,
+    title: 'Engagement & Loyalty',
+    desc: 'Built-in loyalty programs, push notifications for offers, and personalized tools keep customers coming back.',
+    outcome: 'Your regulars feel rewarded. Your one-time buyers come back.',
+    ideal: 'Restaurants, salons, fitness, coffee shops, retail.',
   },
   {
-    name: 'Custom App',
-    price: 'Custom Quote',
-    timeline: 'Determined during discovery',
-    desc: 'Some projects don\'t fit into a box, and that\'s exactly what this tier is for. Whether you have a completely original app concept, need to integrate with legacy systems, or want to combine mobile with web or IoT — we\'ll design a solution that makes sense.',
-    bestFor: 'Startups, unique product ideas, legacy system integrations, and organizations with needs that span multiple tiers.',
-    features: ['Fully custom scope', 'Discovery phase included', 'Flexible integrations', 'Custom SLA & support'],
-    highlight: false,
+    icon: Clock,
+    title: 'Appointment Booking',
+    desc: 'Self-service booking with available times, confirmations, and automatic reminders. Fewer no-shows. Less admin work.',
+    outcome: 'No more phone tag. No more no-shows.',
+    ideal: 'Healthcare, law firms, consultants, salons, professional services.',
   },
 ]
 
-const maintenancePlans = [
-  {
-    name: 'Essential',
-    price: '$200/mo',
-    bestFor: 'Simple Apps',
-    hours: '2 hrs/mo',
-    response: 'Standard',
-    includes: [
-      'Bug fixes and crash resolution',
-      'iOS and Android OS compatibility updates',
-      'App Store and Google Play compliance monitoring',
-      'Security patches and dependency updates',
-      'Performance monitoring and uptime checks',
-      '2 hours of minor adjustments or content changes per month',
-      'Email support during business hours',
-    ],
-  },
-  {
-    name: 'Professional',
-    price: '$400/mo',
-    bestFor: 'Moderate Apps',
-    hours: '4 hrs/mo',
-    response: 'Next Business Day',
-    includes: [
-      'Everything in Essential',
-      'Priority bug fixes and crash resolution',
-      'iOS and Android OS compatibility updates with beta testing',
-      'App Store and Google Play listing optimization',
-      'Third-party API and integration maintenance',
-      'Backend and database performance tuning',
-      '4 hours of feature additions, UI tweaks, or workflow changes per month',
-      'Next-business-day response on all support requests',
-      'Quarterly app performance review call',
-    ],
-  },
-  {
-    name: 'Premium',
-    price: '$1,000/mo',
-    bestFor: 'Complex Apps',
-    hours: '8 hrs/mo',
-    response: 'Same Business Day',
-    includes: [
-      'Everything in Professional',
-      'Same-day bug fixes for critical issues',
-      'Proactive OS compatibility testing before major iOS/Android releases',
-      'App Store and Google Play compliance, review, and update management',
-      'Multi-system integration monitoring (EHR, CRM, ERP, payment processors)',
-      'Advanced security audits and compliance patch management (HIPAA, PCI)',
-      'Push notification system maintenance and optimization',
-      '8 hours of feature development, redesign work, or new integrations per month',
-      'Same-business-day response on all support requests',
-      'Dedicated account manager',
-      'Monthly performance review and roadmap planning call',
-    ],
-  },
-  {
-    name: 'Custom',
-    price: 'Custom Quote',
-    bestFor: 'Custom Apps',
-    hours: 'Flexible',
-    response: 'Custom SLA',
-    includes: [
-      'Everything in Premium',
-      'Custom SLA with guaranteed response and resolution times',
-      'Dedicated engineering hours scoped to your roadmap',
-      'Priority feature development and early access to new capabilities',
-      'Multi-platform coordination (iOS, Android, web, API)',
-      'Custom analytics dashboards and reporting',
-      'On-call support options available',
-      'Annual architecture review and scalability planning',
-    ],
-  },
-]
-
-function MobileMaintenanceCard({ plan }) {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <div className={`card card--glass card--glow maintenance-plan-card${open ? ' maintenance-plan-card--open' : ''}`}>
-      <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>{plan.name}</h3>
-      <p className="tier-price--sm">{plan.price}</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <div className="plan-row">
-          <span className="plan-row__label">Best For</span>
-          <span className="plan-row__value">{plan.bestFor}</span>
-        </div>
-        <div className="plan-row">
-          <span className="plan-row__label">Included Hours</span>
-          <span className="plan-row__value">{plan.hours}</span>
-        </div>
-        <div className="plan-row">
-          <span className="plan-row__label">Response Time</span>
-          <span className="plan-row__value">{plan.response}</span>
-        </div>
-      </div>
-
-      <button
-        className="maintenance-plan-toggle"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <span>What's Included</span>
-        <ChevronDown size={16} style={{
-          transition: 'transform 0.3s ease',
-          transform: open ? 'rotate(180deg)' : 'rotate(0)',
-          flexShrink: 0,
-        }} />
-      </button>
-
-      <div className={`maintenance-plan-body${open ? ' open' : ''}`}>
-        <div className="maintenance-plan-body__inner">
-          {plan.includes.map((item, i) => (
-            <div key={i} className="feature-check">
-              <CheckCircle size={13} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 3 }} />
-              <span className="feature-check__text">{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function MobileApps() {
   const ref = useReveal()
 
   return (
     <div ref={ref}>
-      {/* SECTION 1 — HERO */}
+      {/* ═══ HERO ═══ */}
       <PageHeader
         title="Your Business, Right in Their Pocket"
-        subtitle="Give your customers a faster, easier way to interact with your business — a custom mobile app that works the way they do, available on both iOS and Android."
+        subtitle="Your customers book, order, and pay — right from their phone. A custom mobile app on iOS and Android, designed around how they interact with your business."
         blobColor="accent"
-        primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
+        primaryCta={{ text: 'Get a Free Estimate', to: '/contact' }}
         secondaryCta={{ text: 'See Use Cases', to: '#use-cases' }}
         image="/images/mobileapps-hero.png"
         imageAlt="Three mobile app interfaces showing roles selection, calendar scheduling, and user dashboard"
         imageLayout="image-right"
       />
 
-      {/* SECTION 2 — THE PROBLEM / FRAMING */}
+      {/* ═══ THE PROBLEM ═══ */}
       <section className="section--sm theme-darker">
         <div className="container">
           <div className="two-col reveal" style={{ gap: 56, alignItems: 'start' }}>
             <div>
               <span className="badge badge--accent">Mobile Apps</span>
-              <h2 className="display display--gradient heading-md">A Direct Line to Your Customers</h2>
+              <h2 className="display display--gradient heading-md">Your Customers Are Already on Their Phones. The Question Is Whether They're Using Your App.</h2>
               <p className="body-text">
-                Your customers are already on their phones. They're scheduling appointments, placing orders, and checking statuses from wherever they are. The question is whether they're doing those things through your app — or through someone else's.
-              </p>
-              <p className="body-text">
-                A custom mobile app puts your business directly on your customer's home screen. It's not a website they have to search for. It's not an email they have to dig through. It's your business, one tap away, ready when they are.
-              </p>
-              <p className="body-text">
-                We don't build generic apps from templates. Every app we create is designed around how your business actually operates and what your customers actually need. The result is an app people use every week — not one that gets downloaded and forgotten.
+                A custom mobile app puts your business directly on your customer's home screen. It's not a website they have to search for. It's not an email they have to dig through. It's your business, one tap away, ready when they are. And because it's built around how your business actually operates, people use it every week — not download it and forget.
               </p>
             </div>
-            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
+            <TiltCard noGlow className="preview-box">
               <img
                 src="/images/mobileapps-direct-line.png"
                 alt="Mobile app messaging interface on a phone screen"
                 loading="lazy"
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </TiltCard>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 — BENEFITS */}
+      {/* ═══ BENEFITS ═══ */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--accent float float--slow" style={{ width: 500, height: 500, top: '-10%', left: '-15%' }} />
         <div className="container section-z">
           <div className="reveal section-header">
             <span className="badge badge--blue">Benefits</span>
-            <h2 className="display display--gradient heading-lg">What a Custom Mobile App Does for Your Business</h2>
+            <h2 className="display display--gradient heading-lg">How Your Customers' Experience Changes With an App</h2>
           </div>
           <div className="grid-3 reveal-group">
             {benefits.map((b, i) => (
@@ -261,7 +117,7 @@ export default function MobileApps() {
         </div>
       </section>
 
-      {/* SECTION 4 — USE CASES */}
+      {/* ═══ USE CASES ═══ */}
       <section id="use-cases" className="section mobile-usecases-section" style={{ position: 'relative' }}>
         <div className="mobile-usecases-section__bg" />
         <div className="mobile-usecases-section__overlay" />
@@ -270,144 +126,63 @@ export default function MobileApps() {
             <span className="badge badge--accent">Use Cases</span>
             <h2 className="display display--gradient heading-lg">See How It Works for Businesses Like Yours</h2>
           </div>
-          <div className="grid-4 reveal-group" style={{ maxWidth: 1000, margin: '0 auto' }}>
+          <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto', gap: 24 }}>
             {useCases.map((uc, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={uc.icon} variant={i % 2 === 0 ? 'accent' : 'cyan'} />
                 <h3 className="card-title">{uc.title}</h3>
                 <p className="card-desc">{uc.desc}</p>
-                <p style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 600, marginTop: 12, letterSpacing: '0.02em' }}>
+                <p style={{ color: '#fff', fontSize: 14, fontWeight: 600, marginTop: 12, fontStyle: 'italic' }}>
+                  {uc.outcome}
+                </p>
+                <p style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 600, marginTop: 8, letterSpacing: '0.02em' }}>
                   Ideal for: <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>{uc.ideal}</span>
                 </p>
               </TiltCard>
             ))}
           </div>
+          <div className="reveal" style={{ textAlign: 'center', marginTop: 40 }}>
+            <Link to="/contact" className="btn btn-primary btn-lg">
+              See Yourself Here? Get a Free Estimate
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* SECTION 5 — OUR APPROACH */}
-      <section className="section theme-light">
+      {/* ═══ HOW IT WORKS ═══ */}
+      <section className="section--sm theme-light">
         <div className="container">
-          <div className="two-col reveal">
-            <div>
+          <div className="two-col reveal" style={{ gap: 48, alignItems: 'center' }}>
+            <div style={{ flex: 1 }}>
               <span className="badge badge--accent">Our Approach</span>
-              <h2 className="display heading-lg heading-dark">
-                Designed Around You, Not Around a Template
+              <h2 className="display heading-lg heading-dark" style={{ marginBottom: 16 }}>
+                From Discovery Call to App Store in as Little as 4 Weeks
               </h2>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginBottom: 20 }}>
-                A lot of app companies start with a template and ask you to fit your business into it. We do the opposite. We start with your workflows, your customer journey, and your day-to-day operations — and we build an app that fits you.
+              <p style={{ color: 'var(--text-body)', fontSize: 17, lineHeight: 1.8, marginBottom: 8 }}>
+                We start with your workflows, your customer journey, and your operations — then build an app that fits you, not a template. Every app we deliver works on both iOS and Android.
               </p>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginBottom: 32 }}>
-                Every app we deliver is designed for customer-facing simplicity. Your users shouldn't need a tutorial. They should open the app, understand it immediately, and accomplish what they came to do in just a few taps. Behind the scenes, the app connects to your business systems so nothing falls through the cracks — orders, appointments, messages, and data all flow where they need to go, automatically.
+              <p style={{ color: 'var(--text-body)', fontSize: 16 }}>
+                <Link to="/how-we-work" className="link-arrow" style={{ fontSize: 16 }}>See our full 4-step process <ArrowRight size={14} /></Link>
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-                {processSteps.map((step, i) => (
-                  <div key={i} className="process-step">
-                    <span className="process-num">
-                      {step.num}
-                    </span>
-                    <div>
-                      <h4 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-dark)', marginBottom: 4 }}>{step.title}</h4>
-                      <p style={{ color: 'var(--text-body)', fontSize: 14, lineHeight: 1.7 }}>{step.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
-            <TiltCard noGlow className="preview-box" style={{ height: 520 }}>
+            <TiltCard noGlow className="preview-box" style={{ flex: 1, background: '#F6F6F9', borderRadius: 16, overflow: 'hidden' }}>
               <img
                 src="/images/mobileapps-approach.jpg"
                 alt="Enigma consultant shaking hands with a client"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 16 }}
               />
             </TiltCard>
           </div>
         </div>
       </section>
 
-      {/* SECTION 6 — BUILD OPTIONS / PRICING */}
-      <section className="section theme-dark" style={{ position: 'relative' }}>
-        <div className="blob blob--accent float float--slow" style={{ width: 500, height: 500, top: '20%', right: '-15%' }} />
-        <div className="container section-z">
-          <div className="reveal" style={{ textAlign: 'center', marginBottom: 16 }}>
-            <span className="badge badge--blue">Build Options</span>
-            <h2 className="display display--gradient heading-lg">Four Tiers. One Goal: The Right App for You.</h2>
-            <p className="section-subtitle">
-              Every app we build is delivered on both iOS and Android. Every project starts with a free consultation to make sure you're in the right tier — and if your needs fall between tiers, we'll create a custom quote.
-            </p>
-          </div>
-
-          <div className="grid-4 reveal-group" style={{ marginTop: 48 }}>
-            {buildTiers.map((tier, i) => (
-              <TiltCard
-                key={i}
-                className={`card card--glass card--glow reveal${tier.highlight ? ' mobile-tier--highlight' : ''}`}
-                style={tier.highlight ? { border: '1px solid rgba(255, 159, 65, 0.3)', position: 'relative' } : {}}
-                allowOverflow={tier.highlight}
-              >
-                {tier.highlight && (
-                  <span className="tier-popular-tag">
-                    Most Popular
-                  </span>
-                )}
-                <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>{tier.name}</h3>
-                <p className="tier-price">
-                  {tier.price}
-                </p>
-                <p style={{ color: 'var(--text-muted)', fontSize: 13, marginBottom: 16 }}>
-                  Timeline: {tier.timeline}
-                </p>
-                <p className="card-desc--sm" style={{ marginBottom: 16 }}>
-                  {tier.desc}
-                </p>
-                <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--accent)', marginBottom: 8, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                  Best for:
-                </p>
-                <p style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6, marginBottom: 16 }}>
-                  {tier.bestFor}
-                </p>
-                <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 16, marginTop: 'auto' }}>
-                  {tier.features.map((f, fi) => (
-                    <div key={fi} className="feature-check">
-                      <CheckCircle size={14} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 3 }} />
-                      <span className="feature-check__text">{f}</span>
-                    </div>
-                  ))}
-                </div>
-              </TiltCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — MAINTENANCE PLANS */}
-      <section className="section--sm theme-darker">
-        <div className="container">
-          <div className="reveal section-header">
-            <span className="badge badge--accent">Maintenance</span>
-            <h2 className="display display--gradient heading-lg">Your App Stays Current. Your Business Keeps Moving.</h2>
-            <p className="section-subtitle">
-              A mobile app is a living product. iOS and Android release major updates every year, third-party services evolve, and security threats don't take breaks. Our maintenance plans handle the behind-the-scenes work so your app stays fast, secure, and always available for your customers.
-            </p>
-          </div>
-
-          <div className="grid-4 reveal-group">
-            {maintenancePlans.map((plan, i) => (
-              <MobileMaintenanceCard key={i} plan={plan} />
-            ))}
-          </div>
-
-          <p className="reveal note-text">
-            All maintenance plans are billed monthly and can be adjusted or cancelled with 30 days' notice. Annual discounts are available for every tier. Hours do not roll over month to month. Additional development beyond included hours is available at a preferred rate for maintenance clients.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 8 — CTA */}
+      {/* ═══ CTA ═══ */}
       <CTABlock
         headline="Ready to Give Your Customers a Better Experience?"
-        text="Tell us about your business and your customers, and we'll design a mobile app that makes their lives easier — and yours more efficient. Every project starts with a free consultation."
-        buttonText="Let's Talk Mobile"
+        text="Tell us about your business and your customers. We'll design a mobile app that makes their lives easier and yours more efficient."
+        buttonText="Get Your App Estimate"
       />
     </div>
   )

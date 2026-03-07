@@ -45,7 +45,7 @@ const seoConfig = {
   '/vault': {
     title: `Vault by Enigma — Multi-LLM AI Platform | ${SITE}`,
     description:
-      'One platform, every AI model, complete control. A private, branded AI workspace with enterprise security, cost transparency, and the models you choose.',
+      'One platform, multiple AI models, complete control. A private, branded AI workspace with enterprise security, cost transparency, and the models you choose.',
     ogImage: OG_DEFAULT,
   },
   '/how-we-work': {

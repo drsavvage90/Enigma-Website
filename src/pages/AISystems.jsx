@@ -5,61 +5,32 @@ import IconBox from '../components/IconBox'
 import TiltCard from '../components/TiltCard'
 import PageHeader from '../components/PageHeader'
 import {
-  Lock, ShieldCheck, ShieldOff, Palette, Mic,
-  Lightbulb, MessageSquare, BookOpen, Database,
-  ToggleLeft, Clock, Brain,
-  ArrowRight, Bot,
-  Users, Headphones, CalendarCheck, FileSearch,
-  Plug, BarChart3, Mail,
+  Lock, Palette, Lightbulb, Clock, Brain,
+  ArrowRight, Bot, Headphones,
+  FileText, BarChart3, ShieldCheck,
+  Plug, BookOpen, Mic, Users,
 } from 'lucide-react'
 
-/* ── Benefits of Enigma AI Systems ── */
+/* ═══════════════════════════════════════════════════
+   BENEFITS — customer-outcome focused
+   ═══════════════════════════════════════════════════ */
 const benefits = [
-  { icon: Lock, title: 'Your Data Stays Private', desc: 'Unlike consumer AI tools, everything your team types stays in a secure environment you control. No data leaking into third-party training sets. No information shared with other users.' },
-  { icon: Lightbulb, title: 'AI That Understands Your Business', desc: 'We integrate your business data, documents, and processes into the backend. Your AI doesn\'t give generic answers — it gives answers informed by your company\'s actual information.' },
-  { icon: Palette, title: 'Branded to Your Company', desc: 'Every AI system we build carries your brand — your logo, your colors, your name. Your team and your clients interact with AI that feels like it belongs to your organization.' },
-  { icon: Clock, title: 'Save Your Team Hours Every Week', desc: 'Automate repetitive tasks, generate documents, answer common questions, and surface information instantly. AI becomes a productivity multiplier — not a distraction.' },
-  { icon: ToggleLeft, title: 'Start Small or Go All In', desc: 'Need a full AI platform? We build that. Need a simple chatbot that answers customer questions? We build that too. There\'s an entry point for every budget and every level of ambition.' },
-  { icon: ShieldCheck, title: 'Built for Compliance', desc: 'PII/PHI detection, audit logging, role-based access, and configurable compliance toolkits. Our AI systems are designed for regulated industries from the ground up — healthcare, legal, finance, and beyond.' },
+  { icon: Lock, title: 'Your Data Stays Private', desc: 'Everything your team types stays in a secure environment you control. No data leaking into third-party training sets.' },
+  { icon: Lightbulb, title: 'AI That Knows Your Business', desc: 'We integrate your documents and processes so AI gives answers informed by your company\'s actual information, not generic responses.' },
+  { icon: Palette, title: 'Branded to Your Company', desc: 'Your logo, your colors, your name. Your team and clients interact with AI that feels like it belongs to your organization.' },
+  { icon: Clock, title: 'Hours Saved Every Week', desc: 'Automate repetitive tasks, generate documents, and surface information instantly. AI becomes a productivity multiplier for your team.' },
 ]
 
-/* ── Customer-Facing AI Chat Assistants ── */
-const customerAiFeatures = [
-  { icon: Headphones, title: '24/7 Availability', desc: 'Your AI assistant never takes a break. Customers get instant answers to common questions any time of day — nights, weekends, and holidays included.' },
-  { icon: Bot, title: 'Trained on Your Business', desc: 'Not a generic chatbot. We load your FAQs, service descriptions, pricing, policies, and processes so the assistant gives answers specific to your business.' },
-  { icon: Users, title: 'Lead Capture & Routing', desc: 'When a visitor is ready to take the next step, the assistant captures their information and routes it to the right person on your team — automatically.' },
-  { icon: Palette, title: 'Your Brand, Your Voice', desc: 'The assistant speaks in your tone, uses your terminology, and sits on your website with your branding. Customers interact with your company — not a third-party tool.' },
-]
-
-/* ── Internal Knowledge-Based AI Tools ── */
-const internalAiFeatures = [
-  { icon: BookOpen, title: 'Instant Access to Company Knowledge', desc: 'Your team asks questions in plain language and gets answers drawn from your actual documents — SOPs, training manuals, HR policies, product specs, and more.' },
-  { icon: FileSearch, title: 'No More Digging Through Shared Drives', desc: 'Instead of searching folders and hoping to find the right file, your team asks the AI and gets the answer in seconds — with source references.' },
-  { icon: Mic, title: 'Digital Note Taker', desc: 'Record meetings, interviews, and calls directly in the platform. AI-powered recording turns audio into searchable, shareable text with automatic summaries and action items.' },
-  { icon: Database, title: 'Gets Smarter Over Time', desc: 'As you add new documents and refine responses, your internal AI tool becomes an increasingly valuable knowledge resource for your entire organization.' },
-]
-
-/* ── Custom AI Integrations ── */
-const integrationExamples = [
-  { icon: Mail, title: 'Email & Communication', desc: 'Automatically draft responses, summarize long email threads, or flag messages that need urgent attention.' },
-  { icon: CalendarCheck, title: 'Scheduling & Operations', desc: 'Intelligent scheduling assistants, automated dispatch, and workflow triggers that keep your team on track.' },
-  { icon: BarChart3, title: 'Reporting & Analytics', desc: 'Generate reports from raw data, surface trends your team would miss, and turn complex information into plain-language summaries.' },
-  { icon: Plug, title: 'Connect Your Existing Tools', desc: 'We build AI-powered bridges between the tools you already use — CRMs, ERPs, project management platforms, and more.' },
-]
-
-/* ── Security & Privacy ── */
-const securityPoints = [
-  { icon: Lock, title: 'Private & Contained', desc: 'Your data lives in a secure environment you control. Nothing is shared with third-party training models or exposed to other users. What happens in your AI platform stays in your AI platform.' },
-  { icon: ShieldCheck, title: 'Built for Compliance', desc: 'Our systems are designed with compliance in mind from the start. Healthcare, legal, finance, or any regulated industry — we build to meet the standards your business requires, including HIPAA, SOC2, and GDPR readiness.' },
-  { icon: ShieldOff, title: 'Not Consumer-Grade', desc: 'Free AI tools are built for individuals, not businesses. Our platforms are engineered for professional use — with access controls, audit trails, PII detection, and data handling practices that consumer tools simply don\'t offer.' },
-]
-
-/* ── Process Steps ── */
-const processSteps = [
-  { num: '01', title: 'We Learn Your Business', desc: 'Every engagement starts with a free consultation. We learn how your team works, what challenges you\'re facing, and where AI can deliver the most impact. We\'ll recommend the right approach — whether that\'s a customer-facing assistant, an internal knowledge tool, a custom integration, or a combination.' },
-  { num: '02', title: 'We Design the Solution', desc: 'Based on your needs, we design the AI system — selecting models, configuring security, planning integrations, and mapping the platform to your workflows. You\'ll know exactly what you\'re getting before any development begins.' },
-  { num: '03', title: 'We Build and Integrate', desc: 'We build your AI system, load your business data, configure branding and permissions, and integrate with your existing tools. Everything is tested, polished, and production-ready before we hand it over.' },
-  { num: '04', title: 'We Launch and Support', desc: 'We deploy the system, train your team, and provide dedicated post-launch support. Then our maintenance plans keep everything current, secure, and running smoothly as AI providers evolve.' },
+/* ═══════════════════════════════════════════════════
+   EXAMPLES OF WHAT WE BUILD — illustrative, not exhaustive
+   ═══════════════════════════════════════════════════ */
+const examples = [
+  { icon: Headphones, title: 'Customer-Facing Chat Assistants', desc: 'An AI on your website that knows your services, pricing, and processes, answering customer questions and capturing leads 24/7.', image: '/images/card-ai-chatbot.svg' },
+  { icon: BookOpen, title: 'Internal Knowledge Tools', desc: 'Your team asks a question in plain language and gets an answer from your actual documents (SOPs, policies, manuals) in seconds.', image: '/images/card-ai-knowledge.svg' },
+  { icon: FileText, title: 'Document Generation & Automation', desc: 'AI that drafts proposals, contracts, reports, or estimates based on your templates and client data. First drafts in seconds, not hours.', image: '/images/card-ai-docgen.svg' },
+  { icon: BarChart3, title: 'Data Analysis & Insight Dashboards', desc: 'Connect your existing data and surface trends, anomalies, and recommendations in plain language. Turn raw numbers into decisions.', image: '/images/card-ai-analytics.svg' },
+  { icon: ShieldCheck, title: 'Quality Control & Review', desc: 'AI that reviews work product before it goes out, checking for brand voice, factual accuracy, missing clauses, or formatting standards.', image: '/images/card-ai-review.svg' },
+  { icon: Plug, title: 'Custom Integrations & Workflow AI', desc: 'AI-powered connections between your existing tools like customer databases, email, scheduling platforms, and more. Automate the handoffs your team does manually today.', image: '/images/card-ai-workflow.svg' },
 ]
 
 
@@ -68,47 +39,41 @@ export default function AISystems() {
 
   return (
     <div ref={ref}>
-      {/* SECTION 1 — HERO */}
+      {/* ═══ HERO ═══ */}
       <PageHeader
         title="AI That Actually Knows Your Business"
-        subtitle="Customer-facing chat assistants, internal knowledge tools, and custom AI integrations — all private, branded, and designed around the way your business actually works. Not generic. Not consumer-grade. Built for you."
+        subtitle="We build custom AI systems designed around the way your business actually works. Private, branded, and connected to your data. Not generic tools. Not consumer-grade. Built for you."
         blobColor="orange"
-        primaryCta={{ text: 'Schedule a Consultation', to: '/contact' }}
+        primaryCta={{ text: 'See How AI Fits Your Business', to: '/contact' }}
         secondaryCta={{ text: 'See Our Flagship Platform', to: '/vault' }}
         image="/images/aisystems-hero.jpg"
         imageAlt="User interacting with an AI chat interface on a laptop"
         imageLayout="image-left"
       />
 
-      {/* SECTION 2 — THE PROBLEM */}
+      {/* ═══ THE PROBLEM ═══ */}
       <section className="section--sm theme-darker">
         <div className="container reveal" style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto' }}>
-          <span className="badge badge--accent">AI Systems</span>
-          <h2 className="display display--gradient heading-md">Your Team Is Already Using AI. The Question Is Whether It's Working for You.</h2>
+          <span className="badge badge--accent">The Problem</span>
+          <h2 className="display display--gradient heading-md">There's a Good Chance Your Team Is Using AI Right Now on Accounts You Don't Control.</h2>
           <p className="body-text">
-            Right now, there's a good chance people on your team are using ChatGPT, Claude, or other AI tools on personal accounts. They're typing sensitive business information into platforms you don't control, paying with personal credit cards, and working in silos where nobody else benefits from what they've built.
-          </p>
-          <p style={{ color: 'var(--text-light)', fontSize: 17, lineHeight: 1.8, marginTop: 16, fontWeight: 600 }}>
-            That's not an AI strategy. That's a liability.
+            They're typing sensitive business information into ChatGPT and Claude on personal accounts. Paying with personal credit cards. Working in isolation where nobody else benefits from what they've built. That's not an AI strategy. That's a liability.
           </p>
           <p className="body-text">
-            The businesses getting real value from AI aren't the ones handing employees a ChatGPT subscription and hoping for the best. They're the ones giving their teams purpose-built AI tools — connected to their business data, governed by their security policies, and designed for the work they actually do.
-          </p>
-          <p className="body-text">
-            That's what we build. Whether you need a customer-facing assistant, an internal knowledge tool, or a custom integration that connects AI to your existing workflows — we deliver AI that's private, branded, and built around how your business operates.
+            The businesses getting real value from AI aren't handing employees a subscription and hoping for the best. They're giving their teams purpose-built AI tools connected to their data, governed by their policies, and designed for the work they actually do.
           </p>
         </div>
       </section>
 
-      {/* SECTION 3 — BENEFITS */}
+      {/* ═══ BENEFITS ═══ */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--accent float float--slow" style={{ width: 500, height: 500, top: '-10%', left: '-15%' }} />
         <div className="container section-z">
           <div className="reveal section-header">
             <span className="badge badge--blue">Benefits</span>
-            <h2 className="display display--gradient heading-lg">What Enigma's AI Systems Do for Your Business</h2>
+            <h2 className="display display--gradient heading-lg">What Changes When AI Actually Works for You</h2>
           </div>
-          <div className="grid-3 reveal-group">
+          <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto', gap: 24 }}>
             {benefits.map((b, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={b.icon} variant={i % 2 === 0 ? 'accent' : 'blue'} />
@@ -120,266 +85,151 @@ export default function AISystems() {
         </div>
       </section>
 
-      {/* SECTION 4 — TWO PATHS TO AI */}
-      <section className="section--sm theme-darker">
-        <div className="container">
-          <div className="reveal section-header" style={{ textAlign: 'center' }}>
-            <span className="badge badge--accent">Two Paths</span>
-            <h2 className="display display--gradient heading-lg">AI Isn't One-Size-Fits-All. Pick the Path That Fits.</h2>
-            <p className="section-subtitle">
-              Some businesses are ready for a full-scale AI platform. Others just need a smart, focused tool that handles one job really well. We build both — and everything in between.
-            </p>
-          </div>
-          <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto' }}>
-            {/* Vault / Multi-LLM Platform */}
-            <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden', border: '1px solid rgba(255, 159, 65, 0.2)' }}>
-              <div className="ai-path-card__image">
-                <img src="/images/aisystems-multi-llm.png" alt="Select AI Model interface showing multiple LLM providers" loading="lazy" />
-              </div>
-              <div style={{ padding: '24px 28px 28px' }}>
-                <span style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: 'var(--accent)',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  marginBottom: 12,
-                  display: 'block',
-                }}>
-                  Flagship Product
-                </span>
-                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12 }}>Multi-LLM AI Platform</h3>
-                <p className="card-desc">
-                  A private, branded AI workspace with multi-model access, enterprise security, team workspaces, a knowledge base, and full cost transparency. The complete AI infrastructure for your organization.
-                </p>
-                <Link to="/vault" className="link-arrow" style={{ marginTop: 16 }}>Explore Vault by Enigma <ArrowRight size={14} /></Link>
-              </div>
-            </TiltCard>
-            {/* Chatbots & Integrations */}
-            <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
-              <div className="ai-path-card__image">
-                <img src="/images/aisystems-chatbots.png" alt="Two mobile phone screens showing an AI chatbot interface with suggested actions" loading="lazy" />
-              </div>
-              <div style={{ padding: '24px 28px 28px' }}>
-                <span style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: 'var(--blue)',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  marginBottom: 12,
-                  display: 'block',
-                }}>
-                  Accessible Entry Point
-                </span>
-                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12 }}>AI Chatbots & Integrations</h3>
-                <p className="card-desc">
-                  Standalone AI chatbots and custom integrations that bring intelligent automation to your business at an accessible price point. Secure, branded, and trained on your information.
-                </p>
-                <a href="#customer-ai" className="link-arrow" style={{ marginTop: 16 }}>Learn More <ArrowRight size={14} /></a>
-              </div>
-            </TiltCard>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5 — CUSTOMER-FACING AI CHAT ASSISTANTS */}
-      <section id="customer-ai" className="section theme-light">
-        <div className="container">
-          <div className="two-col reveal" style={{ gap: 56 }}>
-            <div>
-              <span className="badge badge--accent">Customer-Facing AI</span>
-              <h2 className="display heading-lg heading-dark">
-                An AI Assistant That Knows Your Business — On Your Website, 24/7
-              </h2>
-              <p className="body-text--light" style={{ marginBottom: 16 }}>
-                Imagine a chat assistant on your website that doesn't just answer generic questions — it actually knows your services, your pricing, your policies, and your processes. When a potential customer visits your site at 9pm on a Saturday, they get real answers and a clear path to doing business with you.
-              </p>
-              <p className="body-text--light" style={{ marginBottom: 32 }}>
-                We build customer-facing AI assistants that are trained on your information, branded to your company, and designed to convert visitors into leads — without adding headcount.
-              </p>
-              <div className="grid-2" style={{ gap: 16 }}>
-                {customerAiFeatures.map((f, i) => (
-                  <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                    <IconBox icon={f.icon} size={36} />
-                    <div>
-                      <h4 style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-dark)', marginBottom: 4 }}>{f.title}</h4>
-                      <p style={{ fontSize: 13, color: 'var(--text-body)', lineHeight: 1.6 }}>{f.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
-              <img
-                src="/images/aisystems-customer.jpg"
-                alt="Enigma consultant explaining AI features to a client"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </TiltCard>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5 — INTERNAL KNOWLEDGE-BASED AI TOOLS */}
-      <section className="section theme-darker" style={{ position: 'relative' }}>
-        <div className="blob blob--blue float float--slow float--offset" style={{ width: 400, height: 400, top: '-10%', right: '-10%' }} />
-        <div className="container section-z">
-          <div className="two-col reveal" style={{ gap: 56 }}>
-            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
-              <img
-                src="/images/aisystems-internal.jpg"
-                alt="Internal AI knowledge base interface showing secure data connections"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </TiltCard>
-            <div>
-              <span className="badge badge--blue">Internal AI Tools</span>
-              <h2 className="display display--gradient heading-lg">
-                Give Your Team Instant Access to Everything They Need to Know
-              </h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 16 }}>
-                Your company has years of accumulated knowledge locked inside documents, emails, and shared drives. Internal AI tools make that knowledge instantly accessible — your team asks a question in plain language and gets an accurate answer in seconds, pulled directly from your own data.
-              </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 32 }}>
-                No more waiting for the one person who knows the answer. No more digging through folders. Your business knowledge becomes a living, searchable resource that everyone on your team can tap into.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                {internalAiFeatures.map((f, i) => (
-                  <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                    <IconBox icon={f.icon} size={40} variant={i % 2 === 0 ? 'accent' : 'blue'} />
-                    <div>
-                      <h4 style={{ fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 4 }}>{f.title}</h4>
-                      <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.6 }}>{f.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6 — CUSTOM AI INTEGRATIONS */}
+      {/* ═══ WHAT WE BUILD — examples of range, not categories ═══ */}
       <section className="section theme-light">
         <div className="container">
           <div className="reveal section-header" style={{ textAlign: 'center' }}>
-            <span className="badge badge--accent">Custom Integrations</span>
+            <span className="badge badge--accent">What We Build</span>
             <h2 className="display heading-lg heading-dark">
-              Connect AI to the Tools You Already Use
+              If Your Business Has a Problem, AI Can Probably Solve It
             </h2>
             <p style={{ color: 'var(--text-body)', maxWidth: 640, margin: '0 auto', fontSize: 17, lineHeight: 1.7 }}>
-              Not every AI project needs its own interface. Sometimes the biggest impact comes from connecting intelligent automation directly to the workflows and tools your team already relies on.
+              We don't sell a fixed menu of AI products. We learn how your business operates, identify where AI can deliver the most impact, and build exactly what you need. Here are some examples of what that looks like:
             </p>
           </div>
-          <div className="grid-4 reveal-group" style={{ maxWidth: 1000, margin: '0 auto' }}>
-            {integrationExamples.map((ex, i) => (
+          <div className="grid-3 reveal-group" style={{ maxWidth: 1000, margin: '0 auto' }}>
+            {examples.map((ex, i) => (
               <TiltCard key={i} className="reveal" style={{
-                padding: 28,
+                padding: 0,
                 borderRadius: 16,
                 textAlign: 'left',
                 background: '#fff',
                 border: '1px solid rgba(0,0,0,0.06)',
                 boxShadow: '0 2px 20px rgba(0,0,0,0.04)',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
               }}>
-                <IconBox icon={ex.icon} />
-                <h4 style={{ fontSize: 16, fontWeight: 600, margin: '14px 0 8px', color: 'var(--text-dark)' }}>{ex.title}</h4>
-                <p style={{ color: 'var(--text-body)', fontSize: 13, lineHeight: 1.65 }}>{ex.desc}</p>
+                <div style={{ height: 180, overflow: 'hidden', flexShrink: 0 }}>
+                  <img src={ex.image} alt={ex.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ padding: '20px 24px 24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <IconBox icon={ex.icon} />
+                  <h4 style={{ fontSize: 16, fontWeight: 600, margin: '12px 0 8px', color: 'var(--text-dark)' }}>{ex.title}</h4>
+                  <p style={{ color: 'var(--text-body)', fontSize: 13, lineHeight: 1.65 }}>{ex.desc}</p>
+                </div>
               </TiltCard>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — VAULT BY ENIGMA (brief callout) */}
-      <section className="section--sm theme-dark" style={{ position: 'relative' }}>
-        <div className="blob blob--accent float float--slow" style={{ width: 350, height: 350, top: '10%', right: '-10%' }} />
-        <div className="container section-z">
-          <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
-            <span className="badge badge--accent">Flagship Product</span>
-            <h2 className="display display--gradient heading-lg">Looking for the Full AI Platform?</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 8 }}>
-              Vault by Enigma is our flagship multi-LLM platform — a private, branded AI workspace where your entire organization accesses every leading AI model from a single dashboard, with enterprise security, cost tracking, and complete control over your data.
+          <div className="reveal" style={{ textAlign: 'center', marginTop: 32 }}>
+            <p style={{ color: 'var(--text-body)', fontSize: 16, fontStyle: 'italic' }}>
+              Don't see your use case? That's fine. These are just examples. Tell us what you need and we'll design the right solution.
             </p>
-            <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 32 }}>
-              If your needs go beyond a single assistant or integration, Vault is the full-scale solution.
-            </p>
-            <Link to="/vault" className="btn btn-primary btn-lg">
-              Explore Vault by Enigma
-              <ArrowRight size={16} strokeWidth={2.5} />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* SECTION 8 — SECURITY & PRIVACY */}
-      <section className="section theme-darker" style={{ position: 'relative' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <div className="blob blob--blue float float--slow float--offset" style={{ width: 400, height: 400, top: '-10%', left: '50%', transform: 'translateX(-50%)' }} />
-          <div className="section-z">
-            <div className="reveal">
-              <span className="badge badge--blue">Security & Privacy</span>
-              <h2 className="display display--gradient heading-lg">The Biggest Risk with AI Isn't the Technology. It's Where Your Data Ends Up.</h2>
-              <p style={{ color: 'var(--text-muted)', maxWidth: 700, margin: '0 auto 16px', fontSize: 17, lineHeight: 1.7 }}>
-                When your team uses free, consumer-grade AI tools, every prompt they type is being fed into systems you don't control. Your business data, your client information, your internal processes — all of it is going somewhere you can't see and can't govern.
-              </p>
-              <p style={{ color: 'var(--text-muted)', maxWidth: 700, margin: '0 auto 48px', fontSize: 17, lineHeight: 1.7 }}>
-                Every AI system we build is designed to keep your information exactly where it belongs: under your control.
-              </p>
-            </div>
-            <div className="grid-3 reveal-group">
-              {securityPoints.map((s, i) => (
-                <TiltCard key={i} className="card card--glass reveal" style={{ textAlign: 'left' }}>
-                  <IconBox icon={s.icon} variant="cyan" />
-                  <h4 className="card-title--sm">{s.title}</h4>
-                  <p className="card-desc--sm">{s.desc}</p>
-                </TiltCard>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 9 — HOW WE WORK */}
-      <section className="section theme-dark">
+      {/* ═══ TWO PATHS — visual showcase ═══ */}
+      <section className="section--sm theme-darker">
         <div className="container">
-          <div className="two-col reveal">
-            <div>
-              <span className="badge badge--accent">How We Work</span>
-              <h2 className="display display--gradient heading-lg">You Tell Us What You Need. We Build the AI That Delivers It.</h2>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>
-                You don't need a technical team or AI expertise to work with us. We handle every step of the process — from understanding your business to deploying a production-ready system your team can use on day one.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-                {processSteps.map((step, i) => (
-                  <div key={i} className="process-step">
-                    <span className="process-num">
-                      {step.num}
-                    </span>
-                    <div>
-                      <h4 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-light)', marginBottom: 4 }}>{step.title}</h4>
-                      <p className="card-desc--sm">{step.desc}</p>
-                    </div>
-                  </div>
-                ))}
+          <div className="reveal section-header" style={{ textAlign: 'center' }}>
+            <span className="badge badge--blue">Two Starting Points</span>
+            <h2 className="display display--gradient heading-md">Start With a Focused Tool or Go All In. We Build Both.</h2>
+            <p className="section-subtitle">
+              Some businesses are ready for a full-scale AI platform. Others just need a smart, focused tool that handles one job really well. There's an entry point for every budget.
+            </p>
+          </div>
+          <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto', gap: 24 }}>
+            <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
+              <div style={{ height: 220, overflow: 'hidden' }}>
+                <img src="/images/aisystems-multi-llm.png" alt="Multi-LLM AI platform model selection interface" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-            </div>
-            <TiltCard noGlow className="preview-box" style={{ height: 480 }}>
-              <img
-                src="/images/aisystems-work.jpg"
-                alt="Enigma consultants discussing AI strategy with a client"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+              <div style={{ padding: '20px 24px 24px' }}>
+                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Vault: Full AI Platform</h3>
+                <p className="card-desc">A private AI workspace with multiple leading models, enterprise security, cost tracking, and team management. The complete AI infrastructure.</p>
+                <Link to="/vault" className="link-arrow" style={{ marginTop: 12 }}>Explore Vault <ArrowRight size={14} /></Link>
+              </div>
+            </TiltCard>
+            <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
+              <div style={{ height: 220, overflow: 'hidden' }}>
+                <img src="/images/aisystems-chatbots.png" alt="AI chatbot interface on mobile devices" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <div style={{ padding: '20px 24px 24px' }}>
+                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Standalone AI Tools</h3>
+                <p className="card-desc">A single AI system built for a specific job: a chatbot, a document generator, a data analyzer, or anything else your business needs.</p>
+                <Link to="/contact" className="link-arrow" style={{ marginTop: 12 }}>Tell Us What You Need <ArrowRight size={14} /></Link>
+              </div>
             </TiltCard>
           </div>
         </div>
       </section>
 
-      {/* SECTION 10 — CTA */}
+      {/* ═══ HOW IT COMES TOGETHER — two real-world scenarios with images ═══ */}
+      <section className="section theme-dark" style={{ position: 'relative' }}>
+        <div className="blob blob--blue float float--slow float--offset" style={{ width: 400, height: 400, top: '-10%', right: '-10%' }} />
+        <div className="container section-z">
+          <div className="reveal section-header" style={{ textAlign: 'center' }}>
+            <span className="badge badge--accent">In Practice</span>
+            <h2 className="display display--gradient heading-lg">What This Looks Like for Real Businesses</h2>
+          </div>
+
+          {/* Scenario 1: Customer-facing */}
+          <div className="two-col reveal" style={{ gap: 56, marginBottom: 64 }}>
+            <div>
+              <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12, color: '#fff' }}>For Your Customers</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: 16, lineHeight: 1.8, marginBottom: 20 }}>
+                A potential customer visits your website at 9pm on a Saturday. Instead of a generic contact form, they're greeted by an AI assistant that knows your services, your pricing, your service area, and your scheduling availability. They get real answers, book an appointment, and become a lead, all while your team is off the clock.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {[
+                  { icon: Headphones, text: '24/7 availability: nights, weekends, holidays' },
+                  { icon: Bot, text: 'Trained on your FAQs, pricing, and processes' },
+                  { icon: Users, text: 'Captures leads and routes them to your team' },
+                ].map((f, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    <IconBox icon={f.icon} size={36} variant="accent" />
+                    <span style={{ color: 'var(--text-muted)', fontSize: 15 }}>{f.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <TiltCard noGlow className="preview-box">
+              <img src="/images/aisystems-customer.jpg" alt="AI chat assistant on a business website" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </TiltCard>
+          </div>
+
+          {/* Scenario 2: Internal */}
+          <div className="two-col two-col--reversed reveal" style={{ gap: 56 }}>
+            <div>
+              <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12, color: '#fff' }}>For Your Team</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: 16, lineHeight: 1.8, marginBottom: 20 }}>
+                A new employee needs to find your company's policy on a specific procedure. Instead of searching shared drives or waiting for the one person who knows the answer, they ask your internal AI tool in plain language and get an accurate response pulled directly from your own documents in seconds.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {[
+                  { icon: BookOpen, text: 'Answers from your actual SOPs, manuals, and policies' },
+                  { icon: Mic, text: 'Record meetings and turn them into searchable text' },
+                  { icon: Brain, text: 'Gets smarter as you add documents over time' },
+                ].map((f, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    <IconBox icon={f.icon} size={36} variant="blue" />
+                    <span style={{ color: 'var(--text-muted)', fontSize: 15 }}>{f.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <TiltCard noGlow className="preview-box">
+              <img src="/images/aisystems-internal.jpg" alt="Internal AI knowledge base interface" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </TiltCard>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ CTA ═══ */}
       <CTABlock
         headline="Let's Build Your AI Advantage"
-        text="Whether you need a customer-facing assistant, an internal knowledge tool, or a custom integration — tell us about your business and we'll show you what AI can do for it. Every conversation starts with a free consultation."
-        buttonText="Schedule a Consultation"
+        text="Tell us about your business and we'll show you where AI can make the biggest impact. Every conversation starts with a free consultation."
+        buttonText="Get a Custom AI Recommendation"
       />
     </div>
   )

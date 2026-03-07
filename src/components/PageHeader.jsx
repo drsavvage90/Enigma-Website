@@ -131,8 +131,8 @@ export default function PageHeader({
             initial="hidden"
             animate="visible"
         >
-            <TiltCard noGlow style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
-                <img src={image} alt={imageAlt} loading="lazy" style={imageStyle} />
+            <TiltCard noGlow style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', width: '100%', height: '100%' }}>
+                <img src={image} alt={imageAlt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...imageStyle }} />
             </TiltCard>
         </motion.div>
     ) : null

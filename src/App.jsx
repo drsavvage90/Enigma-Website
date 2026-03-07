@@ -16,8 +16,9 @@ const WebApps = lazy(() => import('./pages/WebApps'))
 const VaultByEnigma = lazy(() => import('./pages/VaultByEnigma'))
 const HowWeWork = lazy(() => import('./pages/HowWeWork'))
 const Industries = lazy(() => import('./pages/Industries'))
-const Portfolio = lazy(() => import('./pages/Portfolio'))
+// const Portfolio = lazy(() => import('./pages/Portfolio')) // Hidden temporarily
 const FAQ = lazy(() => import('./pages/FAQ'))
+const Pricing = lazy(() => import('./pages/Pricing'))
 const Contact = lazy(() => import('./pages/Contact'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./pages/TermsOfService'))
@@ -52,8 +53,9 @@ export default function App() {
               <Route path="/vault" element={<PageTransition><VaultByEnigma /></PageTransition>} />
               <Route path="/how-we-work" element={<PageTransition><HowWeWork /></PageTransition>} />
               <Route path="/industries" element={<PageTransition><Industries /></PageTransition>} />
-              <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
+              {/* <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} /> Hidden temporarily */}
               <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+              <Route path="/pricing" element={<PageTransition><Pricing /></PageTransition>} />
               <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
               <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
               <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />

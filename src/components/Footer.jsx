@@ -13,10 +13,11 @@ const companyLinks = [
   { to: '/about', label: 'About Us' },
   { to: '/how-we-work', label: 'How We Work' },
   { to: '/industries', label: 'Industries' },
-  { to: '/portfolio', label: 'Portfolio' },
+  // { to: '/portfolio', label: 'Portfolio' }, // Hidden temporarily
 ]
 
 const supportLinks = [
+  { to: '/pricing', label: 'Pricing' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ]

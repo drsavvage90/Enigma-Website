@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import IconBox from '../components/IconBox'
@@ -5,92 +6,126 @@ import TiltCard from '../components/TiltCard'
 import PageHeader from '../components/PageHeader'
 import {
   Building2, Wrench, Shield, PackageOpen, Brain,
+  ArrowRight,
 } from 'lucide-react'
 
+/* ═══════════════════════════════════════════════════
+   INDUSTRIES — focused, honest list (not 15 generic ones)
+   ═══════════════════════════════════════════════════ */
 const industries = [
-  'Healthcare', 'Construction', 'Legal', 'Consulting', 'Marketing',
-  'HVAC', 'Real Estate', 'Manufacturing', 'Retail', 'Education',
-  'Nonprofit', 'Finance', 'Hospitality', 'Logistics', 'Agriculture',
+  { name: 'HVAC', image: '/images/industry-hvac.svg' },
+  { name: 'Healthcare', image: '/images/industry-healthcare.svg' },
+  { name: 'Legal', image: '/images/industry-legal.svg' },
+  { name: 'Consulting', image: '/images/industry-consulting.svg' },
+  { name: 'Home Services', image: '/images/industry-home-services.svg' },
+  { name: 'Professional Services', image: '/images/industry-professional.svg' },
 ]
 
+/* ═══════════════════════════════════════════════════
+   CATEGORIES — reframed around customer pain points
+   ═══════════════════════════════════════════════════ */
 const categories = [
-  { icon: Building2, title: 'Small to Mid-Sized Businesses', desc: "You're competing against companies with bigger budgets and bigger tech teams. Custom software levels the playing field — giving you enterprise-grade tools without the enterprise price tag." },
-  { icon: Wrench, title: 'Service-Based Companies', desc: 'HVAC, healthcare, legal, consulting, and beyond. If your business runs on appointments, service calls, and client relationships, we build the apps and portals that streamline those interactions.' },
-  { icon: Shield, title: 'Regulated Industries', desc: 'Healthcare, finance, legal, and other industries with strict compliance requirements need software built to those standards. Our security-first approach ensures your tools meet the regulations your industry demands.' },
-  { icon: PackageOpen, title: 'Companies That Have Outgrown SaaS', desc: "You started with generic tools, but now you're bending them in ways they weren't designed for. If you're paying for five different platforms and none of them do exactly what you need, it's time for something purpose-built." },
-  { icon: Brain, title: 'Businesses Ready to Integrate AI', desc: "You know AI can help your business, but you don't know where to start — or you've tried consumer tools and hit their limits. We build AI systems that are secure, practical, and tailored to your workflows." },
+  {
+    icon: Building2,
+    title: 'Small to Mid-Sized Businesses',
+    problem: "You're competing against companies with bigger budgets and bigger tech teams.",
+    solution: 'Custom software levels the playing field, giving you enterprise-grade tools without the enterprise price tag.',
+    cta: { text: 'See what we build', to: '/ai-systems' },
+  },
+  {
+    icon: Wrench,
+    title: 'Service-Based Companies',
+    problem: 'Your business runs on appointments, service calls, and client relationships, but your tools weren\'t built for that.',
+    solution: 'We build the apps and portals that streamline how your customers interact with you.',
+    cta: { text: 'Explore mobile apps', to: '/mobile-apps' },
+  },
+  {
+    icon: Shield,
+    title: 'Regulated Industries',
+    problem: 'You need modern software, but compliance requirements make most vendors a non-starter.',
+    solution: 'Our security-first approach means your tools meet the compliance standards your industry demands, including healthcare privacy, financial regulations, and beyond.',
+    cta: { text: 'Explore AI systems', to: '/ai-systems' },
+  },
+  {
+    icon: PackageOpen,
+    title: 'Companies That Have Outgrown SaaS',
+    problem: 'You\'re paying for five different platforms and none of them do exactly what you need.',
+    solution: 'Stop bending generic tools. Get something purpose-built for how your business actually operates.',
+    cta: { text: 'Explore web apps', to: '/web-apps' },
+  },
+  {
+    icon: Brain,
+    title: 'Businesses Ready for AI',
+    problem: 'You know AI can help, but you don\'t know where to start, or you\'ve tried consumer tools and hit their limits.',
+    solution: 'We build AI systems that are secure, practical, and tailored to your workflows, not generic chatbots.',
+    cta: { text: 'See our AI platform', to: '/vault' },
+  },
 ]
+
 
 export default function Industries() {
   const ref = useReveal()
 
   return (
     <div ref={ref}>
+      {/* ═══ HERO ═══ */}
       <PageHeader
         title="Technology That Fits Your Industry"
-        subtitle="We serve businesses across a wide range of industries, with a focus on organizations that are ready to modernize their operations with intelligent, custom-built software."
+        subtitle="We work with businesses across a range of industries, with a focus on organizations ready to replace generic tools with custom software that actually fits."
         blobColor="orange"
-        primaryCta={{ text: 'Contact Us', to: '/contact' }}
+        primaryCta={{ text: 'Tell Us About Your Business', to: '/contact' }}
         secondaryCta={{ text: 'Explore Our Services', to: '/ai-systems' }}
       />
 
-      <section className="section--sm theme-darker">
-        <div className="container reveal" style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto' }}>
-          <span className="badge badge--accent">Our Focus</span>
-          <h2 className="display display--gradient heading-md">We Don't Specialize in One Industry. We Specialize in Solving Problems.</h2>
-          <p className="body-text">
-            Every industry has unique workflows, compliance requirements, and customer expectations. We take the time to understand your world, then build software that's purpose-designed for it.
-          </p>
-        </div>
-      </section>
-
-      {/* Industry Ticker */}
+      {/* ═══ INDUSTRY TICKER (trimmed to 6) ═══ */}
       <div className="industry-ticker" aria-label="Industries we serve">
         <div className="industry-ticker__track">
-          {[...industries, ...industries].map((name, i) => (
+          {[...industries, ...industries].map((item, i) => (
             <div key={i} className="industry-ticker__item">
-              <div className="industry-ticker__dot" />
-              <span>{name}</span>
+              <img src={item.image} alt={item.name} className="industry-ticker__image" />
+              <span>{item.name}</span>
             </div>
           ))}
         </div>
       </div>
 
+      {/* ═══ BUSINESS TYPES — pain point → solution structure ═══ */}
       <section className="section industries-types-section" style={{ position: 'relative' }}>
         <div className="industries-types-section__bg" />
         <div className="industries-types-section__overlay" />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="reveal section-header">
             <span className="badge badge--blue">Who We Serve</span>
-            <h2 className="display display--gradient heading-lg">Industries & Business Types</h2>
+            <h2 className="display display--gradient heading-lg">Find Your Situation</h2>
+            <p className="section-subtitle">
+              Every industry has unique workflows and requirements. Here's how we help businesses like yours.
+            </p>
           </div>
           <div className="industries-card-grid reveal-group">
             {categories.map((c, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal">
                 <IconBox icon={c.icon} />
                 <h3 className="card-title">{c.title}</h3>
-                <p className="card-desc">{c.desc}</p>
+                <p style={{ color: 'var(--accent)', fontSize: 14, fontWeight: 600, marginBottom: 6 }}>
+                  The problem:
+                </p>
+                <p className="card-desc" style={{ marginBottom: 12 }}>{c.problem}</p>
+                <p style={{ color: 'var(--text-light)', fontSize: 14, lineHeight: 1.6 }}>
+                  {c.solution}
+                </p>
+                <Link to={c.cta.to} className="link-arrow" style={{ marginTop: 14 }}>
+                  {c.cta.text} <ArrowRight size={14} />
+                </Link>
               </TiltCard>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section--sm theme-light">
-        <div className="container reveal" style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
-          <span className="badge badge--accent">Tailored</span>
-          <h2 className="display heading-lg heading-dark" style={{ marginBottom: 16 }}>
-            Every Solution Is Adapted to Your World
-          </h2>
-          <p style={{ color: 'var(--text-body)', fontSize: 17, lineHeight: 1.8 }}>
-            We don't just swap out a logo and call it customized. Every project we take on is shaped by the specific needs, workflows, and compliance requirements of the industry it serves. The result is software that doesn't feel like it was made for "businesses in general." It feels like it was made for yours.
-          </p>
-        </div>
-      </section>
-
+      {/* ═══ CTA ═══ */}
       <CTABlock
-        headline="Don't See Your Industry? We Probably Still Fit."
-        text="Our approach works across industries because it starts with your business, not a template. Tell us what you need, and we'll show you how custom software can help."
+        headline="Don't See Your Industry? Let's Talk Anyway."
+        text="Our approach works across industries because it starts with your business, not a template. Tell us what you need."
         buttonText="Tell Us About Your Business"
       />
     </div>

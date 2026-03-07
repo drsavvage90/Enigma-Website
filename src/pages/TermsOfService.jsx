@@ -12,7 +12,7 @@ const sections = [
     title: 'Use of Website',
     content: [
       'You may use this website for lawful purposes only. You agree not to use this site in any way that could damage, disable, or impair the site or interfere with any other party\'s use of the site.',
-      'All content on this website — including text, graphics, logos, and design — is the property of Enigma Software Systems and is protected by applicable copyright and trademark laws.',
+      'All content on this website, including text, graphics, logos, and design, is the property of Enigma Software Systems and is protected by applicable copyright and trademark laws.',
     ],
   },
   {

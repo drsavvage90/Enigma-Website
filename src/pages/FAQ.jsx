@@ -1,46 +1,56 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import PageHeader from '../components/PageHeader'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ArrowRight } from 'lucide-react'
 
+/* ═══════════════════════════════════════════════════
+   FAQ DATA — rewritten with specific numbers,
+   customer-first framing, and objection-handling Qs
+   ═══════════════════════════════════════════════════ */
 const faqSections = [
   {
     title: 'General Questions',
     items: [
-      { q: 'What does Enigma Software Systems do?', a: 'We design, build, and deploy custom software for businesses. Our three core service areas are custom AI systems, mobile applications, and web applications. Everything we build is purpose-designed for the client it serves — no templates, no generic solutions.' },
-      { q: 'Who do you typically work with?', a: 'We work with small to mid-sized businesses, service-based companies, organizations in regulated industries, and companies that have outgrown off-the-shelf SaaS platforms. If your business needs custom technology to operate better or serve clients better, we are a good fit.' },
-      { q: 'How is this different from off-the-shelf software?', a: 'Off-the-shelf software is built for everyone, which means it is optimized for no one. Custom software is designed around your specific workflows, your customers, and your goals. It fits your business instead of forcing your business to fit it.' },
+      { q: 'What does Enigma Software Systems do?', a: 'If your business needs custom technology like an AI platform, a mobile app, or a web tool, we design, build, and deploy it. Everything is built specifically for the business it serves. No templates. No generic solutions.' },
+      { q: 'Who do you typically work with?', a: 'Small to mid-sized businesses, service-based companies, regulated industries, and organizations that have outgrown off-the-shelf SaaS platforms. If your business needs custom technology to operate better or serve clients better, we’re a good fit.' },
+      { q: 'How is this different from off-the-shelf software?', a: 'Off-the-shelf software is built for everyone, which means it’s optimized for no one. Custom software is designed around your specific workflows, your customers, and your goals. It fits your business instead of forcing your business to fit it.' },
+      { q: 'What if I don’t have technical knowledge?', a: 'You don’t need any. We handle every technical decision, from architecture and design to deployment and maintenance. You bring the business knowledge. We bring the engineering.' },
     ],
   },
   {
     title: 'AI-Specific Questions',
     items: [
-      { q: 'What is the multi-LLM platform?', a: "It's our flagship AI product — a secure, fully branded platform where your team can access leading AI models like Claude, ChatGPT, Gemini, and Grok from a single dashboard. It's customized to your business, integrated with your data, and built for privacy and security." },
-      { q: 'Is my data secure on your AI platform?', a: "Yes. Unlike consumer-grade AI tools, our platform is built with data privacy and security as a foundation. Your data stays in a secure environment that you control. It's not shared with third-party training models or exposed to other users." },
-      { q: 'What AI models do you support?', a: "Our multi-LLM platform currently supports Claude, ChatGPT, Gemini, and Grok. You can switch between models based on the task at hand. We'll continue to add models as the AI landscape evolves." },
-      { q: "What's the difference between the platform and a chatbot?", a: 'The multi-LLM platform is a full-featured AI environment with multiple models, transcription, business-aware intelligence, and custom branding. A standalone chatbot is a simpler, more affordable tool designed for a specific use case. Both are secure and customizable, but the platform is significantly more capable.' },
+      { q: 'What is Vault by Enigma?', a: 'Vault is our flagship AI platform: a private, branded workspace where your team accesses leading AI models (Claude, ChatGPT, Gemini, Grok) from a single dashboard. It includes cost tracking, workspaces, transcription, a knowledge base, and enterprise security. Think of it as AI infrastructure for your organization.' },
+      { q: 'Is my data secure on your AI platform?', a: 'Yes. Your data stays in a secure environment you control. It’s never shared with third-party training models or exposed to other users. We build with automatic sensitive-data detection, complete activity logs, and controls that let you decide exactly who sees what.' },
+      { q: 'What if I just need a simple chatbot, not a full platform?', a: 'We build that too. A customer-facing AI assistant trained on your business information starts at a fraction of the Vault platform cost. We’ll recommend the right approach during your free consultation.' },
     ],
+    sectionCta: { text: 'Learn more about our AI systems', to: '/ai-systems' },
   },
   {
-    title: 'Project & Pricing Questions',
+    title: 'Pricing & Timeline Questions',
     items: [
-      { q: 'How does pricing work?', a: "We use a combination of project-based development fees and recurring annual maintenance plans. The project fee covers design, development, and deployment. The annual plan covers ongoing support, updates, hosting, and maintenance. Every project is scoped individually, so we'll provide a clear quote after our discovery conversation." },
-      { q: 'How long does a typical project take?', a: "Timelines vary by scope, but most projects move from discovery to launch within weeks, not months. We're a small, focused team that moves fast. We'll give you a realistic timeline during the discovery phase." },
-      { q: "What's included in ongoing support?", a: "Our annual maintenance plans cover bug fixes, security updates, feature adjustments, hosting, and ongoing technical support. We don't build and walk away. When your business evolves or you need changes, we're here to help." },
+      { q: 'How much does a typical project cost?', a: 'Mobile apps start at $3,000. AI platforms start at $5,000. Web applications are scoped individually based on complexity. Maintenance plans start at $200/month. We’ll give you a clear, specific quote after a free discovery conversation.' },
+      { q: 'How long does a typical project take?', a: 'Most projects launch in 4–8 weeks. Complex builds with compliance requirements or multiple integrations may take 12–16 weeks. We’ll give you a realistic timeline during discovery.' },
+      { q: 'What’s included in ongoing support?', a: 'Bug fixes, security updates, feature adjustments, OS compatibility updates, and ongoing technical support. Plans include monthly development hours for changes and improvements. We don’t build and walk away.' },
+      { q: 'What if I need changes after launch?', a: 'That’s exactly what maintenance plans are for. Every plan includes monthly development hours for adjustments, new features, and workflow changes. Additional hours are available at a preferred rate.' },
     ],
   },
   {
     title: 'Technical Questions',
     items: [
-      { q: 'Where is my software hosted?', a: "We handle hosting as part of our service. Your application is deployed on secure, reliable infrastructure. Hosting details are discussed during scoping, and we'll recommend the best setup based on your needs." },
-      { q: 'Can your software integrate with tools I already use?', a: 'In most cases, yes. We build with integration in mind and can connect your custom application with existing platforms, CRMs, payment processors, scheduling tools, and more.' },
-      { q: 'Do I own the final product?', a: 'Yes. The software we build for you is yours. You own the product. The specifics of ownership and intellectual property are outlined clearly in our project agreements.' },
-      { q: 'Can you help with compliance requirements like HIPAA?', a: 'Yes. We build with compliance in mind from the start. If your industry requires specific security standards, we design your solution to meet those requirements. We also have legal expertise on our team.' },
+      { q: 'Do I own the final product?', a: 'Yes. The software we build for you is yours. Ownership and intellectual property are outlined clearly in our project agreements.' },
+      { q: 'Can your software integrate with tools I already use?', a: 'In most cases, yes. We build with integration in mind, including customer databases, payment processors, scheduling tools, accounting systems, email platforms, and more.' },
+      { q: 'Can you help with compliance requirements like HIPAA?', a: 'Yes. We build with compliance in mind from the start. Our team includes legal expertise, and we design solutions to meet healthcare, financial, and data privacy compliance requirements.' },
+      { q: 'Can I see a prototype before committing?', a: 'During the design phase, you’ll see wireframes and prototypes before any development begins. You’ll know exactly what you’re getting, and your feedback shapes every decision.' },
     ],
   },
 ]
 
+/* ═══════════════════════════════════════════════════
+   ACCORDION COMPONENT — preserved from original
+   ═══════════════════════════════════════════════════ */
 function AccordionItem({ question, answer, id }) {
   const [open, setOpen] = useState(false)
   const triggerId = `faq-trigger-${id}`
@@ -75,6 +85,9 @@ function AccordionItem({ question, answer, id }) {
   )
 }
 
+/* ═══════════════════════════════════════════════════
+   FAQ SCHEMA — preserved for SEO
+   ═══════════════════════════════════════════════════ */
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -100,15 +113,17 @@ export default function FAQ() {
 
   return (
     <div ref={ref}>
+      {/* ═══ HERO ═══ */}
       <PageHeader
         title="Frequently Asked Questions"
-        subtitle="Straight answers to the questions we hear most. If yours isn't here, reach out — we're happy to talk."
+        subtitle="Straight answers to the questions we hear most. If yours isn't here, reach out. We're happy to talk."
         blobColor="blue"
         image="/images/hero-faq-bg.svg"
         imageAlt=""
         imageLayout="background"
       />
 
+      {/* ═══ FAQ SECTIONS ═══ */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--accent float float--fast float--offset" style={{ width: 350, height: 350, bottom: '5%', left: '-8%' }} />
         <div className="container" style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -118,15 +133,23 @@ export default function FAQ() {
               {section.items.map((item, j) => (
                 <AccordionItem key={j} id={`${i}-${j}`} question={item.q} answer={item.a} />
               ))}
+              {section.sectionCta && (
+                <div style={{ marginTop: 16, paddingLeft: 4 }}>
+                  <Link to={section.sectionCta.to} className="link-arrow" style={{ fontSize: 15 }}>
+                    {section.sectionCta.text} <ArrowRight size={14} />
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
         </div>
       </section>
 
+      {/* ═══ CTA ═══ */}
       <CTABlock
         headline="Still Have Questions? Let's Talk."
-        text="We'd rather have a real conversation than send you a brochure. Reach out and we'll answer anything that isn't covered here."
-        buttonText="Contact Us"
+        text="We'd rather have a real conversation than send you a brochure. Your discovery call is free."
+        buttonText="Book a Free Call"
       />
     </div>
   )

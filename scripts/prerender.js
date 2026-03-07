@@ -15,15 +15,16 @@
  */
 
 import { preview } from 'vite'
-import puppeteer from 'puppeteer-core'
+import puppeteerCore from 'puppeteer-core'
+import puppeteer from 'puppeteer'
 import chromium from '@sparticuz/chromium'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DIST      = path.join(__dirname, '..', 'dist')
-const PORT      = 4173   // vite preview default
+const DIST = path.join(__dirname, '..', 'dist')
+const PORT = 4173   // vite preview default
 
 // ─── Routes to prerender ────────────────────────────────────────────────────
 // Keep this list in sync with seoConfig.js and App.jsx.
@@ -57,12 +58,25 @@ async function run() {
   console.log(`\n🚀  Preview server running at http://localhost:${PORT}\n`)
 
   // 2. Launch headless Chromium
-  const browser = await puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(),
-    headless: chromium.headless,
-  })
+  // Detect if we're in a serverless/CI environment (e.g. Netlify, Lambda, GitHub Actions)
+  const isServerless = !!(process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NETLIFY || process.env.CI)
+
+  console.log(`\n🔍  Detected environment: ${isServerless ? 'Serverless/CI' : 'Local Machine'}`)
+
+  const launchOptions = isServerless
+    ? {
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    }
+    : {
+      // Local machine - use standard puppeteer (which handles its own binary)
+      headless: 'shell',
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    }
+
+  const browser = await (isServerless ? puppeteerCore : puppeteer).launch(launchOptions)
 
   const errors = []
 
@@ -74,8 +88,8 @@ async function run() {
       const page = await browser.newPage()
 
       // Suppress noisy console output from Three.js / React during capture
-      page.on('console', () => {})
-      page.on('pageerror', () => {})
+      page.on('console', () => { })
+      page.on('pageerror', () => { })
 
       // Wait for network to go quiet, then give Three.js extra time
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 30_000 })
@@ -85,7 +99,7 @@ async function run() {
       await page.close()
 
       // Write captured HTML to dist/<route>/index.html
-      const outDir  = route === '/' ? DIST : path.join(DIST, route)
+      const outDir = route === '/' ? DIST : path.join(DIST, route)
       const outFile = path.join(outDir, 'index.html')
       fs.mkdirSync(outDir, { recursive: true })
       fs.writeFileSync(outFile, html, 'utf-8')
