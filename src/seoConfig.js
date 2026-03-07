@@ -96,6 +96,36 @@ const seoConfig = {
       'The terms that govern your use of the Enigma Software Systems website and services.',
     ogImage: OG_DEFAULT,
   },
+  '/blog': {
+    title: `Blog | ${SITE}`,
+    description:
+      'Insights on custom software development, AI for small business, HIPAA compliance, mobile apps, and building technology that works for your business.',
+    ogImage: OG_DEFAULT,
+  },
+  '/blog/why-custom-software-beats-off-the-shelf': {
+    title: `Why Custom Software Beats Off-the-Shelf | ${SITE}`,
+    description:
+      'Off-the-shelf tools get you started, but custom software scales with your operations. Here\'s when it makes sense to invest in purpose-built technology.',
+    ogImage: OG_DEFAULT,
+  },
+  '/blog/ai-chatbots-for-small-business': {
+    title: `AI Chatbots for Small Business | ${SITE}`,
+    description:
+      'A clear breakdown of what an AI chatbot can realistically do for a small business, what it costs, and whether it\'s worth the investment.',
+    ogImage: OG_DEFAULT,
+  },
+  '/blog/hipaa-compliant-web-apps-what-you-need': {
+    title: `Building HIPAA-Compliant Web Apps | ${SITE}`,
+    description:
+      'If your business handles patient data, your web app needs more than an SSL certificate. A practical guide to HIPAA compliance in custom web applications.',
+    ogImage: OG_DEFAULT,
+  },
+  '/blog/mobile-app-vs-mobile-website': {
+    title: `Mobile App vs. Mobile Website | ${SITE}`,
+    description:
+      'Not every business needs a native app. How to decide between a mobile-optimized website and a custom iOS/Android application for your business.',
+    ogImage: OG_DEFAULT,
+  },
 }
 
 /** Fallback used for unmatched routes (e.g. 404). */

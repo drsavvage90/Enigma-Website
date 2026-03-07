@@ -22,12 +22,18 @@ const Pricing = lazy(() => import('./pages/Pricing'))
 const Contact = lazy(() => import('./pages/Contact'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./pages/TermsOfService'))
+const Blog = lazy(() => import('./pages/Blog'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
 const SpotlightButtonDemo = lazy(() => import('./pages/SpotlightButtonDemo'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    // Track SPA page views for GA4
+    if (window.gtag) window.gtag('event', 'page_view', { page_path: pathname })
+  }, [pathname])
   return null
 }
 
@@ -59,6 +65,8 @@ export default function App() {
               <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
               <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
               <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
+              <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+              <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
               <Route path="/spotlight-demo" element={<PageTransition><SpotlightButtonDemo /></PageTransition>} />
               <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
             </Routes>

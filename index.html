@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Theme / PWA meta -->
@@ -15,6 +16,9 @@
   <!-- Search Console / Webmaster verification — replace YOUR_*_TOKEN with real values -->
   <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_TOKEN" />
   <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_TOKEN" />
+
+  <!-- Preload hero image for LCP -->
+  <link rel="preload" as="image" href="/assets/Hero-Section Main.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Google Fonts — preconnect + stylesheet (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -130,7 +134,8 @@
         { "@type": "ListItem", "position": 8, "name": "Industries", "item": "https://www.enigmasoftwaresystems.com/industries" },
         { "@type": "ListItem", "position": 9, "name": "Pricing", "item": "https://www.enigmasoftwaresystems.com/pricing" },
         { "@type": "ListItem", "position": 10, "name": "FAQ", "item": "https://www.enigmasoftwaresystems.com/faq" },
-        { "@type": "ListItem", "position": 11, "name": "Contact", "item": "https://www.enigmasoftwaresystems.com/contact" }
+        { "@type": "ListItem", "position": 11, "name": "Contact", "item": "https://www.enigmasoftwaresystems.com/contact" },
+        { "@type": "ListItem", "position": 12, "name": "Blog", "item": "https://www.enigmasoftwaresystems.com/blog" }
       ]
     }
   </script>

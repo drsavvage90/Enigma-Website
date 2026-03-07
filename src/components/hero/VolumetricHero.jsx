@@ -20,6 +20,9 @@ function HeroBackground() {
                 src="/assets/Hero-Section Main.webp"
                 alt="Enigma Software Systems — custom software development for AI, mobile, and web applications"
                 className="hero-image-animate"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 style={{
                     width: '100%',
                     height: '100%',

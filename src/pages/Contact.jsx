@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import IconBox from '../components/IconBox'
 import PageHeader from '../components/PageHeader'
 import MagneticButton from '../components/hero/MagneticButton'
-import { Mail, Clock, Check, Calendar, Lightbulb, Sparkles } from 'lucide-react'
+import { Mail, Clock, Check, Calendar, Lightbulb, Sparkles, MapPin } from 'lucide-react'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -51,6 +51,9 @@ export default function Contact() {
       .then((res) => {
         if (res.ok) {
           setSubmitted(true)
+          // Track conversion event for analytics
+          if (window.gtag) window.gtag('event', 'generate_lead', { event_category: 'contact', event_label: formData.get('service') })
+          if (window.plausible) window.plausible('Contact Form Submission')
         } else {
           setError(true)
         }
@@ -183,6 +186,7 @@ export default function Contact() {
               <div style={{ marginBottom: 40 }}>
                 {[
                   { icon: Mail, label: 'Email Us', value: 'hello@enigmasoftwaresystems.com' },
+                  { icon: MapPin, label: 'Location', value: 'Southern Ohio · Serving clients nationwide' },
                   { icon: Clock, label: 'Response Time', value: 'Within 24 hours' },
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>

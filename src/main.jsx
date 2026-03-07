@@ -21,6 +21,31 @@ if (SENTRY_DSN) {
   })
 }
 
+// Analytics — Plausible (privacy-friendly, no cookies) or GA4
+const PLAUSIBLE_DOMAIN = import.meta.env.VITE_PLAUSIBLE_DOMAIN
+if (PLAUSIBLE_DOMAIN) {
+  const s = document.createElement('script')
+  s.defer = true
+  s.dataset.domain = PLAUSIBLE_DOMAIN
+  s.src = 'https://plausible.io/js/script.js'
+  document.head.appendChild(s)
+}
+
+const GA4_ID = import.meta.env.VITE_GA4_ID
+if (GA4_ID) {
+  const g = document.createElement('script')
+  g.async = true
+  g.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`
+  document.head.appendChild(g)
+  g.onload = () => {
+    window.dataLayer = window.dataLayer || []
+    function gtag() { window.dataLayer.push(arguments) }
+    gtag('js', new Date())
+    gtag('config', GA4_ID, { send_page_view: true })
+    window.gtag = gtag
+  }
+}
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ErrorBoundary>

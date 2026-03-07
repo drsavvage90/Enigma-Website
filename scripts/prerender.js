@@ -44,6 +44,11 @@ const ROUTES = [
   '/contact',
   '/privacy-policy',
   '/terms-of-service',
+  '/blog',
+  '/blog/why-custom-software-beats-off-the-shelf',
+  '/blog/ai-chatbots-for-small-business',
+  '/blog/hipaa-compliant-web-apps-what-you-need',
+  '/blog/mobile-app-vs-mobile-website',
 ]
 
 // ─── How long to wait after network goes idle before snapshotting ────────────

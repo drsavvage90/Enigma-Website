@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
+import NewsletterCTA from '../components/NewsletterCTA'
 import IconBox from '../components/IconBox'
 import TiltCard from '../components/TiltCard'
 import VolumetricHero from '../components/hero/VolumetricHero'
@@ -158,6 +159,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ═══ NEWSLETTER — secondary CTA for visitors not ready to contact ═══ */}
+      <NewsletterCTA />
 
       {/* ═══ CTA ═══ */}
       <CTABlock

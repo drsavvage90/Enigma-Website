@@ -71,7 +71,7 @@ export default function About() {
               <span className="badge badge--accent">Our Story</span>
               <h2 className="display display--gradient heading-lg">From Frustration to Foundation</h2>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 20 }}>
-                If you're a small or mid-sized business, you've probably noticed your options are lousy: expensive enterprise software that wasn't built for you, or cheap tools that break the moment you try to scale. We built Enigma to give you a third option: custom AI systems, mobile applications, and web platforms designed specifically for the businesses they serve.
+                If you're a small or mid-sized business, you've probably noticed your options are lousy: expensive enterprise software that wasn't built for you, or cheap tools that break the moment you try to scale. Based in Southern Ohio and serving clients nationwide, we built Enigma to give you a third option: custom AI systems, mobile applications, and web platforms designed specifically for the businesses they serve.
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>
                 Our team brings together backgrounds in business strategy, marketing, full-stack development, and legal expertise, giving us a uniquely well-rounded perspective on building technology that works in the real world. We've built businesses, served clients across industries, and learned firsthand what it takes to turn an idea into a working product.
@@ -123,7 +123,7 @@ export default function About() {
                 boxShadow: '0 2px 20px rgba(0,0,0,0.04)',
               }}>
                 <IconBox icon={v.icon} />
-                <h4 style={{ fontSize: 17, fontWeight: 600, margin: '14px 0 8px', color: 'var(--text-dark)' }}>{v.title}</h4>
+                <h3 style={{ fontSize: 17, fontWeight: 600, margin: '14px 0 8px', color: 'var(--text-dark)' }}>{v.title}</h3>
                 <p style={{ color: 'var(--text-body)', fontSize: 14, lineHeight: 1.7 }}>{v.text}</p>
               </TiltCard>
             ))}

@@ -17,10 +17,11 @@ const aboutLinks = [
 ]
 
 const navLinks = [
-  { to: '/vault', label: 'Vault' },
+  { to: '/vault', label: 'Vault', title: 'Vault — private AI workspace for teams' },
   { type: 'dropdown', key: 'services', label: 'Services', children: serviceLinks },
   { type: 'dropdown', key: 'about', label: 'About', children: aboutLinks },
   { to: '/pricing', label: 'Pricing' },
+  { to: '/blog', label: 'Blog' },
   // { to: '/portfolio', label: 'Portfolio' }, // Hidden temporarily
 ]
 
@@ -181,6 +182,7 @@ export default function Navbar() {
                 to={link.to}
                 className={`nav-link${isActive ? ' nav-link--active' : ''}`}
                 {...(isActive && { 'aria-current': 'page' })}
+                {...(link.title && { title: link.title })}
               >
                 {link.label}
               </Link>
@@ -299,6 +301,7 @@ export default function Navbar() {
               borderLeft: isActive ? '2px solid var(--accent)' : '2px solid transparent',
             }}
             {...(isActive && { 'aria-current': 'page' })}
+            {...(link.title && { title: link.title })}
             >
               {link.label}
             </Link>
