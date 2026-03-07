@@ -13,9 +13,9 @@ const OG_DEFAULT = '/images/og-default.png'
 
 const seoConfig = {
   '/': {
-    title: `${SITE} | Custom Software. Intelligent Solutions.`,
+    title: `Custom Software Development | ${SITE}`,
     description:
-      'Custom AI Systems, Mobile Applications, and Web Applications purpose-built for your business. Security-first, full-stack software from a team that builds different.',
+      'Custom AI systems, mobile apps, and web applications for small businesses. HIPAA-ready, security-first software development from Ohio, serving clients nationwide.',
     ogImage: OG_DEFAULT,
   },
   '/about': {
@@ -25,9 +25,9 @@ const seoConfig = {
     ogImage: OG_DEFAULT,
   },
   '/ai-systems': {
-    title: `Custom AI Systems | ${SITE}`,
+    title: `Custom AI Systems for Business | ${SITE}`,
     description:
-      'Private, branded AI platforms — customer-facing chat assistants, internal knowledge tools, and custom integrations built around the way your business works.',
+      'Private AI platforms for small business — customer-facing chatbots, internal knowledge tools, and multi-LLM integrations. Secure, branded, and built for your workflows.',
     ogImage: OG_DEFAULT,
   },
   '/mobile-apps': {
@@ -39,7 +39,7 @@ const seoConfig = {
   '/web-apps': {
     title: `Custom Web Applications | ${SITE}`,
     description:
-      'Replace spreadsheets and clunky workarounds with streamlined web applications — client portals, admin dashboards, and custom tools your team will actually use.',
+      'HIPAA-compliant web apps, client portals, and admin dashboards built to replace spreadsheets. Custom web application development for businesses ready to modernize.',
     ogImage: OG_DEFAULT,
   },
   '/vault': {

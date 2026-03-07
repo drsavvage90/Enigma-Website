@@ -18,7 +18,7 @@ function HeroBackground() {
         }}>
             <img
                 src="/assets/Hero-Section Main.webp"
-                alt="Enigma Background"
+                alt="Enigma Software Systems — custom software development for AI, mobile, and web applications"
                 className="hero-image-animate"
                 style={{
                     width: '100%',
@@ -53,9 +53,9 @@ export default function VolumetricHero() {
                 </h1>
 
                 <p className="laser-hero__subtitle" style={{ pointerEvents: 'auto' }}>
-                    Replace the spreadsheets, clunky tools, and manual work
-                    slowing your business down. Get custom AI, mobile apps,
-                    and web platforms built around how you actually operate.
+                    Custom software development for small businesses — AI systems,
+                    mobile apps, and HIPAA-ready web platforms built around how
+                    you actually operate. Based in Ohio, serving clients nationwide.
                 </p>
 
                 <div style={{ pointerEvents: 'auto', display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', marginTop: 0 }}>
