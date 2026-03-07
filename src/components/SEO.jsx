@@ -22,6 +22,7 @@ export default function SEO() {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content="index, follow" />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
