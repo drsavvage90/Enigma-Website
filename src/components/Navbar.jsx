@@ -24,9 +24,6 @@ const navLinks = [
   // { to: '/portfolio', label: 'Portfolio' }, // Hidden temporarily
 ]
 
-const servicePaths = serviceLinks.map(l => l.to)
-const aboutPaths = aboutLinks.map(l => l.to)
-
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null) // 'services' | 'about' | null
@@ -42,10 +39,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  /* eslint-disable react-hooks/set-state-in-effect -- close menu on route change */
   useEffect(() => {
     setMobileOpen(false)
     setOpenDropdown(null)
   }, [location])
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''

@@ -8,7 +8,7 @@
  */
 
 const SITE = 'Enigma Software Systems'
-const BASE  = 'https://www.enigmasoftwaresystems.com'
+const BASE = import.meta.env.VITE_SITE_URL || 'https://www.enigmasoftwaresystems.com'
 const OG_DEFAULT = '/images/og-default.png'
 
 const seoConfig = {
@@ -70,6 +70,12 @@ const seoConfig = {
     title: `FAQ | ${SITE}`,
     description:
       'Straight answers to the questions we hear most — pricing, timelines, process, technology, and what it\'s like to work with Enigma.',
+    ogImage: OG_DEFAULT,
+  },
+  '/pricing': {
+    title: `Pricing | ${SITE}`,
+    description:
+      'Transparent pricing for custom AI systems, mobile apps, and web applications. See what your project might cost — no hidden fees, no surprises.',
     ogImage: OG_DEFAULT,
   },
   '/contact': {

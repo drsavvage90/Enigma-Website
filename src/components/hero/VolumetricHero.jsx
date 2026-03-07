@@ -1,14 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 import './LaserBeamHero.css';
 
-export default function VolumetricHero() {
-    const containerRef = useRef(null);
-
-    // ── Background Layer ──
-    const HeroBackground = () => (
+function HeroBackground() {
+    return (
         <div style={{
             position: 'absolute',
             top: 0,
@@ -17,9 +14,8 @@ export default function VolumetricHero() {
             height: '100%',
             zIndex: 1,
             backgroundColor: '#020202',
-            pointerEvents: 'none' // Crucial: prevents hover-based browser overlays
+            pointerEvents: 'none'
         }}>
-            {/* ── Background Image Layer ── */}
             <img
                 src="/assets/Hero-Section Main.webp"
                 alt="Enigma Background"
@@ -32,11 +28,13 @@ export default function VolumetricHero() {
                     pointerEvents: 'none'
                 }}
             />
-
-            {/* Optional dark overlay for text readability */}
             <div className="hero-breathing-overlay" />
         </div>
     );
+}
+
+export default function VolumetricHero() {
+    const containerRef = useRef(null);
 
     return (
         <section ref={containerRef} className="laser-hero" style={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: '#020202' }}>

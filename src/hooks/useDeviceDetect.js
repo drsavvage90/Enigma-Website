@@ -1,38 +1,40 @@
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
+
+function useMediaQuery(query, serverDefault = false) {
+    return useSyncExternalStore(
+        (callback) => {
+            const mql = window.matchMedia(query);
+            mql.addEventListener('change', callback);
+            return () => mql.removeEventListener('change', callback);
+        },
+        () => window.matchMedia(query).matches,
+        () => serverDefault,
+    );
+}
 
 export function useDeviceDetect() {
-    // Default to true for mobile to ensure SSR / initial render defaults to a fast, light fallback
-    const [isMobile, setIsMobile] = useState(true);
-    const [isLowPower, setIsLowPower] = useState(true);
-    const [reducedMotion, setReducedMotion] = useState(false);
+    const isClient = useSyncExternalStore(
+        () => () => {},
+        () => true,
+        () => false,
+    );
 
-    // Flag to tell us when we have safely mounted on the client
-    const [isClient, setIsClient] = useState(false);
+    const isMobile = useMediaQuery('(max-width: 768px)', true);
+    const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)', false);
 
-    useEffect(() => {
-        setIsClient(true);
-
-        const mobileQuery = window.matchMedia('(max-width: 768px)');
-        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        setIsMobile(mobileQuery.matches);
-        setReducedMotion(motionQuery.matches);
-
-        // Estimate GPU capability (phones or old laptops = low power)
-        const isLowConcurrency = typeof navigator !== 'undefined' && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
-        setIsLowPower(mobileQuery.matches || isLowConcurrency);
-
-        const handleMobileChange = (e) => setIsMobile(e.matches);
-        const handleMotionChange = (e) => setReducedMotion(e.matches);
-
-        mobileQuery.addEventListener('change', handleMobileChange);
-        motionQuery.addEventListener('change', handleMotionChange);
-
-        return () => {
-            mobileQuery.removeEventListener('change', handleMobileChange);
-            motionQuery.removeEventListener('change', handleMotionChange);
-        };
-    }, []);
+    const isLowPower = useSyncExternalStore(
+        (callback) => {
+            const mql = window.matchMedia('(max-width: 768px)');
+            mql.addEventListener('change', callback);
+            return () => mql.removeEventListener('change', callback);
+        },
+        () => {
+            const mobile = window.matchMedia('(max-width: 768px)').matches;
+            const lowConcurrency = typeof navigator !== 'undefined' && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+            return mobile || lowConcurrency;
+        },
+        () => true,
+    );
 
     return { isMobile, isLowPower, reducedMotion, isClient };
 }

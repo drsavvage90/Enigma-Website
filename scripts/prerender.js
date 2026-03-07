@@ -38,8 +38,9 @@ const ROUTES = [
   '/vault',
   '/how-we-work',
   '/industries',
-  '/portfolio',
+  // '/portfolio', // Hidden temporarily
   '/faq',
+  '/pricing',
   '/contact',
   '/privacy-policy',
   '/terms-of-service',
@@ -49,6 +50,59 @@ const ROUTES = [
 // Three.js / WebGL scenes need a bit of extra time beyond networkidle0.
 // Increase if you still see blank canvas elements in the captured HTML.
 const EXTRA_WAIT_MS = 3000
+
+// ─── Deduplicate <head> tags in captured HTML ───────────────────────────────
+// React 19 head hoisting may duplicate tags (initial "/" SEO fires, then the
+// real route SEO fires).  We keep the LAST occurrence of each tag type so
+// the page-specific values win.
+function dedupeHeadTags(html) {
+  // Extract and work within <head>…</head>
+  const headMatch = html.match(/<head[^>]*>([\s\S]*?)<\/head>/i)
+  if (!headMatch) return html
+
+  let head = headMatch[1]
+
+  // Tags to deduplicate — for each, keep only the last match
+  const dedupePatterns = [
+    // <title>…</title>
+    /<title>[^<]*<\/title>/gi,
+    // meta name="description"
+    /<meta\s+name="description"[^>]*>/gi,
+    // link rel="canonical"
+    /<link\s+rel="canonical"[^>]*>/gi,
+    // og: meta properties
+    /<meta\s+property="og:title"[^>]*>/gi,
+    /<meta\s+property="og:description"[^>]*>/gi,
+    /<meta\s+property="og:url"[^>]*>/gi,
+    /<meta\s+property="og:image"[^>]*>/gi,
+    /<meta\s+property="og:image:width"[^>]*>/gi,
+    /<meta\s+property="og:image:height"[^>]*>/gi,
+    /<meta\s+property="og:locale"[^>]*>/gi,
+    /<meta\s+property="og:type"[^>]*>/gi,
+    /<meta\s+property="og:site_name"[^>]*>/gi,
+    // twitter: meta
+    /<meta\s+name="twitter:card"[^>]*>/gi,
+    /<meta\s+name="twitter:title"[^>]*>/gi,
+    /<meta\s+name="twitter:description"[^>]*>/gi,
+    /<meta\s+name="twitter:image"[^>]*>/gi,
+    /<meta\s+name="twitter:site"[^>]*>/gi,
+    /<meta\s+name="twitter:creator"[^>]*>/gi,
+  ]
+
+  for (const pattern of dedupePatterns) {
+    const matches = head.match(pattern)
+    if (matches && matches.length > 1) {
+      // Remove all but the last occurrence
+      const last = matches[matches.length - 1]
+      // Remove all matches first
+      head = head.replace(pattern, '')
+      // Re-insert only the last one (at the end, before </head>)
+      head += '\n' + last
+    }
+  }
+
+  return html.replace(/<head[^>]*>[\s\S]*?<\/head>/i, `<head>${head}</head>`)
+}
 
 async function run() {
   // 1. Start vite preview server (serves the already-built dist/)
@@ -95,8 +149,21 @@ async function run() {
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 30_000 })
       await new Promise(r => setTimeout(r, EXTRA_WAIT_MS))
 
-      const html = await page.content()
+      const rawHtml = await page.content()
+
+      // React 19 updates document.title correctly, but page.content()
+      // may serialize a stale <title> element. Grab the real title.
+      const documentTitle = await page.evaluate(() => document.title)
       await page.close()
+
+      // ── Deduplicate head tags ──────────────────────────────────────
+      // React 19 head-hoisting can leave duplicate title / meta / link
+      // tags when the initial "/" SEO fires before the target route
+      // resolves. Keep only the LAST occurrence of each tag type.
+      let html = dedupeHeadTags(rawHtml)
+
+      // Force the correct title from document.title
+      html = html.replace(/<title>[^<]*<\/title>/i, `<title>${documentTitle}</title>`)
 
       // Write captured HTML to dist/<route>/index.html
       const outDir = route === '/' ? DIST : path.join(DIST, route)

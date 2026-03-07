@@ -24,6 +24,8 @@ export default function SEO() {
       <meta name="description" content={description} />
 
       {/* Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Enigma Software Systems" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
@@ -33,6 +35,7 @@ export default function SEO() {
       <meta property="og:locale" content="en_US" />
 
       {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />

@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
+    sourcemap: false,
     modulePreload: {
       resolveDependencies: (_filename, deps) =>
         deps.filter((dep) => !dep.includes('three-vendor')),
@@ -18,5 +19,10 @@ export default defineConfig({
         },
       },
     },
+  },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./src/test/setup.js'],
   },
 })

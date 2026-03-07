@@ -19,9 +19,11 @@ export default function SceneComponents() {
     const { camera, raycaster } = useThree();
 
     // Set raycaster threshold so the small points are easy to click
+    /* eslint-disable react-hooks/immutability -- Three.js raycaster config requires mutation */
     useEffect(() => {
-        raycaster.params.Points.threshold = 2.5; // Large threshold so clusters are very easy to click
+        raycaster.params.Points.threshold = 2.5;
     }, [raycaster]);
+    /* eslint-enable react-hooks/immutability */
 
     const [selected, setSelected] = useState(null);
     const [hovered, setHovered] = useState(false);
@@ -56,6 +58,7 @@ export default function SceneComponents() {
     const textGroupRef = useRef(null);
 
     // Initial state setup for clustered network nodes
+    /* eslint-disable react-hooks/purity -- Math.random for one-time particle initialization is intentional */
     const { positions, particleData, clusters, clusterTexts } = useMemo(() => {
         const positions = new Float32Array(particleCount * 3);
         const particleData = [];
@@ -125,6 +128,7 @@ export default function SceneComponents() {
 
         return { positions, particleData, clusters, clusterTexts };
     }, []);
+    /* eslint-enable react-hooks/purity */
 
     const maxLines = (particleCount * (particleCount - 1)) / 2;
     const linePositions = useMemo(() => new Float32Array(maxLines * 6), [maxLines]);
@@ -150,7 +154,8 @@ export default function SceneComponents() {
         defaultDir: new THREE.Vector3(1, 0, 0),
     }), []);
 
-    useFrame((state, delta) => {
+    /* eslint-disable react-hooks/immutability -- Three.js requires direct mutation of GPU buffers and camera */
+    useFrame((state) => {
         if (!particlesRef.current || !linesRef.current) return;
 
         const positionsAttr = particlesRef.current.geometry.attributes.position;
@@ -161,7 +166,7 @@ export default function SceneComponents() {
         mousePos.unproject(camera);
         const dir = mousePos.sub(camera.position).normalize();
         const distanceToZero = -camera.position.z / dir.z;
-        const cursorWorld = _tempVec.cursorWorld.copy(camera.position).add(dir.multiplyScalar(distanceToZero));
+        const _cursorWorld = _tempVec.cursorWorld.copy(camera.position).add(dir.multiplyScalar(distanceToZero));
 
         // 1. Let clusters update their central positions and states
         for (let c = 0; c < numClusters; c++) {
@@ -411,6 +416,7 @@ export default function SceneComponents() {
         camera.position.y = THREE.MathUtils.lerp(camera.position.y, initialCamPos.y + Math.cos(elapsed * 0.08) * 0.4, 0.05 * speedMult);
         camera.lookAt(0, 0, 0);
     });
+    /* eslint-enable react-hooks/immutability */
 
     return (
         <group>

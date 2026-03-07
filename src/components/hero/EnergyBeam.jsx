@@ -15,7 +15,7 @@ export default function EnergyBeam() {
     let w, h
 
     // Cached gradients to prevent rebuilding them 60 times a second
-    let nebulaGrad, atmosGrad, midGrad, coreGrad, floorGrad, coreFlareGrad
+    let nebulaGrad, atmosGrad, midGrad, coreGrad, floorGrad
 
     // Beam position calculations cached
     let beamX, beamTop, bottomY

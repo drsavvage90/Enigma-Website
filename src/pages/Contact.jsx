@@ -6,6 +6,8 @@ import PageHeader from '../components/PageHeader'
 import MagneticButton from '../components/hero/MagneticButton'
 import { Mail, Clock, Check, Calendar, Lightbulb, Sparkles } from 'lucide-react'
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 const expectSteps = [
   { icon: Check, text: "We review your inquiry within one business day." },
   { icon: Calendar, text: "We schedule a free discovery call to learn about your business and the problem you're trying to solve." },
@@ -16,11 +18,30 @@ export default function Contact() {
   const ref = useReveal()
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
+  const [fieldErrors, setFieldErrors] = useState({})
+  const [submitting, setSubmitting] = useState(false)
+
+  const validate = (formData) => {
+    const errors = {}
+    const name = formData.get('name')?.trim()
+    const email = formData.get('email')?.trim()
+    if (!name || name.length < 2) errors.name = 'Please enter your full name.'
+    if (!email || !EMAIL_RE.test(email)) errors.email = 'Please enter a valid email address.'
+    return errors
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
     const formData = new FormData(form)
+
+    const errors = validate(formData)
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors)
+      return
+    }
+    setFieldErrors({})
+    setSubmitting(true)
 
     fetch('/', {
       method: 'POST',
@@ -35,6 +56,7 @@ export default function Contact() {
         }
       })
       .catch(() => setError(true))
+      .finally(() => setSubmitting(false))
   }
 
   return (
@@ -110,12 +132,14 @@ export default function Contact() {
                     )}
                     <div className="grid-2">
                       <div className="form-group--enhanced">
-                        <input type="text" name="name" placeholder=" " required id="contact-name" />
+                        <input type="text" name="name" placeholder=" " required id="contact-name" aria-invalid={!!fieldErrors.name || undefined} aria-describedby={fieldErrors.name ? 'name-error' : undefined} />
                         <label htmlFor="contact-name">Full Name *</label>
+                        {fieldErrors.name && <p id="name-error" role="alert" style={{ color: '#ff5050', fontSize: 13, marginTop: 4 }}>{fieldErrors.name}</p>}
                       </div>
                       <div className="form-group--enhanced">
-                        <input type="email" name="email" placeholder=" " required id="contact-email" />
+                        <input type="email" name="email" placeholder=" " required id="contact-email" aria-invalid={!!fieldErrors.email || undefined} aria-describedby={fieldErrors.email ? 'email-error' : undefined} />
                         <label htmlFor="contact-email">Email Address *</label>
+                        {fieldErrors.email && <p id="email-error" role="alert" style={{ color: '#ff5050', fontSize: 13, marginTop: 4 }}>{fieldErrors.email}</p>}
                       </div>
                     </div>
                     <div className="grid-2" style={{ marginTop: 20 }}>
@@ -144,8 +168,8 @@ export default function Contact() {
                       <label htmlFor="contact-project">Briefly describe your project (optional)</label>
                     </div>
                     <MagneticButton style={{ width: '100%', marginTop: 12 }}>
-                      <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                        Send | We'll Reply Within 24 Hours
+                      <button type="submit" className="btn btn-primary" disabled={submitting} style={{ width: '100%', justifyContent: 'center', opacity: submitting ? 0.6 : 1 }}>
+                        {submitting ? 'Sending…' : "Send | We'll Reply Within 24 Hours"}
                       </button>
                     </MagneticButton>
                   </form>
