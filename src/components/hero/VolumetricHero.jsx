@@ -61,16 +61,16 @@ export default function VolumetricHero() {
                     you actually operate. Based in Ohio, serving clients nationwide.
                 </p>
 
-                <div style={{ pointerEvents: 'auto', display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', marginTop: 0 }}>
+                <div style={{ pointerEvents: 'auto', display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', marginTop: 48 }}>
                     <MagneticButton>
-                        <Link to="/contact" className="laser-hero__cta">
-                            GET A FREE RECOMMENDATION
-                            <ArrowRight size={14} strokeWidth={2.5} style={{ marginLeft: '6px' }} />
+                        <Link to="/contact" className="btn btn-primary btn-lg">
+                            Get a Free Recommendation
+                            <ArrowRight size={16} strokeWidth={2.5} />
                         </Link>
                     </MagneticButton>
                     <MagneticButton>
-                        <a href="#services" className="laser-hero__cta laser-hero__cta--ghost">
-                            SEE WHAT WE BUILD
+                        <a href="#services" className="btn btn-ghost btn-lg">
+                            See What We Build
                         </a>
                     </MagneticButton>
                 </div>

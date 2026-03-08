@@ -48,22 +48,22 @@ const pillars = [
    ═══════════════════════════════════════════════════ */
 const differentiators = [
   {
-    icon: Wrench,
+    image: '/images/diff_custom_1772925626173.png',
     title: 'Designed Around Your Business, Not a Template',
     text: 'Your workflows are unique. Your software should be too. Every product we build starts with your operations, your customers, and your goals.',
   },
   {
-    icon: Shield,
+    image: '/images/diff_security_1772925637206.png',
     title: 'Your Data Stays Under Your Control',
     text: 'Every platform we build is secured from day one with role-based access, encryption, and compliance-ready architecture for businesses that take client data seriously.',
   },
   {
-    icon: Layers,
+    image: '/images/diff_team_1772925654245.png',
     title: 'One Team for Your Entire Tech Stack',
     text: 'AI, mobile, and web, all under one roof. You get one team, one vision, and no juggling multiple vendors who don\'t talk to each other.',
   },
   {
-    icon: Handshake,
+    image: '/images/diff_partner_1772925666169.png',
     title: 'A Long-Term Partner, Not a One-Time Contractor',
     text: 'You’ll never have to search for a new vendor when you need changes. Ongoing maintenance, updates, and support keep your software current and your business moving.',
   },
@@ -147,10 +147,12 @@ export default function Home() {
             </div>
             <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto', gap: 20 }}>
               {differentiators.map((d, i) => (
-                <TiltCard key={i} className="card card--glass card--glow why-enigma-card reveal" style={{ padding: '28px 28px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                  <IconBox icon={d.icon} size={40} variant="blue" />
-                  <div>
-                    <h3 style={{ fontSize: 17, fontWeight: 600, marginBottom: 6, color: '#fff' }}>{d.title}</h3>
+                <TiltCard key={i} className="card card--glass card--glow why-enigma-card reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                  <div style={{ width: '100%', height: '180px', flexShrink: 0 }}>
+                    <img src={d.image} alt={d.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                  <div style={{ padding: '24px' }}>
+                    <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8, color: '#fff' }}>{d.title}</h3>
                     <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.6 }}>{d.text}</p>
                   </div>
                 </TiltCard>

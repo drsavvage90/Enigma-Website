@@ -5,7 +5,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function NewsletterCTA({
   headline = 'Get Free Software & AI Insights',
-  text = "No spam — just practical advice on using technology to grow your business. Delivered monthly.",
+  text = "No spam - just practical advice on using technology to grow your business. Delivered monthly.",
 }) {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)

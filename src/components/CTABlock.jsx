@@ -48,11 +48,14 @@ export default function CTABlock({ headline, text, buttonText = "Let's Talk", bu
       ref={ref}
       className="cta-block"
       style={{
-        padding: '120px 0',
+        padding: '160px 0',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        background: 'var(--bg-dark)',
+        backgroundColor: 'var(--bg-dark)',
+        backgroundImage: 'linear-gradient(to bottom, rgba(14, 16, 21, 0.8), rgba(14, 16, 21, 0.95)), url(/images/cta_background.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       {/* Pulsing gradient glow — blue-violet */}
