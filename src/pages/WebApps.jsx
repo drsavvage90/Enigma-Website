@@ -19,8 +19,8 @@ const benefits = [
   { image: '/images/ben_selfservice.webp', title: 'Give Customers Self-Service', desc: 'Clients check statuses, view reports, and manage accounts on their own schedule, reducing the "just checking in" messages.' },
   { image: '/images/ben_automate.webp', title: 'Automate the Manual Work', desc: 'Approvals, task routing, notifications, and data entry. The repetitive steps that slow you down happen automatically.' },
   { image: '/images/ben_access.webp', title: 'Access From Anywhere', desc: 'Works in any browser, on any device, with nothing to install. Office, home, or on the go.' },
-  { image: 'https://placehold.co/600x400/1e293b/38bdf8?text=Placeholder+Image', title: 'Faster, Better Decisions', desc: 'Live dashboards and real-time reporting put the information you need right in front of you.' },
-  { image: 'https://placehold.co/600x400/1e293b/38bdf8?text=Placeholder+Image', title: 'Look Professional and Established', desc: 'A polished web platform signals to clients that you’re serious and invested in their experience.' },
+  { image: '/images/ben_decisions.png', title: 'Faster, Better Decisions', desc: 'Live dashboards and real-time reporting put the information you need right in front of you.' },
+  { image: '/images/ben_professional.png', title: 'Look Professional and Established', desc: 'A polished web platform signals to clients that you’re serious and invested in their experience.' },
 ]
 
 /* ═══════════════════════════════════════════════════

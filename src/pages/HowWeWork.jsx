@@ -3,7 +3,7 @@ import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import PageHeader from '../components/PageHeader'
 import TiltCard from '../components/TiltCard'
-import { MessageSquareCheck, Clock, ThumbsUp, HelpCircle } from 'lucide-react'
+import { HelpCircle } from 'lucide-react'
 
 /* ═══════════════════════════════════════════════════
    PROCESS STEPS — customer-centric titles, 1 paragraph
@@ -37,9 +37,9 @@ const steps = [
 ]
 
 const whatToExpect = [
-  { icon: MessageSquareCheck, text: 'Direct Access to Your Team' },
-  { icon: Clock, text: 'Most Projects Launch in 4–8 Weeks' },
-  { icon: ThumbsUp, text: 'Your Input Shapes Every Decision' },
+  { image: '/images/exp_direct_access.png', text: 'Direct Access to Your Team' },
+  { image: '/images/exp_launch_speed.png', text: 'Most Projects Launch in 4–8 Weeks' },
+  { image: '/images/exp_user_input.png', text: 'Your Input Shapes Every Decision' },
 ]
 
 
@@ -76,8 +76,8 @@ export default function HowWeWork() {
         blobColor="blue"
         primaryCta={{ text: 'Book a Free Discovery Call', to: '/contact' }}
         secondaryCta={{ text: 'Explore Our Services', to: '/ai-systems' }}
-        image="/images/process-hero.jpg"
-        imageAlt="Laptop displaying a digital security and cloud sync interface on a desk"
+        image="/images/process-hero.png"
+        imageAlt="Modern high-tech roadmap and project management dashboard on a laptop"
         imageLayout="image-right"
       />
 
@@ -122,11 +122,20 @@ export default function HowWeWork() {
           <p style={{ color: 'var(--text-body)', fontSize: 17, lineHeight: 1.8, maxWidth: 700, margin: '0 auto 40px' }}>
             You'll have direct access to the people building your product. No layers, no runaround. Communication is clear, updates are frequent, and your input is always welcome.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 48, flexWrap: 'wrap', marginBottom: 48 }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 64, flexWrap: 'wrap', marginBottom: 48 }}>
             {whatToExpect.map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <item.icon size={20} style={{ color: 'var(--accent)' }} />
-                <span style={{ fontWeight: 600, fontSize: 15, color: 'var(--text-dark)' }}>{item.text}</span>
+              <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, maxWidth: 200 }}>
+                <div style={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: 20,
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                  border: '1px solid rgba(0,0,0,0.05)'
+                }}>
+                  <img src={item.image} alt={item.text} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <span style={{ fontWeight: 600, fontSize: 15, color: 'var(--text-dark)', textAlign: 'center', lineHeight: 1.4 }}>{item.text}</span>
               </div>
             ))}
           </div>

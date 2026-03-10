@@ -25,12 +25,12 @@ const benefits = [
    EXAMPLES OF WHAT WE BUILD — illustrative, not exhaustive
    ═══════════════════════════════════════════════════ */
 const examples = [
-  { icon: Headphones, title: 'Customer-Facing Chat Assistants', desc: 'An AI on your website that knows your services, pricing, and processes, answering customer questions and capturing leads 24/7.', image: '/images/card-ai-chatbot.svg' },
-  { icon: BookOpen, title: 'Internal Knowledge Tools', desc: 'Your team asks a question in plain language and gets an answer from your actual documents (SOPs, policies, manuals) in seconds.', image: '/images/card-ai-knowledge.svg' },
-  { icon: FileText, title: 'Document Generation & Automation', desc: 'AI that drafts proposals, contracts, reports, or estimates based on your templates and client data. First drafts in seconds, not hours.', image: '/images/card-ai-docgen.svg' },
-  { icon: BarChart3, title: 'Data Analysis & Insight Dashboards', desc: 'Connect your existing data and surface trends, anomalies, and recommendations in plain language. Turn raw numbers into decisions.', image: '/images/card-ai-analytics.svg' },
-  { icon: ShieldCheck, title: 'Quality Control & Review', desc: 'AI that reviews work product before it goes out, checking for brand voice, factual accuracy, missing clauses, or formatting standards.', image: '/images/card-ai-review.svg' },
-  { icon: Plug, title: 'Custom Integrations & Workflow AI', desc: 'AI-powered connections between your existing tools like customer databases, email, scheduling platforms, and more. Automate the handoffs your team does manually today.', image: '/images/card-ai-workflow.svg' },
+  { title: 'Customer-Facing Chat Assistants', desc: 'An AI on your website that knows your services, pricing, and processes, answering customer questions and capturing leads 24/7.', image: '/images/card-ai-chatbot.png' },
+  { title: 'Internal Knowledge Tools', desc: 'Your team asks a question in plain language and gets an answer from your actual documents (SOPs, policies, manuals) in seconds.', image: '/images/card-ai-knowledge.png' },
+  { title: 'Document Generation & Automation', desc: 'AI that drafts proposals, contracts, reports, or estimates based on your templates and client data. First drafts in seconds, not hours.', image: '/images/card-ai-docgen.png' },
+  { title: 'Data Analysis & Insight Dashboards', desc: 'Connect your existing data and surface trends, anomalies, and recommendations in plain language. Turn raw numbers into decisions.', image: '/images/card-ai-analytics.png' },
+  { title: 'Quality Control & Review', desc: 'AI that reviews work product before it goes out, checking for brand voice, factual accuracy, missing clauses, or formatting standards.', image: '/images/card-ai-review.png' },
+  { title: 'Custom Integrations & Workflow AI', desc: 'AI-powered connections between your existing tools like customer databases, email, scheduling platforms, and more. Automate the handoffs your team does manually today.', image: '/images/card-ai-workflow.png' },
 ]
 
 
@@ -114,13 +114,12 @@ export default function AISystems() {
                 display: 'flex',
                 flexDirection: 'column',
               }}>
-                <div style={{ height: 180, overflow: 'hidden', flexShrink: 0 }}>
+                <div style={{ height: 200, overflow: 'hidden', flexShrink: 0 }}>
                   <img src={ex.image} alt={ex.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-                <div style={{ padding: '20px 24px 24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <IconBox icon={ex.icon} />
-                  <h4 style={{ fontSize: 16, fontWeight: 600, margin: '12px 0 8px', color: 'var(--text-dark)' }}>{ex.title}</h4>
-                  <p style={{ color: 'var(--text-body)', fontSize: 13, lineHeight: 1.65 }}>{ex.desc}</p>
+                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <h4 style={{ fontSize: 18, fontWeight: 600, margin: '0 0 12px', color: 'var(--text-dark)' }}>{ex.title}</h4>
+                  <p style={{ color: 'var(--text-body)', fontSize: 14, lineHeight: 1.7 }}>{ex.desc}</p>
                 </div>
               </TiltCard>
             ))}

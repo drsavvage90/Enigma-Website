@@ -1259,25 +1259,12 @@ select {
 }
 
 #transcription .vault-preview-box,
-#personas .vault-preview-box {
-  overflow: visible !important;
-}
-
-#transcription .vault-preview-box img,
-#personas .vault-preview-box img {
-  transform: scale(1.35);
-  transform-origin: left center;
-}
-
+#personas .vault-preview-box,
 #workspaces .vault-preview-box,
 #prompts .vault-preview-box {
-  overflow: visible !important;
-}
-
-#workspaces .vault-preview-box img,
-#prompts .vault-preview-box img {
-  transform: scale(1.35);
-  transform-origin: right center;
+  overflow: hidden;
+  min-height: 0;
+  height: auto !important;
 }
 
 .vault-page .vault-preview-box img {

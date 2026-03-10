@@ -14,12 +14,12 @@ import { Link } from 'react-router-dom'
    BENEFITS — customer-outcome focused
    ═══════════════════════════════════════════════════ */
 const benefits = [
-  { icon: Clock, title: 'Save Your Customers Time', desc: 'Booking, ordering, and service requests happen in a few taps. A faster experience means happier, more loyal customers.' },
-  { icon: Smartphone, title: 'Be Where Your Customers Are', desc: 'Your app lives on their home screen, not buried in a browser. That daily visibility keeps your business top of mind.' },
-  { icon: Workflow, title: 'Streamline Your Operations', desc: 'Orders flow in automatically. Appointments sync. Service requests route to the right team — no manual work required.' },
-  { icon: Bell, title: 'Push Notifications That Drive Action', desc: 'Send reminders, updates, and offers directly to their phone. Timely, relevant messages — not inbox clutter.' },
-  { icon: Star, title: 'Build Real Customer Loyalty', desc: 'Reward repeat business, offer exclusive deals, and create engagement tools that turn one-time buyers into long-term clients.' },
-  { icon: Trophy, title: 'Stand Out From Competitors', desc: 'A polished app signals that your business is serious and modern. It sets you apart from competitors still relying on phone calls.' },
+  { image: '/images/mobile_benefit_time.png', title: 'Save Your Customers Time', desc: 'Booking, ordering, and service requests happen in a few taps. A faster experience means happier, more loyal customers.' },
+  { image: '/images/mobile_benefit_homescreen.png', title: 'Be Where Your Customers Are', desc: 'Your app lives on their home screen, not buried in a browser. That daily visibility keeps your business top of mind.' },
+  { image: '/images/mobile_benefit_ops.png', title: 'Streamline Your Operations', desc: 'Orders flow in automatically. Appointments sync. Service requests route to the right team — no manual work required.' },
+  { image: '/images/exp_user_input.png', title: 'Push Notifications That Drive Action', desc: 'Send reminders, updates, and offers directly to their phone. Timely, relevant messages — not inbox clutter.' },
+  { image: '/images/exp_direct_access.png', title: 'Build Real Customer Loyalty', desc: 'Reward repeat business, offer exclusive deals, and create engagement tools that turn one-time buyers into long-term clients.' },
+  { image: '/images/exp_launch_speed.png', title: 'Stand Out From Competitors', desc: 'A polished app signals that your business is serious and modern. It sets you apart from competitors still relying on phone calls.' },
 ]
 
 /* ═══════════════════════════════════════════════════
@@ -105,12 +105,22 @@ export default function MobileApps() {
             <span className="badge badge--blue">Benefits</span>
             <h2 className="display display--gradient heading-lg">How Your Customers' Experience Changes With an App</h2>
           </div>
-          <div className="grid-3 reveal-group">
+          <div className="grid-3 reveal-group" style={{ gap: 32 }}>
             {benefits.map((b, i) => (
-              <TiltCard key={i} className="card card--glass card--glow reveal">
-                <IconBox icon={b.icon} variant={i % 2 === 0 ? 'accent' : 'blue'} />
-                <h3 className="card-title">{b.title}</h3>
-                <p className="card-desc">{b.desc}</p>
+              <TiltCard key={i} className="card card--glass card--glow reveal" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: '32px' }}>
+                <div style={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: 16,
+                  overflow: 'hidden',
+                  marginBottom: 20,
+                  boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,159,65,0.1)'
+                }}>
+                  <img src={b.image} alt={b.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <h3 className="card-title" style={{ fontSize: 18, marginBottom: 12 }}>{b.title}</h3>
+                <p className="card-desc" style={{ fontSize: 14, lineHeight: 1.6 }}>{b.desc}</p>
               </TiltCard>
             ))}
           </div>

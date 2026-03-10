@@ -57,7 +57,7 @@ export default function About() {
         blobColor="accent"
         primaryCta={{ text: 'Contact Us', to: '/contact' }}
         secondaryCta={{ text: 'See Our Work', to: '/portfolio' }}
-        image="/images/hero_about.webp"
+        image="/images/hero_about.png"
         imageAlt="The Enigma Software Systems team"
         imageLayout="image-right"
         imageStyle={{ borderRadius: '16px', border: '1px solid rgba(255,159,65,0.2)' }}
@@ -92,7 +92,7 @@ export default function About() {
             {/* Leadership photo */}
             <TiltCard noGlow className="about-team-photo">
               <img
-                src="/images/team_photo.webp"
+                src="/images/team_photo.png"
                 alt="Enigma Software Systems team"
                 loading="lazy"
                 style={{ borderRadius: '12px', width: '100%', height: 'auto', display: 'block' }}

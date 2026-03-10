@@ -41,7 +41,7 @@ function HeroBackground() {
         }}>
             {/* Static first frame — loads instantly (56 KB), shown until video is ready */}
             <img
-                src="/assets/hero-static.webp"
+                src="/assets/hero-static.png"
                 alt="Enigma Software Systems — custom software development for AI, mobile, and web applications"
                 className="hero-image-animate"
                 width={1280}
