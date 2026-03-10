@@ -201,8 +201,9 @@ export default function Navbar() {
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
           style={{
-            display: 'none', alignItems: 'center', justifyContent: 'center',
+            alignItems: 'center', justifyContent: 'center',
             background: 'none', border: 'none', color: '#fff', padding: 8,
+            cursor: 'pointer'
           }}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -226,6 +227,7 @@ export default function Navbar() {
         backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
         borderLeft: '1px solid rgba(255,255,255,0.06)',
         padding: '24px 0', zIndex: 999, overflowY: 'auto',
+        WebkitOverflowScrolling: 'touch',
         transform: mobileOpen ? 'translateX(0)' : 'translateX(100%)',
         transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
       }}>
@@ -252,10 +254,10 @@ export default function Navbar() {
                   aria-label={`${link.label} menu`}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    width: '100%', padding: '14px 24px', fontSize: 15, fontWeight: 500,
+                    width: '100%', padding: '16px 24px', fontSize: 15, fontWeight: 500,
                     color: isActive ? 'var(--accent)' : '#fff',
                     background: 'none', border: 'none', textAlign: 'left',
-                    fontFamily: 'inherit', cursor: 'pointer',
+                    fontFamily: 'inherit', cursor: 'pointer', minHeight: '48px',
                   }}
                 >
                   {link.label}
@@ -278,9 +280,10 @@ export default function Navbar() {
                     return (
                       <Link key={child.to} to={child.to} style={{
                         display: 'flex', alignItems: 'center', gap: 12,
-                        padding: '12px 24px 12px 32px', fontSize: 14, fontWeight: 500,
+                        padding: '14px 24px 14px 32px', fontSize: 14, fontWeight: 500,
                         color: childActive ? 'var(--accent)' : 'var(--text-muted)',
                         borderLeft: childActive ? '2px solid var(--accent)' : '2px solid transparent',
+                        minHeight: '48px',
                       }}>
                         <Icon size={15} style={{ opacity: 0.5, flexShrink: 0 }} />
                         {child.label}
@@ -295,9 +298,10 @@ export default function Navbar() {
           const isActive = location.pathname === link.to
           return (
             <Link key={link.to} to={link.to} style={{
-              display: 'block', padding: '14px 24px', fontSize: 15, fontWeight: 500,
+              display: 'flex', alignItems: 'center', padding: '16px 24px', fontSize: 15, fontWeight: 500,
               color: isActive ? 'var(--accent)' : '#fff',
               borderLeft: isActive ? '2px solid var(--accent)' : '2px solid transparent',
+              minHeight: '48px',
             }}
               {...(isActive && { 'aria-current': 'page' })}
               {...(link.title && { title: link.title })}
@@ -309,7 +313,8 @@ export default function Navbar() {
 
         <div style={{ padding: '20px 24px 0' }}>
           <Link to="/contact" className="btn btn-primary" style={{
-            width: '100%', justifyContent: 'center', padding: '12px 24px', fontSize: 14,
+            width: '100%', justifyContent: 'center', padding: '14px 24px', fontSize: 14,
+            minHeight: '48px', display: 'flex', alignItems: 'center',
           }}>
             Contact Us
           </Link>
