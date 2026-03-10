@@ -4,7 +4,7 @@
 
 .laser-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 850px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,12 +39,10 @@
 
   50% {
     transform: scale(1.04) translate(-1%, -0.5%);
-    filter: contrast(1.05);
   }
 
   100% {
     transform: scale(1.08) translate(-0.5%, 1%);
-    filter: contrast(1);
   }
 }
 
@@ -60,12 +58,10 @@
 @keyframes hero-breathe {
   0% {
     opacity: 0.8;
-    background: radial-gradient(ellipse at 50% 50%, rgba(2, 2, 2, 0.1) 0%, rgba(2, 2, 2, 0.8) 100%);
   }
 
   100% {
     opacity: 1;
-    background: radial-gradient(ellipse at 50% 50%, rgba(30, 15, 5, 0.15) 0%, rgba(2, 2, 2, 0.95) 100%);
   }
 }
 

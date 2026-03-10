@@ -2,7 +2,7 @@
  * PageTransition — Wraps page content with a cinematic fade + slide
  * transition using Framer Motion's AnimatePresence.
  */
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 const variants = {
     initial: {
@@ -29,13 +29,13 @@ const variants = {
 
 export default function PageTransition({ children }) {
     return (
-        <motion.div
+        <m.div
             variants={variants}
             initial="initial"
             animate="animate"
             exit="exit"
         >
             {children}
-        </motion.div>
+        </m.div>
     )
 }

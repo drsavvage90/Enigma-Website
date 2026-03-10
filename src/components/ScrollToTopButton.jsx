@@ -3,7 +3,7 @@
  * after scrolling down. Smoothly scrolls back to top on click.
  */
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
 
 const SIZE = 44
@@ -36,7 +36,7 @@ export default function ScrollToTopButton() {
     return (
         <AnimatePresence>
             {visible && (
-                <motion.button
+                <m.button
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -90,7 +90,7 @@ export default function ScrollToTopButton() {
                         />
                     </svg>
                     <ArrowUp size={16} style={{ color: '#fff', position: 'relative' }} />
-                </motion.button>
+                </m.button>
             )}
         </AnimatePresence>
     )

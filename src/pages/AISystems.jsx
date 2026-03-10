@@ -15,10 +15,10 @@ import {
    BENEFITS — customer-outcome focused
    ═══════════════════════════════════════════════════ */
 const benefits = [
-  { icon: Lock, title: 'Your Data Stays Private', desc: 'Everything your team types stays in a secure environment you control. No data leaking into third-party training sets.' },
-  { icon: Lightbulb, title: 'AI That Knows Your Business', desc: 'We integrate your documents and processes so AI gives answers informed by your company\'s actual information, not generic responses.' },
-  { icon: Palette, title: 'Branded to Your Company', desc: 'Your logo, your colors, your name. Your team and clients interact with AI that feels like it belongs to your organization.' },
-  { icon: Clock, title: 'Hours Saved Every Week', desc: 'Automate repetitive tasks, generate documents, and surface information instantly. AI becomes a productivity multiplier for your team.' },
+  { image: '/images/benefit_privacy.webp', title: 'Your Data Stays Private', desc: 'Everything your team types stays in a secure environment you control. No data leaking into third-party training sets.' },
+  { image: '/images/benefit_knowledge.webp', title: 'AI That Knows Your Business', desc: 'We integrate your documents and processes so AI gives answers informed by your company\'s actual information, not generic responses.' },
+  { image: '/images/benefit_branding.webp', title: 'Branded to Your Company', desc: 'Your logo, your colors, your name. Your team and clients interact with AI that feels like it belongs to your organization.' },
+  { image: '/images/benefit_time.webp', title: 'Hours Saved Every Week', desc: 'Automate repetitive tasks, generate documents, and surface information instantly. AI becomes a productivity multiplier for your team.' },
 ]
 
 /* ═══════════════════════════════════════════════════
@@ -75,10 +75,14 @@ export default function AISystems() {
           </div>
           <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto', gap: 24 }}>
             {benefits.map((b, i) => (
-              <TiltCard key={i} className="card card--glass card--glow reveal">
-                <IconBox icon={b.icon} variant={i % 2 === 0 ? 'accent' : 'blue'} />
-                <h3 className="card-title">{b.title}</h3>
-                <p className="card-desc">{b.desc}</p>
+              <TiltCard key={i} className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
+                <div style={{ height: 260, overflow: 'hidden' }}>
+                  <img src={b.image} alt={b.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ padding: '24px' }}>
+                  <h3 className="card-title">{b.title}</h3>
+                  <p className="card-desc">{b.desc}</p>
+                </div>
               </TiltCard>
             ))}
           </div>
@@ -142,7 +146,7 @@ export default function AISystems() {
           <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto', gap: 24 }}>
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
               <div style={{ height: 220, overflow: 'hidden' }}>
-                <img src="/images/aisystems-multi-llm.png" alt="Multi-LLM AI platform model selection interface" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/aisystems-multi-llm.webp" alt="Multi-LLM AI platform model selection interface" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ padding: '20px 24px 24px' }}>
                 <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Vault: Full AI Platform</h3>
@@ -152,7 +156,7 @@ export default function AISystems() {
             </TiltCard>
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
               <div style={{ height: 220, overflow: 'hidden' }}>
-                <img src="/images/aisystems-chatbots.png" alt="AI chatbot interface on mobile devices" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/aisystems-chatbots.webp" alt="AI chatbot interface on mobile devices" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ padding: '20px 24px 24px' }}>
                 <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Standalone AI Tools</h3>
@@ -194,7 +198,7 @@ export default function AISystems() {
               </div>
             </div>
             <TiltCard noGlow className="preview-box">
-              <img src="/images/aisystems-customer.jpg" alt="AI chat assistant on a business website" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/aisystems-customer.jpg" alt="AI chat assistant on a business website" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </TiltCard>
           </div>
 
@@ -219,7 +223,7 @@ export default function AISystems() {
               </div>
             </div>
             <TiltCard noGlow className="preview-box">
-              <img src="/images/aisystems-internal.jpg" alt="Internal AI knowledge base interface" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/aisystems-internal.jpg" alt="Internal AI knowledge base interface" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </TiltCard>
           </div>
         </div>

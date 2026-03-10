@@ -5,7 +5,7 @@
  */
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import MagneticButton from './hero/MagneticButton'
 
@@ -53,7 +53,7 @@ export default function CTABlock({ headline, text, buttonText = "Let's Talk", bu
         position: 'relative',
         overflow: 'hidden',
         backgroundColor: 'var(--bg-dark)',
-        backgroundImage: 'linear-gradient(to bottom, rgba(14, 16, 21, 0.8), rgba(14, 16, 21, 0.95)), url(/images/cta_background.png)',
+        backgroundImage: 'linear-gradient(to bottom, rgba(14, 16, 21, 0.8), rgba(14, 16, 21, 0.95)), url(/images/cta_background.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -75,12 +75,12 @@ export default function CTABlock({ headline, text, buttonText = "Let's Talk", bu
       />
 
       <div className="container" style={{ position: 'relative' }}>
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.h2
+          <m.h2
             variants={itemVariants}
             style={{
               fontFamily: "'Inter', -apple-system, sans-serif",
@@ -97,9 +97,9 @@ export default function CTABlock({ headline, text, buttonText = "Let's Talk", bu
             }}
           >
             {headline}
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             variants={itemVariants}
             style={{
               color: 'var(--text-muted)',
@@ -110,16 +110,16 @@ export default function CTABlock({ headline, text, buttonText = "Let's Talk", bu
             }}
           >
             {text}
-          </motion.p>
+          </m.p>
 
-          <motion.div variants={itemVariants}>
+          <m.div variants={itemVariants}>
             <MagneticButton>
               <Link to={buttonTo} className="btn btn-primary btn-lg">
                 {buttonText} <ArrowRight size={18} />
               </Link>
             </MagneticButton>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
 
       <style>{`

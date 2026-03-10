@@ -15,12 +15,12 @@ import {
    BENEFITS — customer-outcome focused
    ═══════════════════════════════════════════════════ */
 const benefits = [
-  { icon: FileSpreadsheet, title: 'Replace Scattered Spreadsheets', desc: 'Centralize your data in one living system that’s always current. No more broken files and manual updates.' },
-  { icon: Users, title: 'Give Customers Self-Service', desc: 'Clients check statuses, view reports, and manage accounts on their own schedule, reducing the "just checking in" messages.' },
-  { icon: Cog, title: 'Automate the Manual Work', desc: 'Approvals, task routing, notifications, and data entry. The repetitive steps that slow you down happen automatically.' },
-  { icon: Globe, title: 'Access From Anywhere', desc: 'Works in any browser, on any device, with nothing to install. Office, home, or on the go.' },
-  { icon: LineChart, title: 'Faster, Better Decisions', desc: 'Live dashboards and real-time reporting put the information you need right in front of you.' },
-  { icon: Award, title: 'Look Professional and Established', desc: 'A polished web platform signals to clients that you’re serious and invested in their experience.' },
+  { image: '/images/ben_spreadsheets.webp', title: 'Replace Scattered Spreadsheets', desc: 'Centralize your data in one living system that’s always current. No more broken files and manual updates.' },
+  { image: '/images/ben_selfservice.webp', title: 'Give Customers Self-Service', desc: 'Clients check statuses, view reports, and manage accounts on their own schedule, reducing the "just checking in" messages.' },
+  { image: '/images/ben_automate.webp', title: 'Automate the Manual Work', desc: 'Approvals, task routing, notifications, and data entry. The repetitive steps that slow you down happen automatically.' },
+  { image: '/images/ben_access.webp', title: 'Access From Anywhere', desc: 'Works in any browser, on any device, with nothing to install. Office, home, or on the go.' },
+  { image: 'https://placehold.co/600x400/1e293b/38bdf8?text=Placeholder+Image', title: 'Faster, Better Decisions', desc: 'Live dashboards and real-time reporting put the information you need right in front of you.' },
+  { image: 'https://placehold.co/600x400/1e293b/38bdf8?text=Placeholder+Image', title: 'Look Professional and Established', desc: 'A polished web platform signals to clients that you’re serious and invested in their experience.' },
 ]
 
 /* ═══════════════════════════════════════════════════
@@ -78,7 +78,7 @@ export default function WebApps() {
             </div>
             <TiltCard noGlow className="preview-box">
               <img
-                src="/images/webapps-login.png"
+                src="/images/webapps-login.webp"
                 alt="Custom client login portal interface"
                 loading="lazy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -98,10 +98,12 @@ export default function WebApps() {
           </div>
           <div className="grid-3 reveal-group">
             {benefits.map((b, i) => (
-              <TiltCard key={i} className="card card--glass card--glow reveal">
-                <IconBox icon={b.icon} variant={i % 2 === 0 ? 'accent' : 'blue'} />
-                <h3 className="card-title">{b.title}</h3>
-                <p className="card-desc">{b.desc}</p>
+              <TiltCard key={i} className="card card--glass card--glow reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <img src={b.image} alt={b.title} loading="lazy" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
+                <div style={{ padding: '24px' }}>
+                  <h3 className="card-title">{b.title}</h3>
+                  <p className="card-desc">{b.desc}</p>
+                </div>
               </TiltCard>
             ))}
           </div>
@@ -129,7 +131,7 @@ export default function WebApps() {
               ))}
             </div>
             <TiltCard noGlow className="preview-box">
-              <img
+              <img loading="lazy"
                 src="/images/webapps-client-portal.jpg"
                 alt="Client-facing analytics portal on a tablet device"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -144,7 +146,7 @@ export default function WebApps() {
         <div className="container">
           <div className="two-col reveal">
             <TiltCard noGlow className="preview-box">
-              <img
+              <img loading="lazy"
                 src="/images/webapps-internal-tools.jpg"
                 alt="Internal admin dashboard being used in an office"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}

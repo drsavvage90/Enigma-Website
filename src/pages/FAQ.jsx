@@ -129,7 +129,7 @@ export default function FAQ() {
         <div className="container" style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           {faqSections.map((section, i) => (
             <div key={i} className="reveal" style={{ marginBottom: 48 }}>
-              <span className="badge badge--accent" style={{ marginBottom: 8 }}>{section.title}</span>
+              <h2 className="badge badge--accent" style={{ marginBottom: 8, display: 'inline-block' }}>{section.title}</h2>
               {section.items.map((item, j) => (
                 <AccordionItem key={j} id={`${i}-${j}`} question={item.q} answer={item.a} />
               ))}

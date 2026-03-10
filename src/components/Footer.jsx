@@ -42,7 +42,7 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer ref={footerRef} className="noise-overlay" aria-label="Site footer" style={{
+    <footer ref={footerRef} className="noise-overlay" style={{
       padding: '80px 0 40px',
       background: '#0A0A10',
       position: 'relative',
@@ -55,20 +55,12 @@ export default function Footer() {
           {/* Brand Column — Logo + description + location */}
           <div className="footer-reveal">
             <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 24, textDecoration: 'none' }}>
-              <div className="footer-logo-icon" style={{
-                width: 40,
-                height: 40,
+              <img src="/logo.webp" alt="Enigma Logo" className="footer-logo-icon" width={40} height={40} style={{
                 borderRadius: 10,
-                background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 800,
-                fontSize: 22,
-                color: '#fff',
                 boxShadow: '0 0 30px rgba(255, 159, 65, 0.15)',
+                objectFit: 'cover',
                 flexShrink: 0,
-              }}>E</div>
+              }} />
               <span style={{ fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: '-0.01em' }}>
                 Enigma Software Systems
               </span>
@@ -92,7 +84,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="footer-reveal">
-            <h4 style={{
+            <h3 style={{
               fontSize: 13,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -101,7 +93,7 @@ export default function Footer() {
               marginBottom: 20,
             }}>
               Services
-            </h4>
+            </h3>
             {serviceLinks.map(link => (
               <Link key={link.to} to={link.to} className="footer-link">
                 {link.label}
@@ -111,7 +103,7 @@ export default function Footer() {
 
           {/* Company */}
           <div className="footer-reveal">
-            <h4 style={{
+            <h3 style={{
               fontSize: 13,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -120,7 +112,7 @@ export default function Footer() {
               marginBottom: 20,
             }}>
               Company
-            </h4>
+            </h3>
             {companyLinks.map(link => (
               <Link key={link.to} to={link.to} className="footer-link">
                 {link.label}
@@ -130,7 +122,7 @@ export default function Footer() {
 
           {/* Support */}
           <div className="footer-reveal">
-            <h4 style={{
+            <h3 style={{
               fontSize: 13,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -139,7 +131,7 @@ export default function Footer() {
               marginBottom: 20,
             }}>
               Support
-            </h4>
+            </h3>
             {supportLinks.map(link => (
               <Link key={link.to} to={link.to} className="footer-link">
                 {link.label}

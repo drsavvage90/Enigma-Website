@@ -13,22 +13,22 @@ import {
    ═══════════════════════════════════════════════════ */
 const values = [
   {
-    icon: Hammer,
+    image: '/images/val_builder.webp',
     title: "Builder's Mentality",
     text: "We identify the problem, design the solution, and start building. Every team member is a maker, not a meeting scheduler.",
   },
   {
-    icon: Zap,
+    image: '/images/val_speed.webp',
     title: 'Small Team, Fast Decisions',
     text: "No bureaucracy. No layers of approval. Your project never stalls waiting for someone's signature.",
   },
   {
-    icon: MessageCircle,
+    image: '/images/val_comm.webp',
     title: 'Direct Communication',
     text: "You'll always know where your project stands, what's working, and what needs to change. No runaround.",
   },
   {
-    icon: Users,
+    image: '/images/val_partners.webp',
     title: 'Partners, Not Vendors',
     text: "We invest in understanding your business because your success is our success. We don't disappear after launch.",
   },
@@ -57,9 +57,10 @@ export default function About() {
         blobColor="accent"
         primaryCta={{ text: 'Contact Us', to: '/contact' }}
         secondaryCta={{ text: 'See Our Work', to: '/portfolio' }}
-        image="/images/hero-about.svg"
+        image="/images/hero_about.webp"
         imageAlt="The Enigma Software Systems team"
         imageLayout="image-right"
+        imageStyle={{ borderRadius: '16px', border: '1px solid rgba(255,159,65,0.2)' }}
       />
 
       {/* ═══ STORY + LEADERSHIP (merged into one section) ═══ */}
@@ -91,9 +92,10 @@ export default function About() {
             {/* Leadership photo */}
             <TiltCard noGlow className="about-team-photo">
               <img
-                src="/images/team-photo.svg"
+                src="/images/team_photo.webp"
                 alt="Enigma Software Systems team"
                 loading="lazy"
+                style={{ borderRadius: '12px', width: '100%', height: 'auto', display: 'block' }}
               />
             </TiltCard>
           </div>
@@ -115,16 +117,20 @@ export default function About() {
           <div className="grid-4 reveal-group" style={{ maxWidth: 900, margin: '0 auto' }}>
             {values.map((v, i) => (
               <TiltCard key={i} className="reveal" style={{
-                padding: 32,
                 borderRadius: 16,
                 textAlign: 'left',
                 background: '#fff',
                 border: '1px solid rgba(0,0,0,0.06)',
                 boxShadow: '0 2px 20px rgba(0,0,0,0.04)',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
               }}>
-                <IconBox icon={v.icon} />
-                <h3 style={{ fontSize: 17, fontWeight: 600, margin: '14px 0 8px', color: 'var(--text-dark)' }}>{v.title}</h3>
-                <p style={{ color: 'var(--text-body)', fontSize: 14, lineHeight: 1.7 }}>{v.text}</p>
+                <img src={v.image} alt={v.title} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
+                <div style={{ padding: '24px' }}>
+                  <h3 style={{ fontSize: 17, fontWeight: 600, margin: '0 0 8px', color: 'var(--text-dark)' }}>{v.title}</h3>
+                  <p style={{ color: 'var(--text-body)', fontSize: 14, lineHeight: 1.7 }}>{v.text}</p>
+                </div>
               </TiltCard>
             ))}
           </div>

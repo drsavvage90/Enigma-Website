@@ -31,7 +31,7 @@ export default function Portfolio() {
               </p>
             </div>
             <div className="portfolio-collage-image">
-              <img
+              <img loading="lazy"
                 src="/images/portfolio-collage.svg"
                 alt="Grid of project mockups showing mobile apps, web dashboards, AI platforms, and chat assistants"
                 loading="lazy"
@@ -73,7 +73,7 @@ export default function Portfolio() {
                 </p>
               </div>
               <div className="portfolio-spotlight-mockup">
-                <img
+                <img loading="lazy"
                   src="/images/spotlight-gha.svg"
                   alt="General Heating & Air mobile app mockup showing service requests and scheduling"
                   loading="lazy"
@@ -89,8 +89,8 @@ export default function Portfolio() {
         <div className="container">
           <div className="two-col reveal" style={{ gap: 48, alignItems: 'center' }}>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 40px rgba(0,0,0,0.3)' }}>
-              <img
-                src="/images/aisystems-chatbots.png"
+              <img loading="lazy"
+                src="/images/aisystems-chatbots.webp"
                 alt="AI chatbot assistant interfaces on mobile devices"
                 loading="lazy"
                 style={{ width: '100%', display: 'block' }}

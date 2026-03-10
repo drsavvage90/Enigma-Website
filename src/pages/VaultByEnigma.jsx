@@ -14,12 +14,12 @@ import {
 
 /* ═══ PLATFORM FEATURES ═══ */
 const platformFeatures = [
-  { image: '/images/vault_models.png', title: 'Multiple AI Models in One Place', desc: 'Your team stops managing separate subscriptions and starts working from one dashboard. Switch between OpenAI, Anthropic, Google, Grok, and more mid-conversation.' },
-  { image: '/images/vault_costs.png', title: 'See Exactly What AI Costs You', desc: 'Per-message cost tracking, workspace budgets, and full usage reporting. Zero markup. You pay providers directly at their published rates.' },
-  { image: '/images/vault_transcription.png', title: 'Built-In Transcription', desc: 'Record live meetings or upload audio files. Get searchable transcripts with speaker detection and feed them directly into AI conversations.' },
-  { image: '/images/vault_knowledge.png', title: 'Your Knowledge, AI-Powered', desc: 'Upload your documents and policies. Vault indexes them so every AI response is grounded in your organization\'s actual knowledge.' },
-  { image: '/images/vault_personas.png', title: 'Personas & Prompt Library', desc: 'Pre-configure AI with your tone, expertise, and context. Build a shared library of proven prompts so your entire team starts from what works.' },
-  { image: '/images/vault_compliance.png', title: 'Your Compliance Team Will Say Yes', desc: 'Automatic detection of sensitive information, complete activity logs your compliance team can audit, and access controls that let you decide exactly who sees what.' },
+  { image: '/images/vault_models.webp', title: 'Multiple AI Models in One Place', desc: 'Your team stops managing separate subscriptions and starts working from one dashboard. Switch between OpenAI, Anthropic, Google, Grok, and more mid-conversation.' },
+  { image: '/images/vault_costs.webp', title: 'See Exactly What AI Costs You', desc: 'Per-message cost tracking, workspace budgets, and full usage reporting. Zero markup. You pay providers directly at their published rates.' },
+  { image: '/images/vault_transcription.webp', title: 'Built-In Transcription', desc: 'Record live meetings or upload audio files. Get searchable transcripts with speaker detection and feed them directly into AI conversations.' },
+  { image: '/images/vault_knowledge.webp', title: 'Your Knowledge, AI-Powered', desc: 'Upload your documents and policies. Vault indexes them so every AI response is grounded in your organization\'s actual knowledge.' },
+  { image: '/images/vault_personas.webp', title: 'Personas & Prompt Library', desc: 'Pre-configure AI with your tone, expertise, and context. Build a shared library of proven prompts so your entire team starts from what works.' },
+  { image: '/images/vault_compliance.webp', title: 'Your Compliance Team Will Say Yes', desc: 'Automatic detection of sensitive information, complete activity logs your compliance team can audit, and access controls that let you decide exactly who sees what.' },
 ]
 
 /* ═══ FEATURE DEEP DIVES — compact with screenshots ═══ */
@@ -29,7 +29,7 @@ const deepDives = [
     title: 'Turn Every Conversation Into Searchable Text',
     desc: 'Vault\'s built-in transcription captures every word, whether it\'s a live meeting or a recorded file. Searchable, organized by speaker, and ready to feed into your AI workflows.',
     features: ['Record live audio with real-time streaming', 'Speaker detection with color-coded labels', 'Start AI conversations directly from any transcript', 'Assign transcriptions to specific workspaces'],
-    image: '/images/vault-transcription-light.png', imageAlt: 'Vault Transcription Interface',
+    image: '/images/vault-transcription-light.webp', imageAlt: 'Vault Transcription Interface',
     reversed: false, theme: 'theme-dark', id: 'transcription',
   },
   {
@@ -37,7 +37,7 @@ const deepDives = [
     title: 'Organize AI by Team, Client, or Project',
     desc: 'Every conversation, transcript, and resource is scoped to the right group. Teams stay focused, client work stays isolated, and AI spending stays visible.',
     features: ['Dedicated workspaces for teams, departments, or clients', 'Configurable budgets with warn-or-block policies', 'Real-time cost tracking per workspace', 'Shared conversation history scoped to each group'],
-    image: '/images/vault-workspaces-light.png', imageAlt: 'Vault Workspaces Interface',
+    image: '/images/vault-workspaces-light.webp', imageAlt: 'Vault Workspaces Interface',
     reversed: true, theme: 'theme-darker', id: 'workspaces',
   },
   {
@@ -45,7 +45,7 @@ const deepDives = [
     title: 'AI That Already Knows How Your Team Works',
     desc: 'Pre-configure AI with your organization\'s context, tone, and expertise. Every team member gets consistent output without writing instructions from scratch.',
     features: ['Custom personas with tailored system instructions', 'Tag by role: Legal Reviewer, Marketing Writer, Analyst', 'Choose the AI model for each persona independently', 'Share across your organization with visibility controls'],
-    image: '/images/vault-personas-light.png', imageAlt: 'Vault Personas Interface',
+    image: '/images/vault-personas-light.webp', imageAlt: 'Vault Personas Interface',
     reversed: false, theme: 'theme-dark', id: 'personas',
   },
   {
@@ -53,7 +53,7 @@ const deepDives = [
     title: 'Stop Rewriting the Same Prompts',
     desc: 'Build, organize, and share proven prompt templates. Your team starts from what works instead of starting from scratch every time.',
     features: ['Fill-in-the-blank templates your team customizes before each use', 'Organize prompts by category so your team finds what they need fast', 'Share prompt collections across your entire organization', 'Track which prompts drive the best results across your team'],
-    image: '/images/vault-prompts-light.png', imageAlt: 'Vault Prompt Library Interface',
+    image: '/images/vault-prompts-light.webp', imageAlt: 'Vault Prompt Library Interface',
     reversed: true, theme: 'theme-darker', id: 'prompts',
   },
 ]
@@ -78,8 +78,8 @@ export default function VaultByEnigma() {
         blobColor="orange"
         primaryCta={{ text: 'See Vault in Action', to: '/contact' }}
         secondaryCta={{ text: 'See How It Works', to: '#how-it-works' }}
-        image="/images/vault-hero-new.jpg"
-        imageAlt="Vault by Enigma interactive AI workspace showing model selection and prompt interface"
+        image="/images/vault-logo-hero.jpg"
+        imageAlt="Vault by Enigma Logo Vector Graphic"
         imageLayout="image-right"
         imageStyle={{ transform: 'none' }}
       />
@@ -165,7 +165,7 @@ export default function VaultByEnigma() {
         <div className="container reveal" style={{ textAlign: 'center' }}>
           <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', maxWidth: 960, margin: '0 auto', boxShadow: '0 8px 60px rgba(0,0,0,0.4)' }}>
             <img
-              src="/images/claude-interface.png"
+              src="/images/claude-interface.webp"
               alt="Vault by Enigma AI workspace interface showing chat, model selection, sidebar navigation with workspaces and transcriptions, and cost tracking"
               loading="lazy"
               style={{ width: '100%', display: 'block' }}
@@ -217,9 +217,9 @@ export default function VaultByEnigma() {
 
           <div className="grid-3 reveal-group">
             {[
-              { image: '/images/vault_private.png', title: 'Private & Contained', desc: 'Your data lives in a secure environment you control. Nothing is shared with third-party training models or exposed to other users. What happens in Vault stays in Vault.' },
-              { image: '/images/vault_compliant.png', title: 'Built for Compliance', desc: 'Healthcare, finance, legal: whatever compliance standards your industry requires, we build to meet them. Automatic detection of sensitive data, complete audit trails, and configurable privacy rules come standard. We also establish contractual agreements (including BAAs) with AI providers to ensure your data is never used for model training.' },
-              { image: '/images/vault_professional.png', title: 'Not Consumer-Grade', desc: 'Free AI tools are built for individuals. Vault is engineered for professional use, with access controls, audit trails, and data handling practices that consumer tools simply don\'t offer.' },
+              { image: '/images/vault_private.webp', title: 'Private & Contained', desc: 'Your data lives in a secure environment you control. Nothing is shared with third-party training models or exposed to other users. What happens in Vault stays in Vault.' },
+              { image: '/images/vault_compliant.webp', title: 'Built for Compliance', desc: 'Healthcare, finance, legal: whatever compliance standards your industry requires, we build to meet them. Automatic detection of sensitive data, complete audit trails, and configurable privacy rules come standard. We also establish contractual agreements (including BAAs) with AI providers to ensure your data is never used for model training.' },
+              { image: '/images/vault_professional.webp', title: 'Not Consumer-Grade', desc: 'Free AI tools are built for individuals. Vault is engineered for professional use, with access controls, audit trails, and data handling practices that consumer tools simply don\'t offer.' },
             ].map((s, i) => (
               <TiltCard key={i} className="card card--glass card--glow vault-feature-card reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                 <div className="vault-feature-card__media">
@@ -292,7 +292,7 @@ export default function VaultByEnigma() {
               </div>
             </div>
             <TiltCard noGlow className="preview-box vault-preview-box">
-              <img src="/images/vault-process.jpg" alt="Enigma team collaborating with client on AI deployment" style={{ width: '100%', display: 'block' }} />
+              <img src="/images/vault-process.jpg" alt="Enigma team collaborating with client on AI deployment" loading="lazy" style={{ width: '100%', display: 'block' }} />
             </TiltCard>
           </div>
         </div>

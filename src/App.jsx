@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect, lazy, Suspense } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
@@ -48,30 +48,32 @@ export default function App() {
       <ScrollProgress />
       <Navbar />
       <main id="main-content">
-        <AnimatePresence mode="wait">
-          <Suspense fallback={<div className="loading-screen" />}>
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-              <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-              <Route path="/ai-systems" element={<PageTransition><AISystems /></PageTransition>} />
-              <Route path="/mobile-apps" element={<PageTransition><MobileApps /></PageTransition>} />
-              <Route path="/web-apps" element={<PageTransition><WebApps /></PageTransition>} />
-              <Route path="/vault" element={<PageTransition><VaultByEnigma /></PageTransition>} />
-              <Route path="/how-we-work" element={<PageTransition><HowWeWork /></PageTransition>} />
-              <Route path="/industries" element={<PageTransition><Industries /></PageTransition>} />
-              {/* <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} /> Hidden temporarily */}
-              <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
-              <Route path="/pricing" element={<PageTransition><Pricing /></PageTransition>} />
-              <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-              <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
-              <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
-              <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
-              <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
-              <Route path="/spotlight-demo" element={<PageTransition><SpotlightButtonDemo /></PageTransition>} />
-              <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-            </Routes>
-          </Suspense>
-        </AnimatePresence>
+        <LazyMotion features={domAnimation}>
+          <AnimatePresence mode="wait">
+            <Suspense fallback={<div className="loading-screen" />}>
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+                <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+                <Route path="/ai-systems" element={<PageTransition><AISystems /></PageTransition>} />
+                <Route path="/mobile-apps" element={<PageTransition><MobileApps /></PageTransition>} />
+                <Route path="/web-apps" element={<PageTransition><WebApps /></PageTransition>} />
+                <Route path="/vault" element={<PageTransition><VaultByEnigma /></PageTransition>} />
+                <Route path="/how-we-work" element={<PageTransition><HowWeWork /></PageTransition>} />
+                <Route path="/industries" element={<PageTransition><Industries /></PageTransition>} />
+                {/* <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} /> Hidden temporarily */}
+                <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+                <Route path="/pricing" element={<PageTransition><Pricing /></PageTransition>} />
+                <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+                <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+                <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
+                <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+                <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
+                <Route path="/spotlight-demo" element={<PageTransition><SpotlightButtonDemo /></PageTransition>} />
+                <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+              </Routes>
+            </Suspense>
+          </AnimatePresence>
+        </LazyMotion>
       </main>
       <Footer />
       <ScrollToTopButton />

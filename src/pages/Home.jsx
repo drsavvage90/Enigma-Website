@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
-import NewsletterCTA from '../components/NewsletterCTA'
 import IconBox from '../components/IconBox'
 import TiltCard from '../components/TiltCard'
 import VolumetricHero from '../components/hero/VolumetricHero'
@@ -20,7 +19,7 @@ const pillars = [
     desc: 'Stop your team from using AI on personal accounts with no oversight. Give them a private, branded AI workspace you actually control.',
     link: '/ai-systems',
     linkText: 'Explore AI Systems',
-    image: '/images/pillar-ai.png',
+    image: '/images/pillar-ai.webp',
     imageAlt: 'AI neural network and multi-model system',
   },
   {
@@ -29,7 +28,7 @@ const pillars = [
     desc: 'Your customers book, order, and pay right from their phone. A branded app on their home screen, one tap away.',
     link: '/mobile-apps',
     linkText: 'Explore Mobile Apps',
-    image: '/images/pillar-mobile.png',
+    image: '/images/pillar-mobile.webp',
     imageAlt: 'Custom mobile app mockups on iOS and Android',
   },
   {
@@ -38,7 +37,7 @@ const pillars = [
     desc: 'Replace the spreadsheets and email chains with client portals, admin dashboards, and custom tools your team actually wants to use.',
     link: '/web-apps',
     linkText: 'Explore Web Apps',
-    image: '/images/pillar-web.png',
+    image: '/images/pillar-web.webp',
     imageAlt: 'Web application dashboard interface',
   },
 ]
@@ -48,22 +47,22 @@ const pillars = [
    ═══════════════════════════════════════════════════ */
 const differentiators = [
   {
-    image: '/images/diff_custom_1772925626173.png',
+    image: '/images/diff_custom_1772925626173.webp',
     title: 'Designed Around Your Business, Not a Template',
     text: 'Your workflows are unique. Your software should be too. Every product we build starts with your operations, your customers, and your goals.',
   },
   {
-    image: '/images/diff_security_1772925637206.png',
+    image: '/images/diff_security_1772925637206.webp',
     title: 'Your Data Stays Under Your Control',
     text: 'Every platform we build is secured from day one with role-based access, encryption, and compliance-ready architecture for businesses that take client data seriously.',
   },
   {
-    image: '/images/diff_team_1772925654245.png',
+    image: '/images/diff_team_1772925654245.webp',
     title: 'One Team for Your Entire Tech Stack',
     text: 'AI, mobile, and web, all under one roof. You get one team, one vision, and no juggling multiple vendors who don\'t talk to each other.',
   },
   {
-    image: '/images/diff_partner_1772925666169.png',
+    image: '/images/diff_partner_1772925666169.webp',
     title: 'A Long-Term Partner, Not a One-Time Contractor',
     text: 'You’ll never have to search for a new vendor when you need changes. Ongoing maintenance, updates, and support keep your software current and your business moving.',
   },
@@ -92,7 +91,7 @@ export default function Home() {
               Three Ways We Help Your Business Work Smarter
             </h2>
             <p style={{ color: 'var(--text-body)', maxWidth: 560, margin: '0 auto', fontSize: 17, lineHeight: 1.7 }}>
-              Custom technology designed around how your business actually operates, not the other way around.
+              Custom technology designed around how your business actually operates, not the other way around. See how our <Link to="/how-we-work" style={{ color: 'var(--accent)' }}>process</Link> turns your idea into a working product.
             </p>
           </div>
 
@@ -110,7 +109,7 @@ export default function Home() {
               }}>
                 {/* Card image */}
                 <div className="pillar-card__image">
-                  <img src={p.image} alt={p.imageAlt} loading="lazy" />
+                  <img src={p.image} alt={p.imageAlt} loading="lazy" decoding="async" />
                 </div>
                 {/* Card content */}
                 <div style={{ padding: '24px 32px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -137,7 +136,7 @@ export default function Home() {
               <span className="badge badge--blue">Why Enigma</span>
               <h2 className="display display--gradient heading-lg">Why Businesses Choose Enigma</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, maxWidth: 600, margin: '0 auto 24px' }}>
-                Your business isn't generic, and your software shouldn't be either. Everything we build is designed for the specific business it serves, secured from the ground up, and backed by a team that sticks around.
+                Your business isn't generic, and your software shouldn't be either. Everything we build is designed for the specific business it serves, secured from the ground up, and backed by a team that sticks around. See our <Link to="/pricing" style={{ color: 'var(--accent)' }}>transparent pricing</Link> or <Link to="/about" style={{ color: 'var(--accent)' }}>meet the team</Link>.
               </p>
               <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 8 }}>
                 {industries.map(tag => (
@@ -149,7 +148,7 @@ export default function Home() {
               {differentiators.map((d, i) => (
                 <TiltCard key={i} className="card card--glass card--glow why-enigma-card reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                   <div style={{ width: '100%', height: '180px', flexShrink: 0 }}>
-                    <img src={d.image} alt={d.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={d.image} alt={d.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div style={{ padding: '24px' }}>
                     <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8, color: '#fff' }}>{d.title}</h3>
@@ -161,9 +160,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ═══ NEWSLETTER — secondary CTA for visitors not ready to contact ═══ */}
-      <NewsletterCTA />
 
       {/* ═══ CTA ═══ */}
       <CTABlock

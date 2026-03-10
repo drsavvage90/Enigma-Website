@@ -1,13 +1,39 @@
 import { useParams, Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import CTABlock from '../components/CTABlock'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import blogPosts from '../data/blogPosts'
+import { BASE } from '../seoConfig'
 
 export default function BlogPost() {
   const { slug } = useParams()
   const ref = useReveal()
   const post = blogPosts.find(p => p.slug === slug)
+
+  useEffect(() => {
+    if (!post) return
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      datePublished: post.date,
+      dateModified: post.date,
+      author: { '@type': 'Organization', name: post.author },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Enigma Software Systems',
+        url: BASE,
+      },
+      mainEntityOfPage: `${BASE}/blog/${post.slug}`,
+    }
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.textContent = JSON.stringify(schema)
+    document.head.appendChild(script)
+    return () => document.head.removeChild(script)
+  }, [post])
 
   if (!post) {
     return (

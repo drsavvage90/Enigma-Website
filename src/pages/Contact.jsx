@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import IconBox from '../components/IconBox'
 import PageHeader from '../components/PageHeader'
 import MagneticButton from '../components/hero/MagneticButton'
@@ -96,7 +96,7 @@ export default function Contact() {
                   <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: 400, margin: '0 auto' }}>
                     We'll be in touch within 24 hours to schedule a discovery call. If your project is urgent, email us directly.
                   </p>
-                  <motion.div
+                  <m.div
                     initial={{ width: 0 }}
                     animate={{ width: 60 }}
                     transition={{ delay: 0.5, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}

@@ -93,12 +93,10 @@ export default function Navbar() {
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         {/* Logo — links to homepage */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
-          <div style={{
-            width: 32, height: 32, borderRadius: 8,
-            background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontWeight: 800, fontSize: 18, color: '#fff',
-          }}>E</div>
+          <img src="/logo.webp" alt="Enigma Logo" width={32} height={32} style={{
+            borderRadius: 8,
+            objectFit: 'cover'
+          }} />
           <span style={{ fontWeight: 700, fontSize: 17, letterSpacing: '-0.01em', color: '#fff' }}>
             Enigma
           </span>
@@ -121,6 +119,7 @@ export default function Navbar() {
                   <button
                     onClick={() => setOpenDropdown(isOpen ? null : link.key)}
                     aria-expanded={isOpen}
+                    aria-label={`${link.label} menu`}
                     className={`nav-dropdown-btn${isActive ? ' nav-dropdown-btn--active' : ''}`}
                   >
                     {link.label}
@@ -188,7 +187,7 @@ export default function Navbar() {
               </Link>
             )
           })}
-          <MagneticButton>
+          <MagneticButton style={{ display: 'flex', alignItems: 'center' }}>
             <Link to="/contact" className="btn btn-primary" style={{ padding: '9px 22px', fontSize: 13 }}>
               Contact Us
             </Link>
@@ -233,12 +232,10 @@ export default function Navbar() {
         {/* Logo at top of sidebar */}
         <div style={{ padding: '0 24px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: 8 }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <div style={{
-              width: 28, height: 28, borderRadius: 7,
-              background: 'linear-gradient(135deg, #FF9F41 0%, #FF7733 100%)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontWeight: 800, fontSize: 15, color: '#fff',
-            }}>E</div>
+            <img src="/logo.webp" alt="Enigma Logo" width={28} height={28} style={{
+              borderRadius: 7,
+              objectFit: 'cover'
+            }} />
             <span style={{ fontWeight: 700, fontSize: 15, color: '#fff' }}>Enigma</span>
           </Link>
         </div>
@@ -251,6 +248,8 @@ export default function Navbar() {
               <div key={link.key + '-mobile'}>
                 <button
                   onClick={() => toggleMobileDropdown(link.key)}
+                  aria-expanded={isOpen}
+                  aria-label={`${link.label} menu`}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                     width: '100%', padding: '14px 24px', fontSize: 15, fontWeight: 500,
@@ -300,8 +299,8 @@ export default function Navbar() {
               color: isActive ? 'var(--accent)' : '#fff',
               borderLeft: isActive ? '2px solid var(--accent)' : '2px solid transparent',
             }}
-            {...(isActive && { 'aria-current': 'page' })}
-            {...(link.title && { title: link.title })}
+              {...(isActive && { 'aria-current': 'page' })}
+              {...(link.title && { title: link.title })}
             >
               {link.label}
             </Link>

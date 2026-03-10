@@ -12,7 +12,7 @@
  *   secondaryCta — { text, to } outlined / ghost button
  */
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import TiltCard from './TiltCard'
 
@@ -87,7 +87,7 @@ export default function PageHeader({
 
     const renderCta = () =>
         hasCta ? (
-            <motion.div className="page-header__ctas" variants={ctaVariants}>
+            <m.div className="page-header__ctas" variants={ctaVariants}>
                 {primaryCta && (
                     <Link to={primaryCta.to} className="btn btn-primary btn-lg">
                         {primaryCta.text}
@@ -104,28 +104,28 @@ export default function PageHeader({
                             {secondaryCta.text}
                         </Link>
                     ))}
-            </motion.div>
+            </m.div>
         ) : null
 
     const textBlock = (
-        <motion.div
+        <m.div
             className={isSplit ? 'page-header__text' : undefined}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
         >
-            <motion.h1 variants={itemVariants}>{title}</motion.h1>
-            <motion.p className="subtitle" variants={itemVariants}>
+            <m.h1 variants={itemVariants}>{title}</m.h1>
+            <m.p className="subtitle" variants={itemVariants}>
                 {subtitle}
-            </motion.p>
-            <motion.div variants={lineVariants} style={accentLineStyle} />
+            </m.p>
+            <m.div variants={lineVariants} style={accentLineStyle} />
             {renderCta()}
-        </motion.div>
+        </m.div>
     )
 
     /* ── Image block (for split layouts) ── */
     const imageBlock = image ? (
-        <motion.div
+        <m.div
             className="page-header__image"
             variants={imageVariants}
             initial="hidden"
@@ -134,7 +134,7 @@ export default function PageHeader({
             <TiltCard noGlow style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', width: '100%', height: '100%' }}>
                 <img src={image} alt={imageAlt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...imageStyle }} />
             </TiltCard>
-        </motion.div>
+        </m.div>
     ) : null
 
     /* ── Section class list ── */

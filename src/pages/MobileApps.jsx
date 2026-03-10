@@ -69,7 +69,7 @@ export default function MobileApps() {
         blobColor="accent"
         primaryCta={{ text: 'Get a Free Estimate', to: '/contact' }}
         secondaryCta={{ text: 'See Use Cases', to: '#use-cases' }}
-        image="/images/mobileapps-hero.png"
+        image="/images/mobileapps-hero.webp"
         imageAlt="Three mobile app interfaces showing roles selection, calendar scheduling, and user dashboard"
         imageLayout="image-right"
       />
@@ -87,7 +87,7 @@ export default function MobileApps() {
             </div>
             <TiltCard noGlow className="preview-box">
               <img
-                src="/images/mobileapps-direct-line.png"
+                src="/images/mobileapps-direct-line.webp"
                 alt="Mobile app messaging interface on a phone screen"
                 loading="lazy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}

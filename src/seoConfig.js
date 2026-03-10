@@ -9,7 +9,7 @@
 
 const SITE = 'Enigma Software Systems'
 const BASE = import.meta.env.VITE_SITE_URL || 'https://www.enigmasoftwaresystems.com'
-const OG_DEFAULT = '/images/og-default.png'
+const OG_DEFAULT = '/images/og-default.webp'
 
 const seoConfig = {
   '/': {

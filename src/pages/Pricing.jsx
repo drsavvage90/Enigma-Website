@@ -223,14 +223,14 @@ export default function Pricing() {
                 A private, branded AI workspace with multiple leading models, enterprise security, cost tracking, and team management. Every deployment includes the full platform. Tiers differ in model count, customization, and compliance certifications.
               </p>
               <p style={{ color: 'var(--text-dim)', fontSize: 14, marginTop: 12 }}>
-                AI provider usage is billed at their published rates with no markup from us.
+                AI provider usage is billed at their published rates with no markup from us. Not sure if Vault is right for you? <Link to="/ai-systems" style={{ color: 'var(--accent)' }}>Compare all AI options</Link>.
               </p>
               <Link to="/vault" className="link-arrow" style={{ marginTop: 16, fontSize: 15 }}>
                 Learn more about Vault <ArrowRight size={14} />
               </Link>
             </div>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', flex: 1, minWidth: 0, boxShadow: '0 8px 40px rgba(0,0,0,0.3)' }}>
-              <img src="/images/vault-hero.png" alt="Vault by Enigma AI platform interface" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
+              <img src="/images/vault-hero.webp" alt="Vault by Enigma AI platform interface" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
           </div>
           <div className="grid-2 reveal-group" style={{ gap: 24, maxWidth: 900, margin: '0 auto' }}>
@@ -246,7 +246,7 @@ export default function Pricing() {
         <div className="container">
           <div className="two-col reveal" style={{ gap: 48, alignItems: 'center', maxWidth: 900, margin: '0 auto' }}>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', flex: 1, minWidth: 0, boxShadow: '0 8px 40px rgba(0,0,0,0.3)' }}>
-              <img src="/images/aisystems-chatbots.png" alt="AI chatbot interfaces on mobile devices" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
+              <img src="/images/aisystems-chatbots.webp" alt="AI chatbot interfaces on mobile devices" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
             <div>
               <PhaseNumber num="2" />
@@ -294,7 +294,7 @@ export default function Pricing() {
               </Link>
             </div>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', flex: 1, minWidth: 0 }}>
-              <img src="/images/mobileapps-hero.png" alt="Mobile app interfaces showing scheduling and dashboard" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
+              <img src="/images/mobileapps-hero.webp" alt="Mobile app interfaces showing scheduling and dashboard" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
           </div>
           <div className="grid-2 reveal-group" style={{ gap: 24, maxWidth: 900, margin: '0 auto' }}>
@@ -314,7 +314,7 @@ export default function Pricing() {
               <span className="badge badge--blue">Web Applications</span>
               <h2 className="display display--gradient heading-md" style={{ marginBottom: 16 }}>Web Apps Are Scoped Individually</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 24 }}>
-                Client portals, admin dashboards, quoting tools, and custom web platforms vary too widely to fit into fixed tiers. We'll scope yours during a free consultation and give you a clear, fixed quote before any work begins.
+                Client portals, admin dashboards, quoting tools, and custom web platforms vary too widely to fit into fixed tiers. Learn more about <Link to="/web-apps" style={{ color: 'var(--accent)' }}>what we build</Link>, or we'll scope yours during a free consultation and give you a clear, fixed quote before any work begins.
               </p>
               <Link to="/contact" className="btn btn-primary btn-lg">
                 Get a Web App Quote <ArrowRight size={16} strokeWidth={2.5} />

@@ -5,8 +5,31 @@ import MagneticButton from './MagneticButton';
 import './LaserBeamHero.css';
 
 function HeroBackground() {
+    const [videoReady, setVideoReady] = React.useState(false);
+    const containerRef = React.useRef(null);
+    const videoRef = React.useRef(null);
+
+    // Defer video loading until hero is visible (eliminates LCP contention)
+    React.useEffect(() => {
+        const el = containerRef.current;
+        const video = videoRef.current;
+        if (!el || !video) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    video.src = ''; // triggers <source> loading
+                    video.load();
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div style={{
+        <div ref={containerRef} style={{
             position: 'absolute',
             top: 0,
             left: 0,
@@ -16,10 +39,13 @@ function HeroBackground() {
             backgroundColor: '#020202',
             pointerEvents: 'none'
         }}>
+            {/* Static first frame — loads instantly (56 KB), shown until video is ready */}
             <img
-                src="/assets/Hero-Section Main.webp"
+                src="/assets/hero-static.webp"
                 alt="Enigma Software Systems — custom software development for AI, mobile, and web applications"
                 className="hero-image-animate"
+                width={1280}
+                height={720}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
@@ -27,10 +53,36 @@ function HeroBackground() {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    opacity: 0.6,
-                    pointerEvents: 'none'
+                    opacity: videoReady ? 0 : 0.6,
+                    transition: 'opacity 0.8s ease',
+                    pointerEvents: 'none',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
                 }}
             />
+            {/* Animated video — deferred via IntersectionObserver (2.3 MB MP4) */}
+            <video
+                ref={videoRef}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+                onCanPlay={() => setVideoReady(true)}
+                aria-hidden="true"
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    opacity: videoReady ? 0.6 : 0,
+                    transition: 'opacity 0.8s ease',
+                    pointerEvents: 'none',
+                }}
+            >
+                <source src="/assets/hero-animated.mp4" type="video/mp4" />
+                <source src="/assets/hero-animated.webm" type="video/webm" />
+            </video>
             <div className="hero-breathing-overlay" />
         </div>
     );
@@ -40,7 +92,7 @@ export default function VolumetricHero() {
     const containerRef = useRef(null);
 
     return (
-        <section ref={containerRef} className="laser-hero" style={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: '#020202' }}>
+        <section ref={containerRef} className="laser-hero" style={{ width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: '#020202', padding: '160px 0' }}>
 
             {/* ── Background Layer ── */}
             <HeroBackground />
