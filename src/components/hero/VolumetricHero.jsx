@@ -17,8 +17,7 @@ function HeroBackground() {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    video.src = ''; // triggers <source> loading
-                    video.load();
+                    video.load(); // triggers <source> loading
                     observer.disconnect();
                 }
             },
@@ -39,9 +38,9 @@ function HeroBackground() {
             backgroundColor: '#020202',
             pointerEvents: 'none'
         }}>
-            {/* Static first frame — loads instantly (56 KB), shown until video is ready */}
+            {/* Static first frame — loads instantly (56 KB WebP), shown until video is ready */}
             <img
-                src="/assets/hero-static.png"
+                src="/assets/hero-static.webp"
                 alt="Enigma Software Systems — custom software development for AI, mobile, and web applications"
                 className="hero-image-animate"
                 width={1280}
