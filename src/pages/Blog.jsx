@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import PageHeader from '../components/PageHeader'
 import CTABlock from '../components/CTABlock'
-import NewsletterCTA from '../components/NewsletterCTA'
 import { ArrowRight, Clock } from 'lucide-react'
 import blogPosts from '../data/blogPosts'
 
@@ -63,8 +62,6 @@ export default function Blog() {
           </div>
         </div>
       </section>
-
-      <NewsletterCTA />
 
       <CTABlock
         headline="Have a Question About Your Tech?"
