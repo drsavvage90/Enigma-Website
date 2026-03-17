@@ -29,7 +29,7 @@ const deepDives = [
     title: 'Turn Every Conversation Into Searchable Text',
     desc: 'Vault\'s built-in transcription captures every word, whether it\'s a live meeting or a recorded file. Searchable, organized by speaker, and ready to feed into your AI workflows.',
     features: ['Record live audio with real-time streaming', 'Speaker detection with color-coded labels', 'Start AI conversations directly from any transcript', 'Assign transcriptions to specific workspaces'],
-    image: '/images/vault-transcription-light.webp', imageAlt: 'Vault Transcription Interface',
+    image: '/images/vault-transcription-2026.png', imageAlt: 'Vault Transcription Interface',
     reversed: false, theme: 'theme-dark', id: 'transcription',
   },
   {
@@ -37,7 +37,7 @@ const deepDives = [
     title: 'Organize AI by Team, Client, or Project',
     desc: 'Every conversation, transcript, and resource is scoped to the right group. Teams stay focused, client work stays isolated, and AI spending stays visible.',
     features: ['Dedicated workspaces for teams, departments, or clients', 'Configurable budgets with warn-or-block policies', 'Real-time cost tracking per workspace', 'Shared conversation history scoped to each group'],
-    image: '/images/vault-workspaces-light.webp', imageAlt: 'Vault Workspaces Interface',
+    image: '/images/vault-workspaces-2026.png', imageAlt: 'Vault Workspaces Interface',
     reversed: true, theme: 'theme-darker', id: 'workspaces',
   },
   {
@@ -45,7 +45,7 @@ const deepDives = [
     title: 'AI That Already Knows How Your Team Works',
     desc: 'Pre-configure AI with your organization\'s context, tone, and expertise. Every team member gets consistent output without writing instructions from scratch.',
     features: ['Custom personas with tailored system instructions', 'Tag by role: Legal Reviewer, Marketing Writer, Analyst', 'Choose the AI model for each persona independently', 'Share across your organization with visibility controls'],
-    image: '/images/vault-personas-light.webp', imageAlt: 'Vault Personas Interface',
+    image: '/images/vault-personas-2026.png', imageAlt: 'Vault Personas Interface',
     reversed: false, theme: 'theme-dark', id: 'personas',
   },
   {
@@ -53,7 +53,7 @@ const deepDives = [
     title: 'Stop Rewriting the Same Prompts',
     desc: 'Build, organize, and share proven prompt templates. Your team starts from what works instead of starting from scratch every time.',
     features: ['Fill-in-the-blank templates your team customizes before each use', 'Organize prompts by category so your team finds what they need fast', 'Share prompt collections across your entire organization', 'Track which prompts drive the best results across your team'],
-    image: '/images/vault-prompts-light.webp', imageAlt: 'Vault Prompt Library Interface',
+    image: '/images/vault-prompts-2026.png', imageAlt: 'Vault Prompt Library Interface',
     reversed: true, theme: 'theme-darker', id: 'prompts',
   },
 ]
@@ -121,8 +121,8 @@ export default function VaultByEnigma() {
                 <span className="ai-model-card__company">Google</span>
               </div>
               <div className="ai-model-card">
-                <div className="ai-model-card__icon ai-model-card__icon--xai">
-                  <svg viewBox="0 0 24 24" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.04 3h4.44l5.4 8.16L17.58 3h4.38L14.7 13.62 22.38 21h-4.5l-5.82-8.76L6.18 21H1.74l7.86-7.44L2.04 3Z" fill="currentColor" /></svg>
+                <div className="ai-model-card__icon ai-model-card__icon--xai" style={{ padding: 0, overflow: 'hidden' }}>
+                  <img src="/images/grok-logo.png" alt="Grok by xAI" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <span className="ai-model-card__name">Grok</span>
                 <span className="ai-model-card__company">xAI</span>
@@ -165,8 +165,8 @@ export default function VaultByEnigma() {
         <div className="container reveal" style={{ textAlign: 'center' }}>
           <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', maxWidth: 960, margin: '0 auto', boxShadow: '0 8px 60px rgba(0,0,0,0.4)' }}>
             <img
-              src="/images/claude-interface.webp"
-              alt="Vault by Enigma AI workspace interface showing chat, model selection, sidebar navigation with workspaces and transcriptions, and cost tracking"
+              src="/images/vault-interface-2026.png"
+              alt="Vault by Enigma AI workspace interface showing Claude Haiku 4.5, multi-model selection, and new dashboard layout"
               loading="lazy"
               style={{ width: '100%', display: 'block' }}
             />
