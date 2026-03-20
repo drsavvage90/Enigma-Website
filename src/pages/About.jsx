@@ -4,7 +4,6 @@ import IconBox from '../components/IconBox'
 import TiltCard from '../components/TiltCard'
 import PageHeader from '../components/PageHeader'
 import {
-  Hammer, Zap, MessageCircle, Users,
   BarChart3, Code2, Scale, Megaphone,
 } from 'lucide-react'
 
@@ -57,7 +56,7 @@ export default function About() {
         blobColor="accent"
         primaryCta={{ text: 'Contact Us', to: '/contact' }}
         secondaryCta={{ text: 'See Our Work', to: '/portfolio' }}
-        image="/images/hero_about.png"
+        image="/images/hero_about.webp"
         imageAlt="The Enigma Software Systems team"
         imageLayout="image-right"
         imageStyle={{ borderRadius: '16px', border: '1px solid rgba(255,159,65,0.2)' }}
@@ -92,8 +91,10 @@ export default function About() {
             {/* Leadership photo */}
             <TiltCard noGlow className="about-team-photo">
               <img
-                src="/images/team_photo.png"
+                src="/images/team_photo.webp"
                 alt="Enigma Software Systems team"
+                width={600}
+                height={400}
                 loading="lazy"
                 style={{ borderRadius: '12px', width: '100%', height: 'auto', display: 'block' }}
               />
@@ -126,7 +127,7 @@ export default function About() {
                 display: 'flex',
                 flexDirection: 'column',
               }}>
-                <img src={v.image} alt={v.title} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
+                <img src={v.image} alt={v.title} width={450} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ padding: '24px' }}>
                   <h3 style={{ fontSize: 17, fontWeight: 600, margin: '0 0 8px', color: 'var(--text-dark)' }}>{v.title}</h3>
                   <p style={{ color: 'var(--text-body)', fontSize: 14, lineHeight: 1.7 }}>{v.text}</p>

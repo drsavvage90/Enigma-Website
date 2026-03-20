@@ -7,7 +7,6 @@ import TiltCard from '../components/TiltCard'
 import PageHeader from '../components/PageHeader'
 import {
   CheckCircle, ChevronDown, ArrowRight,
-  Smartphone, Globe, Brain, Cpu,
 } from 'lucide-react'
 
 /* ═══════════════════════════════════════════════════
@@ -15,31 +14,58 @@ import {
    ═══════════════════════════════════════════════════ */
 const vaultTiers = [
   {
-    name: 'Starter', price: '$5,000', detail: '2 AI Models | 1-2 weeks',
-    desc: 'Your own branded Vault instance with two AI models, cost tracking, workspaces, personas, knowledge base, and prompt management.',
-    bestFor: 'Small to mid-size teams centralizing AI access.',
-    features: ['2 AI models of your choice', 'Branded workspace', 'Cost tracking & workspaces', 'Personas & prompt library', 'Knowledge base', '30-day support'],
+    name: 'Starter', price: '$1,999', maintenance: '$1,500/mo maintenance', detail: 'Full Platform Access | 1–2 weeks',
+    desc: 'Your own branded AI workspace with every model, every core tool, and everything your team needs to replace scattered AI subscriptions with one system they\'ll actually use.',
+    bestFor: 'Small to mid-size teams ready to centralize AI access, cut redundant subscriptions, and give everyone the same toolset.',
+    features: ['Access to 2 Large Language Models', 'Your company branding on the platform', 'Workspaces to organize by team, project, or client', 'Custom personas and a shared prompt library', 'Document generation workflows (export AI work as PDF, DOCX, or Markdown)', 'Per-user cost tracking and usage dashboards', '30-day post-deployment support'],
     highlight: false,
   },
   {
-    name: 'Professional', price: '$10,000', detail: '3 AI Models | 2-4 weeks',
-    desc: 'Tailored AI platform with single sign-on, automatic sensitive-data detection, custom workflows, built-in transcription, and up to five tool connections.',
-    bestFor: 'Professional services, healthcare, legal, financial institutions.',
-    features: ['Everything in Starter', '3 AI models', 'Single sign-on (SSO)', 'Sensitive data detection', 'Digital note taker', 'Up to 5 integrations'],
+    name: 'Professional', price: '$4,999', detail: 'Up to 2 Custom Features Built for You | 2–4 weeks',
+    desc: 'Everything in Starter, plus enterprise security features and up to five custom-built AI tools designed around your workflows. This is where Vault stops being a platform and starts being your platform.',
+    bestFor: 'Organizations that need more than chat - teams that want AI wired into their actual day-to-day operations, with the security to back it up.',
+    features: ['Everything in Starter', 'Access to 4 Large Language Models', 'Up to 2 custom AI features built by our team (examples: instant proposal generators, client intake automation, report builders, smart document templates, internal knowledge search)', 'Built-in audio transcription with speaker identification', 'Up to 3 third-party integrations (CRM, project management, calendar, etc.)', 'Single sign-on (SAML SSO) - your team logs in with the credentials they already have', 'Automatic sensitive data detection before anything reaches the AI', 'Side-by-side model comparison to evaluate responses head-to-head', '60-day post-deployment support'],
     highlight: true,
   },
   {
-    name: 'Enterprise', price: '$20,000', detail: '5 AI Models | 4-8+ weeks',
-    desc: 'Fully customized and compliance-certified. Healthcare, financial, and data privacy standards built in. Your branding everywhere. Hosted on your own infrastructure if needed.',
-    bestFor: 'Regulated industries, multi-department organizations, enterprises.',
-    features: ['Everything in Professional', '5 AI models', 'Full compliance certification', 'Your branding everywhere', 'Hosted on your infrastructure', 'Dedicated account manager'],
+    name: 'Enterprise', price: 'Starting at $11,988', detail: 'Compliance-Certified & Fully Tailored | 4–8+ weeks',
+    desc: 'Everything in Professional, built to meet your compliance requirements, deployed on your terms, and managed with full audit control across every department.',
+    bestFor: 'Regulated industries, multi-department organizations, and enterprises that need audit trails, budget controls, and total branding control.',
+    features: ['Everything in Professional', 'Access to 6+ Large Language Models', 'Up to 5 custom AI features built by our team', 'Up to 5 third-party integrations', 'Full compliance certification support (HIPAA, SOC 2, data residency)', 'Role-based access control across six permission levels', 'Per-user and per-department budget caps with automated alerts', 'Complete audit logging for every action on the platform', 'Your branding on every screen - login, workspace, exports, everything', 'Self-hosted deployment option (your infrastructure, your data)', 'Dedicated account manager'],
     highlight: false,
   },
   {
-    name: 'Custom', price: 'Custom Quote', detail: 'Unlimited Models | Discovery required',
-    desc: 'Unlimited models, roadmap features on your timeline, multi-department architectures, and full custom development.',
-    bestFor: 'AI-powered products, large-scale rollouts, or needs beyond standard tiers.',
-    features: ['Fully custom scope', 'Unlimited AI models', 'Paid discovery phase', 'Multi-department architecture', 'Custom SLA & support'],
+    name: 'Custom', price: 'Custom Quote', detail: 'Discovery Required',
+    desc: 'For organizations building an AI-powered product, rolling Vault out across hundreds of users, or needing capabilities that go beyond standard tiers.',
+    bestFor: 'AI-powered products, large-scale rollouts, or needs that don\'t fit a box.',
+    features: ['Fully custom scope through a paid discovery phase', 'Multi-department architecture with isolated workspaces', 'Roadmap features prioritized on your timeline', 'Custom SLA and dedicated engineering support'],
+    highlight: false,
+  },
+]
+
+/* ═══════════════════════════════════════════════════
+   2. CUSTOM AI SYSTEM TIERS
+   ═══════════════════════════════════════════════════ */
+const aiTiers = [
+  {
+    name: 'Customer-Facing AI Assistant', price: 'From $2,999',
+    desc: 'A branded chatbot trained on your business that handles FAQs, appointment scheduling, lead capture, or product recommendations. Your customers get instant answers; your team gets fewer repetitive calls.',
+    bestFor: 'Businesses that want 24/7 customer support without hiring for it.',
+    features: ['Trained on your business content and FAQs', 'Handles appointment scheduling and lead capture', 'Product or service recommendations', 'Branded to match your website and voice', 'Reduces repetitive calls and emails'],
+    highlight: false,
+  },
+  {
+    name: 'Internal Knowledge & Productivity Tools', price: 'From $4,999',
+    desc: 'AI tools built for your team. Search across documents, summarize meeting notes, generate reports from your data, or automate workflows that eat up hours every week. Connects to the systems you already use.',
+    bestFor: 'Teams drowning in documents, reports, or repetitive manual processes.',
+    features: ['Search across internal documents in plain English', 'Meeting note summarization', 'Report generation from your data', 'Workflow automation for recurring tasks', 'Connects to the systems you already use'],
+    highlight: true,
+  },
+  {
+    name: 'Custom AI Integrations', price: 'Scoped Individually',
+    desc: 'AI wired directly into your existing software stack. CRM enrichment, automated document processing, intelligent routing, data analysis pipelines - if there\'s a manual process that AI can handle, we\'ll scope it and give you a fixed quote.',
+    bestFor: 'Organizations with manual processes that AI can automate inside their existing tools.',
+    features: ['CRM enrichment and lead scoring', 'Automated document processing', 'Intelligent routing and classification', 'Data analysis pipelines', 'Fixed quote after scoping'],
     highlight: false,
   },
 ]
@@ -49,31 +75,31 @@ const vaultTiers = [
    ═══════════════════════════════════════════════════ */
 const mobileTiers = [
   {
-    name: 'Simple App', price: '$3,000', timeline: '2-4 weeks',
-    desc: 'A clean, professional mobile presence: informational app, service listings, basic contact, or a simple directory.',
-    bestFor: 'Small businesses, sole proprietors, local service providers.',
-    features: ['Works on iOS and Android', 'Up to 5-8 screens', 'Push notifications', 'App store submission', '30-day post-launch support'],
+    name: 'Simple App', price: '$2,999', timeline: '2–4 weeks',
+    desc: 'A professional mobile presence that puts your business in your customers\' pockets. Think of it as your website\'s more useful sibling - with service listings, contact info, location details, and push notifications to stay top of mind.',
+    bestFor: 'Local businesses, solo practitioners, and service providers who want to be findable and reachable from a phone.',
+    features: ['Works on both iOS and Android', 'Up to 5–8 screens (home, services, about, contact, etc.)', 'Push notifications to reach your customers directly', 'Full app store submission on Apple and Google', '30 days of post-launch bug fixes and support'],
     highlight: false,
   },
   {
-    name: 'Moderate App', price: '$8,000', timeline: '4-8 weeks',
-    desc: 'Your app becomes a real working tool with user accounts, a management dashboard, admin tools, and connections to your existing systems.',
-    bestFor: 'Growing businesses, service companies, healthcare practices.',
-    features: ['Everything in Simple', 'User accounts & management dashboard', 'Admin panel & permission controls', 'Up to 2 integrations', 'Analytics & 60-day support'],
+    name: 'Moderate App', price: '$7,999', timeline: '4–8 weeks',
+    desc: 'Your app becomes a working tool, not just a brochure. Customers can log in, book appointments, view their history, or manage their account. You get a dashboard to manage everything behind the scenes.',
+    bestFor: 'Growing businesses, service companies, and healthcare practices that need user accounts, scheduling, or admin controls.',
+    features: ['Everything in Simple', 'User accounts with login, profiles, and personal dashboards', 'Admin panel so your team can manage users, content, and settings', 'Role-based permissions (owner, staff, customer)', 'Up to 2 integrations with your existing tools (calendar, CRM, payment processor)', 'Built-in analytics so you can see how the app is being used', '60 days of post-launch support'],
     highlight: true,
   },
   {
-    name: 'Complex App', price: '$12,000', timeline: '8-16+ weeks',
-    desc: 'Enterprise-grade: real-time features, complex workflows, multi-system integrations, and compliance support.',
-    bestFor: 'Established businesses, healthcare, logistics, multi-location operations.',
-    features: ['Everything in Moderate', 'Real-time chat & tracking', 'Advanced workflow automation', 'Connects to your existing systems', 'Healthcare & payment compliance', '90-day support'],
+    name: 'Complex App', price: '$11,988', timeline: '8–16+ weeks',
+    desc: 'Enterprise-grade functionality: real-time messaging, live tracking, multi-step workflows, and deep integrations with the systems your business already runs on. Built to handle compliance requirements if your industry demands it.',
+    bestFor: 'Established businesses, healthcare organizations, logistics companies, and multi-location operations with complex workflows.',
+    features: ['Everything in Moderate', 'Real-time features (live chat, order tracking, status updates)', 'Advanced workflow automation (multi-step approvals, routing, notifications)', 'Connects to your existing systems (EHR, ERP, inventory, payment platforms)', 'Healthcare and payment compliance support (HIPAA, PCI where applicable)', '90 days of post-launch support'],
     highlight: false,
   },
   {
     name: 'Custom App', price: 'Custom Quote', timeline: 'Discovery phase',
-    desc: 'Original concepts, legacy system integrations, or projects that span multiple tiers.',
-    bestFor: 'Startups, unique product ideas, legacy systems.',
-    features: ['Fully custom scope', 'Discovery phase included', 'Flexible integrations', 'Custom SLA & support'],
+    desc: 'For original product ideas, legacy system overhauls, or projects that span multiple tiers. We start with a paid discovery phase to define exactly what you need, then give you a fixed quote.',
+    bestFor: 'Startups with a product concept, businesses replacing legacy software, or anyone whose app doesn\'t fit neatly into the tiers above.',
+    features: ['Fully custom scope defined through discovery', 'Flexible integrations with any system', 'Custom SLA and dedicated support', 'Architecture designed for your specific scale and use case'],
     highlight: false,
   },
 ]
@@ -93,7 +119,8 @@ const maintenancePlans = [
 ]
 
 /* ═══ Reusable tier card renderer ═══ */
-function TierCard({ tier, showDetail = false }) {
+function TierCard({ tier, showDetail = false, featureLabel = "What's included:" }) {
+  const [open, setOpen] = useState(false)
   return (
     <TiltCard
       allowOverflow
@@ -103,6 +130,9 @@ function TierCard({ tier, showDetail = false }) {
       {tier.highlight && <span className="tier-popular-tag">Most Popular</span>}
       <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>{tier.name}</h3>
       <p className="tier-price">{tier.price}</p>
+      {tier.maintenance && (
+        <p style={{ color: 'var(--text-muted)', fontSize: 13, fontWeight: 500, marginBottom: 4 }}>{tier.maintenance}</p>
+      )}
       {showDetail && tier.detail && (
         <p style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 600, marginBottom: 4 }}>{tier.detail}</p>
       )}
@@ -113,13 +143,21 @@ function TierCard({ tier, showDetail = false }) {
       <p className="card-desc--sm" style={{ marginBottom: 16 }}>{tier.desc}</p>
       <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--accent)', marginBottom: 8, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Best for:</p>
       <p style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6, marginBottom: 16 }}>{tier.bestFor}</p>
-      <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 16, marginTop: 'auto' }}>
-        {tier.features.map((f, fi) => (
-          <div key={fi} className="feature-check">
-            <CheckCircle size={14} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 3 }} />
-            <span className="feature-check__text">{f}</span>
+      <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 0, marginTop: 'auto' }}>
+        <button className="maintenance-plan-toggle" onClick={() => setOpen(!open)} aria-expanded={open}>
+          <span>{featureLabel}</span>
+          <ChevronDown size={16} style={{ transition: 'transform 0.3s ease', transform: open ? 'rotate(180deg)' : 'rotate(0)', flexShrink: 0 }} />
+        </button>
+        <div className={`maintenance-plan-body${open ? ' open' : ''}`}>
+          <div className="maintenance-plan-body__inner">
+            {tier.features.map((f, fi) => (
+              <div key={fi} className="feature-check">
+                <CheckCircle size={14} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 3 }} />
+                <span className="feature-check__text">{f}</span>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </TiltCard>
   )
@@ -209,7 +247,7 @@ export default function Pricing() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          PHASE 1 — VAULT BY ENIGMA
+          PHASE 1 - VAULT BY ENIGMA
           ══════════════════════════════════════════════ */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--accent float float--slow" style={{ width: 500, height: 500, top: '10%', right: '-15%' }} />
@@ -218,19 +256,19 @@ export default function Pricing() {
             <div>
               <PhaseNumber num="1" />
               <span className="badge badge--accent">Vault by Enigma</span>
-              <h2 className="display display--gradient heading-lg">AI Platform Deployment</h2>
+              <h2 className="display display--gradient heading-lg">Your Team's Private AI Workspace</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8 }}>
-                A private, branded AI workspace with multiple leading models, enterprise security, cost tracking, and team management. Every deployment includes the full platform. Tiers differ in model count, customization, and compliance certifications.
+                Vault gives your entire team one secure place to use AI - every leading model, full conversation history, and usage tracking from day one. Every tier includes the complete platform. As you move up, you get custom-built features designed around how your organization actually works.
               </p>
               <p style={{ color: 'var(--text-dim)', fontSize: 14, marginTop: 12 }}>
-                AI provider usage is billed at their published rates with no markup from us. Not sure if Vault is right for you? <Link to="/ai-systems" style={{ color: 'var(--accent)' }}>Compare all AI options</Link>.
+                AI provider usage is billed at their published rates with no markup from us. Not sure if Vault is right for you? <Link to="/ai-systems" style={{ color: 'var(--accent)' }}>Compare all AI options →</Link>
               </p>
               <Link to="/vault" className="link-arrow" style={{ marginTop: 16, fontSize: 15 }}>
                 Learn more about Vault <ArrowRight size={14} />
               </Link>
             </div>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', flex: 1, minWidth: 0, boxShadow: '0 8px 40px rgba(0,0,0,0.3)' }}>
-              <img src="/images/vault-hero.webp" alt="Vault by Enigma AI platform interface" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
+              <img src="/images/vault-hero.webp" alt="Vault by Enigma AI platform interface" width={500} height={300} loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
           </div>
           <div className="grid-2 reveal-group" style={{ gap: 24, maxWidth: 900, margin: '0 auto' }}>
@@ -240,43 +278,34 @@ export default function Pricing() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          PHASE 2 — CUSTOM AI SYSTEMS
+          PHASE 2 - CUSTOM AI SYSTEMS
           ══════════════════════════════════════════════ */}
-      <section className="section--sm theme-darker">
-        <div className="container">
-          <div className="two-col reveal" style={{ gap: 48, alignItems: 'center', maxWidth: 900, margin: '0 auto' }}>
+      <section className="section theme-darker" style={{ position: 'relative' }}>
+        <div className="container section-z">
+          <div className="two-col reveal" style={{ gap: 48, alignItems: 'center', marginBottom: 48 }}>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', flex: 1, minWidth: 0, boxShadow: '0 8px 40px rgba(0,0,0,0.3)' }}>
-              <img src="/images/aisystems-chatbots.webp" alt="AI chatbot interfaces on mobile devices" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
+              <img src="/images/aisystems-chatbots.webp" alt="AI chatbot interfaces on mobile devices" width={500} height={300} loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
             <div>
               <PhaseNumber num="2" />
               <span className="badge badge--blue">Custom AI Systems</span>
-              <h2 className="display display--gradient heading-md" style={{ marginBottom: 16 }}>Standalone AI Tools & Integrations</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 16 }}>
-                Not every AI project needs the full Vault platform. Customer-facing chatbots, internal knowledge tools, document generators, data analyzers, and custom integrations are scoped individually based on complexity.
+              <h2 className="display display--gradient heading-lg">AI That Works Inside Your Business</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8 }}>
+                Not every AI project needs a full platform. Sometimes you need a chatbot that answers your customers' questions at 2 AM, a tool that lets your team search internal documents in plain English, or an integration that automates the report you build every Monday. We scope each project individually based on what it needs to do, and who it needs to do it for.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24 }}>
-                {[
-                  'Customer-facing chat assistants: from $3,000',
-                  'Internal knowledge tools: from $5,000',
-                  'Custom AI integrations: scoped individually',
-                ].map((item, i) => (
-                  <div key={i} className="feature-check">
-                    <CheckCircle size={16} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
-                    <span style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.6 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Link to="/contact" className="btn btn-primary btn-lg">
-                Get an AI Quote <ArrowRight size={16} strokeWidth={2.5} />
+              <Link to="/contact" className="link-arrow" style={{ marginTop: 16, fontSize: 15 }}>
+                Get an AI Quote <ArrowRight size={14} />
               </Link>
             </div>
+          </div>
+          <div className="grid-2 reveal-group" style={{ gap: 24, maxWidth: 900, margin: '0 auto' }}>
+            {aiTiers.map((tier, i) => <TierCard key={i} tier={tier} />)}
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          PHASE 3 — MOBILE APPS
+          PHASE 3 - MOBILE APPS
           ══════════════════════════════════════════════ */}
       <section className="section theme-dark" style={{ position: 'relative' }}>
         <div className="blob blob--blue float float--fast float--offset" style={{ width: 500, height: 500, top: '20%', left: '-15%' }} />
@@ -285,26 +314,26 @@ export default function Pricing() {
             <div>
               <PhaseNumber num="3" />
               <span className="badge badge--accent">Mobile Applications</span>
-              <h2 className="display display--gradient heading-lg">Mobile App Build Options</h2>
+              <h2 className="display display--gradient heading-lg">One App. Both Platforms. Built for Your Business.</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8 }}>
-                Every app is delivered on both iOS and Android. Every project starts with a free consultation to make sure you're in the right tier.
+                Every mobile app we build works on iOS and Android from day one. The tiers below reflect what the app actually does, not just how many screens it has. Start with a free consultation, and we'll tell you exactly where your project lands.
               </p>
               <Link to="/mobile-apps" className="link-arrow" style={{ marginTop: 16, fontSize: 15 }}>
                 Learn more about mobile apps <ArrowRight size={14} />
               </Link>
             </div>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', flex: 1, minWidth: 0 }}>
-              <img src="/images/mobileapps-hero.webp" alt="Mobile app interfaces showing scheduling and dashboard" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
+              <img src="/images/mobileapps-hero.webp" alt="Mobile app interfaces showing scheduling and dashboard" width={500} height={300} loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
           </div>
           <div className="grid-2 reveal-group" style={{ gap: 24, maxWidth: 900, margin: '0 auto' }}>
-            {mobileTiers.map((tier, i) => <TierCard key={i} tier={tier} />)}
+            {mobileTiers.map((tier, i) => <TierCard key={i} tier={tier} featureLabel="What you're getting:" />)}
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          PHASE 4 — WEB APPS
+          PHASE 4 - WEB APPS
           ══════════════════════════════════════════════ */}
       <section className="section--sm theme-darker">
         <div className="container">
@@ -321,7 +350,7 @@ export default function Pricing() {
               </Link>
             </div>
             <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', flex: 1, minWidth: 0, boxShadow: '0 8px 40px rgba(0,0,0,0.3)' }}>
-              <img src="/images/webapps-client-portal.jpg" alt="Client-facing web application portal" loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
+              <img src="/images/webapps-client-portal.jpg" alt="Client-facing web application portal" width={500} height={300} loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
           </div>
         </div>

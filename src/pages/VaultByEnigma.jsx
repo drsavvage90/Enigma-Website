@@ -5,11 +5,8 @@ import IconBox from '../components/IconBox'
 import TiltCard from '../components/TiltCard'
 import PageHeader from '../components/PageHeader'
 import {
-  ToggleLeft, DollarSign, ShieldCheck,
-  BookOpen, Brain, Mic,
   CheckCircle, ArrowRight,
   Layers, BarChart3, FileText,
-  Lock, ShieldOff,
 } from 'lucide-react'
 
 /* ═══ PLATFORM FEATURES ═══ */
@@ -29,7 +26,7 @@ const deepDives = [
     title: 'Turn Every Conversation Into Searchable Text',
     desc: 'Vault\'s built-in transcription captures every word, whether it\'s a live meeting or a recorded file. Searchable, organized by speaker, and ready to feed into your AI workflows.',
     features: ['Record live audio with real-time streaming', 'Speaker detection with color-coded labels', 'Start AI conversations directly from any transcript', 'Assign transcriptions to specific workspaces'],
-    image: '/images/vault-transcription-2026.png', imageAlt: 'Vault Transcription Interface',
+    image: '/images/vault-transcription-2026.webp', imageAlt: 'Vault Transcription Interface',
     reversed: false, theme: 'theme-dark', id: 'transcription',
   },
   {
@@ -37,7 +34,7 @@ const deepDives = [
     title: 'Organize AI by Team, Client, or Project',
     desc: 'Every conversation, transcript, and resource is scoped to the right group. Teams stay focused, client work stays isolated, and AI spending stays visible.',
     features: ['Dedicated workspaces for teams, departments, or clients', 'Configurable budgets with warn-or-block policies', 'Real-time cost tracking per workspace', 'Shared conversation history scoped to each group'],
-    image: '/images/vault-workspaces-2026.png', imageAlt: 'Vault Workspaces Interface',
+    image: '/images/vault-workspaces-2026.webp', imageAlt: 'Vault Workspaces Interface',
     reversed: true, theme: 'theme-darker', id: 'workspaces',
   },
   {
@@ -45,7 +42,7 @@ const deepDives = [
     title: 'AI That Already Knows How Your Team Works',
     desc: 'Pre-configure AI with your organization\'s context, tone, and expertise. Every team member gets consistent output without writing instructions from scratch.',
     features: ['Custom personas with tailored system instructions', 'Tag by role: Legal Reviewer, Marketing Writer, Analyst', 'Choose the AI model for each persona independently', 'Share across your organization with visibility controls'],
-    image: '/images/vault-personas-2026.png', imageAlt: 'Vault Personas Interface',
+    image: '/images/vault-personas-2026.webp', imageAlt: 'Vault Personas Interface',
     reversed: false, theme: 'theme-dark', id: 'personas',
   },
   {
@@ -53,7 +50,7 @@ const deepDives = [
     title: 'Stop Rewriting the Same Prompts',
     desc: 'Build, organize, and share proven prompt templates. Your team starts from what works instead of starting from scratch every time.',
     features: ['Fill-in-the-blank templates your team customizes before each use', 'Organize prompts by category so your team finds what they need fast', 'Share prompt collections across your entire organization', 'Track which prompts drive the best results across your team'],
-    image: '/images/vault-prompts-2026.png', imageAlt: 'Vault Prompt Library Interface',
+    image: '/images/vault-prompts-2026.webp', imageAlt: 'Vault Prompt Library Interface',
     reversed: true, theme: 'theme-darker', id: 'prompts',
   },
 ]
@@ -122,7 +119,7 @@ export default function VaultByEnigma() {
               </div>
               <div className="ai-model-card">
                 <div className="ai-model-card__icon ai-model-card__icon--xai" style={{ padding: 0, overflow: 'hidden' }}>
-                  <img src="/images/grok-logo.png" alt="Grok by xAI" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src="/images/grok-logo.webp" alt="Grok by xAI" width={36} height={36} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <span className="ai-model-card__name">Grok</span>
                 <span className="ai-model-card__company">xAI</span>
@@ -148,7 +145,7 @@ export default function VaultByEnigma() {
             {platformFeatures.map((f, i) => (
               <TiltCard key={i} className="card card--glass card--glow vault-feature-card reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                 <div className="vault-feature-card__media">
-                  <img src={f.image} alt={f.title} loading="lazy" className="vault-feature-card__image" />
+                  <img src={f.image} alt={f.title} width={400} height={220} loading="lazy" className="vault-feature-card__image" />
                 </div>
                 <div style={{ padding: '24px' }}>
                   <h3 className="card-title">{f.title}</h3>
@@ -165,8 +162,10 @@ export default function VaultByEnigma() {
         <div className="container reveal" style={{ textAlign: 'center' }}>
           <TiltCard noGlow style={{ borderRadius: 16, overflow: 'hidden', maxWidth: 960, margin: '0 auto', boxShadow: '0 8px 60px rgba(0,0,0,0.4)' }}>
             <img
-              src="/images/vault-interface-2026.png"
+              src="/images/vault-interface-2026.webp"
               alt="Vault by Enigma AI workspace interface showing Claude Haiku 4.5, multi-model selection, and new dashboard layout"
+              width={960}
+              height={540}
               loading="lazy"
               style={{ width: '100%', display: 'block' }}
             />
@@ -196,7 +195,7 @@ export default function VaultByEnigma() {
                 </div>
               </div>
               <TiltCard noGlow className="preview-box vault-preview-box" style={{ padding: 0, alignSelf: 'center', height: 'auto', overflow: 'hidden' }}>
-                <img src={dd.image} alt={dd.imageAlt} loading="lazy" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                <img src={dd.image} alt={dd.imageAlt} width={500} height={300} loading="lazy" style={{ width: '100%', height: 'auto', display: 'block' }} />
               </TiltCard>
             </div>
           </div>
@@ -223,7 +222,7 @@ export default function VaultByEnigma() {
             ].map((s, i) => (
               <TiltCard key={i} className="card card--glass card--glow vault-feature-card reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                 <div className="vault-feature-card__media">
-                  <img src={s.image} alt={s.title} loading="lazy" className="vault-feature-card__image" />
+                  <img src={s.image} alt={s.title} width={400} height={220} loading="lazy" className="vault-feature-card__image" />
                 </div>
                 <div style={{ padding: '24px' }}>
                   <h3 className="card-title">{s.title}</h3>
@@ -292,7 +291,7 @@ export default function VaultByEnigma() {
               </div>
             </div>
             <TiltCard noGlow className="preview-box vault-preview-box">
-              <img src="/images/vault-process.jpg" alt="Enigma team collaborating with client on AI deployment" loading="lazy" style={{ width: '100%', display: 'block' }} />
+              <img src="/images/vault-process.jpg" alt="Enigma team collaborating with client on AI deployment" width={500} height={350} loading="lazy" style={{ width: '100%', display: 'block' }} />
             </TiltCard>
           </div>
         </div>

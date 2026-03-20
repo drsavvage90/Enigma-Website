@@ -5,10 +5,8 @@ import IconBox from '../components/IconBox'
 import TiltCard from '../components/TiltCard'
 import PageHeader from '../components/PageHeader'
 import {
-  Lock, Palette, Lightbulb, Clock, Brain,
-  ArrowRight, Bot, Headphones,
-  FileText, BarChart3, ShieldCheck,
-  Plug, BookOpen, Mic, Users,
+  Brain, ArrowRight, Bot, Headphones,
+  BookOpen, Mic, Users,
 } from 'lucide-react'
 
 /* ═══════════════════════════════════════════════════
@@ -25,12 +23,12 @@ const benefits = [
    EXAMPLES OF WHAT WE BUILD — illustrative, not exhaustive
    ═══════════════════════════════════════════════════ */
 const examples = [
-  { title: 'Customer-Facing Chat Assistants', desc: 'An AI on your website that knows your services, pricing, and processes, answering customer questions and capturing leads 24/7.', image: '/images/card-ai-chatbot.png' },
-  { title: 'Internal Knowledge Tools', desc: 'Your team asks a question in plain language and gets an answer from your actual documents (SOPs, policies, manuals) in seconds.', image: '/images/card-ai-knowledge.png' },
-  { title: 'Document Generation & Automation', desc: 'AI that drafts proposals, contracts, reports, or estimates based on your templates and client data. First drafts in seconds, not hours.', image: '/images/card-ai-docgen.png' },
-  { title: 'Data Analysis & Insight Dashboards', desc: 'Connect your existing data and surface trends, anomalies, and recommendations in plain language. Turn raw numbers into decisions.', image: '/images/card-ai-analytics.png' },
-  { title: 'Quality Control & Review', desc: 'AI that reviews work product before it goes out, checking for brand voice, factual accuracy, missing clauses, or formatting standards.', image: '/images/card-ai-review.png' },
-  { title: 'Custom Integrations & Workflow AI', desc: 'AI-powered connections between your existing tools like customer databases, email, scheduling platforms, and more. Automate the handoffs your team does manually today.', image: '/images/card-ai-workflow.png' },
+  { title: 'Customer-Facing Chat Assistants', desc: 'An AI on your website that knows your services, pricing, and processes, answering customer questions and capturing leads 24/7.', image: '/images/card-ai-chatbot.webp' },
+  { title: 'Internal Knowledge Tools', desc: 'Your team asks a question in plain language and gets an answer from your actual documents (SOPs, policies, manuals) in seconds.', image: '/images/card-ai-knowledge.webp' },
+  { title: 'Document Generation & Automation', desc: 'AI that drafts proposals, contracts, reports, or estimates based on your templates and client data. First drafts in seconds, not hours.', image: '/images/card-ai-docgen.webp' },
+  { title: 'Data Analysis & Insight Dashboards', desc: 'Connect your existing data and surface trends, anomalies, and recommendations in plain language. Turn raw numbers into decisions.', image: '/images/card-ai-analytics.webp' },
+  { title: 'Quality Control & Review', desc: 'AI that reviews work product before it goes out, checking for brand voice, factual accuracy, missing clauses, or formatting standards.', image: '/images/card-ai-review.webp' },
+  { title: 'Custom Integrations & Workflow AI', desc: 'AI-powered connections between your existing tools like customer databases, email, scheduling platforms, and more. Automate the handoffs your team does manually today.', image: '/images/card-ai-workflow.webp' },
 ]
 
 
@@ -77,7 +75,7 @@ export default function AISystems() {
             {benefits.map((b, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
                 <div style={{ height: 260, overflow: 'hidden' }}>
-                  <img src={b.image} alt={b.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={b.image} alt={b.title} width={450} height={260} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ padding: '24px' }}>
                   <h3 className="card-title">{b.title}</h3>
@@ -115,7 +113,7 @@ export default function AISystems() {
                 flexDirection: 'column',
               }}>
                 <div style={{ height: 200, overflow: 'hidden', flexShrink: 0 }}>
-                  <img src={ex.image} alt={ex.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={ex.image} alt={ex.title} width={320} height={200} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <h4 style={{ fontSize: 18, fontWeight: 600, margin: '0 0 12px', color: 'var(--text-dark)' }}>{ex.title}</h4>
@@ -145,7 +143,7 @@ export default function AISystems() {
           <div className="grid-2 reveal-group" style={{ maxWidth: 900, margin: '0 auto', gap: 24 }}>
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
               <div style={{ height: 220, overflow: 'hidden' }}>
-                <img src="/images/aisystems-multi-llm.webp" alt="Multi-LLM AI platform model selection interface" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/aisystems-multi-llm.webp" alt="Multi-LLM AI platform model selection interface" width={450} height={220} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ padding: '20px 24px 24px' }}>
                 <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Vault: Full AI Platform</h3>
@@ -155,7 +153,7 @@ export default function AISystems() {
             </TiltCard>
             <TiltCard className="card card--glass card--glow reveal" style={{ padding: 0, overflow: 'hidden' }}>
               <div style={{ height: 220, overflow: 'hidden' }}>
-                <img src="/images/aisystems-chatbots.webp" alt="AI chatbot interface on mobile devices" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/aisystems-chatbots.webp" alt="AI chatbot interface on mobile devices" width={450} height={220} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ padding: '20px 24px 24px' }}>
                 <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Standalone AI Tools</h3>
@@ -197,7 +195,7 @@ export default function AISystems() {
               </div>
             </div>
             <TiltCard noGlow className="preview-box">
-              <img src="/images/aisystems-customer.jpg" alt="AI chat assistant on a business website" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/aisystems-customer.jpg" alt="AI chat assistant on a business website" width={500} height={350} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </TiltCard>
           </div>
 
@@ -222,7 +220,7 @@ export default function AISystems() {
               </div>
             </div>
             <TiltCard noGlow className="preview-box">
-              <img src="/images/aisystems-internal.jpg" alt="Internal AI knowledge base interface" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/aisystems-internal.jpg" alt="Internal AI knowledge base interface" width={500} height={350} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </TiltCard>
           </div>
         </div>

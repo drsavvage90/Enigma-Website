@@ -12,17 +12,13 @@ export default defineConfig({
   build: {
     sourcemap: false,
     target: 'esnext',
-    modulePreload: {
-      resolveDependencies: (_filename, deps) =>
-        deps.filter((dep) => !dep.includes('three-vendor')),
-    },
     rollupOptions: {
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-motion': ['framer-motion'],
           'vendor-icons': ['lucide-react'],
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei', '@react-three/postprocessing'],
+          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei', '@react-three/postprocessing'],
         },
       },
     },

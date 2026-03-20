@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="footer-reveal">
-            <h3 style={{
+            <h2 style={{
               fontSize: 13,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -93,7 +93,7 @@ export default function Footer() {
               marginBottom: 20,
             }}>
               Services
-            </h3>
+            </h2>
             {serviceLinks.map(link => (
               <Link key={link.to} to={link.to} className="footer-link">
                 {link.label}
@@ -103,7 +103,7 @@ export default function Footer() {
 
           {/* Company */}
           <div className="footer-reveal">
-            <h3 style={{
+            <h2 style={{
               fontSize: 13,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -112,7 +112,7 @@ export default function Footer() {
               marginBottom: 20,
             }}>
               Company
-            </h3>
+            </h2>
             {companyLinks.map(link => (
               <Link key={link.to} to={link.to} className="footer-link">
                 {link.label}
@@ -122,7 +122,7 @@ export default function Footer() {
 
           {/* Support */}
           <div className="footer-reveal">
-            <h3 style={{
+            <h2 style={{
               fontSize: 13,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -131,7 +131,7 @@ export default function Footer() {
               marginBottom: 20,
             }}>
               Support
-            </h3>
+            </h2>
             {supportLinks.map(link => (
               <Link key={link.to} to={link.to} className="footer-link">
                 {link.label}

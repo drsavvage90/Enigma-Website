@@ -107,8 +107,8 @@ select {
 
 /* ── Skip to Content (A11y) ── */
 .skip-to-content {
-  position: absolute;
-  top: -100%;
+  position: fixed;
+  top: 16px;
   left: 16px;
   z-index: 10000;
   padding: 12px 24px;
@@ -119,11 +119,12 @@ select {
   border-radius: var(--radius-pill);
   text-decoration: none;
   white-space: nowrap;
-  transition: top 0.2s ease;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
 }
 
 .skip-to-content:focus {
-  top: 16px;
+  transform: translateY(0);
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
@@ -321,7 +322,10 @@ select {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 32px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
@@ -353,7 +357,10 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 32px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card--glass:hover {
@@ -931,20 +938,24 @@ select {
 
 /* ── Footer Logo ── */
 .footer-logo-icon {
-  animation: logo-hue-rotate 6s ease-in-out infinite alternate;
+  animation: logo-pulse 6s ease-in-out infinite alternate;
+  will-change: opacity, transform;
 }
 
-@keyframes logo-hue-rotate {
+@keyframes logo-pulse {
   0% {
-    filter: hue-rotate(0deg) brightness(1);
+    opacity: 1;
+    transform: scale(1);
   }
 
   50% {
-    filter: hue-rotate(15deg) brightness(1.1);
+    opacity: 0.85;
+    transform: scale(1.04);
   }
 
   100% {
-    filter: hue-rotate(-10deg) brightness(1);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -969,7 +980,10 @@ select {
   font-weight: 400;
   color: var(--text-dim);
   pointer-events: none;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: top 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    font-size 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent;
   padding: 0 4px;
   z-index: 1;
@@ -1308,7 +1322,10 @@ select {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius-lg);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ai-model-card:hover {
@@ -2550,7 +2567,10 @@ select {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 36px;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
@@ -2886,7 +2906,9 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 32px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .maintenance-plan-card:hover {

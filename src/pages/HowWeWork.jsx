@@ -37,9 +37,9 @@ const steps = [
 ]
 
 const whatToExpect = [
-  { image: '/images/exp_direct_access.png', text: 'Direct Access to Your Team' },
-  { image: '/images/exp_launch_speed.png', text: 'Most Projects Launch in 4–8 Weeks' },
-  { image: '/images/exp_user_input.png', text: 'Your Input Shapes Every Decision' },
+  { image: '/images/exp_direct_access.webp', text: 'Direct Access to Your Team' },
+  { image: '/images/exp_launch_speed.webp', text: 'Most Projects Launch in 4–8 Weeks' },
+  { image: '/images/exp_user_input.webp', text: 'Your Input Shapes Every Decision' },
 ]
 
 
@@ -76,7 +76,7 @@ export default function HowWeWork() {
         blobColor="blue"
         primaryCta={{ text: 'Book a Free Discovery Call', to: '/contact' }}
         secondaryCta={{ text: 'Explore Our Services', to: '/ai-systems' }}
-        image="/images/process-hero.png"
+        image="/images/process-hero.webp"
         imageAlt="Modern high-tech roadmap and project management dashboard on a laptop"
         imageLayout="image-right"
       />
@@ -133,7 +133,7 @@ export default function HowWeWork() {
                   boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                   border: '1px solid rgba(0,0,0,0.05)'
                 }}>
-                  <img src={item.image} alt={item.text} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={item.image} alt={item.text} width={80} height={80} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <span style={{ fontWeight: 600, fontSize: 15, color: 'var(--text-dark)', textAlign: 'center', lineHeight: 1.4 }}>{item.text}</span>
               </div>

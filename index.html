@@ -32,10 +32,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
   </noscript>
 
-  <!-- Prefetch hints for likely next-page routes -->
-  <link rel="prefetch" href="/about" />
-  <link rel="prefetch" href="/contact" />
-  <link rel="prefetch" href="/ai-systems" />
+  <!--
+    Prefetch hints removed: SPA routes don't have static HTML files,
+    so these caused 404 console errors. React.lazy() + code-splitting
+    already handles JS chunk prefetching via the browser's module loader.
+  -->
 
   <!--
     ALL SEO tags (title, description, og:*, twitter:*, canonical) are
@@ -44,107 +45,10 @@
     prerendered snapshots.
   -->
 
-  <!-- JSON-LD Organization Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Enigma Software Systems",
-      "url": "https://www.enigmasoftwaresystems.com",
-      "email": "hello@enigmasoftwaresystems.com",
-      "description": "Custom AI Systems, Mobile Applications, and Web Applications purpose-built for your business.",
-      "sameAs": []
-    }
-    </script>
-
-  <!-- JSON-LD LocalBusiness Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Enigma Software Systems",
-      "url": "https://www.enigmasoftwaresystems.com",
-      "email": "hello@enigmasoftwaresystems.com",
-      "description": "Custom AI systems, mobile applications, and web applications purpose-built for small businesses. Based in Southern Ohio, serving clients nationwide.",
-      "priceRange": "$$$$",
-      "knowsAbout": ["Custom Software Development", "Artificial Intelligence", "Mobile Applications", "Web Applications", "HIPAA-Compliant Software", "AI Chatbots for Business"],
-      "areaServed": [
-        { "@type": "State", "name": "Ohio" },
-        { "@type": "Country", "name": "United States" }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "OH",
-        "addressCountry": "US"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Custom Software Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Systems" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Mobile App Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Application Development" } }
-        ]
-      }
-    }
-  </script>
-
-  <!-- JSON-LD Service Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Services",
-      "itemListElement": [
-        {
-          "@type": "Service",
-          "position": 1,
-          "name": "Custom AI Systems",
-          "description": "Private, branded AI platforms — customer-facing chat assistants, internal knowledge tools, and custom integrations.",
-          "url": "https://www.enigmasoftwaresystems.com/ai-systems",
-          "provider": { "@type": "Organization", "name": "Enigma Software Systems" }
-        },
-        {
-          "@type": "Service",
-          "position": 2,
-          "name": "Mobile Applications",
-          "description": "Custom iOS and Android apps for scheduling, e-commerce, loyalty programs, and more.",
-          "url": "https://www.enigmasoftwaresystems.com/mobile-apps",
-          "provider": { "@type": "Organization", "name": "Enigma Software Systems" }
-        },
-        {
-          "@type": "Service",
-          "position": 3,
-          "name": "Web Applications",
-          "description": "Client portals, admin dashboards, and custom web applications built to replace clunky workarounds.",
-          "url": "https://www.enigmasoftwaresystems.com/web-apps",
-          "provider": { "@type": "Organization", "name": "Enigma Software Systems" }
-        }
-      ]
-    }
-  </script>
-
-  <!-- JSON-LD BreadcrumbList Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.enigmasoftwaresystems.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Vault", "item": "https://www.enigmasoftwaresystems.com/vault" },
-        { "@type": "ListItem", "position": 3, "name": "About", "item": "https://www.enigmasoftwaresystems.com/about" },
-        { "@type": "ListItem", "position": 4, "name": "AI Systems", "item": "https://www.enigmasoftwaresystems.com/ai-systems" },
-        { "@type": "ListItem", "position": 5, "name": "Mobile Apps", "item": "https://www.enigmasoftwaresystems.com/mobile-apps" },
-        { "@type": "ListItem", "position": 6, "name": "Web Apps", "item": "https://www.enigmasoftwaresystems.com/web-apps" },
-        { "@type": "ListItem", "position": 7, "name": "Our Process", "item": "https://www.enigmasoftwaresystems.com/how-we-work" },
-        { "@type": "ListItem", "position": 8, "name": "Industries", "item": "https://www.enigmasoftwaresystems.com/industries" },
-        { "@type": "ListItem", "position": 9, "name": "Pricing", "item": "https://www.enigmasoftwaresystems.com/pricing" },
-        { "@type": "ListItem", "position": 10, "name": "FAQ", "item": "https://www.enigmasoftwaresystems.com/faq" },
-        { "@type": "ListItem", "position": 11, "name": "Contact", "item": "https://www.enigmasoftwaresystems.com/contact" },
-        { "@type": "ListItem", "position": 12, "name": "Blog", "item": "https://www.enigmasoftwaresystems.com/blog" }
-      ]
-    }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Enigma Software Systems","url":"https://www.enigmasoftwaresystems.com","email":"hello@enigmasoftwaresystems.com","description":"Custom AI Systems, Mobile Applications, and Web Applications purpose-built for your business.","sameAs":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Enigma Software Systems","url":"https://www.enigmasoftwaresystems.com","email":"hello@enigmasoftwaresystems.com","description":"Custom AI systems, mobile applications, and web applications purpose-built for small businesses. Based in Southern Ohio, serving clients nationwide.","priceRange":"$$$$","knowsAbout":["Custom Software Development","Artificial Intelligence","Mobile Applications","Web Applications","HIPAA-Compliant Software","AI Chatbots for Business"],"areaServed":[{"@type":"State","name":"Ohio"},{"@type":"Country","name":"United States"}],"address":{"@type":"PostalAddress","addressRegion":"OH","addressCountry":"US"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Custom Software Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom AI Systems"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Mobile App Development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Web Application Development"}}]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Services","itemListElement":[{"@type":"Service","position":1,"name":"Custom AI Systems","description":"Private, branded AI platforms — customer-facing chat assistants, internal knowledge tools, and custom integrations.","url":"https://www.enigmasoftwaresystems.com/ai-systems","provider":{"@type":"Organization","name":"Enigma Software Systems"}},{"@type":"Service","position":2,"name":"Mobile Applications","description":"Custom iOS and Android apps for scheduling, e-commerce, loyalty programs, and more.","url":"https://www.enigmasoftwaresystems.com/mobile-apps","provider":{"@type":"Organization","name":"Enigma Software Systems"}},{"@type":"Service","position":3,"name":"Web Applications","description":"Client portals, admin dashboards, and custom web applications built to replace clunky workarounds.","url":"https://www.enigmasoftwaresystems.com/web-apps","provider":{"@type":"Organization","name":"Enigma Software Systems"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.enigmasoftwaresystems.com/"},{"@type":"ListItem","position":2,"name":"Vault","item":"https://www.enigmasoftwaresystems.com/vault"},{"@type":"ListItem","position":3,"name":"About","item":"https://www.enigmasoftwaresystems.com/about"},{"@type":"ListItem","position":4,"name":"AI Systems","item":"https://www.enigmasoftwaresystems.com/ai-systems"},{"@type":"ListItem","position":5,"name":"Mobile Apps","item":"https://www.enigmasoftwaresystems.com/mobile-apps"},{"@type":"ListItem","position":6,"name":"Web Apps","item":"https://www.enigmasoftwaresystems.com/web-apps"},{"@type":"ListItem","position":7,"name":"Our Process","item":"https://www.enigmasoftwaresystems.com/how-we-work"},{"@type":"ListItem","position":8,"name":"Industries","item":"https://www.enigmasoftwaresystems.com/industries"},{"@type":"ListItem","position":9,"name":"Pricing","item":"https://www.enigmasoftwaresystems.com/pricing"},{"@type":"ListItem","position":10,"name":"FAQ","item":"https://www.enigmasoftwaresystems.com/faq"},{"@type":"ListItem","position":11,"name":"Contact","item":"https://www.enigmasoftwaresystems.com/contact"},{"@type":"ListItem","position":12,"name":"Blog","item":"https://www.enigmasoftwaresystems.com/blog"}]}</script>
 </head>
 
 <body>

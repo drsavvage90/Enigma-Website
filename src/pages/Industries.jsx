@@ -82,7 +82,7 @@ export default function Industries() {
         <div className="industry-ticker__track">
           {[...industries, ...industries].map((item, i) => (
             <div key={i} className="industry-ticker__item">
-              <img src={item.image} alt={item.name} className="industry-ticker__image" loading="lazy" />
+              <img src={item.image} alt={item.name} width={40} height={40} className="industry-ticker__image" loading="lazy" />
               <span>{item.name}</span>
             </div>
           ))}
@@ -104,7 +104,7 @@ export default function Industries() {
           <div className="industries-card-grid reveal-group">
             {categories.map((c, i) => (
               <TiltCard key={i} className="card card--glass card--glow reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                <img src={c.image} alt={c.title} loading="lazy" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <img src={c.image} alt={c.title} width={400} height={220} loading="lazy" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
                 <div style={{ padding: '24px' }}>
                   <h3 className="card-title">{c.title}</h3>
                   <p style={{ color: 'var(--accent)', fontSize: 14, fontWeight: 600, marginBottom: 6 }}>

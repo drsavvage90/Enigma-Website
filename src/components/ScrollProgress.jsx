@@ -1,6 +1,7 @@
 /**
  * ScrollProgress — A thin gradient bar at the very top of the viewport
  * that fills from left to right as the user scrolls down the page.
+ * Uses transform: scaleX() for GPU-composited animation.
  */
 import { useEffect, useState } from 'react'
 
@@ -24,12 +25,15 @@ export default function ScrollProgress() {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: `${progress * 100}%`,
+        width: '100%',
         height: 2,
         background: 'linear-gradient(90deg, #FF9F41, #FF7733, #FF9F41)',
         zIndex: 1100,
-        transition: 'width 0.1s linear',
+        transform: `scaleX(${progress})`,
+        transformOrigin: 'left',
+        transition: 'transform 0.1s linear',
         boxShadow: progress > 0.01 ? '0 0 10px rgba(255, 159, 65, 0.5)' : 'none',
+        willChange: 'transform',
       }}
     />
   )

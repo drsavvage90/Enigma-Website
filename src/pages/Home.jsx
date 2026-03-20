@@ -109,7 +109,7 @@ export default function Home() {
               }}>
                 {/* Card image */}
                 <div className="pillar-card__image">
-                  <img src={p.image} alt={p.imageAlt} loading="lazy" decoding="async" />
+                  <img src={p.image} alt={p.imageAlt} width={600} height={400} loading="lazy" decoding="async" />
                 </div>
                 {/* Card content */}
                 <div style={{ padding: '24px 32px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -148,7 +148,7 @@ export default function Home() {
               {differentiators.map((d, i) => (
                 <TiltCard key={i} className="card card--glass card--glow why-enigma-card reveal" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                   <div style={{ width: '100%', height: '180px', flexShrink: 0 }}>
-                    <img src={d.image} alt={d.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={d.image} alt={d.title} width={450} height={180} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div style={{ padding: '24px' }}>
                     <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8, color: '#fff' }}>{d.title}</h3>

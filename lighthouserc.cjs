@@ -1,0 +1,26 @@
+module.exports = {
+  ci: {
+    collect: {
+      startServerCommand: 'npx vite preview --port 9123',
+      startServerReadyPattern: 'Local:',
+      url: [
+        'http://localhost:9123/',
+      ],
+      numberOfRuns: 1,
+      settings: {
+        preset: 'desktop',
+      },
+    },
+    assert: {
+      assertions: {
+        'categories:performance': ['warn', { minScore: 0.9 }],
+        'categories:accessibility': ['error', { minScore: 0.9 }],
+        'categories:best-practices': ['warn', { minScore: 0.9 }],
+        'categories:seo': ['error', { minScore: 0.9 }],
+      },
+    },
+    upload: {
+      target: 'temporary-public-storage',
+    },
+  },
+}
