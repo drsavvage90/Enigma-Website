@@ -14,7 +14,7 @@ import {
    ═══════════════════════════════════════════════════ */
 const vaultTiers = [
   {
-    name: 'Starter', price: '$1,999', maintenance: '$1,500/mo maintenance', detail: 'Full Platform Access | 1–2 weeks',
+    name: 'Starter', price: '$1,999', detail: 'Full Platform Access | 1–2 weeks',
     desc: 'Your own branded AI workspace with every model, every core tool, and everything your team needs to replace scattered AI subscriptions with one system they\'ll actually use.',
     bestFor: 'Small to mid-size teams ready to centralize AI access, cut redundant subscriptions, and give everyone the same toolset.',
     features: ['Access to 2 Large Language Models', 'Your company branding on the platform', 'Workspaces to organize by team, project, or client', 'Custom personas and a shared prompt library', 'Document generation workflows (export AI work as PDF, DOCX, or Markdown)', 'Per-user cost tracking and usage dashboards', '30-day post-deployment support'],
@@ -194,19 +194,6 @@ function MaintenanceCard({ plan }) {
 }
 
 /* ═══ Section number badge ═══ */
-function PhaseNumber({ num }) {
-  return (
-    <div style={{
-      width: 40, height: 40, borderRadius: 12,
-      background: 'rgba(255, 159, 65, 0.08)', border: '1px solid rgba(255, 159, 65, 0.2)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontSize: 16, fontWeight: 700, color: 'var(--accent)',
-      marginBottom: 12, flexShrink: 0,
-    }}>
-      {num}
-    </div>
-  )
-}
 
 
 export default function Pricing() {
@@ -254,7 +241,6 @@ export default function Pricing() {
         <div className="container section-z">
           <div className="two-col reveal" style={{ gap: 48, alignItems: 'center', marginBottom: 48 }}>
             <div>
-              <PhaseNumber num="1" />
               <span className="badge badge--accent">Vault by Enigma</span>
               <h2 className="display display--gradient heading-lg">Your Team's Private AI Workspace</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8 }}>
@@ -287,7 +273,6 @@ export default function Pricing() {
               <img src="/images/aisystems-chatbots.webp" alt="AI chatbot interfaces on mobile devices" width={500} height={300} loading="lazy" style={{ width: '100%', display: 'block', borderRadius: 12 }} />
             </TiltCard>
             <div>
-              <PhaseNumber num="2" />
               <span className="badge badge--blue">Custom AI Systems</span>
               <h2 className="display display--gradient heading-lg">AI That Works Inside Your Business</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8 }}>
@@ -312,7 +297,6 @@ export default function Pricing() {
         <div className="container section-z">
           <div className="two-col reveal" style={{ gap: 48, alignItems: 'center', marginBottom: 48 }}>
             <div>
-              <PhaseNumber num="3" />
               <span className="badge badge--accent">Mobile Applications</span>
               <h2 className="display display--gradient heading-lg">One App. Both Platforms. Built for Your Business.</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8 }}>
@@ -339,7 +323,6 @@ export default function Pricing() {
         <div className="container">
           <div className="two-col reveal" style={{ gap: 48, alignItems: 'center', maxWidth: 900, margin: '0 auto' }}>
             <div>
-              <PhaseNumber num="4" />
               <span className="badge badge--blue">Web Applications</span>
               <h2 className="display display--gradient heading-md" style={{ marginBottom: 16 }}>Web Apps Are Scoped Individually</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 24 }}>
